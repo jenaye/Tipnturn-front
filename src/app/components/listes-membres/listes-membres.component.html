@@ -1,0 +1,78 @@
+<ng-container *ngIf="membres">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Organisation – Listes des membres</h3>
+        </div>
+
+        <div class="panel-body animated fadeIn">
+            <form>
+                <div class="form-group">
+                    <label for="date">Trier par prénom</label>
+                    <input type="text" name="prenom" id="prenom" class="form-control" [(ngModel)]="prenom" (keyup)="search()"><br/>
+                </div>
+            </form>
+            <br/>
+
+            <div class="panel panel-primary" *ngIf="res">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Résultat de recherche</h3>
+                </div>
+                <div class="panel-body" *ngFor="let user of res">
+                    {{ user.prenom  }} - {{ user.nom }} - {{ user.email }} - {{ user.phone}} - {{ user.cotisation}}€
+                </div>
+            </div>
+
+            <span class="pull-right big" >Ajouter un membre<a href="/ajout-membre" class="big">+</a></span>
+            <br/><br/>
+            <table class="table-responsive table table-bordered table-hover table-striped animated fadeIn">
+                <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prenom</th>
+                    <th>Email</th>
+                    <th>Téléphone</th>
+                    <th>Cotisation</th>
+                    <th>Cheque</th>
+                    <th>certificat</th>
+                    <th *ngFor="let activite of activities">{{ activite.name }}</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let membre of membres">
+                    <td><a data-toggle="modal" data-target="#myModal">{{ membre.nom }}</a></td>
+                    <td>{{ membre.prenom }} </td>
+                    <td>{{ membre.email }} </td>
+                    <td>{{ membre.phone }} </td>
+                    <td>{{ membre.cotisation }}€ </td>
+                    <td>{{ membre.cheque }} </td>
+                    <td>{{ membre.certificat }} </td>
+                    <td  *ngFor="let activite of activities">
+                        {{ hasActivity(activite.id, membre)?'Oui':'Non' }}
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</ng-container>
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Edition de l'utilisateur XXX</h4>
+            </div>
+            <div class="modal-body">
+                <p>Formulaire d'edition</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Ferme</button>
+            </div>
+        </div>
+
+    </div>
+</div>

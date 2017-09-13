@@ -1,0 +1,23 @@
+<ng-container *ngIf="membres">
+<h1 class="animated fadeIn">Organisation – {{ activities.name }}</h1>
+
+<table class="table table-striped animated fadeIn">
+    <thead>
+    <tr>
+        <th>Nom</th>
+        <th>Prenom</th>
+        <th>Email</th>
+        <th>Téléphone</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let membre of membres">
+        <td>{{ membre.nom }} </td>
+        <td>{{ membre.prenom }} </td>
+        <td>{{ membre.email }} </td>
+        <td>{{ membre.phone }} </td>
+    </tr>
+
+    </tbody>
+</table>
+</ng-container>
