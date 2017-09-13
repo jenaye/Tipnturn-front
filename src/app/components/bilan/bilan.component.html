@@ -1,0 +1,31 @@
+<ng-container *ngIf="rapports">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title animated fadeIn">Trésorerie – Bilan mensuel</h3>
+    </div>
+    <div class="panel-body">
+      <span class="pull-right big" >Ajouter rentrée/sortie<a href="/ajout-bilan" class="big">+</a></span>
+      <br/><br/>
+      <table class="table-responsive table table-bordered table-hover table-striped animated fadeIn">
+        <thead>
+        <tr>
+          <th>Date</th>
+          <th>Libellé</th>
+          <th>Sortie</th>
+          <th>Rentrée</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let rapport of rapports">
+          <td>{{ rapport.date| date: 'dd/MM/yyyy' }} </td>
+          <td>{{ rapport.libelle }} </td>
+          <td>{{ rapport.sortie }} </td>
+          <td>{{ rapport.rentree }} </td>
+        </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</ng-container>

@@ -1,0 +1,41 @@
+<nav class="navbar navbar-inverse navbar-fixed-top animated fadeIn" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="index.html">Tip'N Turn</a>
+  </div>
+  <!-- Top Menu Items -->
+  <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+  <div class="collapse navbar-collapse navbar-ex1-collapse">
+    <ul class="nav navbar-nav side-nav">
+      <img class="img-responsive center-block" style="width:40%; height:auto;" src="/assets/img/tipnturn.png">
+      <li class="active">
+        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i>Tableau de bord</a>
+      </li>
+      <li>
+        <a href="javascript:;" data-toggle="collapse" data-target="#orga"><i class="fa fa-fw fa-arrows-v"></i> Organisation <i class="fa fa-fw fa-caret-down"></i></a>
+        <ul id="orga" class="collapse">
+          <li>
+            <a href="/listes-des-membres"><i class="fa fa-address-book" aria-hidden="true"></i> Tous les membres</a>
+          </li>
+          <app-activities></app-activities>
+        </ul>
+      </li>
+
+      <li>
+        <a href="javascript:;" data-toggle="collapse" data-target="#treso"><i class="fa fa-fw fa-arrows-v"></i> Trésorerie <i class="fa fa-fw fa-caret-down"></i></a>
+        <ul id="treso" class="collapse">
+          <li>
+            <a href="/bilan">Bilan mensuel</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <!-- /.navbar-collapse -->
+</nav>
