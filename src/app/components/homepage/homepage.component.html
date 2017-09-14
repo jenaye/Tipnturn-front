@@ -46,15 +46,24 @@
 
 
     <div class="row animated fadeIn" >
-      <div class="col-lg-4">
-      Graphique soon 
+      <div class="col-lg-6">
+        <canvas baseChart height="150"
+                [datasets]="barChartData"
+                [labels]="barChartLabels"
+                [options]="barChartOptions"
+                [legend]="barChartLegend"
+                [chartType]="barChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
       </div>
-      <div class="col-lg-4">
-        Graphique soon<br/>
-        <a  href="http://www.chartjs.org/samples/latest/charts/polar-area.html">Design pour graphique ( limite de 15 ) </a>
-      </div>
-      <div class="col-lg-4">
-        Graphique soon
+
+      <div class="col-lg-6">
+        <canvas baseChart height="150"
+                [data]="doughnutChartData"
+                [labels]="doughnutChartLabels"
+                [chartType]="doughnutChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
       </div>
     </div>
     <!-- /.row -->
