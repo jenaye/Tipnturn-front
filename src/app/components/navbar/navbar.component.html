@@ -7,7 +7,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="index.html">Tip'N Turn</a>
+    <a class="navbar-brand" href="/accueil">Tip'N Turn</a>
   </div>
   <!-- Top Menu Items -->
   <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
@@ -17,6 +17,7 @@
       <li class="active">
         <a href="index.html"><i class="fa fa-fw fa-dashboard"></i>Tableau de bord</a>
       </li>
+
       <li>
         <a href="javascript:;" data-toggle="collapse" data-target="#orga"><i class="fa fa-fw fa-arrows-v"></i> Organisation <i class="fa fa-fw fa-caret-down"></i></a>
         <ul id="orga" class="collapse">
@@ -34,6 +35,9 @@
             <a href="/bilan">Bilan mensuel</a>
           </li>
         </ul>
+      </li>
+      <li>
+        <a (click)="logout()"><i class="fa fa-fw fa-lock"></i>Deconnexion</a>
       </li>
     </ul>
   </div>
