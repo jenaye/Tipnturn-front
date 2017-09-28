@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+    import { Component, OnInit } from '@angular/core';
 import { ListingmembreService } from '../../services/listingmembre.service';
 import { ActivitiesService } from '../../services/activities.service';
 // import Chart from 'chart.js';
@@ -21,23 +21,21 @@ export class HomepageComponent implements OnInit {
     public barChartLegend:boolean = true;
 
     public barChartData:any[] = [
-        {data: [9], label: 'Cours 1'},
-        {data: [7], label: 'Atelier 1'},
-        {data: [10], label: 'Cours 2'},
-        {data: [7], label: 'Atelier 2'}
+        {data: [11], label: 'Cours 1'},
+        {data: [9], label: 'Atelier 1'},
+        {data: [11], label: 'Cours 2'},
+        {data: [11], label: 'Atelier 2'}
     ];
 
-    public chartClicked(e:any):void {
-        console.log(e);
-    }
+    public chartColors: any[] = [
+        {
+            backgroundColor:["#5cb85c", "red", "#FAFFF2", "#FFFCC4", "#B9E8E0"]
+        }];
 
-    public chartHovered(e:any):void {
-        console.log(e);
-    }
 
     // Doughnut
     public doughnutChartLabels:string[] = ['Rentrée', 'Sortie'];
-    public doughnutChartData:number[] = [940, 373];
+    public doughnutChartData:number[] = [1003, 13];
     public doughnutChartType:string = 'doughnut';
 
     // events
@@ -49,12 +47,8 @@ export class HomepageComponent implements OnInit {
             this.membres = membres;
         })
 
-
-
         this.activiteService.getData().subscribe(activities => {
             this.activities = activities;
-
-
         })
     }
 
