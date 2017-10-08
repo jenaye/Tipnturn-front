@@ -16,5 +16,13 @@ export class MembresService {
             });
 
     }
+    edit(data, id) {
+        return this.http
+            .put(`http://localhost:8000/api/membres/${id}`, data)
+            .map((res: Response) => {
+                return res.json();
+            });
+
+    }
 
 }

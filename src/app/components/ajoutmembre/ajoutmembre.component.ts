@@ -10,25 +10,24 @@ import { Router } from '@angular/router';
 })
 export class AjoutmembreComponent implements OnInit {
 
-    private nom:string;
-    private prenom:string;
-    private email:string;
-    private phone:string;
-    private cheque:boolean;
-    private certificat:boolean;
-    private cotisation:string;
+    private nom: string;
+    private prenom: string;
+    private email: string;
+    private phone: string;
+    private cheque: boolean;
+    private certificat: boolean;
+    private cotisation: string;
     private activites = [];
     public toggles = [];
 
 
-  constructor(private activitesServer:ActivitiesService,private membresservice: MembresService,private router:Router) {
+  constructor(private activitesServer: ActivitiesService, private membresservice: MembresService, private router: Router) {
                 this.activitesServer.getData().subscribe(activities => {
                 this.activites = activities;
       })
   }
 
-    ngOnInit(){
-    
+    ngOnInit() {
     }
 
     add() {
@@ -37,20 +36,22 @@ export class AjoutmembreComponent implements OnInit {
           prenom: this.prenom,
           email: this.email,
           phone: this.phone,
-          cheque:this.cheque?this.cheque:false,
-          certificat:this.certificat?this.certificat:false,
+          cheque: this.cheque ? this.cheque : false,
+          certificat: this.certificat ? this.certificat : false,
           cotisation: this.cotisation,
           activites: []
         };
 
         this.toggles.forEach( toggle => {
-          let dataAct = `/activities/${toggle.id}`;
+          const dataAct = `/api/activities/${toggle.id}`;
           data.activites.push(dataAct)
         })
 
         this.membresservice.insert(data).subscribe( membre => {
         this.router.navigate(['listes-des-membres']);
         });
+
+        console.log(data);
   }
 
   toggle(item){

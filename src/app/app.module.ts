@@ -16,6 +16,7 @@ import { AjoutmembreComponent } from './components/ajoutmembre/ajoutmembre.compo
 import { BilanComponent } from './components/bilan/bilan.component';
 import { AjoutbilanComponent } from './components/ajoutbilan/ajoutbilan.component';
 import { LoginComponent } from './components/login/login.component';
+import { AjoutactivitesComponent } from './components/ajoutactivites/ajoutactivites.component';
 
 // Services
 import { CheckTokenService } from './services/checkToken.service';
@@ -32,6 +33,7 @@ const appRoutes: Routes = [
     { path: 'listes-des-membres', component: ListesMembresComponent },
     { path: 'ajout-membre', component: AjoutmembreComponent },
     { path: 'activites/:id', component: ListingParActivitesComponent },
+    { path: 'ajout-activite', component: AjoutactivitesComponent },
     { path: 'bilan', component: BilanComponent },
     { path: 'ajout-bilan', component: AjoutbilanComponent },
     { path: '404', component: ErrorComponent },
@@ -51,7 +53,8 @@ const appRoutes: Routes = [
     AjoutmembreComponent,
     BilanComponent,
     AjoutbilanComponent,
-    LoginComponent
+    LoginComponent,
+    AjoutactivitesComponent
   ],
   imports: [
     BrowserModule,
