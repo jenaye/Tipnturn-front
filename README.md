@@ -6,4 +6,4 @@ Angular 4 app to manage danse organization
 
 # Content #
 
-> App + documentation generate by https://compodoc.github.io
+> App + documentation generate by https://compodoc.github.io/website/
