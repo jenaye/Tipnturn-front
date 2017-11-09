@@ -70,14 +70,14 @@ export class EditmembreComponent implements OnInit {
 
         console.log(data);
     }
-    toggle(item){
+    toggle(item) {
         const Element = this.toggles.findIndex( eltToggle => {
             return eltToggle.id == item.id;
         })
 
-        if(Element >= 0){
-            this.toggles.splice(Element, 1)
-        }else{
+        if (Element >= 0) {
+            this.toggles.splice(Element, 1);
+        }else {
             this.toggles.push(item);
         }
 

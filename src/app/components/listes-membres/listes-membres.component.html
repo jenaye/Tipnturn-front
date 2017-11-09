@@ -27,7 +27,6 @@
             <table class="table-responsive table table-bordered table-hover table-striped animated fadeIn">
                 <thead>
                 <tr>
-                    <th>id</th>
                     <th>Nom</th>
                     <th>Prenom</th>
                     <th>Email</th>
@@ -40,8 +39,7 @@
                 </thead>
                 <tbody>
                 <tr *ngFor="let membre of membres">
-                    <td><a href="/edit-membre/{{ membre.id }}">{{ membre.id }}</a></td>
-                    <td><a data-toggle="modal" data-target="#myModal">{{ membre.nom }}</a></td>
+                    <td><a href="/edit-membre/{{ membre.id }}">{{ membre.nom }}</a></td>
                     <td>{{ membre.prenom }} </td>
                     <td>{{ membre.email }} </td>
                     <td>{{ membre.phone }} </td>
@@ -57,24 +55,4 @@
             </table>
         </div>
     </div>
-
 </ng-container>
-
-<div id="myModal" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Edition de l'utilisateur XXX</h4>
-            </div>
-            <div class="modal-body">
-                <p>Formulaire d'edition</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Ferme</button>
-            </div>
-        </div>
-
-    </div>
-</div>
