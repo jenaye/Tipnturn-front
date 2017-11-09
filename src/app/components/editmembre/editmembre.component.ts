@@ -21,6 +21,8 @@ export class EditmembreComponent implements OnInit {
     private cotisation: string;
     private activites = [];
     public toggles = [];
+    public href: any;
+
 
     constructor(private activitesServer: ActivitiesService, private membresservice: MembresService, private router: Router) {
         this.activitesServer.getData().subscribe(activities => {
@@ -29,7 +31,9 @@ export class EditmembreComponent implements OnInit {
     }
 
   ngOnInit() {
-      this.membresservice.findById('2').subscribe(user => {
+      this.href = this.router.url;
+      const id_membre = this.href.split( '/' );
+      this.membresservice.findById(id_membre[2]).subscribe(user => {
           this.id = user.id;
           this.nom = user.nom;
           this.prenom = user.prenom;

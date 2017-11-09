@@ -12,7 +12,7 @@
     </thead>
     <tbody>
     <tr *ngFor="let membre of membres">
-        <td>{{ membre.nom }} </td>
+        <td><a href="/edit-membre/{{ membre.id }}">{{ membre.nom }}</a></td>
         <td>{{ membre.prenom }} </td>
         <td>{{ membre.email }} </td>
         <td>{{ membre.phone }} </td>
