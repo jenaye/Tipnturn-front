@@ -24,14 +24,14 @@ export class AjoutmembreComponent implements OnInit {
   constructor(private activitesServer: ActivitiesService, private membresservice: MembresService, private router: Router) {
                 this.activitesServer.getData().subscribe(activities => {
                 this.activites = activities;
-      })
+      });
   }
 
     ngOnInit() {
     }
 
     add() {
-        let data = {
+        const data = {
           nom: this.nom,
           prenom: this.prenom,
           email: this.email,
@@ -44,7 +44,7 @@ export class AjoutmembreComponent implements OnInit {
 
         this.toggles.forEach( toggle => {
           const dataAct = `/api/activities/${toggle.id}`;
-          data.activites.push(dataAct)
+          data.activites.push(dataAct);
         })
 
         this.membresservice.insert(data).subscribe( membre => {

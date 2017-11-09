@@ -27,6 +27,7 @@
             <table class="table-responsive table table-bordered table-hover table-striped animated fadeIn">
                 <thead>
                 <tr>
+                    <th>id</th>
                     <th>Nom</th>
                     <th>Prenom</th>
                     <th>Email</th>
@@ -39,6 +40,7 @@
                 </thead>
                 <tbody>
                 <tr *ngFor="let membre of membres">
+                    <td><a href="/edit-membre">{{ membre.id }}</a></td>
                     <td><a data-toggle="modal" data-target="#myModal">{{ membre.nom }}</a></td>
                     <td>{{ membre.prenom }} </td>
                     <td>{{ membre.email }} </td>
