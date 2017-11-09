@@ -24,6 +24,7 @@ import { MembresService } from './services/membres.service';
 import { ActivitiesService } from './services/activities.service';
 import { ListingmembreService } from './services/listingmembre.service';
 import { BilanService } from './services/bilan.service';
+import { EditmembreComponent } from './components/editmembre/editmembre.component';
 
 
 // routes
@@ -32,6 +33,7 @@ const appRoutes: Routes = [
     { path: 'accueil', component: HomepageComponent },
     { path: 'listes-des-membres', component: ListesMembresComponent },
     { path: 'ajout-membre', component: AjoutmembreComponent },
+    { path: 'edit-membre/:id', component: EditmembreComponent },
     { path: 'activites/:id', component: ListingParActivitesComponent },
     { path: 'ajout-activite', component: AjoutactivitesComponent },
     { path: 'bilan', component: BilanComponent },
@@ -54,7 +56,8 @@ const appRoutes: Routes = [
     BilanComponent,
     AjoutbilanComponent,
     LoginComponent,
-    AjoutactivitesComponent
+    AjoutactivitesComponent,
+    EditmembreComponent
   ],
   imports: [
     BrowserModule,
