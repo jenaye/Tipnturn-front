@@ -70,6 +70,7 @@ export class EditmembreComponent implements OnInit {
 
         console.log(data);
     }
+    
     toggle(item){
         const Element = this.toggles.findIndex( eltToggle => {
             return eltToggle.id == item.id;
