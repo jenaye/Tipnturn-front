@@ -40,7 +40,7 @@
                 </thead>
                 <tbody>
                 <tr *ngFor="let membre of membres">
-                    <td><a href="/edit-membre">{{ membre.id }}</a></td>
+                    <td><a href="/edit-membre/{{ membre.id }}">{{ membre.id }}</a></td>
                     <td><a data-toggle="modal" data-target="#myModal">{{ membre.nom }}</a></td>
                     <td>{{ membre.prenom }} </td>
                     <td>{{ membre.email }} </td>

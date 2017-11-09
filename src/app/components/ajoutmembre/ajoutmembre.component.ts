@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivitiesService} from "../../services/activities.service";
+import {ActivitiesService} from '../../services/activities.service';
 import { MembresService } from '../../services/membres.service';
 import { Router } from '@angular/router';
 

@@ -33,7 +33,7 @@ const appRoutes: Routes = [
     { path: 'accueil', component: HomepageComponent },
     { path: 'listes-des-membres', component: ListesMembresComponent },
     { path: 'ajout-membre', component: AjoutmembreComponent },
-    { path: 'edit-membre', component: EditmembreComponent },
+    { path: 'edit-membre/:id', component: EditmembreComponent },
     { path: 'activites/:id', component: ListingParActivitesComponent },
     { path: 'ajout-activite', component: AjoutactivitesComponent },
     { path: 'bilan', component: BilanComponent },
