@@ -20,7 +20,6 @@ export class EditmembreComponent implements OnInit {
     private certificat: boolean;
     private cotisation: string;
     private activites = [];
-    public toggles = [];
     public href: any;
 
 
@@ -59,29 +58,12 @@ export class EditmembreComponent implements OnInit {
             activites: []
         };
 
-        this.toggles.forEach( toggle => {
-            const dataAct = `/api/activities/${toggle.id}`;
-            data.activites.push(dataAct);
-        })
 
         this.membresservice.edit(data, this.id).subscribe( membre => {
             this.router.navigate(['listes-des-membres']);
         });
 
         console.log(data);
-    }
-    
-    toggle(item){
-        const Element = this.toggles.findIndex( eltToggle => {
-            return eltToggle.id == item.id;
-        })
-
-        if(Element >= 0){
-            this.toggles.splice(Element, 1)
-        }else{
-            this.toggles.push(item);
-        }
-
     }
 
 }
