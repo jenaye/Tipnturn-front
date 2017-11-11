@@ -25,6 +25,15 @@ export class ActivitiesService {
           });
     }
 
+
+  getHowManyMembre() {
+      return this.http
+          .get('http://localhost:8000/api/activity/howmany')
+          .map((res: Response) => {
+              return res.json();
+          });
+  }
+
     insert(data) {
   /*      const headers = new Headers();
         headers.append('Content-Type', 'application/json');

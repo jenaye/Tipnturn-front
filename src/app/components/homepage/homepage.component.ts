@@ -1,4 +1,4 @@
-    import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ListingmembreService } from '../../services/listingmembre.service';
 import { ActivitiesService } from '../../services/activities.service';
 // import Chart from 'chart.js';
@@ -48,10 +48,8 @@ export class HomepageComponent implements OnInit {
 
         this.activiteService.getData().subscribe(activities => {
             this.activities = activities;
-            activities.filter(function (el) {
-                console.log(el.membres.length);
-            });
         });
+        console.log(this.barChartData[0].data[0]);
     }
 
 }
