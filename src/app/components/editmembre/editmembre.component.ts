@@ -11,7 +11,6 @@ import { Router } from '@angular/router';
 export class EditmembreComponent implements OnInit {
 
     private id: any;
-    private user: any;
     private nom: string;
     private prenom: string;
     private email: string;

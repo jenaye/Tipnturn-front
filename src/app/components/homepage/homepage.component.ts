@@ -15,6 +15,7 @@ export class HomepageComponent implements OnInit {
 
     public membres = [];
     public activities = [];
+    public nbActivity:any;
     public barChartOptions: any = {
         scaleShowVerticalLines: false,
         responsive: true,
@@ -46,10 +47,10 @@ export class HomepageComponent implements OnInit {
             this.membres = membres;
         })
 
-        this.activiteService.getData().subscribe(activities => {
-            this.activities = activities;
+        this.activiteService.getHowManyMembre().subscribe(activities => {
+           this.nbActivity = activities;
         });
-        console.log(this.barChartData[0].data[0]);
+     //   console.log(this.barChartData[0].data[0]);
     }
 
 }
