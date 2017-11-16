@@ -9,6 +9,6 @@ install:
  - npm install
  - webdriver-manager update
 before_script:
- - webdriver-manager start &
+ - webdriver-manager start --detach
 script:
  - protractor
