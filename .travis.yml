@@ -6,6 +6,7 @@ before_script:
 - npm i -g angular-cli
 - npm i -g protractor
 - npm i
-
+- webdriver-manager update
+- webdriver-manager start
 script: protractor
 
