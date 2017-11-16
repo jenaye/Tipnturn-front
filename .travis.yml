@@ -9,6 +9,6 @@ install:
  - npm install
  - webdriver-manager update
 before_script:
- - webdriver-manager start --detach &
+ - webdriver-manager start --detach --seleniumPort=4444
 script:
  - protractor
