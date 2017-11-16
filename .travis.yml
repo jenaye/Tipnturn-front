@@ -12,3 +12,6 @@ before_script:
  - webdriver-manager start --detach --seleniumPort=4444 &
 script:
  - protractor
+
+notifications:
+  email: false
