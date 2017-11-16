@@ -10,6 +10,7 @@ install:
  - webdriver-manager update
 before_script:
  - webdriver-manager start --detach --seleniumPort=4444 &
+ - sleep 30
 script:
  - protractor
 
