@@ -10,4 +10,8 @@ exports.config = {
   specs: [
     './src/app/app.component.spec.ts'
   ],
+  capabilities: {
+  };
+   'browserName': 'chrome'
+ },
 };
