@@ -11,4 +11,4 @@ Angular 4 app to manage danse organization
 
 # Protractor  #
 
-i used travis to make end-to-end test
+i used travis to automated make end-to-end test
