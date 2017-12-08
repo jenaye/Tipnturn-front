@@ -7,7 +7,7 @@ exports.config = {
   allScriptsTimeout: 11000,
   seleniumAddress: 'http://localhost:4444/wd/hub',
   specs: [
-    './src/app/app.component.spec.ts'
+    './src/app/components/bilan/bilan.component.spec.ts'
   ],
   capabilities: {
     'browserName': 'chrome'
