@@ -49,8 +49,10 @@ export class HomepageComponent implements OnInit {
 
         this.activiteService.getHowManyMembre().subscribe(activities => {
            this.nbActivity = activities;
+            console.log(activities)
         });
      //   console.log(this.barChartData[0].data[0]);
+
     }
 
 }

@@ -10,7 +10,7 @@ export class ListingmembreService {
 
   getData() {
     return this.http
-        .get('http://localhost:8000/api/membres.json')
+        .get('http://localhost:8000/api/membres.json?enabled=1')
           .map((res: Response) => {
             return res.json();
           });
@@ -18,7 +18,7 @@ export class ListingmembreService {
 
   getDataByName(prenom){
     return this.http
-        .get(`http://localhost:8000/api/membres.json?prenom=${prenom}`)
+        .get(`http://localhost:8000/api/membres.json?prenom=${prenom}&enabled=1`)
         .map((res: Response) => {
             return res.json();
         });
