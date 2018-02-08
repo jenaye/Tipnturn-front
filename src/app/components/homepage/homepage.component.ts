@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ListingmembreService } from '../../services/listingmembre.service';
 import { ActivitiesService } from '../../services/activities.service';
 import {forEach} from "@angular/router/src/utils/collection";
+import {BilanService} from "../../services/bilan.service";
 
 // import Chart from 'chart.js';
 
@@ -13,9 +14,12 @@ import {forEach} from "@angular/router/src/utils/collection";
 export class HomepageComponent implements OnInit {
 
     constructor(private listemembre: ListingmembreService,
-                private activiteService: ActivitiesService) { }
+                private activiteService: ActivitiesService,
+                private bilanService: BilanService) { }
     public ok: boolean = false;
+    public okMoney: boolean = false;
     public membres = [];
+    public monney:any;
     public activities = [];
     public nbActivity:any;
     public barChartOptions: any = {
@@ -41,12 +45,22 @@ export class HomepageComponent implements OnInit {
         }];
 
     public doughnutChartLabels:string[] = ['Rentrée', 'Sortie'];
-    public doughnutChartData:number[] = [1003, 13];
+    public doughnutChartData:any = [];
     public doughnutChartType:string = 'doughnut';
 
     ngOnInit() {
         this.listemembre.getData().subscribe(membres => {
             this.membres = membres;
+
+        })
+        this.bilanService.getMoney().subscribe(monney => {
+            this.monney = monney;
+            var arr = Object.keys(monney).map(function (key) {
+                return monney[key];
+            });
+            this.doughnutChartData.push(arr)
+
+            this.okMoney = true;
 
         })
 
@@ -56,9 +70,7 @@ export class HomepageComponent implements OnInit {
                 this.barChartData[this.nbActivity.indexOf(activite)].data = [activite];
            });
             this.ok = true;
-           console.log(this.barChartData);
         });
-     //   console.log(this.barChartData[0].data[0]);
 
     }
 

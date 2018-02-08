@@ -54,7 +54,7 @@
       </div>
 
       <div class="col-lg-6">
-        <canvas baseChart height="150"
+        <canvas *ngIf="okMoney" baseChart height="150"
                 [data]="doughnutChartData"
                 [colors]="chartColors"
                 [labels]="doughnutChartLabels"

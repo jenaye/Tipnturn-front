@@ -26,4 +26,15 @@ export class BilanService {
             });   
     }
 
+    getMoney() {
+        return this.http
+            .get('http://localhost:8000/api/bilan/results')
+            .map((res: Response) => {
+                return res.json();
+            });
+
+    }
+
+
+
 }
