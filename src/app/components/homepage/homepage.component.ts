@@ -55,10 +55,10 @@ export class HomepageComponent implements OnInit {
         })
         this.bilanService.getMoney().subscribe(monney => {
             this.monney = monney;
-            var arr = Object.keys(monney).map(function (key) {
+            const arr = Object.keys(monney).map(function (key) {
                 return monney[key];
             });
-            this.doughnutChartData.push(arr)
+            this.doughnutChartData.push(arr);
 
             this.okMoney = true;
 
