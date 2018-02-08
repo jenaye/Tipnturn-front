@@ -30,7 +30,9 @@ export class ActivitiesService {
       return this.http
           .get('http://localhost:8000/api/activity/howmany')
           .map((res: Response) => {
+          console.log(res);
               return res.json();
+
           });
   }
 

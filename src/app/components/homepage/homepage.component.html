@@ -43,7 +43,7 @@
 
     <div class="row animated fadeIn" >
       <div class="col-lg-6">
-        <canvas baseChart height="150"
+        <canvas *ngIf="ok" baseChart height="150"
                 [datasets]="barChartData"
                 [labels]="barChartLabels"
                 [options]="barChartOptions"

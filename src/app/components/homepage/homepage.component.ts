@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ListingmembreService } from '../../services/listingmembre.service';
 import { ActivitiesService } from '../../services/activities.service';
+import {forEach} from "@angular/router/src/utils/collection";
+
 // import Chart from 'chart.js';
 
 @Component({
@@ -12,7 +14,7 @@ export class HomepageComponent implements OnInit {
 
     constructor(private listemembre: ListingmembreService,
                 private activiteService: ActivitiesService) { }
-
+    public ok: boolean = false;
     public membres = [];
     public activities = [];
     public nbActivity:any;
@@ -27,10 +29,10 @@ export class HomepageComponent implements OnInit {
     public barChartType: string = 'bar';
     public barChartLegend: boolean = true;
     public barChartData: any[] = [
-        {data: [11], label: 'Cours 1'},
-        {data: [8], label: 'Atelier 1'},
-        {data: [10], label: 'Cours 2'},
-        {data: [12], label: 'Atelier 2'}
+        {data: [], label: 'Cours 1'},
+        {data: [], label: 'Atelier 1'},
+        {data: [], label: 'Cours 2'},
+        {data: [], label: 'Atelier 2'}
     ];
 
     public chartColors: any[] = [
@@ -45,11 +47,16 @@ export class HomepageComponent implements OnInit {
     ngOnInit() {
         this.listemembre.getData().subscribe(membres => {
             this.membres = membres;
+
         })
 
         this.activiteService.getHowManyMembre().subscribe(activities => {
            this.nbActivity = activities;
-            console.log(activities)
+            this.nbActivity.forEach(activite  => {
+                this.barChartData[this.nbActivity.indexOf(activite)].data = [activite];
+           });
+            this.ok = true;
+           console.log(this.barChartData);
         });
      //   console.log(this.barChartData[0].data[0]);
 
