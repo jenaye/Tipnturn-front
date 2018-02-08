@@ -6,7 +6,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test": "ng test",
+    "test": "protractor",
     "lint": "ng lint",
     "compodoc": "./node_modules/.bin/compodoc -p tsconfig.json",
     "e2e": "ng e2e"

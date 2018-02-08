@@ -1,0 +1,32 @@
+sudo: required
+dist: trusty
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
+
+language: node_js
+
+node_js:
+  - '8.8.1'
+
+
+before_script:
+ - npm install -g angular-cli protractor
+ - export DISPLAY=:99.0
+ - sh -e /etc/init.d/xvfb start
+ - sleep 5
+ - webdriver-manager start --detach --seleniumPort=4444 &
+ - sleep 30
+
+install:
+ - npm install
+ - webdriver-manager update
+
+script:
+ - protractor protractor.conf.js
+
+notifications:
+  email: false

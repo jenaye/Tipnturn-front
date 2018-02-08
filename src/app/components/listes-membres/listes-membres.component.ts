@@ -10,8 +10,8 @@ import { ActivitiesService } from '../../services/activities.service';
 export class ListesMembresComponent implements OnInit {
   public membres = [];
   public activities = [];
-  public prenom:any;
-  public res:any;
+  public prenom: any;
+  public res: any;
   constructor(private listemembre: ListingmembreService, private activiteService: ActivitiesService) { }
 
   ngOnInit() {

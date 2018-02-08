@@ -22,7 +22,6 @@ export class ListingParActivitesComponent implements OnInit {
       this.activitesService.getDataById(id).subscribe(activities => {
       this.activities = activities;
       this.membres = activities.membres;
-
     })
   }
 

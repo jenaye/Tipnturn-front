@@ -7,8 +7,8 @@
         <div class="panel-body animated fadeIn">
             <form>
                 <div class="form-group">
-                    <label for="date">Trier par prénom</label>
-                    <input type="text" name="prenom" id="prenom" class="form-control" [(ngModel)]="prenom" (keyup)="search()"><br/>
+                    <label for="prenom">Trier par prénom</label>
+                    <input type="text" name="prenom" id="prenom" class="form-control" [(ngModel)]="prenom" (keyup)="search()" placeholder="exemple: alison"><br/>
                 </div>
             </form>
             <br/>
@@ -29,8 +29,8 @@
                 <tr>
                     <th>Nom</th>
                     <th>Prenom</th>
-                    <th>Email</th>
-                    <th>Téléphone</th>
+                    <th><i class="fa fa-envelope-o" aria-hidden="true"></i></th>
+                    <th><i class="fa fa-phone" aria-hidden="true"></i></th>
                     <th>Cotisation</th>
                     <th>Cheque</th>
                     <th>certificat</th>
@@ -47,7 +47,7 @@
                     <td>{{ membre.cheque }} </td>
                     <td>{{ membre.certificat }} </td>
                     <td  *ngFor="let activite of activities">
-                        {{ hasActivity(activite.id, membre)?'Oui':'Non' }}
+                        {{ hasActivity(activite.id, membre)?'✓':'✗' }}
                     </td>
                 </tr>
 
