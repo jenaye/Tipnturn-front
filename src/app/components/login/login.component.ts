@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Response, Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import {Headers , RequestOptions} from '@angular/http';
-import {Router} from '@angular/router'
+import {Router} from '@angular/router';
+import url from '../../../../config';
 
 @Component({
   selector: 'app-login',
@@ -23,15 +24,15 @@ export class LoginComponent implements OnInit {
       formData.append('_username', this.username)
       formData.append('_password', this.password)
 
-      const headers = new Headers();
+      var headers = new Headers();
       headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
       
       this.http
-          .post('http://localhost:8000/api/login_check', formData,  headers)
+          .post(`${url.API}/login_check`, formData,  headers)
           .subscribe(response => {
-              if(response.status === 200){
-                  const token = response.json().token;
+              if( response.status === 200){
+                  var token = response.json().token;
                   localStorage.setItem('token', token);
                   this.router.navigateByUrl('/accueil');
                   window.location.reload();
