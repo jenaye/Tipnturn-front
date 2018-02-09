@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -25,6 +26,13 @@ import { ActivitiesService } from './services/activities.service';
 import { ListingmembreService } from './services/listingmembre.service';
 import { BilanService } from './services/bilan.service';
 import { EditmembreComponent } from './components/editmembre/editmembre.component';
+
+// Material component
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 
 // routes
@@ -61,9 +69,15 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpModule,
     FormsModule,
     ChartsModule,
+    MatCardModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatButtonModule,
     RouterModule.forRoot(
         appRoutes,
         { enableTracing: false }
