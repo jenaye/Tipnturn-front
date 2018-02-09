@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Response, URLSearchParams, Headers, RequestOptions, Http } from '@angular/http';
 import 'rxjs/add/operator/map';
-import {CheckTokenService} from "./checkToken.service";
+import {CheckTokenService} from './checkToken.service';
+import url from '../../../config';
 
 @Injectable()
 export class ListingmembreService {
@@ -10,15 +11,15 @@ export class ListingmembreService {
 
   getData() {
     return this.http
-        .get('http://localhost:8000/api/membres.json?enabled=1')
+        .get(`${url.API}/membres.json?enabled=1`)
           .map((res: Response) => {
             return res.json();
           });
   }
 
-  getDataByName(prenom){
+  getDataByName(prenom) {
     return this.http
-        .get(`http://localhost:8000/api/membres.json?prenom=${prenom}&enabled=1`)
+        .get(`${url.API}/membres.json?prenom=${prenom}&enabled=1`)
         .map((res: Response) => {
             return res.json();
         });

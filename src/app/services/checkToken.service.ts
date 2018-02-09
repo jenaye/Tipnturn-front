@@ -4,17 +4,18 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
+
 @Injectable()
 export class CheckTokenService extends Http {
 
     constructor (backend: XHRBackend, options: RequestOptions) {
-        let token = localStorage.getItem('token');
+        const token = localStorage.getItem('token');
         options.headers.set('Authorization', `Bearer ${token}`);
         super(backend, options);
     }
 
     request(url: string|Request, options?: RequestOptionsArgs): Observable<Response> {
-        let token = localStorage.getItem('token');
+        const token = localStorage.getItem('token');
         if (typeof url === 'string') {
             if (!options) {
                 options = {headers: new Headers()};

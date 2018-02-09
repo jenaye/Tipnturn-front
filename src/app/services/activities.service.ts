@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Response, URLSearchParams, Headers, RequestOptions, Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import {CheckTokenService} from './checkToken.service';
+import url from '../../../config';
 
 
 @Injectable()
@@ -11,7 +12,7 @@ export class ActivitiesService {
 
   getData() {
         return this.http
-            .get('http://localhost:8000/api/activities.json')
+            .get(`${url.API}/activities.json`)
             .map((res: Response) => {
                 return res.json();
           });
@@ -19,7 +20,7 @@ export class ActivitiesService {
 
   getDataById(id) {
       return this.http
-          .get(`http://localhost:8000/api/activities/${id}.json`)
+          .get(`${url.API}/activities/${id}.json`)
           .map((res: Response) => {
               return res.json();
           });
@@ -28,7 +29,7 @@ export class ActivitiesService {
 
   getHowManyMembre() {
       return this.http
-          .get('http://localhost:8000/api/activity/howmany')
+          .get(`${url.API}/activity/howmany`)
           .map((res: Response) => {
               return res.json();
 
@@ -36,12 +37,8 @@ export class ActivitiesService {
   }
 
     insert(data) {
-  /*      const headers = new Headers();
-        headers.append('Content-Type', 'application/json');
-
-        const options = new RequestOptions({ headers: headers });*/
         return this.http
-            .post('http://localhost:8000/api/activities', data )
+            .post(`${url.API}/activities`, data)
             .map((res: Response) => {
                 return res.json();
             });
