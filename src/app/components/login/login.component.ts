@@ -22,16 +22,15 @@ export class LoginComponent implements OnInit {
       formData.append('_username', this.username)
       formData.append('_password', this.password)
 
-      let headers = new Headers();
-      let requestOptions= new RequestOptions();
+      const headers = new Headers();
       headers.append('Content-Type', 'application/x-www-form-urlencoded');
-      requestOptions.headers = headers; 
+
       
       this.http
-          .post('http://localhost:8000/api/login_check', formData, requestOptions)
+          .post('http://localhost:8000/api/login_check', formData,  headers)
           .subscribe(response => {
               if(response.status === 200){
-                  var token = response.json().token;
+                  const token = response.json().token;
                   localStorage.setItem('token', token);
                   this.router.navigateByUrl('/accueil');
                   window.location.reload();
