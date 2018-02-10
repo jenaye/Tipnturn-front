@@ -7,8 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  options;
   private logged:boolean;
     ngOnInit() {
+
+        
+        
         if(localStorage.getItem('token')){
             this.logged = true;
         }else{

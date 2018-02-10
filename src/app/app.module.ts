@@ -7,7 +7,6 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ErrorComponent } from './components/error/error.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { ListesMembresComponent } from './components/listes-membres/listes-membres.component';
 import { ActivitiesComponent } from './components/activities/activities.component';
@@ -18,6 +17,7 @@ import { BilanComponent } from './components/bilan/bilan.component';
 import { AjoutbilanComponent } from './components/ajoutbilan/ajoutbilan.component';
 import { LoginComponent } from './components/login/login.component';
 import { AjoutactivitesComponent } from './components/ajoutactivites/ajoutactivites.component';
+import { SideBarComponent } from './components/side-bar/side-bar.component';
 
 // Services
 import { CheckTokenService } from './services/checkToken.service';
@@ -33,6 +33,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 
 // routes
@@ -54,7 +58,6 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     HeaderComponent,
-    NavbarComponent,
     HomepageComponent,
     ErrorComponent,
     ListesMembresComponent,
@@ -65,7 +68,8 @@ const appRoutes: Routes = [
     AjoutbilanComponent,
     LoginComponent,
     AjoutactivitesComponent,
-    EditmembreComponent
+    EditmembreComponent,
+    SideBarComponent
   ],
   imports: [
     BrowserModule,
@@ -78,6 +82,10 @@ const appRoutes: Routes = [
     MatFormFieldModule,
     MatIconModule,
     MatButtonModule,
+    MatSidenavModule,
+    MatListModule,
+    MatExpansionModule,
+    MatToolbarModule,
     RouterModule.forRoot(
         appRoutes,
         { enableTracing: false }
