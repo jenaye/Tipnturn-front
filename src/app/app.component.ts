@@ -1,22 +1,21 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
-})
+@Component({selector: 'app-root', templateUrl: './app.component.html', styleUrls: ['./app.component.css']})
 export class AppComponent {
-  title = 'app';
-  options;
-  private logged:boolean;
+
+    public sideBarOpen = false;
+    protected logged : boolean;
+
     ngOnInit() {
 
-        
-        
-        if(localStorage.getItem('token')){
+        if (localStorage.getItem('token')) {
             this.logged = true;
-        }else{
+        } else {
             this.logged = false;
         }
+    }
+
+    sidebarChange(event: Event){
+        this.sideBarOpen=!this.sideBarOpen;
     }
 }
