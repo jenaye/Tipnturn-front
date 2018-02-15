@@ -70,12 +70,8 @@ const appRoutes: Routes = [
     LoginComponent,
     AjoutactivitesComponent,
     EditmembreComponent,
-<<<<<<< HEAD
     SideBarComponent,
     PageHeaderComponent
-=======
-    SideBarComponent
->>>>>>> 2c562174da6a44224111972b6c89874769834970
   ],
   imports: [
     BrowserModule,
