@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
                   var token = response.json().token;
                   localStorage.setItem('token', token);
                   this.router.navigateByUrl('/accueil');
-                  window.location.reload();
+                  
               }else{
                     console.log('wrong login');
               }

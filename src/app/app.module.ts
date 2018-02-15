@@ -37,6 +37,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { PageHeaderComponent } from './components/page-header/page-header.component';
 
 
 // routes
@@ -69,7 +70,8 @@ const appRoutes: Routes = [
     LoginComponent,
     AjoutactivitesComponent,
     EditmembreComponent,
-    SideBarComponent
+    SideBarComponent,
+    PageHeaderComponent
   ],
   imports: [
     BrowserModule,

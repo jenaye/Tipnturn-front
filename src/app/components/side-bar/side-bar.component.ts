@@ -12,7 +12,6 @@ export class SideBarComponent implements OnInit {
     localStorage.clear();
     console.log('token deleted');
     this.router.navigateByUrl('/');
-    window.location.reload();
 }
   ngOnInit() {}
 

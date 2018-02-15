@@ -1,66 +1,63 @@
-    <!-- Page Heading -->
-    <div class="row">
-      <div class="col-lg-12">
-        <h1 class="page-header" class="animated bounce">
-          Tableau de bord <small> {{ title }}</small>
-        </h1>
-      </div>
-    </div>
-    <!-- /.row -->
-
-    <div class="row animated fadeIn">
-      <div class="col-lg-6 col-md-6">
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            <div class="row">
-              <div class="col-xs-3">
-                <i class="fa fa-address-card fa-5x"></i>
-              </div>
-              <div class="col-xs-9 text-right">
-                <div class="huge animated fadeInDown">{{ membres.length }}</div>
-                <div>Nombre de membre</div>
-              </div>
-            </div>
+<!-- Page Heading -->
+<div class="row">
+  <div class="col-lg-12">
+    <h1 class="page-header" class="animated bounce">
+      Tableau de bord
+      <small> {{ title }}</small>
+    </h1>
+  </div>
+</div>
+<div class="home-container">
+  <table>
+    <tr>
+      <td>
+        <div class="dashbord-card mat-elevation-z3">
+          <div class="icon-square-pink">
+            <i class="material-icons md-18" style="font-size: 50px; margin : 10px;">group</i>
+          </div>
+          <div class="dashbord-card-content">
+            <table>
+              <tr>
+                Nombre de membre
+              </tr>
+              <tr>
+                {{ membres.length }}
+              </tr>
+            </table>
           </div>
         </div>
-      </div>
-      <div class="col-lg-6 col-md-6">
-        <div class="panel panel-green">
-          <div class="panel-heading">
-            <div class="row">
-              <div class="col-xs-3">
-                <i class="fa fa-tasks fa-5x"></i>
-              </div>
-              <div class="col-xs-9 text-right">
-                <div class="huge animated fadeInDown">{{ activities.length }}</div>
-                <div>Activités</div>
-              </div>
-            </div>
+      </td>
+      <td class="spacer"></td>
+      <td>
+        <div class="dashbord-card mat-elevation-z3">
+          <div class="icon-square-green">
+            <i class="material-icons md-18" style="font-size: 50px; margin : 10px;">pool</i>
+          </div>
+          <div class="dashbord-card-content">
+            <table>
+              <tr>
+                Activités
+              </tr>
+              <tr>
+                {{ activities.length }}
+              </tr>
+            </table>
           </div>
         </div>
-      </div>
-    </div>
-
-    <div class="row animated fadeIn" >
-      <div class="col-lg-6">
-        <canvas *ngIf="ok" baseChart height="150"
-                [datasets]="barChartData"
-                [labels]="barChartLabels"
-                [options]="barChartOptions"
-                [legend]="barChartLegend"
-                [chartType]="barChartType"
-                (chartHover)="chartHovered($event)"
-                (chartClick)="chartClicked($event)"></canvas>
-      </div>
-
-      <div class="col-lg-6">
-        <canvas *ngIf="okMoney" baseChart height="150"
-                [data]="doughnutChartData"
-                [colors]="chartColors"
-                [labels]="doughnutChartLabels"
-                [chartType]="doughnutChartType"
-                (chartHover)="chartHovered($event)"
-                (chartClick)="chartClicked($event)"></canvas>
-      </div>
-    </div>
-    <!-- /.row -->
+      </td>
+    </tr>
+  </table>
+ <div class="charts">
+    <mat-card class="chart-card" *ngIf="ok">
+      <canvas baseChart height="150" [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
+        [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+    </mat-card>
+ 
+    <mat-card class="chart-card" *ngIf="okMoney">
+      <canvas *ngIf="okMoney" baseChart height="150" [data]="doughnutChartData" [colors]="chartColors" [labels]="doughnutChartLabels"
+        [chartType]="doughnutChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+    </mat-card>
+ 
+  </div>
+</div>
+<!-- /.row -->
