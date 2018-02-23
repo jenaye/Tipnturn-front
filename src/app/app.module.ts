@@ -52,6 +52,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -92,6 +93,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatPaginatorModule,
     MatCheckboxModule,
     MatSelectModule,
+    MatDialogModule,
     routing,
   ],
   providers: [

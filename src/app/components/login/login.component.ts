@@ -3,7 +3,7 @@ import { Response, Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import {Headers , RequestOptions} from '@angular/http';
 import {Router} from '@angular/router';
-import url from '../../../../config';
+import url from './../../../config';
 
 @Component({
   selector: 'app-login',

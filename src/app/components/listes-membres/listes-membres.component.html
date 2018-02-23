@@ -24,8 +24,9 @@
             </div>
 
             <span class="pull-right big">Ajouter un membre
-                <a href="/ajout-membre" class="big">+</a>
+                <a href="/home/add-membre" class="big">+</a>
             </span>
+            <button mat-raised-button color="primary" (click)='openDialog()'>+</button>
             <br/>
             <br/>
             <mat-card  class="row" style="border-bottom: solide 2px #303F9F">
@@ -38,7 +39,7 @@
                     <div  class="cell titre">certificat</div>
                     <div  class="cell titre" *ngFor="let activite of activities">{{ activite.name }}</div>
             </mat-card>
-            <mat-card *ngFor="let membre of membres" class="row" routerLink="/edit-membre/{{ membre.id }}">
+            <mat-card *ngFor="let membre of membres" class="row" routerLink="/home/edit-membre/{{ membre.id }}">
 
                 <div class="cellName">{{ membre.nom }}</div>
                 <div  class="cellName">{{ membre.prenom }} </div>

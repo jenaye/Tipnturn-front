@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ListingmembreService } from '../../services/listingmembre.service';
 import { ActivitiesService } from '../../services/activities.service';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { AjoutmembreComponent } from '../ajoutmembre/ajoutmembre.component';
 
 @Component({
   selector: 'app-listes-membres',
@@ -12,7 +14,7 @@ export class ListesMembresComponent implements OnInit {
   public activities = [];
   public prenom: any;
   public res: any;
-  constructor(private listemembre: ListingmembreService, private activiteService: ActivitiesService) { }
+  constructor(private listemembre: ListingmembreService, private activiteService: ActivitiesService, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.listemembre.getData().subscribe(membres => {
@@ -26,6 +28,16 @@ export class ListesMembresComponent implements OnInit {
     })
   }
 
+  openDialog(): void {
+    let dialogRef = this.dialog.open(AjoutmembreComponent, {
+      width: '500px',
+      data :  this.activities
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+     
+    });
+  }
   hasActivity(idActivite, membre){
     let activites = membre.activites
     activites = activites.filter( (activite) => activite.id === idActivite)

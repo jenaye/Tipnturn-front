@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {Response, Http, RequestOptions} from '@angular/http';
 import 'rxjs/add/operator/map';
 import {CheckTokenService} from './checkToken.service';
-import url from '../../../config';
+import url from './../../config';
 
 @Injectable()
 export class BilanService {

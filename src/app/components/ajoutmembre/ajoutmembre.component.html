@@ -1,57 +1,62 @@
-<mat-card>
-  <mat-card-header>
-    <mat-card-title>
-      <h1>Ajout membre</h1>
-    </mat-card-title>
-  </mat-card-header>
-  <mat-card-content >
+<mat-grid-list cols="3" rowHeight="58px">
+  <mat-grid-tile [colspan]="3" [rowspan]="1">
+    <h1>Ajout membre</h1>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="3" [rowspan]="6">
     <form [formGroup]="formMembre">
-      <mat-grid-list  cols="3" rowHeight="58px">
-        <mat-grid-tile class="blueRow" [colspan]="1" [rowspan]="1">
-          <mat-form-field>
-            <input matInput placeholder="Nom" formControlName="nom" />
-          </mat-form-field>
-        </mat-grid-tile>
-        <mat-grid-tile class="blueRow" [colspan]="1" [rowspan]="1">
-          <mat-form-field>
-            <input matInput placeholder="Prenom" formControlName="prenom" />
-          </mat-form-field>
-        </mat-grid-tile>
-        <mat-grid-tile class="blueRow" [colspan]="1" [rowspan]="1">
-          <mat-form-field>
-            <input matInput placeholder="Email" formControlName="email" />
-          </mat-form-field>
-        </mat-grid-tile>
-        <mat-grid-tile class="blueRow" [colspan]="1" [rowspan]="1">
-          <mat-form-field>
-            <input matInput placeholder="Téléphone" formControlName="phone" />
-          </mat-form-field>
-        </mat-grid-tile>
-        
-        <mat-grid-tile class="blueRow" [colspan]="1" [rowspan]="1">
-          <mat-form-field>
-            <input matInput placeholder="cheque" formControlName="cheque" />
-          </mat-form-field>
-        </mat-grid-tile>
-        <mat-grid-tile class="blueRow" [colspan]="1" [rowspan]="1">
+      <table>
+        <tr>
+          <td>
             <mat-form-field>
-              <mat-select placeholder="activites" formControlname="activites" multiple>
-                <mat-option *ngFor="let activite of activitestab" [value]="activitestab">{{activite.name}}</mat-option>
+              <input matInput placeholder="Nom" formControlName="nom" />
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field>
+              <input matInput placeholder="Prenom" formControlName="prenom" />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field>
+              <input matInput placeholder="Email" formControlName="email" />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field>
+              <input matInput placeholder="Téléphone" formControlName="phone" />
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field>
+              <input matInput placeholder="cotisation" formControlName="cotisation" />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field>
+              <mat-select placeholder="activites" formControlName="activites" multiple>
+                <mat-option *ngFor="let activite of activitestab"  [value]="activite.id">{{activite.name}}</mat-option>
               </mat-select>
             </mat-form-field>
-          </mat-grid-tile>
-        <mat-grid-tile class="blueRow" [colspan]="1" [rowspan]="1">
-          <mat-checkbox formControlName="certificat">Certificat</mat-checkbox>
-        </mat-grid-tile>
-        <mat-grid-tile class="blueRow" [colspan]="1" [rowspan]="1">
-          <mat-checkbox formControlName="cotisation">Cotisation</mat-checkbox>
-        </mat-grid-tile>
-       
-      </mat-grid-list>
+          </td>
+          <td>
+             
+          </td>
+        </tr>
+        <tr>
+         <td> <mat-checkbox formControlName="certificat" >Certificat</mat-checkbox></td>
+         <td> <mat-checkbox formControlName="cheque">Chèque</mat-checkbox></td>
+        </tr>
+      </table>     
     </form>
-  </mat-card-content>
-  <mat-card-actions>
-      <button mat-raised-button color="primary">sauvegarder</button>
-      <button mat-raised-button color="warn">retour</button>
-  </mat-card-actions>
-</mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile class="blueRow" [colspan]="3" [rowspan]="1">
+    <button mat-raised-button color="primary" (click)="add()">sauvegarder</button>
+    <button mat-raised-button color="primary">retour</button>
+  </mat-grid-tile>
+</mat-grid-list>
