@@ -1,63 +1,11 @@
-<!-- Page Heading -->
-<div class="row">
-  <div class="col-lg-12">
-    <h1 class="page-header" class="animated bounce">
-      Tableau de bord
-      <small> {{ title }}</small>
-    </h1>
-  </div>
-</div>
-<div class="home-container">
-  <table>
-    <tr>
-      <td>
-        <div class="dashbord-card mat-elevation-z3">
-          <div class="icon-square-pink">
-            <i class="material-icons md-18" style="font-size: 50px; margin : 10px;">group</i>
-          </div>
-          <div class="dashbord-card-content">
-            <table>
-              <tr>
-                Nombre de membre
-              </tr>
-              <tr>
-                {{ membres.length }}
-              </tr>
-            </table>
-          </div>
-        </div>
-      </td>
-      <td class="spacer"></td>
-      <td>
-        <div class="dashbord-card mat-elevation-z3">
-          <div class="icon-square-green">
-            <i class="material-icons md-18" style="font-size: 50px; margin : 10px;">pool</i>
-          </div>
-          <div class="dashbord-card-content">
-            <table>
-              <tr>
-                Activités
-              </tr>
-              <tr>
-                {{ activities.length }}
-              </tr>
-            </table>
-          </div>
-        </div>
-      </td>
-    </tr>
-  </table>
- <div class="charts">
-    <mat-card class="chart-card" *ngIf="ok">
-      <canvas baseChart height="150" [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
-        [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
-    </mat-card>
- 
-    <mat-card class="chart-card" *ngIf="okMoney">
-      <canvas *ngIf="okMoney" baseChart height="150" [data]="doughnutChartData" [colors]="chartColors" [labels]="doughnutChartLabels"
-        [chartType]="doughnutChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
-    </mat-card>
- 
-  </div>
-</div>
-<!-- /.row -->
+<app-header  class="header mat-elevation-z4"(change)="sidebarChange($event)">
+</app-header>
+  <mat-sidenav-container class="container">
+        <mat-sidenav #sideNavBar mode="side"  [(opened)]="sideBarOpen"   class="sideNave mat-elevation-z4">
+            <app-side-bar></app-side-bar>
+        </mat-sidenav>
+        <mat-sidenav-content class="main-container">
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+   </mat-sidenav-container>
+   

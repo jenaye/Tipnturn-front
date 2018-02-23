@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
               if( response.status === 200){
                   var token = response.json().token;
                   localStorage.setItem('token', token);
-                  this.router.navigateByUrl('/accueil');
+                  this.router.navigateByUrl('/home/dashboard');
                   
               }else{
                     console.log('wrong login');

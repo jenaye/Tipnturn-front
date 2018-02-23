@@ -3,7 +3,7 @@ import {Component} from '@angular/core';
 @Component({selector: 'app-root', templateUrl: './app.component.html', styleUrls: ['./app.component.css']})
 export class AppComponent {
 
-    public sideBarOpen = false;
+
     protected logged : boolean;
 
     ngOnInit() {
@@ -15,7 +15,4 @@ export class AppComponent {
         }
     }
 
-    sidebarChange(event: Event){
-        this.sideBarOpen=!this.sideBarOpen;
-    }
 }

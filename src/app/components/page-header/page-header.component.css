@@ -1,9 +1,16 @@
 .pageHeader{
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 60px;
+    align-self: flex-start;
     height: 20%;
     background-color: #3F51B5;
+    text-align: center;
+    z-index: -2;
+    
+}
+.pageHeaderTitle{
+    margin: auto;
+    color: #FFFFFF;
     
 }

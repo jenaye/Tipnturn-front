@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
+
+
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -18,6 +21,10 @@ import { AjoutbilanComponent } from './components/ajoutbilan/ajoutbilan.componen
 import { LoginComponent } from './components/login/login.component';
 import { AjoutactivitesComponent } from './components/ajoutactivites/ajoutactivites.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
+import { PageHeaderComponent } from './components/page-header/page-header.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { routing } from './app.routing';
+import { AuthGuard } from './guards/auth.guard';
 
 // Services
 import { CheckTokenService } from './services/checkToken.service';
@@ -37,23 +44,13 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { PageHeaderComponent } from './components/page-header/page-header.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
-
-// routes
-const appRoutes: Routes = [
-    { path: '', component: LoginComponent },
-    { path: 'accueil', component: HomepageComponent },
-    { path: 'listes-des-membres', component: ListesMembresComponent },
-    { path: 'ajout-membre', component: AjoutmembreComponent },
-    { path: 'edit-membre/:id', component: EditmembreComponent },
-    { path: 'activites/:id', component: ListingParActivitesComponent },
-    { path: 'ajout-activite', component: AjoutactivitesComponent },
-    { path: 'bilan', component: BilanComponent },
-    { path: 'ajout-bilan', component: AjoutbilanComponent },
-    { path: '404', component: ErrorComponent },
-    { path: '**', redirectTo: '/404'}
-];
 
 @NgModule({
   declarations: [
@@ -71,13 +68,15 @@ const appRoutes: Routes = [
     AjoutactivitesComponent,
     EditmembreComponent,
     SideBarComponent,
-    PageHeaderComponent
+    PageHeaderComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpModule,
     FormsModule,
+    ReactiveFormsModule,
     ChartsModule,
     MatCardModule,
     MatInputModule,
@@ -88,13 +87,15 @@ const appRoutes: Routes = [
     MatListModule,
     MatExpansionModule,
     MatToolbarModule,
-    RouterModule.forRoot(
-        appRoutes,
-        { enableTracing: false }
-      )
+    MatGridListModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatCheckboxModule,
+    MatSelectModule,
+    routing,
   ],
   providers: [
-    ActivitiesService, ListingmembreService, MembresService, BilanService, CheckTokenService
+    ActivitiesService, ListingmembreService, MembresService, BilanService, CheckTokenService, AuthGuard
   ],
   bootstrap: [AppComponent]
 })

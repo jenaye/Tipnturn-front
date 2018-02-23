@@ -1,3 +1,3 @@
 const Configuration = {
-    'API': 'http://localhost:8000/api'};
+    'API': 'http://163.172.172.240:9000/api'};
 export default Configuration;

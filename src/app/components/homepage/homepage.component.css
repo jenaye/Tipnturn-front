@@ -1,32 +1,23 @@
-.dashbord-card{
-    display: inline-flex;
-    background-color: #FFFFFF;
-    border-radius: 5px;
-    width: 250px;
+.container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
-.icon-square-pink{
-    background-color: #AB47BC ;
-    color: #CE93D8;
-    border-radius: 5px 0px 0px 5px;
+.sideNave{
+    padding-top: 60px;
+    width: 17%;
+    min-width: 210px;
 }
-.icon-square-green{
-    background-color: #26A69A ;
-    color: #80CBC4;
-    border-radius: 5px 0px 0px 5px;
+.header{
+    position: fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    z-index: 4;
 }
-.dashbord-card-content{
-    padding-top: 5px;
-    padding-left: 10px;
-    padding-right:10px;
-}
-.home-container{
-    padding: 20px
-}
-.chart-card{
-    
-    padding: 20px;
-    margin-top: 20px;
-}
-.charts{
-   
+
+.main-container{
+    padding-top: 60px; 
 }

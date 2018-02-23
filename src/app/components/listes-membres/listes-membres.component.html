@@ -1,14 +1,15 @@
 <ng-container *ngIf="membres">
-    <div class="panel panel-primary">
+    
         <div class="panel-heading">
             <h3 class="panel-title">Organisation – Listes des membres</h3>
         </div>
 
-        <div class="panel-body animated fadeIn">
+        <div class="membre-content">
             <form>
                 <div class="form-group">
                     <label for="prenom">Trier par prénom</label>
-                    <input type="text" name="prenom" id="prenom" class="form-control" [(ngModel)]="prenom" (keyup)="search()" placeholder="exemple: alison"><br/>
+                    <input type="text" name="prenom" id="prenom" class="form-control" [(ngModel)]="prenom" (keyup)="search()" placeholder="exemple: alison">
+                    <br/>
                 </div>
             </form>
             <br/>
@@ -18,41 +19,38 @@
                     <h3 class="panel-title">Résultat de recherche</h3>
                 </div>
                 <div class="panel-body" *ngFor="let user of res">
-                    {{ user.prenom  }} - {{ user.nom }} - {{ user.email }} - {{ user.phone}} - {{ user.cotisation}}€
+                    {{ user.prenom }} - {{ user.nom }} - {{ user.email }} - {{ user.phone}} - {{ user.cotisation}}€
                 </div>
             </div>
 
-            <span class="pull-right big" >Ajouter un membre<a href="/ajout-membre" class="big">+</a></span>
-            <br/><br/>
-            <table class="table-responsive table table-bordered table-hover table-striped animated fadeIn">
-                <thead>
-                <tr>
-                    <th>Nom</th>
-                    <th>Prenom</th>
-                    <th><i class="fa fa-envelope-o" aria-hidden="true"></i></th>
-                    <th><i class="fa fa-phone" aria-hidden="true"></i></th>
-                    <th>Cotisation</th>
-                    <th>Cheque</th>
-                    <th>certificat</th>
-                    <th *ngFor="let activite of activities">{{ activite.name }}</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr *ngFor="let membre of membres">
-                    <td><a href="/edit-membre/{{ membre.id }}">{{ membre.nom }}</a></td>
-                    <td>{{ membre.prenom }} </td>
-                    <td>{{ membre.email }} </td>
-                    <td>{{ membre.phone }} </td>
-                    <td>{{ membre.cotisation }}€ </td>
-                    <td>{{ membre.cheque }} </td>
-                    <td>{{ membre.certificat }} </td>
-                    <td  *ngFor="let activite of activities">
-                        {{ hasActivity(activite.id, membre)?'✓':'✗' }}
-                    </td>
-                </tr>
+            <span class="pull-right big">Ajouter un membre
+                <a href="/ajout-membre" class="big">+</a>
+            </span>
+            <br/>
+            <br/>
+            <mat-card  class="row" style="border-bottom: solide 2px #303F9F">
+                    <div  class="cellName titre">Nom</div>
+                    <div  class="cellName titre">Prénom</div>
+                    <div  class="cellMail titre">Email</div>
+                    <div  class="cellPhone titre">Téléphone</div>   
+                    <div  class="cell titre">Cotisation</div>
+                    <div  class="cell titre">Cheque</div>
+                    <div  class="cell titre">certificat</div>
+                    <div  class="cell titre" *ngFor="let activite of activities">{{ activite.name }}</div>
+            </mat-card>
+            <mat-card *ngFor="let membre of membres" class="row" routerLink="/edit-membre/{{ membre.id }}">
 
-                </tbody>
-            </table>
+                <div class="cellName">{{ membre.nom }}</div>
+                <div  class="cellName">{{ membre.prenom }} </div>
+                <div  class="cellMail">{{ membre.email }} </div>
+                <div  class="cellPhone">{{ membre.phone }} </div>
+                <div  class="cell">{{ membre.cotisation }}€ </div>
+                <div  class="cell">{{ membre.cheque }} </div>
+                <div  class="cell">{{ membre.certificat }} </div>
+                <div *ngFor="let activite of activities"  class="cell">
+                    {{ hasActivity(activite.id, membre)?'✓':'✗' }}
+                </div>
+                </mat-card>
         </div>
-    </div>
+   
 </ng-container>
