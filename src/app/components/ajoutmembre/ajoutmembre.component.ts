@@ -29,6 +29,7 @@ export class AjoutmembreComponent implements OnInit {
         cotisation: [''],
         certificat: false,
         cheque: false,
+        enabled:true,
         activites: Array()
       });
 
