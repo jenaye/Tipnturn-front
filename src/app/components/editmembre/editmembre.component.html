@@ -1,46 +1,51 @@
-
-<h1>edit membre</h1>
-<form (submit)="edit()">
-
-  <div class="form-group">
-    <label for="nom">Nom</label>
-    <input type="text" class="form-control"  [(ngModel)]="nom" id="nom" name="nom">
-  </div>
-
-
-  <div class="form-group">
-    <label for="nom">Prenom</label>
-    <input type="text" class="form-control" [(ngModel)]="prenom" id="prenom" name="prenom">
-  </div>
-
-  <div class="form-group">
-    <label for="email">email</label>
-    <input type="text" class="form-control" [(ngModel)]="email" id="email" name="email" disabled>
-  </div>
-
-  <div class="form-group">
-    <label for="email">Téléphone</label>
-    <input type="text" class="form-control" [(ngModel)]="phone" id="phone" name="phone">
-  </div>
-
-  <div class="form-group">
-    <label for="nom">Cotisation</label>
-    <input type="text" class="form-control" [(ngModel)]="cotisation" id="cotisation" name="cotisation">
-  </div>
-
-  <div class="form-group">
-    <input type="checkbox" [(ngModel)]="cheque" name="cheque"/>
-    <label for="cheque">Cheque</label>
-  </div>
-
-
-  <div class="form-group">
-    <input type="checkbox" [(ngModel)]="certificat" name="certificat"/>
-    <label for="cheque">Certificat</label>
-  </div>
-
-
-
-  <button type="submit" class="btn btn-primary">Submit</button>
-
-</form>
+<mat-grid-list cols="3" rowHeight="58px">
+    <mat-grid-tile [colspan]="3" [rowspan]="1">
+      <h1>Edit membre</h1>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="3" [rowspan]="6">
+      <form [formGroup]="formMembre">
+        <table>
+          <tr>
+            <td>
+              <mat-form-field>
+                <input matInput placeholder="Nom" formControlName="nom" />
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field>
+                <input matInput placeholder="Prenom" formControlName="prenom" />
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field>
+                <input matInput placeholder="Email" formControlName="email" />
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field>
+                <input matInput placeholder="Téléphone" formControlName="phone" />
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field>
+                <input matInput placeholder="cotisation" formControlName="cotisation" />
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+           <td> <mat-checkbox formControlName="certificat" >Certificat</mat-checkbox></td>
+           <td> <mat-checkbox formControlName="cheque">Chèque</mat-checkbox></td>
+           <td> <mat-checkbox formControlName="enabled">Activier</mat-checkbox></td>
+          </tr>
+        </table>     
+      </form>
+    </mat-grid-tile>
+    <mat-grid-tile class="blueRow" [colspan]="3" [rowspan]="1">
+      <button mat-raised-button color="primary" (click)="edit()">sauvegarder</button>
+      <button mat-raised-button color="primary">retour</button>
+    </mat-grid-tile>
+  </mat-grid-list>

@@ -3,6 +3,7 @@ import { ListingmembreService } from '../../services/listingmembre.service';
 import { ActivitiesService } from '../../services/activities.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { AjoutmembreComponent } from '../ajoutmembre/ajoutmembre.component';
+import { EditmembreComponent } from '../editmembre/editmembre.component';
 
 @Component({
   selector: 'app-listes-membres',
@@ -28,10 +29,20 @@ export class ListesMembresComponent implements OnInit {
     })
   }
 
-  openDialog(): void {
+  openDialogAdd(): void {
     let dialogRef = this.dialog.open(AjoutmembreComponent, {
       width: '500px',
       data :  this.activities
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+     
+    });
+  }
+  openDialogEdit(id : string): void {
+    let dialogRef = this.dialog.open(EditmembreComponent, {
+      width: '500px',
+      data :  id,
     });
 
     dialogRef.afterClosed().subscribe(result => {
