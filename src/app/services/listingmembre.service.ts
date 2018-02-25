@@ -21,7 +21,7 @@ export class ListingmembreService {
     return this.http
     .get(`${url.API}/menbres.json?enabled=1&sort=${sort}&order=${order}&page=${page + 1}`)
      .map((res: Response) => {
-      return res.json();
+        return res.json();
     });
   }
 
