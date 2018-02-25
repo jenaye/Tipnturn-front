@@ -1,8 +1,6 @@
-<mat-grid-list cols="3" rowHeight="58px">
-    <mat-grid-tile [colspan]="3" [rowspan]="1">
+<div>
       <h1>Edit membre</h1>
-    </mat-grid-tile>
-    <mat-grid-tile [colspan]="3" [rowspan]="6">
+</div>
       <form [formGroup]="formMembre">
         <table>
           <tr>
@@ -43,9 +41,8 @@
           </tr>
         </table>     
       </form>
-    </mat-grid-tile>
-    <mat-grid-tile class="blueRow" [colspan]="3" [rowspan]="1">
+   <div style="margin-top: 10px;">
       <button mat-raised-button color="primary" (click)="edit()">sauvegarder</button>
-      <button mat-raised-button color="primary">retour</button>
-    </mat-grid-tile>
-  </mat-grid-list>
+      <button mat-raised-button color="primary" (click)="closeDialog()">retour</button>
+  </div>
+    

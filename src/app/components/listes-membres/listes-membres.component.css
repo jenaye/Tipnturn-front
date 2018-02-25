@@ -1,34 +1,10 @@
-.big{
-    font-size:50px;
-}
-
 .membre-content{
-   
 width: 90%;
 margin: auto;
 }
-mat-card{
-    width: 100%;
-    font-size: 10px;
-}
+
 .titre{
-    font-size: 13px;
-}
-.row{
-    display: inline-flex ;   
-}
-.cell{
-    flex: 1 1;
-}
-.cellName{
-    min-width: 100px;
-    width: 8%;
-}
-.cellMail{
-    min-width: 130px;
-    width: 13%;
-}
-.cellPhone{
-    min-width: 70px;
-    width: 9%;
-}
+    font-size: 40px;
+     color : #3F51B5;
+     margin: 30px 0 40px 0px;
+    }
