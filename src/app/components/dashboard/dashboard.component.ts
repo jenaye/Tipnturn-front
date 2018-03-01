@@ -47,6 +47,8 @@ export class DashboardComponent implements OnInit {
     public doughnutChartLabels:string[] = ['Rentrée', 'Sortie'];
     public doughnutChartData:any = [];
     public doughnutChartType:string = 'doughnut';
+    public color = 'primary';
+    public mode = 'indeterminate';
 
     ngOnInit() {
         this.listemembre.getData().subscribe(membres => {
@@ -64,9 +66,11 @@ export class DashboardComponent implements OnInit {
 
         })
 
-        this.activiteService.getHowManyMembre().subscribe(activities => {
+        this.activiteService.getHowManyActivites().subscribe(activities => {
            this.nbActivity = activities;
+        
             this.nbActivity.forEach(activite  => {
+                
                 this.barChartData[this.nbActivity.indexOf(activite)].data = [activite];
            });
             this.ok = true;

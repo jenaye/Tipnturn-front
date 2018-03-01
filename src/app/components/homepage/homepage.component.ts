@@ -8,7 +8,7 @@ import { Component, OnInit, } from '@angular/core';
 })
 export class HomepageComponent  {
 
-    public sideBarOpen = false;
+    public sideBarOpen = true;
 
     constructor() { }
     

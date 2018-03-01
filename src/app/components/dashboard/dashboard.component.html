@@ -1,58 +1,60 @@
 <div class="home-center">
-  <mat-grid-list cols="4" rowHeight="80px">
-    <mat-grid-tile [colspan]="4" [rowspan]="1">
-      <h1>Tableau de bord</h1>
-    </mat-grid-tile>
-    
-    <mat-grid-tile [colspan]="1" [rowspan]="1">
-      <div class="dashbord-card mat-elevation-z3">
-        <div class="icon-square-pink">
-          <i class="material-icons md-18" style="font-size: 50px; margin : 10px;">group</i>
-        </div>
-        <div class="dashbord-card-content">
-          <table>
-            <tr>
-              <td>
-                Nombre de membre
-              </td>
-              <td >
-                {{ membres.length }}
-              </td>
-            </tr>
-          </table>
-        </div>
+  <div class="titre">
+    Tableau de bord
+  </div>
+
+  <div class="card-zone">
+
+
+    <div class="dashbord-card mat-elevation-z3">
+      <div class="icon-square-pink">
+        <i class="material-icons md-18" style="font-size: 50px; margin : 10px;">group</i>
       </div>
-    </mat-grid-tile>
-    <mat-grid-tile [colspan]="1" [rowspan]="1">
-      <div class="dashbord-card mat-elevation-z3">
-        <div class="icon-square-green">
-          <i class="material-icons md-18" style="font-size: 50px; margin : 10px;">pool</i>
-        </div>
-        <div class="dashbord-card-content">
-          <table>
-            <tr>
-              <td>
+      <div class="dashbord-card-content">
+        <table>
+          <tr>
+            <td>
+              Nombre de membre
+            </td>
+            <td>
+              {{ membres.length }}
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+
+    <div class="dashbord-card mat-elevation-z3">
+      <div class="icon-square-green">
+        <i class="material-icons md-18" style="font-size: 50px; margin : 10px;">pool</i>
+      </div>
+      <div class="dashbord-card-content">
+        <table>
+          <tr>
+            <td>
               Activités
             </td>
             <td>
-              {{ activities.length }}
+              {{ nbActivity?.length }}
             </td>
-            </tr>
-          </table>
-        </div>
+          </tr>
+        </table>
       </div>
-    </mat-grid-tile>
-    <mat-grid-tile [colspan]="1" [rowspan]="1"></mat-grid-tile>
-    <mat-grid-tile [colspan]="1" [rowspan]="1"></mat-grid-tile>
-    <mat-grid-tile [colspan]="2" [rowspan]="4">
-      <mat-card class="chart-card" *ngIf="ok">
-        <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
-          [chartType]="barChartType"></canvas>
-      </mat-card>
-    </mat-grid-tile>
-    <mat-grid-tile [colspan]="2" [rowspan]="4">
-      <mat-card class="chart-card" *ngIf="okMoney">
-        <canvas baseChart [data]="doughnutChartData" [colors]="chartColors" [labels]="doughnutChartLabels" [chartType]="doughnutChartType"></canvas>
-      </mat-card>
-    </mat-grid-tile>
-  </mat-grid-list>
+    </div>
+  </div>
+  <div class="card-zone">
+    <mat-card class="chart-card">
+
+      <mat-progress-spinner *ngIf="!ok" class="spinner" [color]="color" [mode]="mode">
+      </mat-progress-spinner>
+      <canvas *ngIf="ok" baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
+        [chartType]="barChartType"></canvas>
+    </mat-card>
+
+    <mat-card class="chart-card">
+      <mat-progress-spinner *ngIf="!okMoney" class="spinner" [color]="color" [mode]="mode"></mat-progress-spinner>
+      <canvas *ngIf="okMoney" baseChart [data]="doughnutChartData" [colors]="chartColors" [labels]="doughnutChartLabels" [chartType]="doughnutChartType"></canvas>
+    </mat-card>
+  </div>
+</div>

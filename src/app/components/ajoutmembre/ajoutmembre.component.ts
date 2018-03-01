@@ -22,9 +22,9 @@ export class AjoutmembreComponent implements OnInit {
         prenom: [
           '', Validators.required
         ],
-        email: [''],
-        phone: [''],
-        cotisation: [''],
+        email: ['',Validators.required],
+        phone: ['',Validators.required],
+        cotisation: ['',Validators.required],
         certificat: false,
         cheque: false,
         enabled: true,

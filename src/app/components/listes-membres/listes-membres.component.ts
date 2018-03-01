@@ -66,21 +66,4 @@ export class ListesMembresComponent implements OnInit {
     });
   }
   
-  delete(id : string){
-
-  }
-
-  hasActivity(idActivite, membre){
-    let activites = membre.activites
-    activites = activites.filter( (activite) => activite.id === idActivite)
-    return activites.length > 0
-  }
-
-    search() {
-        var prenom = this.prenom;
-        this.listemembre.getDataByName(prenom).subscribe(el => {
-           
-        })
-    }
-
 }

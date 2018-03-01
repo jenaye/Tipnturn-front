@@ -1,5 +1,5 @@
 <div class="membre-content">
-  <div class="titre" >
+  <div class="titre">
     Listes des membres
   </div>
   <div>
@@ -58,15 +58,12 @@
         </mat-cell>
       </ng-container>
 
-      <ng-container matColumnDef="action" >
-        <mat-header-cell *matHeaderCellDef > </mat-header-cell>
-        <mat-cell *matCellDef="let row"  style="overflow:hidden;">
-            <button mat-mini-fab color="primary">
-                <mat-icon (click)="openDialogEdit(row.id)">edit</mat-icon>
-              </button>
-              <button mat-mini-fab color="primary">
-                  <mat-icon (click)="delete(row.id)">delete</mat-icon>
-                </button>
+      <ng-container matColumnDef="action">
+        <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+        <mat-cell *matCellDef="let row" style="overflow:hidden;">
+          <button mat-icon-button color="primary">
+            <mat-icon (click)="openDialogEdit(row.id)">edit</mat-icon>
+          </button>
         </mat-cell>
       </ng-container>
 

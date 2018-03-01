@@ -59,7 +59,7 @@ const appRoutes: Routes = [
 
 // otherwise redirect to home
 { path: '404', component: ErrorComponent },
-{ path: '**', redirectTo: 'dashboard' }
+{ path: '**', redirectTo: 'home/dashboard' }
 
 ];
 

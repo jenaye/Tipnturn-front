@@ -27,7 +27,7 @@ export class ActivitiesService {
     }
 
 
-  getHowManyMembre() {
+  getHowManyActivites() {
       return this.http
           .get(`${url.API}/activity/howmany`)
           .map((res: Response) => {
