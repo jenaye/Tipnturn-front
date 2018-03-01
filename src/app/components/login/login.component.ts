@@ -31,13 +31,12 @@ export class LoginComponent implements OnInit {
       this.http
           .post(`${url.API}/login_check`, formData,  headers)
           .subscribe(response => {
-              if( response.status === 200){
+              if (response.status === 200) {
                   var token = response.json().token;
                   localStorage.setItem('token', token);
                   this.router.navigateByUrl('/home/dashboard');
-                  
-              }else{
-                    console.log('wrong login');
+              } else {
+                  // show error maybe ?
               }
           });
   }
