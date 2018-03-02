@@ -4,7 +4,7 @@ import 'rxjs/add/operator/map';
 import {CheckTokenService} from './checkToken.service';
 import url from './../../config';
 @Injectable()
-export class MembresService {
+export class MembersService {
 
   constructor(private http: CheckTokenService) { }
     insert(data) {
@@ -13,8 +13,8 @@ export class MembresService {
             	.map((res: Response) => {
                 	return res.json();
             });
-
     }
+
     edit(data, id) {
         const headers = new Headers();
         headers.append('Content-Type', 'application/json');
@@ -26,7 +26,7 @@ export class MembresService {
 
     }
 
-    findById(id){
+    findById(id) {
       return this.http.get(`${url.API}/membres/${id}`)
           .map((res: Response) => {
               return res.json();

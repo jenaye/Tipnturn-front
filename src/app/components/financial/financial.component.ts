@@ -1,15 +1,15 @@
-import { Component, OnInit,ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatTableDataSource} from '@angular/material';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-import {  BilanService } from '../../services/bilan.service';
-import { AjoutbilanComponent } from '../ajoutbilan/ajoutbilan.component';
+import {  FinancialService } from '../../services/financial.service';
+import { AddFinancialComponent } from '../addFinancial/addFinancial.component';
 
 @Component({
   selector: 'app-bilan',
-  templateUrl: './bilan.component.html',
-  styleUrls: ['./bilan.component.css']
+  templateUrl: './financial.component.html',
+  styleUrls: ['./financial.component.css']
 })
-export class BilanComponent implements OnInit {
+export class FinancialComponent implements OnInit {
   
   public rapports = [];
   displayedColumns = ['date', 'libelle', 'sortie', 'rentree'];
@@ -17,12 +17,14 @@ export class BilanComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor( private bilanService:BilanService ,public dialog: MatDialog) {
-    this.dataSource= new MatTableDataSource();
-   }
+  constructor(
+      private bilanService: FinancialService ,
+      public dialog: MatDialog)
+  {
+      this.dataSource = new MatTableDataSource();
+  }
 
     ngOnInit() {
-      
         this.bilanService.getData().subscribe(rapports => {
             this.dataSource.data = rapports
             this.dataSource.paginator = this.paginator;
@@ -34,13 +36,13 @@ export class BilanComponent implements OnInit {
       }
 
       applyFilter(filterValue: string) {
-        filterValue = filterValue.trim(); // Remove whitespace
-        filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+        filterValue = filterValue.trim();
+        filterValue = filterValue.toLowerCase();
         this.dataSource.filter = filterValue;
       }
 
       openDialogAdd(): void {
-        let dialogRef = this.dialog.open(AjoutbilanComponent, {
+        let dialogRef = this.dialog.open(AddFinancialComponent, {
           width: '500px',
           
         });

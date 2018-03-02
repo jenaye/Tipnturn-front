@@ -1,46 +1,45 @@
-import { Component, OnInit,ViewChild } from '@angular/core';
-import { ListingmembreService } from '../../services/listingmembre.service';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ListingmemberService } from '../../services/listingmember.service';
 import { ActivitiesService } from '../../services/activities.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-import { AjoutmembreComponent } from '../ajoutmembre/ajoutmembre.component';
-import { EditmembreComponent } from '../editmembre/editmembre.component';
+import { AddMemberComponent } from '../addMember/addMember.component';
+import { EditmemberComponent } from '../editmember/editmember.component';
 import { MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 
 @Component({
-  selector: 'app-listes-membres',
-  templateUrl: './listes-membres.component.html',
-  styleUrls: ['./listes-membres.component.css']
+  selector: 'app-all-members',
+  templateUrl: './all-members.component.html',
+  styleUrls: ['./all-members.component.css']
 })
-export class ListesMembresComponent implements OnInit {
+export class AllMembersComponent implements OnInit {
 
- 
   public activities = [];
   public prenom: any;
   public res: any;
-  displayedColumns = ['nom', 'prenom', 'email', 'phone', 'cotisation','cheque','certificat', 'action'];
+  displayedColumns = ['nom', 'prenom', 'email', 'phone', 'cotisation', 'cheque', 'certificat', 'action'];
   dataSource: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private listemembre: ListingmembreService, private activiteService: ActivitiesService, public dialog: MatDialog) {
-    this.dataSource= new MatTableDataSource();
+  constructor(private listemembre: ListingmemberService, private activiteService: ActivitiesService, public dialog: MatDialog) {
+    this.dataSource = new MatTableDataSource();
    }
 
   ngOnInit() {
-    
+
     this.listemembre.getData().subscribe(membres => {
-    this.dataSource.data = membres
+    this.dataSource.data = membres;
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
-     
-    })
+
+    });
     this.activiteService.getData().subscribe(activities => {
       this.activities = activities;
 
-    })
+    });
   }
-  
+
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
@@ -53,17 +52,17 @@ export class ListesMembresComponent implements OnInit {
   }
 
   openDialogAdd(): void {
-    let dialogRef = this.dialog.open(AjoutmembreComponent, {
+    const dialogRef = this.dialog.open(AddMemberComponent, {
       width: '500px',
       data :  this.activities
     });
   }
- 
-  openDialogEdit(id : string): void {
-    let dialogRef = this.dialog.open(EditmembreComponent, {
+
+  openDialogEdit(id: string): void {
+    const dialogRef = this.dialog.open(EditmemberComponent, {
       width: '500px',
       data :  id,
     });
   }
-  
+
 }

@@ -3,8 +3,8 @@ import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {ActivitiesService} from '../../services/activities.service';
 import {Router} from '@angular/router';
 
-@Component({selector: 'app-ajoutactivites', templateUrl: './ajoutactivites.component.html', styleUrls: ['./ajoutactivites.component.css']})
-export class AjoutactivitesComponent implements OnInit {
+@Component({selector: 'app-ajoutactivites', templateUrl: './addActivites.component.html', styleUrls: ['./addActivites.component.css']})
+export class AddActivitesComponent implements OnInit {
 
     public formMembre : FormGroup;
 

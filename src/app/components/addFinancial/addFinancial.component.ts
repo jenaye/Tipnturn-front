@@ -1,14 +1,14 @@
-import {Component, OnInit, Inject} from '@angular/core';
-import {BilanService} from '../../services/bilan.service';
-import {FormGroup, FormBuilder, Validators} from '@angular/forms';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { Component, OnInit, Inject } from '@angular/core';
+import { FinancialService } from '../../services/financial.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
-@Component({selector: 'app-ajoutbilan', templateUrl: './ajoutbilan.component.html', styleUrls: ['./ajoutbilan.component.css']})
-export class AjoutbilanComponent implements OnInit {
+@Component({selector: 'app-addFinancial', templateUrl: './addFinancial.component.html'})
+export class AddFinancialComponent implements OnInit {
 
-    public formMembre : FormGroup;
+    public formMembre: FormGroup;
 
-    constructor(private bilanService : BilanService, private formBuilder : FormBuilder, public dialogRef : MatDialogRef < AjoutbilanComponent >) {
+    constructor(private bilanService: FinancialService, private formBuilder: FormBuilder, public dialogRef: MatDialogRef < AddFinancialComponent >) {
         this.formMembre = this
             .formBuilder
             .group({

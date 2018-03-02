@@ -3,13 +3,13 @@ import { AuthGuard } from './guards/auth.guard';
 
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { LoginComponent } from './components/login/login.component';
-import { ListesMembresComponent } from './components/listes-membres/listes-membres.component';
-import { AjoutmembreComponent } from './components/ajoutmembre/ajoutmembre.component';
-import { EditmembreComponent } from './components/editmembre/editmembre.component';
-import { ListingParActivitesComponent }  from './components/listing-par-activites/listing-par-activites.component';
-import { AjoutactivitesComponent } from './components/ajoutactivites/ajoutactivites.component';
-import { BilanComponent } from './components/bilan/bilan.component';
-import { AjoutbilanComponent } from './components/ajoutbilan/ajoutbilan.component';
+import { AllMembersComponent } from './components/all-members/all-members.component';
+import { AddMemberComponent } from './components/addMember/addMember.component';
+import { EditmemberComponent } from './components/editmember/editmember.component';
+import { ListingByActivitesComponent } from './components/listing-by-activites/listing-by-activites.component';
+import { AddActivitesComponent } from './components/addActivites/addActivites.component';
+import { FinancialComponent } from './components/financial/financial.component';
+import { AddFinancialComponent } from './components/addFinancial/addFinancial.component';
 import { ErrorComponent } from './components/error/error.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 
@@ -26,32 +26,32 @@ const appRoutes: Routes = [
                 component: DashboardComponent
             },
             {
-                path: 'membres-List',
-                component: ListesMembresComponent
+                path: 'listingMembers',
+                component: AllMembersComponent
             },
             {
-                path: 'add-membre',
-                component: AjoutmembreComponent
+                path: 'app-addMember',
+                component: AddMemberComponent
             },
             {
-                path: 'edit-membre/:id',
-                component: EditmembreComponent
+                path: 'edit-member/:id',
+                component: EditmemberComponent
             },
             {
                 path: 'activites/:id',
-                component: ListingParActivitesComponent
+                component: ListingByActivitesComponent
             },
             {
                 path: 'add-activite',
-                component: AjoutactivitesComponent
+                component: AddActivitesComponent
             },
             {
-                path: 'bilan',
-                component: BilanComponent
+                path: 'financial',
+                component: FinancialComponent
             },
             {
-                path: 'add-bilan',
-                component: AjoutbilanComponent
+                path: 'app-addFinancial',
+                component: AddFinancialComponent
             },
         ]
 

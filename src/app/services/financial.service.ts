@@ -5,7 +5,7 @@ import {CheckTokenService} from './checkToken.service';
 import url from './../../config';
 
 @Injectable()
-export class BilanService {
+export class FinancialService {
 
     constructor(private http: CheckTokenService) {
     }

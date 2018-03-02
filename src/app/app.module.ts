@@ -11,15 +11,15 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ErrorComponent } from './components/error/error.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
-import { ListesMembresComponent } from './components/listes-membres/listes-membres.component';
+import { AllMembersComponent } from './components/all-members/all-members.component';
 import { ActivitiesComponent } from './components/activities/activities.component';
 import { FormsModule } from '@angular/forms';
-import { ListingParActivitesComponent } from './components/listing-par-activites/listing-par-activites.component';
-import { AjoutmembreComponent } from './components/ajoutmembre/ajoutmembre.component';
-import { BilanComponent } from './components/bilan/bilan.component';
-import { AjoutbilanComponent } from './components/ajoutbilan/ajoutbilan.component';
+import { ListingByActivitesComponent } from './components/listing-by-activites/listing-by-activites.component';
+import { AddMemberComponent } from './components/addMember/addMember.component';
+import { FinancialComponent } from './components/financial/financial.component';
+import { AddFinancialComponent } from './components/addFinancial/addFinancial.component';
 import { LoginComponent } from './components/login/login.component';
-import { AjoutactivitesComponent } from './components/ajoutactivites/ajoutactivites.component';
+import { AddActivitesComponent } from './components/addActivites/addActivites.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { PageHeaderComponent } from './components/page-header/page-header.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -28,11 +28,11 @@ import { AuthGuard } from './guards/auth.guard';
 
 // Services
 import { CheckTokenService } from './services/checkToken.service';
-import { MembresService } from './services/membres.service';
+import { MembersService } from './services/members.service';
 import { ActivitiesService } from './services/activities.service';
-import { ListingmembreService } from './services/listingmembre.service';
-import { BilanService } from './services/bilan.service';
-import { EditmembreComponent } from './components/editmembre/editmembre.component';
+import { ListingmemberService } from './services/listingmember.service';
+import { FinancialService } from './services/financial.service';
+import { EditmemberComponent } from './components/editmember/editmember.component';
 
 // Material component
 import { MatCardModule } from '@angular/material/card';
@@ -61,15 +61,15 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     HeaderComponent,
     HomepageComponent,
     ErrorComponent,
-    ListesMembresComponent,
+      AllMembersComponent,
     ActivitiesComponent,
-    ListingParActivitesComponent,
-    AjoutmembreComponent,
-    BilanComponent,
-    AjoutbilanComponent,
+      ListingByActivitesComponent,
+      AddMemberComponent,
+      FinancialComponent,
+      AddFinancialComponent,
     LoginComponent,
-    AjoutactivitesComponent,
-    EditmembreComponent,
+      AddActivitesComponent,
+      EditmemberComponent,
     SideBarComponent,
     PageHeaderComponent,
     DashboardComponent
@@ -101,7 +101,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     routing,
   ],
   providers: [
-    ActivitiesService, ListingmembreService, MembresService, BilanService, CheckTokenService, AuthGuard
+    ActivitiesService, ListingmemberService, MembersService, FinancialService, CheckTokenService, AuthGuard
   ],
   bootstrap: [AppComponent]
 })

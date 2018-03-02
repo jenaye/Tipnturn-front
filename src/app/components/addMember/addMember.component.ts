@@ -1,16 +1,16 @@
 import {Component, OnInit, Inject} from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {ActivitiesService} from '../../services/activities.service';
-import {MembresService} from '../../services/membres.service';
+import {MembersService} from '../../services/members.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
-@Component({selector: 'app-ajoutmembre', templateUrl: './ajoutmembre.component.html', styleUrls: ['./ajoutmembre.component.css']})
-export class AjoutmembreComponent implements OnInit {
+@Component({selector: 'app-addMember', templateUrl: './addMember.component.html', styleUrls: ['./addMember.component.css']})
+export class AddMemberComponent implements OnInit {
 
-  public activitestab : Array < any >;
-  public formMembre : FormGroup;
+  public activitestab: Array < any >;
+  public formMembre: FormGroup;
 
-  constructor(private formBuilder : FormBuilder, private membresservice : MembresService, public dialogRef : MatDialogRef < AjoutmembreComponent >, @Inject(MAT_DIALOG_DATA)public data : any)
+  constructor(private formBuilder: FormBuilder, private membresservice: MembersService, public dialogRef: MatDialogRef < AddMemberComponent >, @Inject(MAT_DIALOG_DATA)public data: any)
   {
     this.activitestab = data
     this.formMembre = this
@@ -22,9 +22,9 @@ export class AjoutmembreComponent implements OnInit {
         prenom: [
           '', Validators.required
         ],
-        email: ['',Validators.required],
-        phone: ['',Validators.required],
-        cotisation: ['',Validators.required],
+        email: ['', Validators.required],
+        phone: ['', Validators.required],
+        cotisation: ['', Validators.required],
         certificat: false,
         cheque: false,
         enabled: true,
