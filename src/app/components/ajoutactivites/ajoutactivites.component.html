@@ -1,7 +1,17 @@
-<form (submit)="add()">
-  <div class="form-group">
-    <label for="nom">Nom</label>
-    <input type="text" class="form-control" [(ngModel)]="nom" id="nom" name="nom">
-  </div>
-  <input type="submit" class="btn btn-primary" value="Ajouter">
-</form>
+<div class="activite-content">
+  <div class="titre">Ajouter une Activitée</div>
+
+    <form [formGroup]="formMembre">
+      <table>
+        
+          <tr>
+            <mat-form-field>
+              <input matInput placeholder="Nom" formControlName="nom" />
+            </mat-form-field>
+          </tr>
+      </table>
+      </form>
+  <div style="margin-top:10px;">
+      <button mat-raised-button color="primary" (click)="add()">sauvegarder</button>
+    </div>
+</div>

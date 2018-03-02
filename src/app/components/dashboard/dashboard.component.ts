@@ -32,12 +32,7 @@ export class DashboardComponent implements OnInit {
     public barChartLabels: string[] = ['Activites'];
     public barChartType: string = 'bar';
     public barChartLegend: boolean = true;
-    public barChartData: any[] = [
-        {data: [], label: 'Cours 1'},
-        {data: [], label: 'Atelier 1'},
-        {data: [], label: 'Cours 2'},
-        {data: [], label: 'Atelier 2'}
-    ];
+    public barChartData: any[] ;
 
     public chartColors: any[] = [
         {
@@ -53,7 +48,6 @@ export class DashboardComponent implements OnInit {
     ngOnInit() {
         this.listemembre.getData().subscribe(membres => {
             this.membres = membres;
-
         })
         this.bilanService.getMoney().subscribe(monney => {
             this.monney = monney;
@@ -71,7 +65,9 @@ export class DashboardComponent implements OnInit {
         
             this.nbActivity.forEach(activite  => {
                 
-                this.barChartData[this.nbActivity.indexOf(activite)].data = [activite];
+                this.barChartData = []
+                this.barChartData.push( {data:activite.data, label:activite.label});
+
            });
             this.ok = true;
         });
