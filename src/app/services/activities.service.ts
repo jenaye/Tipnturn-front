@@ -37,7 +37,6 @@ export class ActivitiesService {
   }
 
     insert(data) {
-        console.log(data)
         return this.http
             .post(`${url.API}/activities`, data)
             .map((res: Response) => {
