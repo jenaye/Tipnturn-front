@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatTableDataSource} from '@angular/material';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-import {  BilanService } from '../../services/bilan.service';
+import {  FinancialService } from '../../services/financial.service';
 import { AddFinancialComponent } from '../addFinancial/addFinancial.component';
 
 @Component({
@@ -18,14 +18,13 @@ export class FinancialComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(
-      private bilanService: BilanService ,
+      private bilanService: FinancialService ,
       public dialog: MatDialog)
   {
-      this.dataSource= new MatTableDataSource();
+      this.dataSource = new MatTableDataSource();
   }
 
     ngOnInit() {
-      
         this.bilanService.getData().subscribe(rapports => {
             this.dataSource.data = rapports
             this.dataSource.paginator = this.paginator;
@@ -37,8 +36,8 @@ export class FinancialComponent implements OnInit {
       }
 
       applyFilter(filterValue: string) {
-        filterValue = filterValue.trim(); // Remove whitespace
-        filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+        filterValue = filterValue.trim();
+        filterValue = filterValue.toLowerCase();
         this.dataSource.filter = filterValue;
       }
 

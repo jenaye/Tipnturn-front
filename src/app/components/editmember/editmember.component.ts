@@ -1,6 +1,6 @@
 import { Component, OnInit , Inject } from '@angular/core';
 import { ActivitiesService } from '../../services/activities.service';
-import { MembresService } from '../../services/membres.service';
+import { MembersService } from '../../services/members.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
@@ -16,7 +16,7 @@ export class EditmemberComponent implements OnInit {
   
 
 
-    constructor(private formBuilder: FormBuilder, private  membresservice: MembresService, public dialogRef: MatDialogRef < EditmembreComponent >,@Inject(MAT_DIALOG_DATA)public data : any) {
+    constructor(private formBuilder: FormBuilder, private  membresservice: MembersService, public dialogRef: MatDialogRef < EditmemberComponent >,@Inject(MAT_DIALOG_DATA)public data : any) {
 
       this.formMembre = this
       .formBuilder

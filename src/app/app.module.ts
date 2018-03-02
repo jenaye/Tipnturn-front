@@ -28,10 +28,10 @@ import { AuthGuard } from './guards/auth.guard';
 
 // Services
 import { CheckTokenService } from './services/checkToken.service';
-import { MembresService } from './services/membres.service';
+import { MembersService } from './services/members.service';
 import { ActivitiesService } from './services/activities.service';
-import { ListingmembreService } from './services/listingmembre.service';
-import { BilanService } from './services/bilan.service';
+import { ListingmemberService } from './services/listingmember.service';
+import { FinancialService } from './services/financial.service';
 import { EditmemberComponent } from './components/editmember/editmember.component';
 
 // Material component
@@ -101,7 +101,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     routing,
   ],
   providers: [
-    ActivitiesService, ListingmembreService, MembresService, BilanService, CheckTokenService, AuthGuard
+    ActivitiesService, ListingmemberService, MembersService, FinancialService, CheckTokenService, AuthGuard
   ],
   bootstrap: [AppComponent]
 })

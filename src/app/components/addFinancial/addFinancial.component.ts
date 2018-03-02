@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { BilanService } from '../../services/bilan.service';
+import { FinancialService } from '../../services/financial.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
@@ -8,7 +8,7 @@ export class AddFinancialComponent implements OnInit {
 
     public formMembre: FormGroup;
 
-    constructor(private bilanService: BilanService, private formBuilder: FormBuilder, public dialogRef: MatDialogRef < AjoutbilanComponent >) {
+    constructor(private bilanService: FinancialService, private formBuilder: FormBuilder, public dialogRef: MatDialogRef < AddFinancialComponent >) {
         this.formMembre = this
             .formBuilder
             .group({

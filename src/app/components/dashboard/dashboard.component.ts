@@ -1,21 +1,21 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {ListingmembreService} from '../../services/listingmembre.service';
+import {ListingmemberService} from '../../services/listingmember.service';
 import {ActivitiesService} from '../../services/activities.service';
-import {forEach} from "@angular/router/src/utils/collection";
-import {BilanService} from "../../services/bilan.service";
+import {forEach} from '@angular/router/src/utils/collection';
+import {FinancialService} from '../../services/financial.service';
 
 @Component({selector: 'app-dashboard', templateUrl: './dashboard.component.html', styleUrls: ['./dashboard.component.css'], encapsulation: ViewEncapsulation.None})
 export class DashboardComponent implements OnInit {
 
-    constructor(private listemembre : ListingmembreService, private activiteService : ActivitiesService, private bilanService : BilanService) {}
+    constructor(private listemembre: ListingmemberService, private activiteService: ActivitiesService, private bilanService: FinancialService) {}
 
-    public ok : boolean = false;
-    public okMoney : boolean = false;
+    public ok: boolean = false;
+    public okMoney: boolean = false;
     public membres = [];
-    public monney : any;
+    public monney: any;
     public activities = [];
-    public nbActivity : any;
-    public barChartOptions : any = {
+    public nbActivity: any;
+    public barChartOptions: any = {
         scaleShowVerticalLines: false,
         responsive: true,
         scales: {
@@ -32,10 +32,10 @@ export class DashboardComponent implements OnInit {
             ]
         }
     };
-    public barChartLabels : string[] = ['Activites'];
-    public barChartType : string = 'bar';
-    public barChartLegend : boolean = true;
-    public barChartData : any[];
+    public barChartLabels: string[] = ['Activites'];
+    public barChartType: string = 'bar';
+    public barChartLegend: boolean = true;
+    public barChartData: any[];
 
     public chartColors : any[] = [
         {
@@ -43,9 +43,9 @@ export class DashboardComponent implements OnInit {
         }
     ];
 
-    public doughnutChartLabels : string[] = ['Rentrée', 'Sortie'];
-    public doughnutChartData : any = [];
-    public doughnutChartType : string = 'doughnut';
+    public doughnutChartLabels: string[] = ['Rentrée', 'Sortie'];
+    public doughnutChartData: any = [];
+    public doughnutChartType: string = 'doughnut';
     public color = 'primary';
     public mode = 'indeterminate';
 
@@ -78,11 +78,11 @@ export class DashboardComponent implements OnInit {
             .activiteService
             .getData()
             .subscribe(activities => {
-                this.barChartData = []
+                this.barChartData = [];
                 this.nbActivity = activities;
 
                 activities.forEach(activite => {
-                   this.barChartData=  [...this.barChartData, {data: [activite.membres.length], label: activite.name}];
+                   this.barChartData =  [...this.barChartData, {data: [activite.membres.length], label: activite.name}];
                 });
                 this.ok = true;
             });

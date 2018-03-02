@@ -5,7 +5,7 @@ import {CheckTokenService} from './checkToken.service';
 import url from './../../config';
 
 @Injectable()
-export class ListingmembreService {
+export class ListingmemberService {
 
   constructor(private http: CheckTokenService) { }
 
@@ -17,7 +17,7 @@ export class ListingmembreService {
                 });
   }
   
-  getDatalazyLoad(sort : string , order: string, page: number){
+  getDatalazyLoad(sort: string , order: string, page: number) {
     return this.http
     .get(`${url.API}/menbres.json?enabled=1&sort=${sort}&order=${order}&page=${page + 1}`)
      .map((res: Response) => {

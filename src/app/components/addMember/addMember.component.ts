@@ -1,7 +1,7 @@
 import {Component, OnInit, Inject} from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {ActivitiesService} from '../../services/activities.service';
-import {MembresService} from '../../services/membres.service';
+import {MembersService} from '../../services/members.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
 @Component({selector: 'app-ajoutmembre', templateUrl: './addMember.component.html', styleUrls: ['./addMember.component.css']})
@@ -10,7 +10,7 @@ export class AddMemberComponent implements OnInit {
   public activitestab: Array < any >;
   public formMembre: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private membresservice: MembresService, public dialogRef: MatDialogRef < AjoutmembreComponent >, @Inject(MAT_DIALOG_DATA)public data: any)
+  constructor(private formBuilder: FormBuilder, private membresservice: MembersService, public dialogRef: MatDialogRef < AddMemberComponent >, @Inject(MAT_DIALOG_DATA)public data: any)
   {
     this.activitestab = data
     this.formMembre = this

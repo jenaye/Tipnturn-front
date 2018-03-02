@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ListingmembreService } from '../../services/listingmembre.service';
+import { ListingmemberService } from '../../services/listingmember.service';
 import { ActivitiesService } from '../../services/activities.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { AddMemberComponent } from '../addMember/addMember.component';
@@ -16,20 +16,20 @@ export class AllMembersComponent implements OnInit {
   public activities = [];
   public prenom: any;
   public res: any;
-  displayedColumns = ['nom', 'prenom', 'email', 'phone', 'cotisation','cheque','certificat', 'action'];
+  displayedColumns = ['nom', 'prenom', 'email', 'phone', 'cotisation', 'cheque', 'certificat', 'action'];
   dataSource: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private listemembre: ListingmembreService, private activiteService: ActivitiesService, public dialog: MatDialog) {
+  constructor(private listemembre: ListingmemberService, private activiteService: ActivitiesService, public dialog: MatDialog) {
     this.dataSource = new MatTableDataSource();
    }
 
   ngOnInit() {
 
     this.listemembre.getData().subscribe(membres => {
-    this.dataSource.data = membres
+    this.dataSource.data = membres;
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
 
@@ -52,17 +52,17 @@ export class AllMembersComponent implements OnInit {
   }
 
   openDialogAdd(): void {
-    let dialogRef = this.dialog.open(AddMemberComponent, {
+    const dialogRef = this.dialog.open(AddMemberComponent, {
       width: '500px',
       data :  this.activities
     });
   }
 
   openDialogEdit(id: string): void {
-    let dialogRef = this.dialog.open(EditmemberComponent, {
+    const dialogRef = this.dialog.open(EditmemberComponent, {
       width: '500px',
       data :  id,
     });
   }
-  
+
 }
