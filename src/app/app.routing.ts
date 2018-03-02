@@ -30,7 +30,7 @@ const appRoutes: Routes = [
                 component: AllMembersComponent
             },
             {
-                path: 'add-membre',
+                path: 'app-addMember',
                 component: AddMemberComponent
             },
             {

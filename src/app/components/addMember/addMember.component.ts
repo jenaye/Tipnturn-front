@@ -4,7 +4,7 @@ import {ActivitiesService} from '../../services/activities.service';
 import {MembersService} from '../../services/members.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
-@Component({selector: 'app-ajoutmembre', templateUrl: './addMember.component.html', styleUrls: ['./addMember.component.css']})
+@Component({selector: 'app-addMember', templateUrl: './addMember.component.html', styleUrls: ['./addMember.component.css']})
 export class AddMemberComponent implements OnInit {
 
   public activitestab: Array < any >;
