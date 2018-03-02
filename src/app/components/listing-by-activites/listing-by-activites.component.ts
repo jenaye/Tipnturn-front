@@ -3,8 +3,8 @@ import {ActivitiesService} from '../../services/activities.service';
 import { Router,ActivatedRoute,NavigationEnd} from '@angular/router';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 
-@Component({selector: 'app-listing-par-activites', templateUrl: './listing-par-activites.component.html', styleUrls: ['./listing-par-activites.component.css']})
-export class ListingParActivitesComponent implements OnInit,
+@Component({selector: 'app-listing-par-activites', templateUrl: './listing-by-activites.component.html', styleUrls: ['./listing-by-activites.component.css']})
+export class ListingByActivitesComponent implements OnInit,
 OnDestroy {
 
   public activities;

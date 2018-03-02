@@ -4,7 +4,7 @@ import {Component} from '@angular/core';
 export class AppComponent {
 
 
-    protected logged : boolean;
+    protected logged: boolean;
 
     ngOnInit() {
 

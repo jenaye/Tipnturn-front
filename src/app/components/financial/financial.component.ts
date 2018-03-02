@@ -1,15 +1,15 @@
-import { Component, OnInit,ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatTableDataSource} from '@angular/material';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {  BilanService } from '../../services/bilan.service';
-import { AjoutbilanComponent } from '../ajoutbilan/ajoutbilan.component';
+import { AddFinancialComponent } from '../addFinancial/addFinancial.component';
 
 @Component({
   selector: 'app-bilan',
-  templateUrl: './bilan.component.html',
-  styleUrls: ['./bilan.component.css']
+  templateUrl: './financial.component.html',
+  styleUrls: ['./financial.component.css']
 })
-export class BilanComponent implements OnInit {
+export class FinancialComponent implements OnInit {
   
   public rapports = [];
   displayedColumns = ['date', 'libelle', 'sortie', 'rentree'];
@@ -17,9 +17,12 @@ export class BilanComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor( private bilanService:BilanService ,public dialog: MatDialog) {
-    this.dataSource= new MatTableDataSource();
-   }
+  constructor(
+      private bilanService: BilanService ,
+      public dialog: MatDialog)
+  {
+      this.dataSource= new MatTableDataSource();
+  }
 
     ngOnInit() {
       
@@ -40,7 +43,7 @@ export class BilanComponent implements OnInit {
       }
 
       openDialogAdd(): void {
-        let dialogRef = this.dialog.open(AjoutbilanComponent, {
+        let dialogRef = this.dialog.open(AddFinancialComponent, {
           width: '500px',
           
         });

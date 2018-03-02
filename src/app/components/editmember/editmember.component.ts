@@ -6,18 +6,18 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
-  selector: 'app-editmembre',
-  templateUrl: './editmembre.component.html',
-  styleUrls: ['./editmembre.component.css']
+  selector: 'app-editmember',
+  templateUrl: './editmember.component.html',
+  styleUrls: ['./editmember.component.css']
 })
-export class EditmembreComponent implements OnInit {
+export class EditmemberComponent implements OnInit {
 
-    public formMembre : FormGroup;
+    public formMembre: FormGroup;
   
 
 
-    constructor(private formBuilder : FormBuilder,private membresservice: MembresService, public dialogRef : MatDialogRef < EditmembreComponent >,@Inject(MAT_DIALOG_DATA)public data : any) {
-    
+    constructor(private formBuilder: FormBuilder, private  membresservice: MembresService, public dialogRef: MatDialogRef < EditmembreComponent >,@Inject(MAT_DIALOG_DATA)public data : any) {
+
       this.formMembre = this
       .formBuilder
       .group({
