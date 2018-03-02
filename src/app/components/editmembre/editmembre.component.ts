@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import {ActivitiesService} from '../../services/activities.service';
+import { Component, OnInit , Inject } from '@angular/core';
+import { ActivitiesService } from '../../services/activities.service';
 import { MembresService } from '../../services/membres.service';
-import { Router } from '@angular/router';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'app-editmembre',
@@ -10,52 +12,53 @@ import { Router } from '@angular/router';
 })
 export class EditmembreComponent implements OnInit {
 
-    private id: any;
-    private nom: string;
-    private prenom: string;
-    private email: string;
-    private phone: string;
-    private cheque: boolean;
-    private certificat: boolean;
-    private cotisation: string;
-    public href: any;
+    public formMembre : FormGroup;
+  
 
 
-    constructor(private membresservice: MembresService, private router: Router) {
+    constructor(private formBuilder : FormBuilder,private membresservice: MembresService, public dialogRef : MatDialogRef < EditmembreComponent >,@Inject(MAT_DIALOG_DATA)public data : any) {
+    
+      this.formMembre = this
+      .formBuilder
+      .group({
+        id: [''] ,
+        nom: [[''], Validators.required],
+        prenom: [[''], Validators.required],
+        email: [[''], Validators.required],
+        phone: [[''], Validators.required],
+        cotisation: [[''], Validators.required],
+        certificat: [false, Validators.required],
+        cheque: [false, Validators.required],
+        enabled:[false, Validators.required],
+      });            
     }
 
   ngOnInit() {
-      this.href = this.router.url;
-      const id_membre = this.href.split( '/' );
-      this.membresservice.findById(id_membre[2]).subscribe(user => {
-          this.id = user.id;
-          this.nom = user.nom;
-          this.prenom = user.prenom;
-          this.email = user.email;
-          this.phone = user.phone;
-          this.cheque = user.cheque;
-          this.certificat = user.certificat;
-          this.cotisation = user.cotisation;
-
+        
+      this.membresservice.findById(this.data).subscribe(user => {
+          this.formMembre.patchValue({
+            id : this.data,
+            nom : user.nom,
+            prenom : user.prenom,
+            email : user.email,
+            phone : user.phone,
+            cotisation : user.cotisation,
+            certificat : user.certificat,
+            cheque : user.cheque,
+            enabled: user.enabled
+          })
       });
+     
   }
 
     edit() {
-        const data = {
-            nom: this.nom,
-            prenom: this.prenom,
-            email: this.email,
-            phone: this.phone,
-            cheque: this.cheque ? this.cheque : false,
-            certificat: this.certificat ? this.certificat : false,
-            cotisation: this.cotisation,
-        };
-
-        this.membresservice.edit(data, this.id).subscribe( membre => {
-            this.router.navigate(['listes-des-membres']);
+            this.membresservice.edit(this.formMembre.value, this.data).subscribe( membre => {
+            this.closeDialog();
         });
+    }
 
-        console.log(data);
+    closeDialog() {
+      this.dialogRef.close();
     }
 
 }

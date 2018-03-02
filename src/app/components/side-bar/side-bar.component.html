@@ -1,0 +1,26 @@
+
+    <mat-nav-list>
+        <mat-accordion>
+            <a mat-list-item routerLink="/home/dashboard">Tableau de bord</a>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Organisation
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <a mat-list-item routerLink="/home/membres-List">Tous les membres</a>
+              <app-activities></app-activities>
+            </mat-expansion-panel>
+            <mat-expansion-panel >
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Trésorerie
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <a mat-list-item routerLink="/home/bilan">Bilan mensuel</a>
+            </mat-expansion-panel>
+          </mat-accordion>
+          <a mat-list-item routerLink="/home/add-activite">Ajouter une activite</a>
+      <a mat-list-item (click)="logout()">Deconnexion</a>
+     
+    </mat-nav-list>

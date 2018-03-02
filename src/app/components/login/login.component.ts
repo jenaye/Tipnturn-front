@@ -3,7 +3,7 @@ import { Response, Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import {Headers , RequestOptions} from '@angular/http';
 import {Router} from '@angular/router';
-import url from '../../../../config';
+import url from './../../../config';
 
 @Component({
   selector: 'app-login',
@@ -31,13 +31,12 @@ export class LoginComponent implements OnInit {
       this.http
           .post(`${url.API}/login_check`, formData,  headers)
           .subscribe(response => {
-              if( response.status === 200){
+              if (response.status === 200) {
                   var token = response.json().token;
                   localStorage.setItem('token', token);
-                  this.router.navigateByUrl('/accueil');
-                  window.location.reload();
-              }else{
-                    console.log('wrong login');
+                  this.router.navigateByUrl('/home/dashboard');
+              } else {
+                  // show error maybe ?
               }
           });
   }

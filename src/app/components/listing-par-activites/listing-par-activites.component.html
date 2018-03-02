@@ -1,23 +1,47 @@
 <ng-container *ngIf="membres">
-<h1 class="animated fadeIn">Organisation – {{ activities.name }}</h1>
+        <div class="membre-content">
+    <div class="titre">Organisation – {{ activities?.name }}</div>
 
-<table class="table table-striped animated fadeIn">
-    <thead>
-    <tr>
-        <th>Nom</th>
-        <th>Prenom</th>
-        <th><i class="fa fa-envelope-o" aria-hidden="true"></i></th>
-        <th><i class="fa fa-phone" aria-hidden="true"></i></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let membre of membres">
-        <td><a href="/edit-membre/{{ membre.id }}">{{ membre.nom }}</a></td>
-        <td>{{ membre.prenom }} </td>
-        <td>{{ membre.email }} </td>
-        <td>{{ membre.phone }} </td>
-    </tr>
 
-    </tbody>
-</table>
+    <div>
+            <mat-form-field>
+              <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+            </mat-form-field>
+          </div>
+        
+          <div class="example-container mat-elevation-z8">
+        
+            <mat-table [dataSource]="dataSource" matSort>
+        
+              <ng-container matColumnDef="nom">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Nom </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.nom}} </mat-cell>
+              </ng-container>
+        
+              <ng-container matColumnDef="prenom">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Prénom </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.prenom}} </mat-cell>
+              </ng-container>
+        
+              <ng-container matColumnDef="email">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.email}} </mat-cell>
+              </ng-container>
+        
+              <ng-container matColumnDef="phone">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Téléphone </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.phone}} </mat-cell>
+              </ng-container>
+        
+           
+        
+              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns;">
+              </mat-row>
+            </mat-table>
+        
+            <mat-paginator [pageSizeOptions]="[5, 10, 25]"></mat-paginator>
+        
+          </div>
+</div>
 </ng-container>

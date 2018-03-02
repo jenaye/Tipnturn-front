@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import { ListingmembreService } from '../../services/listingmembre.service';
 import { ActivitiesService } from '../../services/activities.service';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { AjoutmembreComponent } from '../ajoutmembre/ajoutmembre.component';
+import { EditmembreComponent } from '../editmembre/editmembre.component';
+import { MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 
 @Component({
   selector: 'app-listes-membres',
@@ -8,35 +12,58 @@ import { ActivitiesService } from '../../services/activities.service';
   styleUrls: ['./listes-membres.component.css']
 })
 export class ListesMembresComponent implements OnInit {
-  public membres = [];
+
+ 
   public activities = [];
   public prenom: any;
   public res: any;
-  constructor(private listemembre: ListingmembreService, private activiteService: ActivitiesService) { }
+  displayedColumns = ['nom', 'prenom', 'email', 'phone', 'cotisation','cheque','certificat', 'action'];
+  dataSource: MatTableDataSource<any>;
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+
+  constructor(private listemembre: ListingmembreService, private activiteService: ActivitiesService, public dialog: MatDialog) {
+    this.dataSource= new MatTableDataSource();
+   }
 
   ngOnInit() {
+    
     this.listemembre.getData().subscribe(membres => {
-      this.membres = membres;
-
+    this.dataSource.data = membres
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+     
     })
-
     this.activiteService.getData().subscribe(activities => {
       this.activities = activities;
 
     })
   }
-
-  hasActivity(idActivite, membre){
-    let activites = membre.activites
-    activites = activites.filter( (activite) => activite.id === idActivite)
-    return activites.length > 0
+  
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 
-    search() {
-        var prenom = this.prenom;
-        this.listemembre.getDataByName(prenom).subscribe(el => {
-            this.membres = el;
-        })
-    }
+  applyFilter(filterValue: string) {
+    filterValue = filterValue.trim(); // Remove whitespace
+    filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+    this.dataSource.filter = filterValue;
+  }
 
+  openDialogAdd(): void {
+    let dialogRef = this.dialog.open(AjoutmembreComponent, {
+      width: '500px',
+      data :  this.activities
+    });
+  }
+ 
+  openDialogEdit(id : string): void {
+    let dialogRef = this.dialog.open(EditmembreComponent, {
+      width: '500px',
+      data :  id,
+    });
+  }
+  
 }

@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
+
+
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ErrorComponent } from './components/error/error.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { ListesMembresComponent } from './components/listes-membres/listes-membres.component';
 import { ActivitiesComponent } from './components/activities/activities.component';
@@ -18,6 +20,11 @@ import { BilanComponent } from './components/bilan/bilan.component';
 import { AjoutbilanComponent } from './components/ajoutbilan/ajoutbilan.component';
 import { LoginComponent } from './components/login/login.component';
 import { AjoutactivitesComponent } from './components/ajoutactivites/ajoutactivites.component';
+import { SideBarComponent } from './components/side-bar/side-bar.component';
+import { PageHeaderComponent } from './components/page-header/page-header.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { routing } from './app.routing';
+import { AuthGuard } from './guards/auth.guard';
 
 // Services
 import { CheckTokenService } from './services/checkToken.service';
@@ -33,28 +40,25 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 
-// routes
-const appRoutes: Routes = [
-    { path: '', component: LoginComponent },
-    { path: 'accueil', component: HomepageComponent },
-    { path: 'listes-des-membres', component: ListesMembresComponent },
-    { path: 'ajout-membre', component: AjoutmembreComponent },
-    { path: 'edit-membre/:id', component: EditmembreComponent },
-    { path: 'activites/:id', component: ListingParActivitesComponent },
-    { path: 'ajout-activite', component: AjoutactivitesComponent },
-    { path: 'bilan', component: BilanComponent },
-    { path: 'ajout-bilan', component: AjoutbilanComponent },
-    { path: '404', component: ErrorComponent },
-    { path: '**', redirectTo: '/404'}
-];
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    NavbarComponent,
     HomepageComponent,
     ErrorComponent,
     ListesMembresComponent,
@@ -65,26 +69,39 @@ const appRoutes: Routes = [
     AjoutbilanComponent,
     LoginComponent,
     AjoutactivitesComponent,
-    EditmembreComponent
+    EditmembreComponent,
+    SideBarComponent,
+    PageHeaderComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpModule,
     FormsModule,
+    ReactiveFormsModule,
     ChartsModule,
     MatCardModule,
     MatInputModule,
     MatFormFieldModule,
     MatIconModule,
     MatButtonModule,
-    RouterModule.forRoot(
-        appRoutes,
-        { enableTracing: false }
-      )
+    MatSidenavModule,
+    MatListModule,
+    MatExpansionModule,
+    MatToolbarModule,
+    MatGridListModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatCheckboxModule,
+    MatSelectModule,
+    MatDialogModule,
+    MatProgressSpinnerModule,
+    MatDatepickerModule,
+    routing,
   ],
   providers: [
-    ActivitiesService, ListingmembreService, MembresService, BilanService, CheckTokenService
+    ActivitiesService, ListingmembreService, MembresService, BilanService, CheckTokenService, AuthGuard
   ],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,60 @@
+<div class="home-center">
+  <div class="titre">
+    Tableau de bord
+  </div>
+
+  <div class="card-zone">
+
+
+    <div class="dashbord-card mat-elevation-z3">
+      <div class="icon-square-pink">
+        <i class="material-icons md-18" style="font-size: 50px; margin : 10px;">group</i>
+      </div>
+      <div class="dashbord-card-content">
+        <table>
+          <tr>
+            <td>
+              Nombre de membre
+            </td>
+            <td>
+              {{ membres.length }}
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+
+    <div class="dashbord-card mat-elevation-z3">
+      <div class="icon-square-green">
+        <i class="material-icons md-18" style="font-size: 50px; margin : 10px;">pool</i>
+      </div>
+      <div class="dashbord-card-content">
+        <table>
+          <tr>
+            <td>
+              Activités
+            </td>
+            <td>
+              {{ nbActivity?.length }}
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="card-zone">
+    <mat-card class="chart-card">
+
+      <mat-progress-spinner *ngIf="!ok" class="spinner" [color]="color" [mode]="mode">
+      </mat-progress-spinner>
+      <canvas *ngIf="ok" baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
+        [chartType]="barChartType"></canvas>
+    </mat-card>
+
+    <mat-card class="chart-card">
+      <mat-progress-spinner *ngIf="!okMoney" class="spinner" [color]="color" [mode]="mode"></mat-progress-spinner>
+      <canvas *ngIf="okMoney" baseChart [data]="doughnutChartData" [colors]="chartColors" [labels]="doughnutChartLabels" [chartType]="doughnutChartType"></canvas>
+    </mat-card>
+  </div>
+</div>

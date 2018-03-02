@@ -1,38 +1,44 @@
-import { Component, OnInit } from '@angular/core';
-import {BilanService} from '../../services/bilan.service'
+import {Component, OnInit, Inject} from '@angular/core';
+import {BilanService} from '../../services/bilan.service';
+import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
-@Component({
-  selector: 'app-ajoutbilan',
-  templateUrl: './ajoutbilan.component.html',
-  styleUrls: ['./ajoutbilan.component.css']
-})
+@Component({selector: 'app-ajoutbilan', templateUrl: './ajoutbilan.component.html', styleUrls: ['./ajoutbilan.component.css']})
 export class AjoutbilanComponent implements OnInit {
 
-    private date:any;
-    private libelle:string;
-    private rentree:any;
-    private sortie:any;
-    private Bilan = [];
-    
-  constructor(private bilanService: BilanService) { }
+    public formMembre : FormGroup;
 
-  ngOnInit(){
-    
-  }
+    constructor(private bilanService : BilanService, private formBuilder : FormBuilder, public dialogRef : MatDialogRef < AjoutbilanComponent >) {
+        this.formMembre = this
+            .formBuilder
+            .group({
+                date: [
+                    '', Validators.required
+                ],
+                libelle: [
+                    '', Validators.required
+                ],
+                rentree: [
+                    '', Validators.required
+                ],
+                sortie: ['', Validators.required]
+            });
+    }
+
+    ngOnInit() {}
 
     add() {
 
-        let data = {
-            date: this.date,
-            libelle: this.libelle,
-            rentree:this.rentree?this.rentree:null,
-            sortie:this.sortie?this.sortie:null,
-        };
+        this
+            .bilanService
+            .insert(this.formMembre.value)
+            .subscribe(membre => {});
 
-        this.bilanService.insert(data).subscribe( membre => {
-        
-        });
-
+    }
+    closeDialog() {
+        this
+            .dialogRef
+            .close();
     }
 
 }

@@ -1,70 +1,70 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Inject} from '@angular/core';
+import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {ActivitiesService} from '../../services/activities.service';
-import { MembresService } from '../../services/membres.service';
-import { Router } from '@angular/router';
+import {MembresService} from '../../services/membres.service';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
-@Component({
-  selector: 'app-ajoutmembre',
-  templateUrl: './ajoutmembre.component.html',
-  styleUrls: ['./ajoutmembre.component.css']
-})
+@Component({selector: 'app-ajoutmembre', templateUrl: './ajoutmembre.component.html', styleUrls: ['./ajoutmembre.component.css']})
 export class AjoutmembreComponent implements OnInit {
 
-    private nom: string;
-    private prenom: string;
-    private email: string;
-    private phone: string;
-    private cheque: boolean;
-    private certificat: boolean;
-    private cotisation: string;
-    private activites = [];
-    public toggles = [];
+  public activitestab : Array < any >;
+  public formMembre : FormGroup;
 
+  constructor(private formBuilder : FormBuilder, private membresservice : MembresService, public dialogRef : MatDialogRef < AjoutmembreComponent >, @Inject(MAT_DIALOG_DATA)public data : any)
+  {
+    this.activitestab = data
+    this.formMembre = this
+      .formBuilder
+      .group({
+        nom: [
+          '', Validators.required
+        ],
+        prenom: [
+          '', Validators.required
+        ],
+        email: ['',Validators.required],
+        phone: ['',Validators.required],
+        cotisation: ['',Validators.required],
+        certificat: false,
+        cheque: false,
+        enabled: true,
+        activites: Array()
+      });
 
-  constructor(private activitesServer: ActivitiesService, private membresservice: MembresService, private router: Router) {
-                this.activitesServer.getData().subscribe(activities => {
-                this.activites = activities;
+  }
+
+  ngOnInit() {}
+
+  add() {
+
+    if (this.formMembre.value.activites) {
+      let tmp = [];
+
+      this
+        .formMembre
+        .value
+        .activites
+        .forEach(id => {
+          tmp.push(`/api/activities/${id}`)
+        });
+
+      this.formMembre.value.activites = tmp;
+    } else {
+      this.formMembre.value.activites = [];
+    }
+
+    this
+      .membresservice
+      .insert(this.formMembre.value)
+      .subscribe(membre => {
+        this.closeDialog()
       });
   }
 
-    ngOnInit() {
-    }
-
-    add() {
-        const data = {
-          nom: this.nom,
-          prenom: this.prenom,
-          email: this.email,
-          phone: this.phone,
-          cheque: this.cheque ? this.cheque : false,
-          certificat: this.certificat ? this.certificat : false,
-          cotisation: this.cotisation,
-          activites: []
-        };
-
-        this.toggles.forEach( toggle => {
-          const dataAct = `/api/activities/${toggle.id}`;
-          data.activites.push(dataAct);
-        })
-
-        this.membresservice.insert(data).subscribe( membre => {
-        this.router.navigate(['listes-des-membres']);
-        });
-
-        console.log(data);
-  }
-
-  toggle(item){
-     const Element = this.toggles.findIndex( eltToggle => {
-        return eltToggle.id == item.id;
-      })
-
-     if(Element >= 0){
-       this.toggles.splice(Element, 1)
-     }else{
-       this.toggles.push(item);
-     }
-
+  closeDialog() {
+    this
+      .dialogRef
+      .close();
   }
 
 }

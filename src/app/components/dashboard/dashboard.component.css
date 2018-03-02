@@ -1,0 +1,69 @@
+.dashbord-card{
+    display: inline-flex;
+    background-color: #FFFFFF;
+    border-radius: 1px;
+    width: 250px;
+    margin-right: 10px;
+    
+}
+.icon-square-pink{
+    background-color: #FFFFFF ;
+    color: #AB47BC;
+    border-left: #AB47BC solid 2px;
+    border-radius: 1px 0px 0px 1px;
+}
+.icon-square-green{
+    background-color: #FFFFFF ;
+    color: #26A69A;
+    border-left: #26A69A solid 2px;
+    border-radius: 1px 0px 0px 1px;
+}
+.dashbord-card-content{
+    vertical-align: middle;
+    display: inline-flex;
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-right:10px;
+    }
+.home-container{
+   width: 100%
+}
+.home-center{
+    margin: auto;
+    width: 90%
+}
+.chart-card{
+    max-width: 500px;
+    min-width:400px ;
+    width: 100%;
+    margin-right: 10px;
+}
+table{
+    height: 100%;
+    width: 100%
+}
+.num-pink{
+    font-size: 40px;
+    color: #AB47BC;
+    font-style: bold;
+ 
+}
+
+
+.titre{
+    font-size: 40px;
+     color : #3F51B5;
+     margin: 30px 0 40px 0px;
+    }
+
+.card-zone{
+    display: inline-flex;
+    flex-direction: row;
+    margin: 20px;
+    }
+.spinner{
+    margin: auto;
+}
+
+
+

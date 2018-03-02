@@ -1,58 +1,82 @@
-<ng-container *ngIf="membres">
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            <h3 class="panel-title">Organisation – Listes des membres</h3>
-        </div>
+<div class="membre-content">
+  <div class="titre">
+    Listes des membres
+  </div>
+  <div>
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+    <button mat-raised-button color="primary" style="margin-left:10px;" (click)='openDialogAdd()'>Ajouter un membre
+    </button>
+  </div>
 
-        <div class="panel-body animated fadeIn">
-            <form>
-                <div class="form-group">
-                    <label for="prenom">Trier par prénom</label>
-                    <input type="text" name="prenom" id="prenom" class="form-control" [(ngModel)]="prenom" (keyup)="search()" placeholder="exemple: alison"><br/>
-                </div>
-            </form>
-            <br/>
+  <div class="example-container mat-elevation-z8">
 
-            <div class="panel panel-primary" *ngIf="res">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Résultat de recherche</h3>
-                </div>
-                <div class="panel-body" *ngFor="let user of res">
-                    {{ user.prenom  }} - {{ user.nom }} - {{ user.email }} - {{ user.phone}} - {{ user.cotisation}}€
-                </div>
-            </div>
+    <mat-table [dataSource]="dataSource" matSort>
 
-            <span class="pull-right big" >Ajouter un membre<a href="/ajout-membre" class="big">+</a></span>
-            <br/><br/>
-            <table class="table-responsive table table-bordered table-hover table-striped animated fadeIn">
-                <thead>
-                <tr>
-                    <th>Nom</th>
-                    <th>Prenom</th>
-                    <th><i class="fa fa-envelope-o" aria-hidden="true"></i></th>
-                    <th><i class="fa fa-phone" aria-hidden="true"></i></th>
-                    <th>Cotisation</th>
-                    <th>Cheque</th>
-                    <th>certificat</th>
-                    <th *ngFor="let activite of activities">{{ activite.name }}</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr *ngFor="let membre of membres">
-                    <td><a href="/edit-membre/{{ membre.id }}">{{ membre.nom }}</a></td>
-                    <td>{{ membre.prenom }} </td>
-                    <td>{{ membre.email }} </td>
-                    <td>{{ membre.phone }} </td>
-                    <td>{{ membre.cotisation }}€ </td>
-                    <td>{{ membre.cheque }} </td>
-                    <td>{{ membre.certificat }} </td>
-                    <td  *ngFor="let activite of activities">
-                        {{ hasActivity(activite.id, membre)?'✓':'✗' }}
-                    </td>
-                </tr>
+      <ng-container matColumnDef="nom">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Nom </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.nom}} </mat-cell>
+      </ng-container>
 
-                </tbody>
-            </table>
-        </div>
-    </div>
-</ng-container>
+      <ng-container matColumnDef="prenom">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Prénom </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.prenom}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.email}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="phone">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Téléphone </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.phone}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="cotisation">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Cotisation </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.cotisation}}€ </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="cheque">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Chèque </mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <ng-container *ngIf="row.cheque;else notChecked">
+            <mat-checkbox [checked]="true" [disabled]="true"></mat-checkbox>
+          </ng-container>
+        </mat-cell>
+
+      </ng-container>
+
+      <ng-container matColumnDef="certificat">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> certificat </mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <ng-container *ngIf="row.certificat;else notChecked">
+            <mat-checkbox [checked]="true" [disabled]="true"></mat-checkbox>
+          </ng-container>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+        <mat-cell *matCellDef="let row" style="overflow:hidden;">
+          <button mat-icon-button color="primary">
+            <mat-icon (click)="openDialogEdit(row.id)">edit</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;">
+      </mat-row>
+    </mat-table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25]"></mat-paginator>
+
+  </div>
+</div>
+
+<ng-template #notChecked>
+  <mat-checkbox [disabled]="true"></mat-checkbox>
+</ng-template>

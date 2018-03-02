@@ -1,5 +1,5 @@
 
-  <li *ngFor="let activitie of activities">
-    <a href="/activites/{{activitie.id}}"><i class="fa fa-arrow-right" aria-hidden="true"></i> {{ activitie.name }}</a>
-  </li>
+  <ng-container *ngFor="let activitie of activities">
+  <a mat-list-item routerLink="/home/activites/{{activitie.id}}">{{ activitie.name }}</a>
+  </ng-container>
 
