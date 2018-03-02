@@ -3,7 +3,7 @@ import { FinancialService } from '../../services/financial.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
-@Component({selector: 'app-addFinanciel', templateUrl: './addFinancial.component.html'})
+@Component({selector: 'app-addFinancial', templateUrl: './addFinancial.component.html'})
 export class AddFinancialComponent implements OnInit {
 
     public formMembre: FormGroup;

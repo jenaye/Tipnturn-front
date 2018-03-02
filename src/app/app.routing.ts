@@ -50,7 +50,7 @@ const appRoutes: Routes = [
                 component: FinancialComponent
             },
             {
-                path: 'app-addFinanciel',
+                path: 'app-addFinancial',
                 component: AddFinancialComponent
             },
         ]
