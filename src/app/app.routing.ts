@@ -34,7 +34,7 @@ const appRoutes: Routes = [
                 component: AddMemberComponent
             },
             {
-                path: 'edit-membre/:id',
+                path: 'edit-member/:id',
                 component: EditmemberComponent
             },
             {
@@ -46,7 +46,7 @@ const appRoutes: Routes = [
                 component: AddActivitesComponent
             },
             {
-                path: 'bilan',
+                path: 'financial',
                 component: FinancialComponent
             },
             {
