@@ -107,7 +107,7 @@
                                     <a href="../components/AddMemberComponent.html" >AddMemberComponent</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../components/AllMembersComponent.html" >AllMembersComponent</a>
+                                    <a href="../components/AllMembersComponent.html"  data-type="entity-link" class="active" >AllMembersComponent</a>
                                 </li>
                                 <li class="link">
                                     <a href="../components/AppComponent.html" >AppComponent</a>
@@ -134,7 +134,7 @@
                                     <a href="../components/ListingByActivitesComponent.html" >ListingByActivitesComponent</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../components/LoginComponent.html"  data-type="entity-link" class="active" >LoginComponent</a>
+                                    <a href="../components/LoginComponent.html" >LoginComponent</a>
                                 </li>
                                 <li class="link">
                                     <a href="../components/PageHeaderComponent.html" >PageHeaderComponent</a>
@@ -308,7 +308,7 @@
                                            <a href="../components/AddMemberComponent.html" >AddMemberComponent</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../components/AllMembersComponent.html" >AllMembersComponent</a>
+                                           <a href="../components/AllMembersComponent.html"  data-type="entity-link" class="active" >AllMembersComponent</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/AppComponent.html" >AppComponent</a>
@@ -335,7 +335,7 @@
                                            <a href="../components/ListingByActivitesComponent.html" >ListingByActivitesComponent</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../components/LoginComponent.html"  data-type="entity-link" class="active" >LoginComponent</a>
+                                           <a href="../components/LoginComponent.html" >LoginComponent</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/PageHeaderComponent.html" >PageHeaderComponent</a>
@@ -424,7 +424,7 @@
 
 <ol class="breadcrumb">
   <li>Components</li>
-  <li>LoginComponent</li>
+  <li>AllMembersComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -449,7 +449,7 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>src/app/components/login/login.component.ts</code>
+    <code>src/app/components/all-members/all-members.component.ts</code>
 </p>
 
 
@@ -480,19 +480,19 @@
 
             <tr>
                 <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>app-login</code></td>
+                <td class="col-md-9"><code>app-all-members</code></td>
             </tr>
 
             <tr>
                 <td class="col-md-3">styleUrls</td>
-                <td class="col-md-9"><code>login.component.css</code></td>
+                <td class="col-md-9"><code>all-members.component.css</code></td>
             </tr>
 
 
 
             <tr>
                 <td class="col-md-3">templateUrl</td>
-                <td class="col-md-9"><code>./login.component.html</code></td>
+                <td class="col-md-9"><code>./all-members.component.html</code></td>
             </tr>
 
 
@@ -514,15 +514,31 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#hide">hide</a>
+                                <a href="#activities">activities</a>
                             </li>
                             <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#password">password</a>
+                                <a href="#dataSource">dataSource</a>
                             </li>
                             <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#username">username</a>
+                                    <span class="modifier">Public</span>
+                                <a href="#dialog">dialog</a>
+                            </li>
+                            <li>
+                                <a href="#displayedColumns">displayedColumns</a>
+                            </li>
+                            <li>
+                                <a href="#paginator">paginator</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#prenom">prenom</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#res">res</a>
+                            </li>
+                            <li>
+                                <a href="#sort">sort</a>
                             </li>
                         </ul>
                     </td>
@@ -536,10 +552,19 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#applyFilter">applyFilter</a>
+                            </li>
+                            <li>
+                                <a href="#ngAfterViewInit">ngAfterViewInit</a>
+                            </li>
+                            <li>
                                 <a href="#ngOnInit">ngOnInit</a>
                             </li>
                             <li>
-                                <a href="#submit">submit</a>
+                                <a href="#openDialogAdd">openDialogAdd</a>
+                            </li>
+                            <li>
+                                <a href="#openDialogEdit">openDialogEdit</a>
                             </li>
                         </ul>
                     </td>
@@ -554,12 +579,12 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-    <code>constructor(http: <a href="https://angular.io/api/http/Http" target="_blank">Http</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
+    <code>constructor(listemembre: <a href="../injectables/ListingmemberService.html">ListingmemberService</a>, activiteService: <a href="../injectables/ActivitiesService.html">ActivitiesService</a>, dialog: MatDialog)</code>
                         </td>
                     </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/components/login/login.component.ts:16</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/components/all-members/all-members.component.ts:23</a></div>
                                 </td>
                             </tr>
     
@@ -577,10 +602,10 @@
                                             </thead>
                                             <tbody>
                                                     <tr>
-                                                        <td>http</td>
+                                                        <td>listemembre</td>
                                                       
                                                             <td>
-                                                                        <code><a href="https://angular.io/api/http/Http" target="_blank" >Http</a></code>
+                                                                        <code><a href="../injectables/ListingmemberService.html" target="_self" >ListingmemberService</a></code>
                                                             </td>
                                                       
                                                         <td>
@@ -589,10 +614,22 @@
                                                         
                                                     </tr>
                                                     <tr>
-                                                        <td>router</td>
+                                                        <td>activiteService</td>
                                                       
                                                             <td>
-                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                                        <code><a href="../injectables/ActivitiesService.html" target="_self" >ActivitiesService</a></code>
+                                                            </td>
+                                                      
+                                                        <td>
+                                                                no
+                                                        </td>
+                                                        
+                                                    </tr>
+                                                    <tr>
+                                                        <td>dialog</td>
+                                                      
+                                                            <td>
+                                                                        <code>MatDialog</code>
                                                             </td>
                                                       
                                                         <td>
@@ -622,6 +659,112 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
+                            <a name="applyFilter"></a>
+                            <span class="name">
+                                <b>
+                                applyFilter
+                                </b>
+                                <a href="#applyFilter"><span class="fa fa-link"></span></a>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>applyFilter(filterValue: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/components/all-members/all-members.component.ts:48</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                        <td>Type</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                        <td>filterValue</td>
+                                                        
+                                                            <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                            </td>
+                                                        
+                                                        <td>
+                                                                no
+                                                        </td>
+                                                        
+    
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="ngAfterViewInit"></a>
+                            <span class="name">
+                                <b>
+                                ngAfterViewInit
+                                </b>
+                                <a href="#ngAfterViewInit"><span class="fa fa-link"></span></a>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>ngAfterViewInit()</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/components/all-members/all-members.component.ts:43</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
                             <a name="ngOnInit"></a>
                             <span class="name">
                                 <b>
@@ -640,7 +783,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/components/login/login.component.ts:19</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/components/all-members/all-members.component.ts:29</a></div>
                                 </td>
                             </tr>
     
@@ -659,25 +802,25 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <a name="submit"></a>
+                            <a name="openDialogAdd"></a>
                             <span class="name">
                                 <b>
-                                submit
+                                openDialogAdd
                                 </b>
-                                <a href="#submit"><span class="fa fa-link"></span></a>
+                                <a href="#openDialogAdd"><span class="fa fa-link"></span></a>
                             </span>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-    <code>submit()</code>
+    <code>openDialogAdd()</code>
                         </td>
                     </tr>
     
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/components/login/login.component.ts:22</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/components/all-members/all-members.component.ts:54</a></div>
                                 </td>
                             </tr>
     
@@ -688,6 +831,75 @@
                                     <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
     
                                 </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="openDialogEdit"></a>
+                            <span class="name">
+                                <b>
+                                openDialogEdit
+                                </b>
+                                <a href="#openDialogEdit"><span class="fa fa-link"></span></a>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>openDialogEdit(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/app/components/all-members/all-members.component.ts:61</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                        <td>Type</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                        <td>id</td>
+                                                        
+                                                            <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                            </td>
+                                                        
+                                                        <td>
+                                                                no
+                                                        </td>
+                                                        
+    
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
                         </td>
                     </tr>
                 </tbody>
@@ -703,30 +915,36 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <a name="hide"></a>
+                            <a name="activities"></a>
                             <span class="name">
                                 <b>
                                     <span class="modifier">Public</span>
-                                hide
+                                activities
                                 </b>
-                                <a href="#hide"><span class="fa fa-link"></span></a>
+                                <a href="#activities"><span class="fa fa-link"></span></a>
                             </span>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <span class="modifier-icon fa fa-reset"></span><code>hide:     <code></code>
+                            <span class="modifier-icon fa fa-reset"></span><code>activities:     <code>[]</code>
     </code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                <i>Default value : </i><code>true</code>
+                                <i>Type : </i>    <code>[]</code>
+    
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Default value : </i><code>[]</code>
                             </td>
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/components/login/login.component.ts:16</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/components/all-members/all-members.component.ts:16</a></div>
                                 </td>
                             </tr>
     
@@ -737,31 +955,30 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <a name="password"></a>
+                            <a name="dataSource"></a>
                             <span class="name">
                                 <b>
-                                    <span class="modifier">Private</span>
-                                password
+                                dataSource
                                 </b>
-                                <a href="#password"><span class="fa fa-link"></span></a>
+                                <a href="#dataSource"><span class="fa fa-link"></span></a>
                             </span>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <span class="modifier-icon fa fa-reset"></span><code>password:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                            <code>dataSource:     <code>MatTableDataSource&lt;any&gt;</code>
     </code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                <i>Type : </i>    <code>MatTableDataSource&lt;any&gt;</code>
     
                             </td>
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/components/login/login.component.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/components/all-members/all-members.component.ts:20</a></div>
                                 </td>
                             </tr>
     
@@ -772,31 +989,218 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <a name="username"></a>
+                            <a name="dialog"></a>
                             <span class="name">
                                 <b>
-                                    <span class="modifier">Private</span>
-                                username
+                                    <span class="modifier">Public</span>
+                                dialog
                                 </b>
-                                <a href="#username"><span class="fa fa-link"></span></a>
+                                <a href="#dialog"><span class="fa fa-link"></span></a>
                             </span>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <span class="modifier-icon fa fa-reset"></span><code>username:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                            <span class="modifier-icon fa fa-reset"></span><code>dialog:     <code>MatDialog</code>
     </code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                <i>Type : </i>    <code>MatDialog</code>
     
                             </td>
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/components/login/login.component.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/components/all-members/all-members.component.ts:25</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="displayedColumns"></a>
+                            <span class="name">
+                                <b>
+                                displayedColumns
+                                </b>
+                                <a href="#displayedColumns"><span class="fa fa-link"></span></a>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>displayedColumns:     <code>[]</code>
+    </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Type : </i>    <code>[]</code>
+    
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Default value : </i><code>[&#x27;nom&#x27;, &#x27;prenom&#x27;, &#x27;email&#x27;, &#x27;phone&#x27;, &#x27;cotisation&#x27;, &#x27;cheque&#x27;, &#x27;certificat&#x27;, &#x27;action&#x27;]</code>
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/components/all-members/all-members.component.ts:19</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="paginator"></a>
+                            <span class="name">
+                                <b>
+                                paginator
+                                </b>
+                                <a href="#paginator"><span class="fa fa-link"></span></a>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>paginator:     <code>MatPaginator</code>
+    </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Type : </i>    <code>MatPaginator</code>
+    
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Decorators : </i><code>ViewChild</code>
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/components/all-members/all-members.component.ts:22</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="prenom"></a>
+                            <span class="name">
+                                <b>
+                                    <span class="modifier">Public</span>
+                                prenom
+                                </b>
+                                <a href="#prenom"><span class="fa fa-link"></span></a>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-reset"></span><code>prenom:     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+    </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+    
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/components/all-members/all-members.component.ts:17</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="res"></a>
+                            <span class="name">
+                                <b>
+                                    <span class="modifier">Public</span>
+                                res
+                                </b>
+                                <a href="#res"><span class="fa fa-link"></span></a>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-reset"></span><code>res:     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+    </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+    
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/components/all-members/all-members.component.ts:18</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="sort"></a>
+                            <span class="name">
+                                <b>
+                                sort
+                                </b>
+                                <a href="#sort"><span class="fa fa-link"></span></a>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>sort:     <code>MatSort</code>
+    </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Type : </i>    <code>MatSort</code>
+    
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Decorators : </i><code>ViewChild</code>
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/components/all-members/all-members.component.ts:23</a></div>
                                 </td>
                             </tr>
     
@@ -809,71 +1213,160 @@
 
 
     <div class="tab-pane fade tab-source-code" id="c-source">
-        <pre class="line-numbers"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
-import { Response, Http } from &#x27;@angular/http&#x27;;
-import &#x27;rxjs/add/operator/map&#x27;;
-import {Headers , RequestOptions} from &#x27;@angular/http&#x27;;
-import {Router} from &#x27;@angular/router&#x27;;
-import url from &#x27;./../../../config&#x27;;
+        <pre class="line-numbers"><code class="language-typescript">import { Component, OnInit, ViewChild } from &#x27;@angular/core&#x27;;
+import { ListingmemberService } from &#x27;../../services/listingmember.service&#x27;;
+import { ActivitiesService } from &#x27;../../services/activities.service&#x27;;
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from &#x27;@angular/material&#x27;;
+import { AddMemberComponent } from &#x27;../addMember/addMember.component&#x27;;
+import { EditmemberComponent } from &#x27;../editmember/editmember.component&#x27;;
+import { MatPaginator, MatSort, MatTableDataSource} from &#x27;@angular/material&#x27;;
 
 @Component({
-  selector: &#x27;app-login&#x27;,
-  templateUrl: &#x27;./login.component.html&#x27;,
-  styleUrls: [&#x27;./login.component.css&#x27;]
+  selector: &#x27;app-all-members&#x27;,
+  templateUrl: &#x27;./all-members.component.html&#x27;,
+  styleUrls: [&#x27;./all-members.component.css&#x27;]
 })
-export class LoginComponent implements OnInit {
-  private username:string;
-  private password:string;
-  public hide &#x3D; true;
-  constructor(private http: Http, private router: Router) { }
+export class AllMembersComponent implements OnInit {
+
+  public activities &#x3D; [];
+  public prenom: any;
+  public res: any;
+  displayedColumns &#x3D; [&#x27;nom&#x27;, &#x27;prenom&#x27;, &#x27;email&#x27;, &#x27;phone&#x27;, &#x27;cotisation&#x27;, &#x27;cheque&#x27;, &#x27;certificat&#x27;, &#x27;action&#x27;];
+  dataSource: MatTableDataSource&lt;any&gt;;
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+
+  constructor(private listemembre: ListingmemberService, private activiteService: ActivitiesService, public dialog: MatDialog) {
+    this.dataSource &#x3D; new MatTableDataSource();
+   }
 
   ngOnInit() {
+
+    this.listemembre.getData().subscribe(membres &#x3D;&gt; {
+    this.dataSource.data &#x3D; membres;
+    this.dataSource.paginator &#x3D; this.paginator;
+    this.dataSource.sort &#x3D; this.sort;
+
+    });
+    this.activiteService.getData().subscribe(activities &#x3D;&gt; {
+      this.activities &#x3D; activities;
+
+    });
   }
 
-  submit() {
-      let formData: FormData &#x3D; new FormData();
-      formData.append(&#x27;_username&#x27;, this.username)
-      formData.append(&#x27;_password&#x27;, this.password)
-
-      var headers &#x3D; new Headers();
-      headers.append(&#x27;Content-Type&#x27;, &#x27;application/x-www-form-urlencoded&#x27;);
-
-      
-      this.http
-          .post(&#x60;${url.API}/login_check&#x60;, formData,  headers)
-          .subscribe(response &#x3D;&gt; {
-              if (response.status &#x3D;&#x3D;&#x3D; 200) {
-                  var token &#x3D; response.json().token;
-                  localStorage.setItem(&#x27;token&#x27;, token);
-                  this.router.navigateByUrl(&#x27;/home/dashboard&#x27;);
-              } else {
-                  // show error maybe ?
-              }
-          });
+  ngAfterViewInit() {
+    this.dataSource.paginator &#x3D; this.paginator;
+    this.dataSource.sort &#x3D; this.sort;
   }
+
+  applyFilter(filterValue: string) {
+    filterValue &#x3D; filterValue.trim(); // Remove whitespace
+    filterValue &#x3D; filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+    this.dataSource.filter &#x3D; filterValue;
+  }
+
+  openDialogAdd(): void {
+    const dialogRef &#x3D; this.dialog.open(AddMemberComponent, {
+      width: &#x27;500px&#x27;,
+      data :  this.activities
+    });
+  }
+
+  openDialogEdit(id: string): void {
+    const dialogRef &#x3D; this.dialog.open(EditmemberComponent, {
+      width: &#x27;500px&#x27;,
+      data :  id,
+    });
+  }
+
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade" id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;mat-card class&#x3D;&quot;login&quot;&gt;
-  &lt;mat-card-header&gt;
-    &lt;mat-card-title&gt;&lt;h1&gt;Tip&#x27;n&#x27;turn&lt;/h1&gt;&lt;/mat-card-title&gt;
-  &lt;/mat-card-header&gt;
-  &lt;mat-card-content&gt;
-    &lt;form (submit)&#x3D;&quot;submit()&quot; class&#x3D;&quot;form&quot;&gt;
-      &lt;mat-form-field&gt;
-        &lt;input matInput type&#x3D;&quot;text&quot; name&#x3D;&quot;login&quot; [(ngModel)]&#x3D;&quot;username&quot; placeholder&#x3D;&quot;Nom d&#x27;utilisateur&quot;&gt;
-      &lt;/mat-form-field&gt;
-      &lt;mat-form-field&gt;
-        &lt;input matInput [type]&#x3D;&quot;hide ? &#x27;password&#x27; : &#x27;text&#x27;&quot; name&#x3D;&quot;password&quot; [(ngModel)]&#x3D;&quot;password&quot; placeholder&#x3D;&quot;mot de passe&quot;&gt;
-        &lt;mat-icon matSuffix (click)&#x3D;&quot;hide &#x3D; !hide&quot;&gt;{{hide ? &#x27;visibility&#x27; : &#x27;visibility_off&#x27;}}&lt;/mat-icon&gt;
-      &lt;/mat-form-field&gt;
-      &lt;button mat-raised-button  class&#x3D;&quot;button-custom&quot; type&#x3D;&quot;submit&quot; name&#x3D;&quot;commit&quot; value&#x3D;&quot;Login&quot;&gt;connection&lt;/button&gt;
-    &lt;/form&gt;
-  &lt;/mat-card-content&gt;
-&lt;/mat-card&gt;
-&lt;div class&#x3D;&quot;background-image&quot;&gt;&lt;/div&gt;</code></pre>
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;membre-content&quot;&gt;
+  &lt;div class&#x3D;&quot;titre&quot;&gt;
+    Listes des membres
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;mat-form-field&gt;
+      &lt;input matInput (keyup)&#x3D;&quot;applyFilter($event.target.value)&quot; placeholder&#x3D;&quot;Filter&quot;&gt;
+    &lt;/mat-form-field&gt;
+    &lt;button mat-raised-button color&#x3D;&quot;primary&quot; style&#x3D;&quot;margin-left:10px;&quot; (click)&#x3D;&#x27;openDialogAdd()&#x27;&gt;Ajouter un membre
+    &lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;div class&#x3D;&quot;example-container mat-elevation-z8&quot;&gt;
+
+    &lt;mat-table [dataSource]&#x3D;&quot;dataSource&quot; matSort&gt;
+
+      &lt;ng-container matColumnDef&#x3D;&quot;nom&quot;&gt;
+        &lt;mat-header-cell *matHeaderCellDef mat-sort-header&gt; Nom &lt;/mat-header-cell&gt;
+        &lt;mat-cell *matCellDef&#x3D;&quot;let row&quot;&gt; {{row.nom}} &lt;/mat-cell&gt;
+      &lt;/ng-container&gt;
+
+      &lt;ng-container matColumnDef&#x3D;&quot;prenom&quot;&gt;
+        &lt;mat-header-cell *matHeaderCellDef mat-sort-header&gt; Prénom &lt;/mat-header-cell&gt;
+        &lt;mat-cell *matCellDef&#x3D;&quot;let row&quot;&gt; {{row.prenom}} &lt;/mat-cell&gt;
+      &lt;/ng-container&gt;
+
+      &lt;ng-container matColumnDef&#x3D;&quot;email&quot;&gt;
+        &lt;mat-header-cell *matHeaderCellDef mat-sort-header&gt; Email &lt;/mat-header-cell&gt;
+        &lt;mat-cell *matCellDef&#x3D;&quot;let row&quot;&gt; {{row.email}} &lt;/mat-cell&gt;
+      &lt;/ng-container&gt;
+
+      &lt;ng-container matColumnDef&#x3D;&quot;phone&quot;&gt;
+        &lt;mat-header-cell *matHeaderCellDef mat-sort-header&gt; Téléphone &lt;/mat-header-cell&gt;
+        &lt;mat-cell *matCellDef&#x3D;&quot;let row&quot;&gt; {{row.phone}} &lt;/mat-cell&gt;
+      &lt;/ng-container&gt;
+
+      &lt;ng-container matColumnDef&#x3D;&quot;cotisation&quot;&gt;
+        &lt;mat-header-cell *matHeaderCellDef mat-sort-header&gt; Cotisation &lt;/mat-header-cell&gt;
+        &lt;mat-cell *matCellDef&#x3D;&quot;let row&quot;&gt; {{row.cotisation}}€ &lt;/mat-cell&gt;
+      &lt;/ng-container&gt;
+
+      &lt;ng-container matColumnDef&#x3D;&quot;cheque&quot;&gt;
+        &lt;mat-header-cell *matHeaderCellDef mat-sort-header&gt; Chèque &lt;/mat-header-cell&gt;
+        &lt;mat-cell *matCellDef&#x3D;&quot;let row&quot;&gt;
+          &lt;ng-container *ngIf&#x3D;&quot;row.cheque;else notChecked&quot;&gt;
+            &lt;mat-checkbox [checked]&#x3D;&quot;true&quot; [disabled]&#x3D;&quot;true&quot;&gt;&lt;/mat-checkbox&gt;
+          &lt;/ng-container&gt;
+        &lt;/mat-cell&gt;
+
+      &lt;/ng-container&gt;
+
+      &lt;ng-container matColumnDef&#x3D;&quot;certificat&quot;&gt;
+        &lt;mat-header-cell *matHeaderCellDef mat-sort-header&gt; certificat &lt;/mat-header-cell&gt;
+        &lt;mat-cell *matCellDef&#x3D;&quot;let row&quot;&gt;
+          &lt;ng-container *ngIf&#x3D;&quot;row.certificat;else notChecked&quot;&gt;
+            &lt;mat-checkbox [checked]&#x3D;&quot;true&quot; [disabled]&#x3D;&quot;true&quot;&gt;&lt;/mat-checkbox&gt;
+          &lt;/ng-container&gt;
+        &lt;/mat-cell&gt;
+      &lt;/ng-container&gt;
+
+      &lt;ng-container matColumnDef&#x3D;&quot;action&quot;&gt;
+        &lt;mat-header-cell *matHeaderCellDef&gt; &lt;/mat-header-cell&gt;
+        &lt;mat-cell *matCellDef&#x3D;&quot;let row&quot; style&#x3D;&quot;overflow:hidden;&quot;&gt;
+          &lt;button mat-icon-button color&#x3D;&quot;primary&quot;&gt;
+            &lt;mat-icon (click)&#x3D;&quot;openDialogEdit(row.id)&quot;&gt;edit&lt;/mat-icon&gt;
+          &lt;/button&gt;
+        &lt;/mat-cell&gt;
+      &lt;/ng-container&gt;
+
+      &lt;mat-header-row *matHeaderRowDef&#x3D;&quot;displayedColumns&quot;&gt;&lt;/mat-header-row&gt;
+      &lt;mat-row *matRowDef&#x3D;&quot;let row; columns: displayedColumns;&quot;&gt;
+      &lt;/mat-row&gt;
+    &lt;/mat-table&gt;
+
+    &lt;mat-paginator [pageSizeOptions]&#x3D;&quot;[5, 10, 25]&quot;&gt;&lt;/mat-paginator&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;ng-template #notChecked&gt;
+  &lt;mat-checkbox [disabled]&#x3D;&quot;true&quot;&gt;&lt;/mat-checkbox&gt;
+&lt;/ng-template&gt;</code></pre>
     </div>
 
     <div class="tab-pane fade" id="c-tree">
@@ -899,10 +1392,10 @@ export class LoginComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><mat-card class="login">  <mat-card-header>    <mat-card-title><h1>Tip\'n\'turn</h1></mat-card-title>  </mat-card-header>  <mat-card-content>    <form (submit)="submit()" class="form">      <mat-form-field>        <input matInput type="text" name="login" [(ngModel)]="username" placeholder="Nom d\'utilisateur">      </mat-form-field>      <mat-form-field>        <input matInput [type]="hide ? \'password\' : \'text\'" name="password" [(ngModel)]="password" placeholder="mot de passe">        <mat-icon matSuffix (click)="hide = !hide">{{hide ? \'visibility\' : \'visibility_off\'}}</mat-icon>      </mat-form-field>      <button mat-raised-button  class="button-custom" type="submit" name="commit" value="Login">connection</button>    </form>  </mat-card-content></mat-card><div class="background-image"></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="membre-content">  <div class="titre">    Listes des membres  </div>  <div>    <mat-form-field>      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">    </mat-form-field>    <button mat-raised-button color="primary" style="margin-left:10px;" (click)=\'openDialogAdd()\'>Ajouter un membre    </button>  </div>  <div class="example-container mat-elevation-z8">    <mat-table [dataSource]="dataSource" matSort>      <ng-container matColumnDef="nom">        <mat-header-cell *matHeaderCellDef mat-sort-header> Nom </mat-header-cell>        <mat-cell *matCellDef="let row"> {{row.nom}} </mat-cell>      </ng-container>      <ng-container matColumnDef="prenom">        <mat-header-cell *matHeaderCellDef mat-sort-header> Prénom </mat-header-cell>        <mat-cell *matCellDef="let row"> {{row.prenom}} </mat-cell>      </ng-container>      <ng-container matColumnDef="email">        <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>        <mat-cell *matCellDef="let row"> {{row.email}} </mat-cell>      </ng-container>      <ng-container matColumnDef="phone">        <mat-header-cell *matHeaderCellDef mat-sort-header> Téléphone </mat-header-cell>        <mat-cell *matCellDef="let row"> {{row.phone}} </mat-cell>      </ng-container>      <ng-container matColumnDef="cotisation">        <mat-header-cell *matHeaderCellDef mat-sort-header> Cotisation </mat-header-cell>        <mat-cell *matCellDef="let row"> {{row.cotisation}}€ </mat-cell>      </ng-container>      <ng-container matColumnDef="cheque">        <mat-header-cell *matHeaderCellDef mat-sort-header> Chèque </mat-header-cell>        <mat-cell *matCellDef="let row">          <ng-container *ngIf="row.cheque;else notChecked">            <mat-checkbox [checked]="true" [disabled]="true"></mat-checkbox>          </ng-container>        </mat-cell>      </ng-container>      <ng-container matColumnDef="certificat">        <mat-header-cell *matHeaderCellDef mat-sort-header> certificat </mat-header-cell>        <mat-cell *matCellDef="let row">          <ng-container *ngIf="row.certificat;else notChecked">            <mat-checkbox [checked]="true" [disabled]="true"></mat-checkbox>          </ng-container>        </mat-cell>      </ng-container>      <ng-container matColumnDef="action">        <mat-header-cell *matHeaderCellDef> </mat-header-cell>        <mat-cell *matCellDef="let row" style="overflow:hidden;">          <button mat-icon-button color="primary">            <mat-icon (click)="openDialogEdit(row.id)">edit</mat-icon>          </button>        </mat-cell>      </ng-container>      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>      <mat-row *matRowDef="let row; columns: displayedColumns;">      </mat-row>    </mat-table>    <mat-paginator [pageSizeOptions]="[5, 10, 25]"></mat-paginator>  </div></div><ng-template #notChecked>  <mat-checkbox [disabled]="true"></mat-checkbox></ng-template></div>'
     var COMPONENTS = [{'name': 'ActivitiesComponent', 'selector': 'app-activities'},{'name': 'AddActivitesComponent', 'selector': 'app-ajoutactivites'},{'name': 'AddFinancialComponent', 'selector': 'app-addFinancial'},{'name': 'AddMemberComponent', 'selector': 'app-addMember'},{'name': 'AllMembersComponent', 'selector': 'app-all-members'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'EditmemberComponent', 'selector': 'app-editmember'},{'name': 'ErrorComponent', 'selector': 'app-error'},{'name': 'FinancialComponent', 'selector': 'app-bilan'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomepageComponent', 'selector': 'app-homepage'},{'name': 'ListingByActivitesComponent', 'selector': 'app-listing-by-activites'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'SideBarComponent', 'selector': 'app-side-bar'}];
     var DIRECTIVES = [];
-    var ACTUAL_COMPONENT = {'name': 'LoginComponent'};
+    var ACTUAL_COMPONENT = {'name': 'AllMembersComponent'};
 </script>
 <script src="../js/tree.js"></script>
 

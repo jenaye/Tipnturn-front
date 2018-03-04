@@ -1,6 +1,15 @@
 # Tipnturn-front
 Angular 4 app to manage danse organization
 
+# Contributing
+
+We encourage you to contribute to Tipnturn-front!
+Just fork projet, work on u're branch, and push it
+
+# Donation 
+
+BTC : `1KF2UCBaeNcu8hQ1L1Y6Qh6nCX2o5AzRCi`
+
 # Look like
 
 ![homepage](https://user-images.githubusercontent.com/15458329/36641370-f793614a-1a2e-11e8-9e98-2e2d7885baad.png)
@@ -15,4 +24,6 @@ Angular 4 app to manage danse organization
 i used travis to automated make end-to-end test
 
 # Todo #
+
 1) Add upload pdf ( certificate etc )
+
