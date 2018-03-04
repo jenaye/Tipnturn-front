@@ -128,10 +128,10 @@
                                     <a href="../components/HeaderComponent.html" >HeaderComponent</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../components/HomepageComponent.html"  data-type="entity-link" class="active" >HomepageComponent</a>
+                                    <a href="../components/HomepageComponent.html" >HomepageComponent</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../components/ListingByActivitesComponent.html" >ListingByActivitesComponent</a>
+                                    <a href="../components/ListingByActivitesComponent.html"  data-type="entity-link" class="active" >ListingByActivitesComponent</a>
                                 </li>
                                 <li class="link">
                                     <a href="../components/LoginComponent.html" >LoginComponent</a>
@@ -329,10 +329,10 @@
                                            <a href="../components/HeaderComponent.html" >HeaderComponent</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../components/HomepageComponent.html"  data-type="entity-link" class="active" >HomepageComponent</a>
+                                           <a href="../components/HomepageComponent.html" >HomepageComponent</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../components/ListingByActivitesComponent.html" >ListingByActivitesComponent</a>
+                                           <a href="../components/ListingByActivitesComponent.html"  data-type="entity-link" class="active" >ListingByActivitesComponent</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/LoginComponent.html" >LoginComponent</a>
@@ -424,7 +424,7 @@
 
 <ol class="breadcrumb">
   <li>Components</li>
-  <li>HomepageComponent</li>
+  <li>ListingByActivitesComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -449,11 +449,18 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>src/app/components/homepage/homepage.component.ts</code>
+    <code>src/app/components/listing-by-activites/listing-by-activites.component.ts</code>
 </p>
 
 
 
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+    </p>
 
 
 <section>
@@ -474,19 +481,19 @@
 
             <tr>
                 <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>app-homepage</code></td>
+                <td class="col-md-9"><code>app-listing-by-activites</code></td>
             </tr>
 
             <tr>
                 <td class="col-md-3">styleUrls</td>
-                <td class="col-md-9"><code>homepage.component.css</code></td>
+                <td class="col-md-9"><code>listing-by-activites.component.css</code></td>
             </tr>
 
 
 
             <tr>
                 <td class="col-md-3">templateUrl</td>
-                <td class="col-md-9"><code>./homepage.component.html</code></td>
+                <td class="col-md-9"><code>./listing-by-activites.component.html</code></td>
             </tr>
 
 
@@ -508,7 +515,33 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#sideBarOpen">sideBarOpen</a>
+                                <a href="#activities">activities</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#dataSource">dataSource</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#displayedColumns">displayedColumns</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#id">id</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#membres">membres</a>
+                            </li>
+                            <li>
+                                <a href="#paginator">paginator</a>
+                            </li>
+                            <li>
+                                <a href="#sort">sort</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#sub">sub</a>
                             </li>
                         </ul>
                     </td>
@@ -522,7 +555,16 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#sidebarChange">sidebarChange</a>
+                                <a href="#applyFilter">applyFilter</a>
+                            </li>
+                            <li>
+                                <a href="#ngAfterViewInit">ngAfterViewInit</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy">ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
                             </li>
                         </ul>
                     </td>
@@ -537,15 +579,69 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-    <code>constructor()</code>
+    <code>constructor(activitesService: <a href="../injectables/ActivitiesService.html">ActivitiesService</a>, route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
                         </td>
                     </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/components/homepage/homepage.component.ts:11</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/components/listing-by-activites/listing-by-activites.component.ts:18</a></div>
                                 </td>
                             </tr>
     
+                    <tr>
+                        <td class="col-md-4">
+                                <div>
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                        <td>Type</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                        <td>activitesService</td>
+                                                      
+                                                            <td>
+                                                                        <code><a href="../injectables/ActivitiesService.html" target="_self" >ActivitiesService</a></code>
+                                                            </td>
+                                                      
+                                                        <td>
+                                                                no
+                                                        </td>
+                                                        
+                                                    </tr>
+                                                    <tr>
+                                                        <td>route</td>
+                                                      
+                                                            <td>
+                                                                        <code><a href="https://angular.io/api/router/ActivatedRoute" target="_blank" >ActivatedRoute</a></code>
+                                                            </td>
+                                                      
+                                                        <td>
+                                                                no
+                                                        </td>
+                                                        
+                                                    </tr>
+                                                    <tr>
+                                                        <td>router</td>
+                                                      
+                                                            <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                            </td>
+                                                      
+                                                        <td>
+                                                                no
+                                                        </td>
+                                                        
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
     </section>
@@ -563,25 +659,25 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <a name="sidebarChange"></a>
+                            <a name="applyFilter"></a>
                             <span class="name">
                                 <b>
-                                sidebarChange
+                                applyFilter
                                 </b>
-                                <a href="#sidebarChange"><span class="fa fa-link"></span></a>
+                                <a href="#applyFilter"><span class="fa fa-link"></span></a>
                             </span>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-    <code>sidebarChange(event: <a href="https://angular.io/api/router/Event" target="_blank">Event</a>)</code>
+    <code>applyFilter(filterValue: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                         </td>
                     </tr>
     
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/components/homepage/homepage.component.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">src/app/components/listing-by-activites/listing-by-activites.component.ts:60</a></div>
                                 </td>
                             </tr>
     
@@ -600,10 +696,10 @@
                                             </thead>
                                             <tbody>
                                                     <tr>
-                                                        <td>event</td>
+                                                        <td>filterValue</td>
                                                         
                                                             <td>
-                                                                        <code><a href="https://angular.io/api/router/Event" target="_blank" >Event</a></code>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                                             </td>
                                                         
                                                         <td>
@@ -628,6 +724,117 @@
                     </tr>
                 </tbody>
             </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="ngAfterViewInit"></a>
+                            <span class="name">
+                                <b>
+                                ngAfterViewInit
+                                </b>
+                                <a href="#ngAfterViewInit"><span class="fa fa-link"></span></a>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>ngAfterViewInit()</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/components/listing-by-activites/listing-by-activites.component.ts:56</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="ngOnDestroy"></a>
+                            <span class="name">
+                                <b>
+                                ngOnDestroy
+                                </b>
+                                <a href="#ngOnDestroy"><span class="fa fa-link"></span></a>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>ngOnDestroy()</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">src/app/components/listing-by-activites/listing-by-activites.component.ts:66</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="ngOnInit"></a>
+                            <span class="name">
+                                <b>
+                                ngOnInit
+                                </b>
+                                <a href="#ngOnInit"><span class="fa fa-link"></span></a>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>ngOnInit()</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/components/listing-by-activites/listing-by-activites.component.ts:36</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
     </section>
 
     <section>
@@ -639,30 +846,288 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <a name="sideBarOpen"></a>
+                            <a name="activities"></a>
                             <span class="name">
                                 <b>
                                     <span class="modifier">Public</span>
-                                sideBarOpen
+                                activities
                                 </b>
-                                <a href="#sideBarOpen"><span class="fa fa-link"></span></a>
+                                <a href="#activities"><span class="fa fa-link"></span></a>
                             </span>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <span class="modifier-icon fa fa-reset"></span><code>sideBarOpen:     <code></code>
+                            <span class="modifier-icon fa fa-reset"></span><code>activities:     <code></code>
+    </code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/components/listing-by-activites/listing-by-activites.component.ts:10</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="dataSource"></a>
+                            <span class="name">
+                                <b>
+                                    <span class="modifier">Public</span>
+                                dataSource
+                                </b>
+                                <a href="#dataSource"><span class="fa fa-link"></span></a>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-reset"></span><code>dataSource:     <code>MatTableDataSource&lt;any&gt;</code>
     </code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                <i>Default value : </i><code>true</code>
+                                <i>Type : </i>    <code>MatTableDataSource&lt;any&gt;</code>
+    
                             </td>
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/components/homepage/homepage.component.ts:11</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/components/listing-by-activites/listing-by-activites.component.ts:14</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="displayedColumns"></a>
+                            <span class="name">
+                                <b>
+                                    <span class="modifier">Public</span>
+                                displayedColumns
+                                </b>
+                                <a href="#displayedColumns"><span class="fa fa-link"></span></a>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-reset"></span><code>displayedColumns:     <code>[]</code>
+    </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Type : </i>    <code>[]</code>
+    
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Default value : </i><code>[&#x27;nom&#x27;, &#x27;prenom&#x27;, &#x27;email&#x27;, &#x27;phone&#x27;]</code>
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/components/listing-by-activites/listing-by-activites.component.ts:13</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="id"></a>
+                            <span class="name">
+                                <b>
+                                    <span class="modifier">Public</span>
+                                id
+                                </b>
+                                <a href="#id"><span class="fa fa-link"></span></a>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-reset"></span><code>id:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+    </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+    
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/components/listing-by-activites/listing-by-activites.component.ts:12</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="membres"></a>
+                            <span class="name">
+                                <b>
+                                    <span class="modifier">Public</span>
+                                membres
+                                </b>
+                                <a href="#membres"><span class="fa fa-link"></span></a>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-reset"></span><code>membres:     <code>[]</code>
+    </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Type : </i>    <code>[]</code>
+    
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Default value : </i><code>[]</code>
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/components/listing-by-activites/listing-by-activites.component.ts:11</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="paginator"></a>
+                            <span class="name">
+                                <b>
+                                paginator
+                                </b>
+                                <a href="#paginator"><span class="fa fa-link"></span></a>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>paginator:     <code>MatPaginator</code>
+    </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Type : </i>    <code>MatPaginator</code>
+    
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Decorators : </i><code>ViewChild</code>
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/components/listing-by-activites/listing-by-activites.component.ts:17</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="sort"></a>
+                            <span class="name">
+                                <b>
+                                sort
+                                </b>
+                                <a href="#sort"><span class="fa fa-link"></span></a>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>sort:     <code>MatSort</code>
+    </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Type : </i>    <code>MatSort</code>
+    
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Decorators : </i><code>ViewChild</code>
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/components/listing-by-activites/listing-by-activites.component.ts:18</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="sub"></a>
+                            <span class="name">
+                                <b>
+                                    <span class="modifier">Private</span>
+                                sub
+                                </b>
+                                <a href="#sub"><span class="fa fa-link"></span></a>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-reset"></span><code>sub:     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+    </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+    
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/components/listing-by-activites/listing-by-activites.component.ts:15</a></div>
                                 </td>
                             </tr>
     
@@ -675,40 +1140,129 @@
 
 
     <div class="tab-pane fade tab-source-code" id="c-source">
-        <pre class="line-numbers"><code class="language-typescript">import { Component, OnInit, } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers"><code class="language-typescript">import {Component, OnInit, OnDestroy, ViewChild} from &#x27;@angular/core&#x27;;
+import {ActivitiesService} from &#x27;../../services/activities.service&#x27;;
+import { Router,ActivatedRoute,NavigationEnd} from &#x27;@angular/router&#x27;;
+import {MatPaginator, MatSort, MatTableDataSource} from &#x27;@angular/material&#x27;;
 
-@Component({
-  selector: &#x27;app-homepage&#x27;,
-  templateUrl: &#x27;./homepage.component.html&#x27;,
-  styleUrls: [&#x27;./homepage.component.css&#x27;],
-  
-})
-export class HomepageComponent  {
+@Component({selector: &#x27;app-listing-by-activites&#x27;, templateUrl: &#x27;./listing-by-activites.component.html&#x27;, styleUrls: [&#x27;./listing-by-activites.component.css&#x27;]})
+export class ListingByActivitesComponent implements OnInit,
+OnDestroy {
 
-    public sideBarOpen &#x3D; true;
+  public activities;
+  public membres &#x3D; [];
+  public id : number;
+  public displayedColumns &#x3D; [&#x27;nom&#x27;, &#x27;prenom&#x27;, &#x27;email&#x27;, &#x27;phone&#x27;];
+  public dataSource : MatTableDataSource &lt; any &gt;;
+  private sub : any;
 
-    constructor() { }
+  @ViewChild(MatPaginator)paginator : MatPaginator;
+  @ViewChild(MatSort)sort : MatSort;
+
+  constructor(private activitesService : ActivitiesService, private route : ActivatedRoute,private router: Router,) {
+    this.router.routeReuseStrategy.shouldReuseRoute &#x3D; function(){
+      return false;
+   }
+
+   this.router.events.subscribe((evt) &#x3D;&gt; {
+      if (evt instanceof NavigationEnd) {
+         // trick the Router into believing it&#x27;s last link wasn&#x27;t previously loaded
+         this.router.navigated &#x3D; false;
+         // if you need to scroll back to top, here is the right place
+         window.scrollTo(0, 0);
+      }
+  });
+    this.dataSource &#x3D; new MatTableDataSource();
+  }
+
+  ngOnInit() {
     
-    sidebarChange(event: Event) {
-        this.sideBarOpen &#x3D; !this.sideBarOpen;
-    }
-  
+    this.sub &#x3D; this
+      .route
+      .params
+      .subscribe(params &#x3D;&gt; {
+        this.id &#x3D; +params[&#x27;id&#x27;];
+       
+      });
+    this
+      .activitesService
+      .getDataById(this.id)
+      .subscribe(activities &#x3D;&gt; {
+        this.activities &#x3D; activities;
+        this.dataSource.data &#x3D; activities.membres
+        this.dataSource.paginator &#x3D; this.paginator;
+        this.dataSource.sort &#x3D; this.sort;
+      })
+  }
+
+  ngAfterViewInit() {
+    this.dataSource.paginator &#x3D; this.paginator;
+    this.dataSource.sort &#x3D; this.sort;
+  }
+  applyFilter(filterValue : string) {
+    filterValue &#x3D; filterValue.trim(); // Remove whitespace
+    filterValue &#x3D; filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+    this.dataSource.filter &#x3D; filterValue;
+  }
+
+  ngOnDestroy() {
+    this
+      .sub
+      .unsubscribe();
+  }
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade" id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;app-header  class&#x3D;&quot;header mat-elevation-z4&quot;(change)&#x3D;&quot;sidebarChange($event)&quot;&gt;
-&lt;/app-header&gt;
-  &lt;mat-sidenav-container class&#x3D;&quot;container&quot;&gt;
-        &lt;mat-sidenav #sideNavBar mode&#x3D;&quot;side&quot;  [(opened)]&#x3D;&quot;sideBarOpen&quot;   class&#x3D;&quot;sideNave mat-elevation-z4&quot;&gt;
-            &lt;app-side-bar&gt;&lt;/app-side-bar&gt;
-        &lt;/mat-sidenav&gt;
-        &lt;mat-sidenav-content class&#x3D;&quot;main-container&quot;&gt;
-            &lt;router-outlet&gt;&lt;/router-outlet&gt;
-        &lt;/mat-sidenav-content&gt;
-   &lt;/mat-sidenav-container&gt;
-   </code></pre>
+        <pre class="line-numbers"><code class="language-html">&lt;ng-container *ngIf&#x3D;&quot;membres&quot;&gt;
+        &lt;div class&#x3D;&quot;membre-content&quot;&gt;
+    &lt;div class&#x3D;&quot;titre&quot;&gt;Organisation – {{ activities?.name }}&lt;/div&gt;
+
+
+    &lt;div&gt;
+            &lt;mat-form-field&gt;
+              &lt;input matInput (keyup)&#x3D;&quot;applyFilter($event.target.value)&quot; placeholder&#x3D;&quot;Filter&quot;&gt;
+            &lt;/mat-form-field&gt;
+          &lt;/div&gt;
+        
+          &lt;div class&#x3D;&quot;example-container mat-elevation-z8&quot;&gt;
+        
+            &lt;mat-table [dataSource]&#x3D;&quot;dataSource&quot; matSort&gt;
+        
+              &lt;ng-container matColumnDef&#x3D;&quot;nom&quot;&gt;
+                &lt;mat-header-cell *matHeaderCellDef mat-sort-header&gt; Nom &lt;/mat-header-cell&gt;
+                &lt;mat-cell *matCellDef&#x3D;&quot;let row&quot;&gt; {{row.nom}} &lt;/mat-cell&gt;
+              &lt;/ng-container&gt;
+        
+              &lt;ng-container matColumnDef&#x3D;&quot;prenom&quot;&gt;
+                &lt;mat-header-cell *matHeaderCellDef mat-sort-header&gt; Prénom &lt;/mat-header-cell&gt;
+                &lt;mat-cell *matCellDef&#x3D;&quot;let row&quot;&gt; {{row.prenom}} &lt;/mat-cell&gt;
+              &lt;/ng-container&gt;
+        
+              &lt;ng-container matColumnDef&#x3D;&quot;email&quot;&gt;
+                &lt;mat-header-cell *matHeaderCellDef mat-sort-header&gt; Email &lt;/mat-header-cell&gt;
+                &lt;mat-cell *matCellDef&#x3D;&quot;let row&quot;&gt; {{row.email}} &lt;/mat-cell&gt;
+              &lt;/ng-container&gt;
+        
+              &lt;ng-container matColumnDef&#x3D;&quot;phone&quot;&gt;
+                &lt;mat-header-cell *matHeaderCellDef mat-sort-header&gt; Téléphone &lt;/mat-header-cell&gt;
+                &lt;mat-cell *matCellDef&#x3D;&quot;let row&quot;&gt; {{row.phone}} &lt;/mat-cell&gt;
+              &lt;/ng-container&gt;
+        
+           
+        
+              &lt;mat-header-row *matHeaderRowDef&#x3D;&quot;displayedColumns&quot;&gt;&lt;/mat-header-row&gt;
+              &lt;mat-row *matRowDef&#x3D;&quot;let row; columns: displayedColumns;&quot;&gt;
+              &lt;/mat-row&gt;
+            &lt;/mat-table&gt;
+        
+            &lt;mat-paginator [pageSizeOptions]&#x3D;&quot;[5, 10, 25]&quot;&gt;&lt;/mat-paginator&gt;
+        
+          &lt;/div&gt;
+&lt;/div&gt;
+&lt;/ng-container&gt;
+</code></pre>
     </div>
 
     <div class="tab-pane fade" id="c-tree">
@@ -734,10 +1288,10 @@ export class HomepageComponent  {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><app-header  class="header mat-elevation-z4"(change)="sidebarChange($event)"></app-header>  <mat-sidenav-container class="container">        <mat-sidenav #sideNavBar mode="side"  [(opened)]="sideBarOpen"   class="sideNave mat-elevation-z4">            <app-side-bar></app-side-bar>        </mat-sidenav>        <mat-sidenav-content class="main-container">            <router-outlet></router-outlet>        </mat-sidenav-content>   </mat-sidenav-container>   </div>'
+        var COMPONENT_TEMPLATE = '<div><ng-container *ngIf="membres">        <div class="membre-content">    <div class="titre">Organisation – {{ activities?.name }}</div>    <div>            <mat-form-field>              <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">            </mat-form-field>          </div>                  <div class="example-container mat-elevation-z8">                    <mat-table [dataSource]="dataSource" matSort>                      <ng-container matColumnDef="nom">                <mat-header-cell *matHeaderCellDef mat-sort-header> Nom </mat-header-cell>                <mat-cell *matCellDef="let row"> {{row.nom}} </mat-cell>              </ng-container>                      <ng-container matColumnDef="prenom">                <mat-header-cell *matHeaderCellDef mat-sort-header> Prénom </mat-header-cell>                <mat-cell *matCellDef="let row"> {{row.prenom}} </mat-cell>              </ng-container>                      <ng-container matColumnDef="email">                <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>                <mat-cell *matCellDef="let row"> {{row.email}} </mat-cell>              </ng-container>                      <ng-container matColumnDef="phone">                <mat-header-cell *matHeaderCellDef mat-sort-header> Téléphone </mat-header-cell>                <mat-cell *matCellDef="let row"> {{row.phone}} </mat-cell>              </ng-container>                                         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>              <mat-row *matRowDef="let row; columns: displayedColumns;">              </mat-row>            </mat-table>                    <mat-paginator [pageSizeOptions]="[5, 10, 25]"></mat-paginator>                  </div></div></ng-container></div>'
     var COMPONENTS = [{'name': 'ActivitiesComponent', 'selector': 'app-activities'},{'name': 'AddActivitesComponent', 'selector': 'app-ajoutactivites'},{'name': 'AddFinancialComponent', 'selector': 'app-addFinancial'},{'name': 'AddMemberComponent', 'selector': 'app-addMember'},{'name': 'AllMembersComponent', 'selector': 'app-all-members'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'EditmemberComponent', 'selector': 'app-editmember'},{'name': 'ErrorComponent', 'selector': 'app-error'},{'name': 'FinancialComponent', 'selector': 'app-bilan'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomepageComponent', 'selector': 'app-homepage'},{'name': 'ListingByActivitesComponent', 'selector': 'app-listing-by-activites'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'SideBarComponent', 'selector': 'app-side-bar'}];
     var DIRECTIVES = [];
-    var ACTUAL_COMPONENT = {'name': 'HomepageComponent'};
+    var ACTUAL_COMPONENT = {'name': 'ListingByActivitesComponent'};
 </script>
 <script src="../js/tree.js"></script>
 
