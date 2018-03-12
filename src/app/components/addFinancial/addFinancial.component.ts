@@ -1,15 +1,16 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { FinancialService } from '../../services/financial.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import {Component, OnInit, Inject} from '@angular/core';
+import {FinancialService} from '../../services/financial.service';
+import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
 @Component({selector: 'app-addFinancial', templateUrl: './addFinancial.component.html'})
 export class AddFinancialComponent implements OnInit {
 
-    public formMembre: FormGroup;
+    public form : FormGroup;
+    public maxDate;
 
-    constructor(private bilanService: FinancialService, private formBuilder: FormBuilder, public dialogRef: MatDialogRef < AddFinancialComponent >) {
-        this.formMembre = this
+    constructor(private bilanService : FinancialService, private formBuilder : FormBuilder, public dialogRef : MatDialogRef < AddFinancialComponent >) {
+        this.form = this
             .formBuilder
             .group({
                 date: [
@@ -18,10 +19,10 @@ export class AddFinancialComponent implements OnInit {
                 libelle: [
                     '', Validators.required
                 ],
-                rentree: [
-                    '', Validators.required
+                inOrOut: [
+                    '1', Validators.required
                 ],
-                sortie: ['', Validators.required]
+                amount: [, Validators.required]
             });
     }
 
@@ -29,12 +30,24 @@ export class AddFinancialComponent implements OnInit {
 
     add() {
 
+
+
+        const data = {
+                date: this.form.value.date,
+                libelle : this.form.value.libelle,
+                enter : this.form.value.amount                                         
+        };
+    
         this
             .bilanService
-            .insert(this.formMembre.value)
-            .subscribe(membre => {});
-
+            .insert(data)
+            .subscribe(membre => {
+                this
+                    .dialogRef
+                    .close();
+            });
     }
+
     closeDialog() {
         this
             .dialogRef

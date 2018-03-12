@@ -52,6 +52,10 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material';
+import { MatRadioModule } from '@angular/material/radio';
+import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter} from '@angular/material-moment-adapter';
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 
 
 
@@ -98,10 +102,20 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     MatDialogModule,
     MatProgressSpinnerModule,
     MatDatepickerModule,
+    MatNativeDateModule,
+    MatRadioModule,
     routing,
   ],
   providers: [
-    ActivitiesService, ListingmemberService, MembersService, FinancialService, CheckTokenService, AuthGuard
+    ActivitiesService,
+    ListingmemberService,
+    MembersService,
+    FinancialService,
+    CheckTokenService,
+    AuthGuard,
+    {provide: MAT_DATE_LOCALE, useValue: 'fr-FR'},
+    {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
+    {provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS},
   ],
   bootstrap: [AppComponent]
 })

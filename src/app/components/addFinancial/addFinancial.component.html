@@ -1,14 +1,17 @@
-<div>
-  <h1>Ajouter rentrée/sortie</h1>
+<div class="titre">
+  Ajouter rentrée/sortie
 </div>
-<form [formGroup]="formMembre">
+<form [formGroup]="form">
   <table>
     <tr>
       <td>
         <mat-form-field>
-          <input matInput placeholder="Date" formControlName="date" />
+          <input matInput [matDatepicker]="picker" [max]="maxDate" placeholder="Choose a date" formControlName="date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
       </td>
+      <td class="spacer"></td>
       <td>
         <mat-form-field>
           <input matInput placeholder="libelle" formControlName="libelle" />
@@ -16,14 +19,16 @@
       </td>
     </tr>
     <tr>
-      <mat-form-field>
-        <input matInput placeholder="Rentrée" formControlName="rentree" />
-      </mat-form-field>
+      <mat-radio-group formControlName="inOrOut">
+        <mat-radio-button value="1">Entrée</mat-radio-button>
+        <mat-radio-button style="margin-left:20px;" value="2">Sortie</mat-radio-button>
+      </mat-radio-group>
     </tr>
     <tr>
       <td>
         <mat-form-field>
-          <input matInput placeholder="Sortie" formControlName="sortie" />
+          <input matInput placeholder="Montant" formControlName="amount" />
+          <span matSuffix>€</span>
         </mat-form-field>
       </td>
     </tr>
