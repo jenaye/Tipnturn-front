@@ -8,6 +8,7 @@ export class AddFinancialComponent implements OnInit {
 
     public form : FormGroup;
     public maxDate;
+    public isValide : boolean
 
     constructor(private bilanService : FinancialService, private formBuilder : FormBuilder, public dialogRef : MatDialogRef < AddFinancialComponent >) {
         this.form = this
@@ -29,15 +30,21 @@ export class AddFinancialComponent implements OnInit {
     ngOnInit() {}
 
     add() {
-
-
-
-        const data = {
+        let data 
+        if (this.form.value.inOrOut === '1') {
+            data = {
                 date: this.form.value.date,
-                libelle : this.form.value.libelle,
-                enter : this.form.value.amount                                         
-        };
-    
+                libelle: this.form.value.libelle,
+                rentree: +this.form.value.amount,
+            };
+        }else{
+             data = {
+                date: this.form.value.date,
+                libelle: this.form.value.libelle,
+                sortie:  +this.form.value.amount,
+            };
+        }
+
         this
             .bilanService
             .insert(data)
@@ -47,6 +54,8 @@ export class AddFinancialComponent implements OnInit {
                     .close();
             });
     }
+
+
 
     closeDialog() {
         this
