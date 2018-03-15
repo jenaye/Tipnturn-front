@@ -27,11 +27,12 @@ export class AddActivitesComponent implements OnInit {
             .activitiesService
             .insert(NomActivite)
             .subscribe(activite => {
-                this
-                    .router
-                    .navigate(['/home/dasboard']);
+                this.router.navigate(['/home/dasboard']);
             });
 
     }
+
+    
+   
 
 }

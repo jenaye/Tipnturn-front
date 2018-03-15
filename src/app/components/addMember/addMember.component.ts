@@ -22,8 +22,8 @@ export class AddMemberComponent implements OnInit {
         prenom: [
           '', Validators.required
         ],
-        email: ['', Validators.required],
-        phone: ['', Validators.required],
+        email: ['', Validators.required , Validators.email],
+        phone: ['', Validators.required , Validators.minLength(10)],
         cotisation: ['', Validators.required],
         certificat: false,
         cheque: false,

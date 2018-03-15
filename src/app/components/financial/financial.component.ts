@@ -9,11 +9,11 @@ export class FinancialComponent implements OnInit {
 
   public rapports = [];
   displayedColumns = ['date', 'libelle', 'sortie', 'rentree'];
-  dataSource : MatTableDataSource < any >;
+  dataSource: MatTableDataSource < any >;
 
-  @ViewChild(MatPaginator)paginator : MatPaginator;
+  @ViewChild(MatPaginator)paginator: MatPaginator;
 
-  constructor(private bilanService : FinancialService, public dialog : MatDialog)
+  constructor(private bilanService: FinancialService, public dialog: MatDialog)
   {
     this.dataSource = new MatTableDataSource();
   }
@@ -24,7 +24,6 @@ export class FinancialComponent implements OnInit {
       .getData()
       .subscribe(rapports => {
         this.dataSource.data = rapports
-        console.log(this.dataSource.data);
         this.dataSource.paginator = this.paginator;
       })
   }
@@ -33,13 +32,13 @@ export class FinancialComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
 
-  applyFilter(filterValue : string) {
+  applyFilter(filterValue: string) {
     filterValue = filterValue.trim();
     filterValue = filterValue.toLowerCase();
     this.dataSource.filter = filterValue;
   }
 
-  openDialogAdd() : void {
+  openDialogAdd(): void {
     let dialogRef = this
       .dialog
       .open(AddFinancialComponent, {width: '500px'});

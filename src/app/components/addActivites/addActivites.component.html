@@ -12,6 +12,11 @@
       </table>
       </form>
   <div style="margin-top:10px;">
-      <button mat-raised-button color="primary" (click)="add()">sauvegarder</button>
+    <ng-container *ngIf="formMembre.valid; else notValide">
+      <button mat-raised-button color="primary"  (click)="add()">sauvegarder</button>
+    </ng-container>  
+    <ng-template #notValide>
+        <button mat-raised-button color="primary"  disabled>sauvegarder</button>
+    </ng-template>
     </div>
 </div>
