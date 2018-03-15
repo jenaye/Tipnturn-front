@@ -23,6 +23,7 @@ import { AddActivitesComponent } from './components/addActivites/addActivites.co
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { PageHeaderComponent } from './components/page-header/page-header.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { EditmemberComponent } from './components/editmember/editmember.component';
 import { routing } from './app.routing';
 import { AuthGuard } from './guards/auth.guard';
 
@@ -32,7 +33,7 @@ import { MembersService } from './services/members.service';
 import { ActivitiesService } from './services/activities.service';
 import { ListingmemberService } from './services/listingmember.service';
 import { FinancialService } from './services/financial.service';
-import { EditmemberComponent } from './components/editmember/editmember.component';
+import { TypesService } from './services/types.service';
 
 // Material component
 import { MatCardModule } from '@angular/material/card';
@@ -52,8 +53,22 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material';
+import { MatRadioModule } from '@angular/material/radio';
+import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter} from '@angular/material-moment-adapter';
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 
-
+export const MY_FORMATS = {
+  parse: {
+    dateInput: 'L',
+  },
+  display: {
+    dateInput: 'L',
+    monthYearLabel: 'MMM YYYY',
+    dateA11yLabel: 'L',
+    monthYearA11yLabel: 'MMMM YYYY',
+  },
+};
 
 @NgModule({
   declarations: [
@@ -98,10 +113,21 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     MatDialogModule,
     MatProgressSpinnerModule,
     MatDatepickerModule,
+    MatNativeDateModule,
+    MatRadioModule,
     routing,
   ],
   providers: [
-    ActivitiesService, ListingmemberService, MembersService, FinancialService, CheckTokenService, AuthGuard
+    ActivitiesService,
+    ListingmemberService,
+    MembersService,
+    FinancialService,
+    CheckTokenService,
+    AuthGuard,
+    TypesService,
+    {provide: MAT_DATE_LOCALE, useValue: 'fr-FR'},
+    {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
+    {provide: MAT_DATE_FORMATS, useValue: MY_FORMATS},
   ],
   bootstrap: [AppComponent]
 })

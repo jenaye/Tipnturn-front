@@ -14,8 +14,6 @@ export class EditmemberComponent implements OnInit {
 
     public formMembre: FormGroup;
   
-
-
     constructor(private formBuilder: FormBuilder, private  membresservice: MembersService, public dialogRef: MatDialogRef < EditmemberComponent >,@Inject(MAT_DIALOG_DATA)public data : any) {
 
       this.formMembre = this
@@ -24,8 +22,8 @@ export class EditmemberComponent implements OnInit {
         id: [''] ,
         nom: [[''], Validators.required],
         prenom: [[''], Validators.required],
-        email: [[''], Validators.required],
-        phone: [[''], Validators.required],
+        email: [[''], [Validators.required , Validators.email]],
+        phone: [[''], [Validators.required , Validators.pattern('^(0|\\+33|0033)[1-9][0-9]{8}$')]],
         cotisation: [[''], Validators.required],
         certificat: [false, Validators.required],
         cheque: [false, Validators.required],

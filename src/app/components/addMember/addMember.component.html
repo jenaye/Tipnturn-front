@@ -1,57 +1,52 @@
-<div>
-  <h1>Ajout membre</h1>
+<div class="title">
+  Ajouter un membre
 </div>
 <form [formGroup]="formMembre">
-  <table>
-    <tr>
-      <td>
+  <div class="row">
+  
         <mat-form-field>
           <input matInput placeholder="Nom" formControlName="nom" />
         </mat-form-field>
-      </td>
-      <td>
+     
         <mat-form-field>
           <input matInput placeholder="Prenom" formControlName="prenom" />
         </mat-form-field>
-      </td>
-    </tr>
-    <tr>
+     
+    </div> 
+    <div class="email">
       <mat-form-field>
         <input matInput placeholder="Email" formControlName="email" />
       </mat-form-field>
-    </tr>
-    <tr>
-      <td>
-        <mat-form-field>
-          <input matInput placeholder="Téléphone" formControlName="phone" />
-        </mat-form-field>
-      </td>
-      <td>
+    </div>
+    <div class="row"> <mat-form-field>
+      <input matInput placeholder="Téléphone" formControlName="phone" />
+    </mat-form-field></div>
+        
+    <div class="row">
         <mat-form-field>
           <input matInput placeholder="cotisation" formControlName="cotisation" />
+          <span matSuffix>€</span>
         </mat-form-field>
-      </td>
-    </tr>
-    <tr>
-      <td>
+    
         <mat-form-field>
           <mat-select placeholder="activites" formControlName="activites" multiple>
             <mat-option *ngFor="let activite of activitestab" [value]="activite.id">{{activite.name}}</mat-option>
           </mat-select>
         </mat-form-field>
-      </td>
-    </tr>
-    <tr>
-      <td>
+      </div> 
+      <div class="row">
         <mat-checkbox formControlName="certificat">Certificat</mat-checkbox>
-      </td>
-      <td>
+     
         <mat-checkbox formControlName="cheque">Chèque</mat-checkbox>
-      </td>
-    </tr>
-  </table>
+      </div>
+ 
 </form>
-<div style="margin-top:10px;">
-  <button mat-raised-button color="primary" (click)="add()">sauvegarder</button>
-  <button mat-raised-button color="primary" (click)="closeDialog()">retour</button>
+<div style="margin-top:20px;">
+  <ng-container *ngIf="formMembre.valid; else notValide">
+    <button mat-raised-button color="primary" (click)="add()">sauvegarder</button>
+  </ng-container>
+  <ng-template #notValide>
+    <button mat-raised-button color="primary" disabled>sauvegarder</button>
+  </ng-template>
+  <button mat-raised-button color="primary" (click)="closeDialog()">annuler</button>
 </div>

@@ -16,14 +16,10 @@ export class AddMemberComponent implements OnInit {
     this.formMembre = this
       .formBuilder
       .group({
-        nom: [
-          '', Validators.required
-        ],
-        prenom: [
-          '', Validators.required
-        ],
-        email: ['', Validators.required],
-        phone: ['', Validators.required],
+        nom: ['', Validators.required],
+        prenom: ['', Validators.required],
+        email: ['', [Validators.required , Validators.email]],
+        phone: ['', [Validators.required , Validators.pattern('^(0|\\+33|0033)[1-9][0-9]{8}$')]],
         cotisation: ['', Validators.required],
         certificat: false,
         cheque: false,
@@ -40,10 +36,7 @@ export class AddMemberComponent implements OnInit {
     if (this.formMembre.value.activites) {
       let tmp = [];
 
-      this
-        .formMembre
-        .value
-        .activites
+      this.formMembre.value.activites
         .forEach(id => {
           tmp.push(`/api/activities/${id}`)
         });
@@ -53,8 +46,7 @@ export class AddMemberComponent implements OnInit {
       this.formMembre.value.activites = [];
     }
 
-    this
-      .membresservice
+    this.membresservice
       .insert(this.formMembre.value)
       .subscribe(membre => {
         this.closeDialog()
@@ -62,9 +54,7 @@ export class AddMemberComponent implements OnInit {
   }
 
   closeDialog() {
-    this
-      .dialogRef
-      .close();
+    this.dialogRef.close();
   }
 
 }

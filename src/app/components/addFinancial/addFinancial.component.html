@@ -1,35 +1,38 @@
-<div>
-  <h1>Ajouter rentrée/sortie</h1>
+<div class="title">
+  Ajouter rentrée/sortie
 </div>
-<form [formGroup]="formMembre">
-  <table>
-    <tr>
-      <td>
+<form [formGroup]="form">
+      <div class="row">
         <mat-form-field>
-          <input matInput placeholder="Date" formControlName="date" />
+          <input matInput [matDatepicker]="picker"  placeholder="Choose a date" formControlName="date" required>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
-      </td>
-      <td>
+     
         <mat-form-field>
-          <input matInput placeholder="libelle" formControlName="libelle" />
+          <input matInput placeholder="libelle" formControlName="libelle" required />
         </mat-form-field>
-      </td>
-    </tr>
-    <tr>
-      <mat-form-field>
-        <input matInput placeholder="Rentrée" formControlName="rentree" />
-      </mat-form-field>
-    </tr>
-    <tr>
-      <td>
+      </div>
+      <div class="row">
+      <mat-radio-group formControlName="inOrOut" >
+        <mat-radio-button value="1">Entrée</mat-radio-button>
+        <mat-radio-button style="margin-left:20px;" value="2">Sortie</mat-radio-button>
+      </mat-radio-group>
+    </div>
+      
+    <div class="row">
         <mat-form-field>
-          <input matInput placeholder="Sortie" formControlName="sortie" />
-        </mat-form-field>
-      </td>
-    </tr>
-  </table>
+          <input matInput placeholder="Montant" formControlName="amount" required />
+          <span matSuffix>€</span>
+     </mat-form-field>
+     </div>
 </form>
-<div style="margin-top:10px;">
-  <button mat-raised-button color="primary" (click)="add()">sauvegarder</button>
+<div style="margin-top:20px;">
+  <ng-container *ngIf="form.valid; else notValide">
+  <button mat-raised-button color="primary"  (click)="add()">sauvegarder</button>
+</ng-container>  
+<ng-template #notValide>
+    <button mat-raised-button color="primary"  disabled>sauvegarder</button>
+</ng-template>
   <button mat-raised-button color="primary" (click)="closeDialog()">retour</button>
 </div>
