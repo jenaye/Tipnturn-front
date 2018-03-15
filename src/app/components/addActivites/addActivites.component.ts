@@ -14,7 +14,6 @@ export class AddActivitesComponent implements OnInit {
 
     constructor(private formBuilder: FormBuilder, private activitiesService: ActivitiesService, private router: Router , private ts: TypesService) {
         
-        console.log()
         this.formMembre = this.formBuilder
             .group({
                 nom: ['', Validators.required],
