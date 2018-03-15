@@ -1,0 +1,20 @@
+.row {
+    display: grid;
+    grid-template-columns : 1fr 1fr;
+    grid-gap: 10px;
+  }
+  .row3 {
+    display: grid;
+    grid-template-columns : 1fr 1fr 1fr;
+    grid-gap: 10px;
+  }
+
+.email{
+  display: grid;
+  grid-template-columns: 2fr;
+}
+.title{
+  color : #3F51B5; 
+  font-size: 30px;
+  margin-bottom: 20px;
+}

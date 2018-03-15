@@ -45,8 +45,7 @@ export class FinancialComponent implements OnInit {
     dialogRef
       .afterClosed()
       .subscribe(result => {
-        this
-          .bilanService
+        this.bilanService
           .getData()
           .subscribe(rapports => {
             this.dataSource.data = rapports

@@ -14,6 +14,7 @@ export class ActivitiesComponent implements OnInit {
 
     ngOnInit() {
         this.activitesService.getData().subscribe(activities => {
+            console.log(activities)
             this.activities = activities;
         })
     }

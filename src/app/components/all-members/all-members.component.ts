@@ -56,12 +56,32 @@ export class AllMembersComponent implements OnInit {
       width: '500px',
       data :  this.activities
     });
+    dialogRef
+      .afterClosed()
+      .subscribe(result => {
+        this.listemembre
+          .getData()
+          .subscribe(rapports => {
+            this.dataSource.data = rapports
+            this.dataSource.paginator = this.paginator;
+          })
+      });
   }
 
   openDialogEdit(id: string): void {
     const dialogRef = this.dialog.open(EditmemberComponent, {
       width: '500px',
       data :  id,
+    });
+    dialogRef
+    .afterClosed()
+    .subscribe(result => {
+      this.listemembre
+        .getData()
+        .subscribe(rapports => {
+          this.dataSource.data = rapports
+          this.dataSource.paginator = this.paginator;
+        })
     });
   }
 

@@ -3,16 +3,14 @@ import {FinancialService} from '../../services/financial.service';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
-@Component({selector: 'app-addFinancial', templateUrl: './addFinancial.component.html'})
+@Component({selector: 'app-addFinancial', templateUrl: './addFinancial.component.html',styleUrls: ['./addFinancial.component.css']})
 export class AddFinancialComponent implements OnInit {
 
     public form : FormGroup;
    
 
-    constructor(private bilanService : FinancialService, private formBuilder : FormBuilder, public dialogRef : MatDialogRef < AddFinancialComponent >) {
-        this.form = this
-            .formBuilder
-            .group({
+    constructor(private bilanService: FinancialService, private formBuilder: FormBuilder, public dialogRef: MatDialogRef < AddFinancialComponent >) {
+        this.form = this.formBuilder.group({
                 date: [
                     '', Validators.required
                 ],
@@ -44,8 +42,7 @@ export class AddFinancialComponent implements OnInit {
             };
         }
 
-        this
-            .bilanService
+        this.bilanService
             .insert(data)
             .subscribe(membre => {
                 this.dialogRef.close();

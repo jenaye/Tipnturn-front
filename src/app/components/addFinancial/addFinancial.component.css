@@ -1,10 +1,14 @@
-.spacer{
-    width: 20px;
-}
 
-.titre{
-    font-size: 40px;
-     color : #3F51B5;
-     margin: 30px 0 40px 0px;
-    }
-    
+.title{
+    color : #3F51B5; 
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+  
+ 
+.row {
+    display: grid;
+    grid-template-columns : 1fr 1fr;
+    grid-gap: 10px;
+  }
+   

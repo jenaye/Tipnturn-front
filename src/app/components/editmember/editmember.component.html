@@ -1,48 +1,52 @@
-<div>
-      <h1>Edit membre</h1>
+<div class="title">
+  Editer un membre
 </div>
-      <form [formGroup]="formMembre">
-        <table>
-          <tr>
-            <td>
-              <mat-form-field>
-                <input matInput placeholder="Nom" formControlName="nom" />
-              </mat-form-field>
-            </td>
-            <td>
-              <mat-form-field>
-                <input matInput placeholder="Prenom" formControlName="prenom" />
-              </mat-form-field>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <mat-form-field>
-                <input matInput placeholder="Email" formControlName="email" />
-              </mat-form-field>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <mat-form-field>
-                <input matInput placeholder="Téléphone" formControlName="phone" />
-              </mat-form-field>
-            </td>
-            <td>
-              <mat-form-field>
-                <input matInput placeholder="cotisation" formControlName="cotisation" />
-              </mat-form-field>
-            </td>
-          </tr>
-          <tr>
-           <td> <mat-checkbox formControlName="certificat" >Certificat</mat-checkbox></td>
-           <td> <mat-checkbox formControlName="cheque">Chèque</mat-checkbox></td>
-           <td> <mat-checkbox formControlName="enabled">Activier</mat-checkbox></td>
-          </tr>
-        </table>     
-      </form>
-   <div style="margin-top: 10px;">
-      <button mat-raised-button color="primary" (click)="edit()">sauvegarder</button>
-      <button mat-raised-button color="primary" (click)="closeDialog()">retour</button>
+<form [formGroup]="formMembre">
+  <div class="row">
+
+    <mat-form-field>
+      <input matInput placeholder="Nom" formControlName="nom" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Prenom" formControlName="prenom" />
+    </mat-form-field>
   </div>
+  <div class="email">
+
+    <mat-form-field>
+      <input matInput placeholder="Email" formControlName="email" />
+    </mat-form-field>
+  </div>
+  <div class="row">
+
+    <mat-form-field>
+      <input matInput placeholder="Téléphone" formControlName="phone" />
+    </mat-form-field>
     
+        <mat-form-field>
+          <input matInput placeholder="cotisation" formControlName="cotisation" />
+          <span matSuffix>€</span>
+        </mat-form-field>
+   
+  </div>
+ 
+ 
+
+  <div class="row3">
+    <mat-checkbox formControlName="certificat">Certificat</mat-checkbox>
+    <mat-checkbox formControlName="cheque">Chèque</mat-checkbox>
+    <mat-checkbox formControlName="enabled">Activier</mat-checkbox>
+  </div>
+
+
+</form>
+<div style="margin-top: 20px;">
+    <ng-container *ngIf="formMembre.valid; else notValide">
+        <button mat-raised-button color="primary" (click)="edit()">sauvegarder</button>
+      </ng-container>
+      <ng-template #notValide>
+        <button mat-raised-button color="primary" disabled>sauvegarder</button>
+      </ng-template>
+      <button mat-raised-button color="primary" (click)="closeDialog()">annuler</button>
+</div>
