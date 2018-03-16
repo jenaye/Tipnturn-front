@@ -1,7 +1,7 @@
 <div class="title">
-    Ajouter un membre
+    Ajouter un évènement
 </div>
-<form [formGroup]="formEvent">
+<form [formGroup]="formEvent" (change)="checkStatus()">
     <div class="row">
         <mat-form-field>
             <input matInput placeholder="Nom" formControlName="name" />
@@ -10,27 +10,28 @@
             <input matInput placeholder="Description" formControlName="description" />
         </mat-form-field>
     </div>
-    <div class="row">
+    <div  class="row">
         <mat-form-field>
-            <input matInput [matDatepicker]="pickerstart" placeholder="Choose a date" formControlName="startDate" required>
+            <input matInput [matDatepicker]="pickerstart" [min]="minStartDate" placeholder="Date de début" formControlName="startDate" >
             <mat-datepicker-toggle matSuffix [for]="pickerstart"></mat-datepicker-toggle>
             <mat-datepicker #pickerstart></mat-datepicker>
         </mat-form-field>
-
         <mat-form-field>
-            <input matInput type="time" placeholder="heure de début" formControlName="startHour" />
-        </mat-form-field>
-    </div>
-    <div class="row">
-        <mat-form-field>
-            <input matInput [matDatepicker]="pickerend" placeholder="Choose a date" formControlName="endDate" required>
+            <input matInput [matDatepicker]="pickerend" placeholder="Date de fin" formControlName="endDate">
             <mat-datepicker-toggle matSuffix [for]="pickerend"></mat-datepicker-toggle>
             <mat-datepicker #pickerend></mat-datepicker>
         </mat-form-field>
+       
+    </div>
+    <div  class="row">
         <mat-form-field>
-            <input matInput type="time"formControlName="endHour" />
+            <input matInput type="time" placeholder="Heure de début" formControlName="startHour" />
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="time"formControlName="endHour" placeholder="Heure de fin" />
         </mat-form-field>
     </div>
+    
     <div class="adress">
     <mat-form-field>
         <input matInput placeholder="N°" formControlName="numStreet" />

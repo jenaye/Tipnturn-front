@@ -16,26 +16,24 @@
   
         <ng-container matColumnDef="name">
           <mat-header-cell *matHeaderCellDef mat-sort-header> Nom </mat-header-cell>
-          <mat-cell *matCellDef="let row"> {{row.nom}} </mat-cell>
+          <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
         </ng-container>
   
         <ng-container matColumnDef="startdate">
           <mat-header-cell *matHeaderCellDef mat-sort-header> date de début </mat-header-cell>
-          <mat-cell *matCellDef="let row"> {{row.start | date :'dd/MM/YYYY'}} </mat-cell>
+          <mat-cell *matCellDef="let row"> {{row.start | date :'dd/MM/yyyy'}} </mat-cell>
         </ng-container>
   
         <ng-container matColumnDef="enddate">
           <mat-header-cell *matHeaderCellDef mat-sort-header> date de fin </mat-header-cell>
-          <mat-cell *matCellDef="let row"> {{row.end | date :'dd/MM/YYYY'}} </mat-cell>
+          <mat-cell *matCellDef="let row"> {{row.end | date :'dd/MM/yyyy'}} </mat-cell>
         </ng-container>
   
         <ng-container matColumnDef="decription">
           <mat-header-cell *matHeaderCellDef mat-sort-header> description </mat-header-cell>
-          <mat-cell *matCellDef="let row"> {{row.phone}} </mat-cell>
+          <mat-cell *matCellDef="let row"> {{row.description}} </mat-cell>
         </ng-container>
-  
-  
-  
+    
         <ng-container matColumnDef="action">
           <mat-header-cell *matHeaderCellDef> </mat-header-cell>
           <mat-cell *matCellDef="let row" style="overflow:hidden;">

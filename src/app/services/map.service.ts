@@ -13,15 +13,11 @@ export class MapService extends GoogleMapsAPIWrapper {
     __loader.load().then(() => {
     });
   }
-
-    
     getData(address: string) {
-      console.log('Getting Address - ', address);
       let geocoder = new google.maps.Geocoder();
       return Observable.create(observer => {
-        console.log(observer)
           geocoder.geocode( { 'address': address}, function(results, status) {
-            
+              console.log(results[0].geometry.location.lat);
               if (status == google.maps.GeocoderStatus.OK) {
                   observer.next(results[0].geometry.location);
                   observer.complete();                    
