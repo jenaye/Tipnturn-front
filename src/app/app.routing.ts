@@ -12,6 +12,7 @@ import { FinancialComponent } from './components/financial/financial.component';
 import { AddFinancialComponent } from './components/addFinancial/addFinancial.component';
 import { ErrorComponent } from './components/error/error.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { AllEventComponent } from './components/all-events/all-event.component';
 
 
 
@@ -29,14 +30,7 @@ const appRoutes: Routes = [
                 path: 'listingMembers',
                 component: AllMembersComponent
             },
-            {
-                path: 'app-addMember',
-                component: AddMemberComponent
-            },
-            {
-                path: 'edit-member/:id',
-                component: EditmemberComponent
-            },
+                 
             {
                 path: 'activites/:id',
                 component: ListingByActivitesComponent
@@ -50,9 +44,10 @@ const appRoutes: Routes = [
                 component: FinancialComponent
             },
             {
-                path: 'app-addFinancial',
-                component: AddFinancialComponent
+                path: 'listingEvents',
+                component: AllEventComponent
             },
+          
         ]
 
         },

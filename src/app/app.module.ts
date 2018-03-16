@@ -20,10 +20,12 @@ import { FinancialComponent } from './components/financial/financial.component';
 import { AddFinancialComponent } from './components/addFinancial/addFinancial.component';
 import { LoginComponent } from './components/login/login.component';
 import { AddActivitesComponent } from './components/addActivites/addActivites.component';
+import { AddEventComponent } from './components/addEvent/addEvent.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { PageHeaderComponent } from './components/page-header/page-header.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { EditmemberComponent } from './components/editmember/editmember.component';
+import { AllEventComponent } from './components/all-events/all-event.component';
 import { routing } from './app.routing';
 import { AuthGuard } from './guards/auth.guard';
 
@@ -34,6 +36,8 @@ import { ActivitiesService } from './services/activities.service';
 import { ListingmemberService } from './services/listingmember.service';
 import { FinancialService } from './services/financial.service';
 import { TypesService } from './services/types.service';
+import { EventService } from './services/event.service';
+import { MapService } from './services/map.service';
 
 // Material component
 import { MatCardModule } from '@angular/material/card';
@@ -76,18 +80,20 @@ export const MY_FORMATS = {
     HeaderComponent,
     HomepageComponent,
     ErrorComponent,
-      AllMembersComponent,
+    AllMembersComponent,
     ActivitiesComponent,
-      ListingByActivitesComponent,
-      AddMemberComponent,
-      FinancialComponent,
-      AddFinancialComponent,
+    ListingByActivitesComponent,
+    FinancialComponent,
     LoginComponent,
-      AddActivitesComponent,
-      EditmemberComponent,
+    AddActivitesComponent,
     SideBarComponent,
     PageHeaderComponent,
-    DashboardComponent
+    DashboardComponent,
+    AllEventComponent,
+    EditmemberComponent,
+    AddFinancialComponent,
+    AddMemberComponent,
+    AddEventComponent
   ],
   imports: [
     BrowserModule,
@@ -125,10 +131,15 @@ export const MY_FORMATS = {
     CheckTokenService,
     AuthGuard,
     TypesService,
+    EventService,
+    MapService,
     {provide: MAT_DATE_LOCALE, useValue: 'fr-FR'},
     {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
     {provide: MAT_DATE_FORMATS, useValue: MY_FORMATS},
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+   
+    entryComponents: [EditmemberComponent,AddFinancialComponent,AddMemberComponent,AddEventComponent]
+
 })
 export class AppModule { }

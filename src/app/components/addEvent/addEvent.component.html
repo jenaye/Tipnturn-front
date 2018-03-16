@@ -1,0 +1,55 @@
+<div class="title">
+    Ajouter un membre
+</div>
+<form [formGroup]="formEvent">
+    <div class="row">
+        <mat-form-field>
+            <input matInput placeholder="Nom" formControlName="name" />
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Description" formControlName="description" />
+        </mat-form-field>
+    </div>
+    <div class="row">
+        <mat-form-field>
+            <input matInput [matDatepicker]="pickerstart" placeholder="Choose a date" formControlName="startDate" required>
+            <mat-datepicker-toggle matSuffix [for]="pickerstart"></mat-datepicker-toggle>
+            <mat-datepicker #pickerstart></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput type="time" placeholder="heure de début" formControlName="startHour" />
+        </mat-form-field>
+    </div>
+    <div class="row">
+        <mat-form-field>
+            <input matInput [matDatepicker]="pickerend" placeholder="Choose a date" formControlName="endDate" required>
+            <mat-datepicker-toggle matSuffix [for]="pickerend"></mat-datepicker-toggle>
+            <mat-datepicker #pickerend></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="time"formControlName="endHour" />
+        </mat-form-field>
+    </div>
+    <div class="adress">
+    <mat-form-field>
+        <input matInput placeholder="N°" formControlName="numStreet" />
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Rue" formControlName="nameStreet" />
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="ville" formControlName="city" />
+    </mat-form-field>
+</div>
+
+</form>
+<div style="margin-top:20px;">
+    <ng-container *ngIf="formEvent.valid; else notValide">
+        <button mat-raised-button color="primary" (click)="add()">sauvegarder</button>
+    </ng-container>
+    <ng-template #notValide>
+        <button mat-raised-button color="primary" disabled>sauvegarder</button>
+    </ng-template>
+    <button mat-raised-button color="primary" (click)="closeDialog()">annuler</button>
+</div>
