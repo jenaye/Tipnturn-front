@@ -4,6 +4,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AgmCoreModule } from '@agm/core';
 
 
 import { ChartsModule } from 'ng2-charts/ng2-charts';
@@ -61,6 +62,8 @@ import { MatNativeDateModule } from '@angular/material';
 import { MatRadioModule } from '@angular/material/radio';
 import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter} from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
+
+import map from './../config';
 
 export const MY_FORMATS = {
   parse: {
@@ -122,6 +125,9 @@ export const MY_FORMATS = {
     MatNativeDateModule,
     MatRadioModule,
     routing,
+    AgmCoreModule.forRoot({
+      apiKey: map.MAPS_KEY
+    })
   ],
   providers: [
     ActivitiesService,

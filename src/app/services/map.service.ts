@@ -1,27 +1,38 @@
-import { Injectable } from '@angular/core';
-import { Response, URLSearchParams, Headers, RequestOptions, Http } from '@angular/http';
-import 'rxjs/add/operator/map';
-import {CheckTokenService} from './checkToken.service';
+import { Injectable, NgZone } from '@angular/core';
+import { GoogleMapsAPIWrapper } from '@agm/core';
+import { MapsAPILoader } from '@agm/core';
+import { Observable, Observer } from 'rxjs';
 import map from './../../config';
+declare var google: any;
 @Injectable()
-export class MapService {
-
-  constructor(private http: Http) { 
-    
-  }
-  getData(address) {
-    const headers = new Headers();
-    
-    // headers.append("Access-Control-Allow-Origin", "*");
-
+export class MapService extends GoogleMapsAPIWrapper {
   
-    // const options = new RequestOptions({headers: headers});
-   
-    return this.http
-        .get(`https://maps.googleapis.com/maps/api/geocode/json?address=${address},+FRs&key=${map.MAPS_KEY}`)
-          .map((res: Response) => {
-            return res.json();
-                });
+
+  constructor(private __loader: MapsAPILoader, private __zone: NgZone) { 
+    super(__loader, __zone);
+    __loader.load().then(() => {
+    });
   }
+
+    
+    getData(address: string) {
+      console.log('Getting Address - ', address);
+      let geocoder = new google.maps.Geocoder();
+      return Observable.create(observer => {
+        console.log(observer)
+          geocoder.geocode( { 'address': address}, function(results, status) {
+            
+              if (status == google.maps.GeocoderStatus.OK) {
+                  observer.next(results[0].geometry.location);
+                  observer.complete();                    
+              } else {
+                  console.log('Error - ', results, ' & Status - ', status);
+                  observer.next({});
+                  observer.complete();
+              }
+          });
+      })
+  }
+  
 
 }
