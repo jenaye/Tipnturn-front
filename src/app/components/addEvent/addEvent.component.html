@@ -10,39 +10,46 @@
             <input matInput placeholder="Description" formControlName="description" />
         </mat-form-field>
     </div>
-    <div  class="row">
+    <div class="row">
         <mat-form-field>
-            <input matInput [matDatepicker]="pickerstart" [min]="minStartDate" placeholder="Date de début" formControlName="startDate" >
+            <input matInput [matDatepicker]="pickerstart" [min]="minStartDate" placeholder="Date de début" formControlName="startDate">
             <mat-datepicker-toggle matSuffix [for]="pickerstart"></mat-datepicker-toggle>
             <mat-datepicker #pickerstart></mat-datepicker>
         </mat-form-field>
-        <mat-form-field>
-            <input matInput [matDatepicker]="pickerend" placeholder="Date de fin" formControlName="endDate">
-            <mat-datepicker-toggle matSuffix [for]="pickerend"></mat-datepicker-toggle>
-            <mat-datepicker #pickerend></mat-datepicker>
-        </mat-form-field>
-       
+        <ng-container *ngIf="endDateAble ;else availableDate">
+        </ng-container>
+        <ng-template #availableDate>
+            <mat-form-field>
+                <input matInput [matDatepicker]="pickerend" [min]="formEvent.value.startDate" placeholder="Date de fin" formControlName="endDate">
+                <mat-datepicker-toggle matSuffix [for]="pickerend"></mat-datepicker-toggle>
+                <mat-datepicker #pickerend></mat-datepicker>
+            </mat-form-field>
+        </ng-template>
     </div>
-    <div  class="row">
+    <div class="row">
         <mat-form-field>
             <input matInput type="time" placeholder="Heure de début" formControlName="startHour" />
         </mat-form-field>
+        <ng-container *ngIf="endDateAble ;else availableHour">
+        </ng-container>
+        <ng-template #availableHour>
+                <mat-form-field>
+            <input matInput type="time" placeholder="Heure de fin" formControlName="endHour" />
+                </mat-form-field>
+        </ng-template>
+    </div>
+
+    <div class="adress">
         <mat-form-field>
-            <input matInput type="time"formControlName="endHour" placeholder="Heure de fin" />
+            <input matInput placeholder="N°" formControlName="numStreet" />
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Rue" formControlName="nameStreet" />
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="ville" formControlName="city" />
         </mat-form-field>
     </div>
-    
-    <div class="adress">
-    <mat-form-field>
-        <input matInput placeholder="N°" formControlName="numStreet" />
-    </mat-form-field>
-    <mat-form-field>
-        <input matInput placeholder="Rue" formControlName="nameStreet" />
-    </mat-form-field>
-    <mat-form-field>
-        <input matInput placeholder="ville" formControlName="city" />
-    </mat-form-field>
-</div>
 
 </form>
 <div style="margin-top:20px;">

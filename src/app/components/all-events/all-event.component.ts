@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { EventService } from '../../services/event.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { AddEventComponent } from '../addEvent/addEvent.component';
-// import { EditEventComponent } from '../editEvent/editEvent.component';
+import { EditEventComponent } from '../editEvent/editEvent.component';
 import { MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 
 @Component({
@@ -18,10 +18,6 @@ export class AllEventComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-
- 
-
- 
 
   constructor( private eventService: EventService, public dialog: MatDialog) {
     this.dataSource = new MatTableDataSource();
@@ -51,7 +47,7 @@ export class AllEventComponent implements OnInit {
 
   openDialogAdd(): void {
     const dialogRef = this.dialog.open(AddEventComponent, {
-      width: '500px',
+      width: '700px',
       data :  ''
     });
     dialogRef
@@ -59,28 +55,28 @@ export class AllEventComponent implements OnInit {
       .subscribe(result => {
         this.eventService
           .getData()
-          .subscribe(rapports => {
-            this.dataSource.data = rapports
+          .subscribe(events => {
+            this.dataSource.data = events
             this.dataSource.paginator = this.paginator;
           })
       });
   }
 
-//   openDialogEdit(id: string): void {
-//     const dialogRef = this.dialog.open(EditEventComponent, {
-//       width: '500px',
-//       data :  id,
-//     });
-//     dialogRef
-//     .afterClosed()
-//     .subscribe(result => {
-//       this.listEvents
-//         .getData()
-//         .subscribe(rapports => {
-//           this.dataSource.data = rapports
-//           this.dataSource.paginator = this.paginator;
-//         })
-//     });
-//   }
+  openDialogEdit(id: string): void {
+    const dialogRef = this.dialog.open(EditEventComponent, {
+      width: '700px',
+      data :  id,
+    });
+    dialogRef
+    .afterClosed()
+    .subscribe(result => {
+      this.eventService
+        .getData()
+        .subscribe(rapports => {
+          this.dataSource.data = rapports
+          this.dataSource.paginator = this.paginator;
+        })
+    });
+  }
 
 }

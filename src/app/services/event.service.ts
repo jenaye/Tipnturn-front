@@ -24,4 +24,23 @@ export class EventService {
         });
 }
 
+
+edit(data, id) {
+  const headers = new Headers();
+  headers.append('Content-Type', 'application/json');
+  return this.http
+      .put(`${url.API}/events/${id}`, data, {headers: headers})
+      .map((res: Response) => {
+          return res.json();
+      });
+
+}
+
+findById(id) {
+return this.http.get(`${url.API}/events/${id}`)
+    .map((res: Response) => {
+        return res.json();
+    });
+}
+
 }

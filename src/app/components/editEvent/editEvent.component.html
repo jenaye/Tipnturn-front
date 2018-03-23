@@ -1,0 +1,66 @@
+<agm-map [latitude]="lat" [longitude]="lng">
+  <agm-marker [latitude]="lat" [longitude]="lng" [markerDraggable]="false">
+    <agm-info-window>
+      <strong> {{formAdress.value.numberRue}}  {{formAdress.value.rue}}  à {{formEvent.value.city}}</strong>
+    </agm-info-window>
+  </agm-marker>
+</agm-map>
+<form [formGroup]="formAdress" class="myform" (change)="changeLocation()">
+  <div class="row3">
+
+    <mat-form-field>
+    <input matInput placeholder="N°" formControlName="numberRue" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="adresse" formControlName="rue" />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="ville" formControlName="city" />
+    </mat-form-field>
+
+  </div>
+</form>
+<form [formGroup]="formEvent" class="myform">
+  <div class="row">
+
+    <mat-form-field>
+      <input matInput placeholder="Nom" formControlName="name" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="description" formControlName="description" />
+    </mat-form-field>
+
+  </div>
+  <div class="row">
+    <mat-form-field>
+      <input matInput [matDatepicker]="pickerstart" [min]="minStartDate" placeholder="Du " formControlName="start">
+      <mat-datepicker-toggle matSuffix [for]="pickerstart"></mat-datepicker-toggle>
+      <mat-datepicker #pickerstart></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="time" placeholder="A" formControlName="startHour" />
+    </mat-form-field>
+
+  </div>
+  <div class="row">
+    <mat-form-field>
+      <input matInput [matDatepicker]="pickerend" [min]="formEvent.value.start" placeholder="Au " formControlName="end">
+      <mat-datepicker-toggle matSuffix [for]="pickerend"></mat-datepicker-toggle>
+      <mat-datepicker #pickerend></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="time" placeholder="A" formControlName="endHour" />
+    </mat-form-field>
+  </div>
+</form>
+<div style="margin-top: 20px;">
+  <ng-container *ngIf="formEvent.valid; else notValide">
+    <button mat-raised-button color="primary" (click)="edit()">sauvegarder</button>
+  </ng-container>
+  <ng-template #notValide>
+    <button mat-raised-button color="primary" disabled>sauvegarder</button>
+  </ng-template>
+  <button mat-raised-button color="primary" (click)="closeDialog()">annuler</button>
+</div>

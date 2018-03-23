@@ -4,6 +4,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DatePipe } from '@angular/common';
 import { AgmCoreModule } from '@agm/core';
 
 
@@ -27,6 +28,7 @@ import { PageHeaderComponent } from './components/page-header/page-header.compon
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { EditmemberComponent } from './components/editmember/editmember.component';
 import { AllEventComponent } from './components/all-events/all-event.component';
+import { EditEventComponent } from './components/editEvent/editEvent.component';
 import { routing } from './app.routing';
 import { AuthGuard } from './guards/auth.guard';
 
@@ -39,6 +41,7 @@ import { FinancialService } from './services/financial.service';
 import { TypesService } from './services/types.service';
 import { EventService } from './services/event.service';
 import { MapService } from './services/map.service';
+
 
 // Material component
 import { MatCardModule } from '@angular/material/card';
@@ -96,7 +99,8 @@ export const MY_FORMATS = {
     EditmemberComponent,
     AddFinancialComponent,
     AddMemberComponent,
-    AddEventComponent
+    AddEventComponent,
+    EditEventComponent
   ],
   imports: [
     BrowserModule,
@@ -139,13 +143,19 @@ export const MY_FORMATS = {
     TypesService,
     EventService,
     MapService,
+    DatePipe,
     {provide: MAT_DATE_LOCALE, useValue: 'fr-FR'},
     {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
     {provide: MAT_DATE_FORMATS, useValue: MY_FORMATS},
   ],
   bootstrap: [AppComponent],
-   
-    entryComponents: [EditmemberComponent,AddFinancialComponent,AddMemberComponent,AddEventComponent]
+  entryComponents: [
+    EditmemberComponent,
+    AddFinancialComponent,
+    AddMemberComponent,
+    AddEventComponent,
+    EditEventComponent
+  ]
 
 })
 export class AppModule { }

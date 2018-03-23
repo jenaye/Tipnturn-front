@@ -1,0 +1,17 @@
+agm-map {
+    height: 300px;
+  }
+  .row {
+    display: grid;
+    grid-template-columns : 1fr 1fr;
+    grid-gap: 10px;
+  }
+  .row3 {
+    display: grid;
+    grid-template-columns : 1fr 1fr 1fr;
+    grid-gap: 10px;
+  }
+  .myform{
+    margin-top:25px;
+  }
+

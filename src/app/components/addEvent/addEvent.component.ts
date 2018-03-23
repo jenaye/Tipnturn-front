@@ -24,8 +24,8 @@ export class AddEventComponent implements OnInit {
             .group({
                 startDate: ['', Validators.required],
                 startHour: ['', Validators.required],
-                endDate: [{value: '', disabled: this.endDateAble }, ,Validators.required],
-                endHour: [{value: '', disabled: this.endDateAble },,Validators.required],
+                endDate:  ['',Validators.required],
+                endHour: ['',Validators.required],
                 name: ['',Validators.required],
                 numStreet: '',
                 nameStreet: '',
@@ -39,7 +39,7 @@ export class AddEventComponent implements OnInit {
     add() {
         const data = this.formEvent.value.numStreet + '+' + this.formEvent.value.nameStreet + '+' + this.formEvent.value.city;
         const endDate = this.formEvent.value.endDate;
-        const startDate = this.formEvent.value.endDate;
+        const startDate = this.formEvent.value.startDate;
 
         this.ms
             .getData(data)
@@ -54,8 +54,8 @@ export class AddEventComponent implements OnInit {
                 if ((!this.formEvent.value.nameStreet && !this.formEvent.value.numStreet)||(this.formEvent.value.numStreet && !this.formEvent.value.nameStreet)) {
                     savedData = {
                         "city": this.formEvent.value.city,
-                        "start": new Date(endDate._i.year, endDate._i.month, endDate._i.date, + this.formEvent.value.endHour.substring(0, 2), + this.formEvent.value.endHour.substring(3, 5), 0),
-                        "end": new Date(startDate._i.year, startDate._i.month, startDate._i.date, + this.formEvent.value.endHour.substring(0, 2), + this.formEvent.value.endHour.substring(3, 5), 0),
+                        "end": new Date(endDate._i.year, endDate._i.month, endDate._i.date, + this.formEvent.value.endHour.substring(0, 2), + this.formEvent.value.endHour.substring(3, 5), 0),
+                        "start": new Date(startDate._i.year, startDate._i.month, startDate._i.date, + this.formEvent.value.startHour.substring(0, 2), + this.formEvent.value.startHour.substring(3, 5), 0),
                         "name": this.formEvent.value.name,
                         "latitude": this.lat,
                         "longitude": this.lng,
@@ -65,8 +65,8 @@ export class AddEventComponent implements OnInit {
                      savedData = {
                         "rue": this.formEvent.value.nameStreet,
                         "city": this.formEvent.value.city,
-                        "start": new Date(endDate._i.year, endDate._i.month, endDate._i.date, + this.formEvent.value.endHour.substring(0, 2), + this.formEvent.value.endHour.substring(3, 5), 0),
-                        "end": new Date(startDate._i.year, startDate._i.month, startDate._i.date, + this.formEvent.value.endHour.substring(0, 2), + this.formEvent.value.endHour.substring(3, 5), 0),
+                        "end": new Date(endDate._i.year, endDate._i.month, endDate._i.date, + this.formEvent.value.endHour.substring(0, 2), + this.formEvent.value.endHour.substring(3, 5), 0),
+                        "start": new Date(startDate._i.year, startDate._i.month, startDate._i.date, + this.formEvent.value.startHour.substring(0, 2), + this.formEvent.value.startHour.substring(3, 5), 0),
                         "name": this.formEvent.value.name,
                         "latitude": this.lat,
                         "longitude": this.lng,
@@ -74,11 +74,11 @@ export class AddEventComponent implements OnInit {
                     }
                 } else {
                      savedData = {
-                        "numberRue": this.formEvent.value.numStreet,
+                        "numberRue": +this.formEvent.value.numStreet,
                         "rue": this.formEvent.value.nameStreet,
                         "city": this.formEvent.value.city,
-                        "start": new Date(endDate._i.year, endDate._i.month, endDate._i.date, + this.formEvent.value.endHour.substring(0, 2), + this.formEvent.value.endHour.substring(3, 5), 0),
-                        "end": new Date(startDate._i.year, startDate._i.month, startDate._i.date, + this.formEvent.value.endHour.substring(0, 2), + this.formEvent.value.endHour.substring(3, 5), 0),
+                        "end": new Date(endDate._i.year, endDate._i.month, endDate._i.date, + this.formEvent.value.endHour.substring(0, 2), + this.formEvent.value.endHour.substring(3, 5), 0),
+                        "start": new Date(startDate._i.year, startDate._i.month, startDate._i.date, + this.formEvent.value.startHour.substring(0, 2), + this.formEvent.value.startHour.substring(3, 5), 0),
                         "name": this.formEvent.value.name,
                         "latitude": this.lat,
                         "longitude": this.lng,
@@ -86,8 +86,7 @@ export class AddEventComponent implements OnInit {
                     }
                 }
 
-                this
-                    .eventsService
+                this.eventsService
                     .insert(savedData)
                     .subscribe(result => {
                         this.closeDialog();
@@ -103,8 +102,7 @@ export class AddEventComponent implements OnInit {
     }
 
     checkStatus(){
-    this.endDateAble= (''+this.formEvent.value.startDate+this.formEvent.value.startHour).length===0 ;
-    
+    this.endDateAble= (this.formEvent.value.startDate+this.formEvent.value.startHour).length===0;
     }
 
 }
