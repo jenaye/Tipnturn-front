@@ -29,11 +29,4 @@ export class MapService extends GoogleMapsAPIWrapper {
       })
   }
 
-  getAdresse(){
-
-  }
-
-  
-  
-
 }
