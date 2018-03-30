@@ -1,0 +1,51 @@
+.calendar-content{
+    width: 90%;
+    margin: auto;
+}
+
+.titre{
+    font-size: 40px;
+    color : #3F51B5;
+    margin: 30px 0 40px 0px;
+    }
+  .blueCard{
+      background-color:#3F51B5;
+      padding-top:13px;
+      height: 25px;
+      display: grid;
+      grid-template-columns: 1fr 5fr 1fr
+  }
+  .dayRow{
+    margin-top: 20px;
+    height: 25px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr)
+}
+    .monthGrid{
+    margin-top: 20px;
+    height: 140px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr)
+    
+
+    }
+
+
+   
+  .simpleWhiteCellStart{
+        color: white;
+        justify-self: start;
+        
+  }
+  .simpleWhiteCellEnd{
+    color: white;
+    justify-self: end;
+    
+}
+  .monthwhite{
+      color: white;
+      font-size: 30px;
+      justify-self: center;
+     
+  }
+    
