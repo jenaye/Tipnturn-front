@@ -1,0 +1,61 @@
+<div class="membre-content">
+    <div class="titre">
+      Evènements
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+      </mat-form-field>
+      <button mat-raised-button color="primary" style="margin-left:10px;" (click)='openDialogAdd()'>Ajouter un événement
+      </button>
+    </div>
+    
+    <div *ngIf="dataSource" class="example-container mat-elevation-z8">
+  
+      <mat-table [dataSource]="dataSource" matSort>
+  
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Nom </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
+        </ng-container>
+  
+        <ng-container matColumnDef="startdate">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> date de l'évènement </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.start | date :'dd/MM/yyyy'}} </mat-cell>
+        </ng-container>
+  
+        <ng-container matColumnDef="starthour">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Heure de début </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.start | date :'HH:mm'}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="endhour">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Heure de fin </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.end | date :'HH:mm'}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="decription">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> description </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.description}} </mat-cell>
+        </ng-container>
+    
+        <ng-container matColumnDef="action">
+          <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+          <mat-cell *matCellDef="let row" style="overflow:hidden;">
+            <button mat-icon-button color="primary">
+              <mat-icon (click)="openDialogEdit(row.id)">edit</mat-icon>
+            </button>
+          </mat-cell>
+        </ng-container>
+  
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;">
+        </mat-row>
+      </mat-table>
+  
+      <mat-paginator [pageSizeOptions]="[5, 10, 25]"></mat-paginator>
+  
+    </div>
+  </div>
+  
+  <ng-template #notChecked>
+    <mat-checkbox [disabled]="true"></mat-checkbox>
+  </ng-template>

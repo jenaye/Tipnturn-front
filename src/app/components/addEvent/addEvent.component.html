@@ -1,0 +1,58 @@
+<div class="title">
+    Ajouter un évènement
+</div>
+<form [formGroup]="formEvent">
+    <div class="row">
+        <mat-form-field>
+            <input matInput placeholder="Nom" formControlName="name" />
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Description" formControlName="description" />
+        </mat-form-field>
+    </div>
+    <div class="rowtime">
+        <mat-form-field>
+            <input matInput [matDatepicker]="pickerstart" [min]="minStartDate" placeholder="Date de l'évènement" formControlName="startDate">
+            <mat-datepicker-toggle matSuffix [for]="pickerstart"></mat-datepicker-toggle>
+            <mat-datepicker #pickerstart></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="time" placeholder="Heure de début" formControlName="startHour" (blur)="datesAreValid()" />
+
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="time" [min]="formEvent.value?.starthour" placeholder="Heure de fin" formControlName="endHour" (blur)="datesAreValid()"
+            />
+            <mat-error *ngIf="!dateInvalide">
+            </mat-error>
+        </mat-form-field>
+
+    </div>
+
+
+    <div class="adress">
+        <mat-form-field>
+            <input matInput placeholder="N°" formControlName="numStreet" />
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Rue" formControlName="nameStreet" />
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="ville" formControlName="city" />
+        </mat-form-field>
+    </div>
+
+</form>
+<div class="butttonRow">
+    <ng-container *ngIf="formEvent.valid && !dateInvalide; else notValide">
+        <button mat-raised-button color="primary" (click)="add()">sauvegarder</button>
+    </ng-container>
+    <ng-template #notValide>
+        <button mat-raised-button color="primary" disabled>sauvegarder</button>
+    </ng-template>
+    <button mat-raised-button color="primary" (click)="closeDialog()">annuler</button>
+    <mat-icon *ngIf="dateInvalide" class="icon" color="warn" >warning</mat-icon>
+    <div class="error" *ngIf="dateInvalide">
+       Attention : l'heure de fin est antérieur à l'heure de début
+    </div>
+</div>

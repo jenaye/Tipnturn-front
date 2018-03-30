@@ -4,6 +4,8 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DatePipe } from '@angular/common';
+import { AgmCoreModule } from '@agm/core';
 
 
 import { ChartsModule } from 'ng2-charts/ng2-charts';
@@ -20,10 +22,13 @@ import { FinancialComponent } from './components/financial/financial.component';
 import { AddFinancialComponent } from './components/addFinancial/addFinancial.component';
 import { LoginComponent } from './components/login/login.component';
 import { AddActivitesComponent } from './components/addActivites/addActivites.component';
+import { AddEventComponent } from './components/addEvent/addEvent.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { PageHeaderComponent } from './components/page-header/page-header.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { EditmemberComponent } from './components/editmember/editmember.component';
+import { AllEventComponent } from './components/all-events/all-event.component';
+import { EditEventComponent } from './components/editEvent/editEvent.component';
 import { routing } from './app.routing';
 import { AuthGuard } from './guards/auth.guard';
 
@@ -34,6 +39,9 @@ import { ActivitiesService } from './services/activities.service';
 import { ListingmemberService } from './services/listingmember.service';
 import { FinancialService } from './services/financial.service';
 import { TypesService } from './services/types.service';
+import { EventService } from './services/event.service';
+import { MapService } from './services/map.service';
+
 
 // Material component
 import { MatCardModule } from '@angular/material/card';
@@ -58,6 +66,8 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter} from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 
+import map from './../config';
+
 export const MY_FORMATS = {
   parse: {
     dateInput: 'L',
@@ -76,18 +86,21 @@ export const MY_FORMATS = {
     HeaderComponent,
     HomepageComponent,
     ErrorComponent,
-      AllMembersComponent,
+    AllMembersComponent,
     ActivitiesComponent,
-      ListingByActivitesComponent,
-      AddMemberComponent,
-      FinancialComponent,
-      AddFinancialComponent,
+    ListingByActivitesComponent,
+    FinancialComponent,
     LoginComponent,
-      AddActivitesComponent,
-      EditmemberComponent,
+    AddActivitesComponent,
     SideBarComponent,
     PageHeaderComponent,
-    DashboardComponent
+    DashboardComponent,
+    AllEventComponent,
+    EditmemberComponent,
+    AddFinancialComponent,
+    AddMemberComponent,
+    AddEventComponent,
+    EditEventComponent
   ],
   imports: [
     BrowserModule,
@@ -116,6 +129,9 @@ export const MY_FORMATS = {
     MatNativeDateModule,
     MatRadioModule,
     routing,
+    AgmCoreModule.forRoot({
+      apiKey: map.MAPS_KEY
+    })
   ],
   providers: [
     ActivitiesService,
@@ -125,10 +141,21 @@ export const MY_FORMATS = {
     CheckTokenService,
     AuthGuard,
     TypesService,
+    EventService,
+    MapService,
+    DatePipe,
     {provide: MAT_DATE_LOCALE, useValue: 'fr-FR'},
     {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
     {provide: MAT_DATE_FORMATS, useValue: MY_FORMATS},
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    EditmemberComponent,
+    AddFinancialComponent,
+    AddMemberComponent,
+    AddEventComponent,
+    EditEventComponent
+  ]
+
 })
 export class AppModule { }

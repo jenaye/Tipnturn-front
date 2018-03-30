@@ -45,7 +45,6 @@
   </div>
   <div class="card-zone">
     <mat-card class="chart-card">
-
       <mat-progress-spinner *ngIf="!ok" class="spinner" [color]="color" [mode]="mode">
       </mat-progress-spinner>
       <canvas *ngIf="ok" baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"

@@ -1,0 +1,37 @@
+agm-map {
+    height: 300px;
+  }
+  .row {
+    display: grid;
+    margin: auto;
+    grid-template-columns :210px 210px;
+    grid-gap: 10px;
+  }
+  .rowAdress{
+    display: grid;
+    margin: auto;
+    grid-template-columns :  50px 210px 150px;
+    grid-gap: 10px;
+  }
+  .rowtime{
+    display: grid;
+    margin: auto;
+    grid-template-columns :  210px 100px 100px;
+    grid-gap: 10px;
+  }
+  .myform{
+    margin-top:25px;
+  }
+  .error{
+    font-size: 11px;
+    color: #f44336;   
+    margin: auto;
+  }
+  .butttonRow{
+    margin-top:20px;
+    display: inline-flex;
+    flex-direction: row;
+  }
+  .icon{
+    margin: 10px
+  }
