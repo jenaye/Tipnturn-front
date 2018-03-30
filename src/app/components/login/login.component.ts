@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
 
       
       this.http
-          .post(`${url.API}/login_check`, formData,  headers)
+          .post(`${url.API}/login_check`, formData)
           .subscribe(response => {
               if (response.status === 200) {
                   var token = response.json().token;
