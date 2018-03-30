@@ -1,12 +1,13 @@
-<agm-map [latitude]="lat" [longitude]="lng">
+<agm-map [latitude]="lat" [longitude]="lng" [zoom]="15">
   <agm-marker [latitude]="lat" [longitude]="lng" [markerDraggable]="false">
     <agm-info-window>
       <strong> {{formAdress.value.numberRue}}  {{formAdress.value.rue}}  à {{formEvent.value.city}}</strong>
     </agm-info-window>
   </agm-marker>
 </agm-map>
+<mat-divider></mat-divider>
 <form [formGroup]="formAdress" class="myform" (change)="changeLocation()">
-  <div class="row3">
+  <div class="rowAdress">
 
     <mat-form-field>
     <input matInput placeholder="N°" formControlName="numberRue" />
@@ -21,6 +22,7 @@
 
   </div>
 </form>
+
 <form [formGroup]="formEvent" class="myform">
   <div class="row">
 
@@ -33,29 +35,22 @@
     </mat-form-field>
 
   </div>
-  <div class="row">
+
+  <div class="rowtime">
     <mat-form-field>
-      <input matInput [matDatepicker]="pickerstart" [min]="minStartDate" placeholder="Du " formControlName="start">
+      <input matInput [matDatepicker]="pickerstart" [min]="minStartDate" placeholder="Le " formControlName="start">
       <mat-datepicker-toggle matSuffix [for]="pickerstart"></mat-datepicker-toggle>
       <mat-datepicker #pickerstart></mat-datepicker>
     </mat-form-field>
     <mat-form-field>
-      <input matInput type="time" placeholder="A" formControlName="startHour" />
-    </mat-form-field>
-
-  </div>
-  <div class="row">
-    <mat-form-field>
-      <input matInput [matDatepicker]="pickerend" [min]="formEvent.value.start" placeholder="Au " formControlName="end">
-      <mat-datepicker-toggle matSuffix [for]="pickerend"></mat-datepicker-toggle>
-      <mat-datepicker #pickerend></mat-datepicker>
+      <input matInput type="time" placeholder="A partire de " formControlName="startHour" (blur)="datesAreValid()"/>
     </mat-form-field>
     <mat-form-field>
-      <input matInput type="time" placeholder="A" formControlName="endHour" />
+      <input matInput type="time" placeholder="Jusqu'à" formControlName="endHour" (blur)="datesAreValid()" />
     </mat-form-field>
   </div>
 </form>
-<div style="margin-top: 20px;">
+<div class="butttonRow">
   <ng-container *ngIf="formEvent.valid; else notValide">
     <button mat-raised-button color="primary" (click)="edit()">sauvegarder</button>
   </ng-container>
@@ -63,4 +58,9 @@
     <button mat-raised-button color="primary" disabled>sauvegarder</button>
   </ng-template>
   <button mat-raised-button color="primary" (click)="closeDialog()">annuler</button>
+ 
+    <mat-icon *ngIf="dateInvalide" class="icon" color="warn" >warning</mat-icon>
+    <div class="error" *ngIf="dateInvalide">
+       Attention : l'heure de fin est antérieur à l'heure de début
+    </div>
 </div>

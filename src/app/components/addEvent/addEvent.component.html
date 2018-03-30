@@ -1,7 +1,7 @@
 <div class="title">
     Ajouter un évènement
 </div>
-<form [formGroup]="formEvent" (change)="checkStatus()">
+<form [formGroup]="formEvent">
     <div class="row">
         <mat-form-field>
             <input matInput placeholder="Nom" formControlName="name" />
@@ -10,34 +10,25 @@
             <input matInput placeholder="Description" formControlName="description" />
         </mat-form-field>
     </div>
-    <div class="row">
+    <div class="rowtime">
         <mat-form-field>
-            <input matInput [matDatepicker]="pickerstart" [min]="minStartDate" placeholder="Date de début" formControlName="startDate">
+            <input matInput [matDatepicker]="pickerstart" [min]="minStartDate" placeholder="Date de l'évènement" formControlName="startDate">
             <mat-datepicker-toggle matSuffix [for]="pickerstart"></mat-datepicker-toggle>
             <mat-datepicker #pickerstart></mat-datepicker>
         </mat-form-field>
-        <ng-container *ngIf="endDateAble ;else availableDate">
-        </ng-container>
-        <ng-template #availableDate>
-            <mat-form-field>
-                <input matInput [matDatepicker]="pickerend" [min]="formEvent.value.startDate" placeholder="Date de fin" formControlName="endDate">
-                <mat-datepicker-toggle matSuffix [for]="pickerend"></mat-datepicker-toggle>
-                <mat-datepicker #pickerend></mat-datepicker>
-            </mat-form-field>
-        </ng-template>
-    </div>
-    <div class="row">
         <mat-form-field>
-            <input matInput type="time" placeholder="Heure de début" formControlName="startHour" />
+            <input matInput type="time" placeholder="Heure de début" formControlName="startHour" (blur)="datesAreValid()" />
+
         </mat-form-field>
-        <ng-container *ngIf="endDateAble ;else availableHour">
-        </ng-container>
-        <ng-template #availableHour>
-                <mat-form-field>
-            <input matInput type="time" placeholder="Heure de fin" formControlName="endHour" />
-                </mat-form-field>
-        </ng-template>
+        <mat-form-field>
+            <input matInput type="time" [min]="formEvent.value?.starthour" placeholder="Heure de fin" formControlName="endHour" (blur)="datesAreValid()"
+            />
+            <mat-error *ngIf="!dateInvalide">
+            </mat-error>
+        </mat-form-field>
+
     </div>
+
 
     <div class="adress">
         <mat-form-field>
@@ -52,12 +43,16 @@
     </div>
 
 </form>
-<div style="margin-top:20px;">
-    <ng-container *ngIf="formEvent.valid; else notValide">
+<div class="butttonRow">
+    <ng-container *ngIf="formEvent.valid && !dateInvalide; else notValide">
         <button mat-raised-button color="primary" (click)="add()">sauvegarder</button>
     </ng-container>
     <ng-template #notValide>
         <button mat-raised-button color="primary" disabled>sauvegarder</button>
     </ng-template>
     <button mat-raised-button color="primary" (click)="closeDialog()">annuler</button>
+    <mat-icon *ngIf="dateInvalide" class="icon" color="warn" >warning</mat-icon>
+    <div class="error" *ngIf="dateInvalide">
+       Attention : l'heure de fin est antérieur à l'heure de début
+    </div>
 </div>

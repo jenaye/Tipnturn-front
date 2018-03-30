@@ -17,10 +17,12 @@ export class EditEventComponent implements OnInit {
   public minStartDate : Date;
   public datestart : string;
   public dateend : string;
+  public dateInvalide : boolean;
 
   constructor(private formBuilder : FormBuilder, private eventService : EventService, private datePipe : DatePipe, public dialogRef : MatDialogRef < EditEventComponent >, private ms : MapService, private __zone : NgZone, @Inject(MAT_DIALOG_DATA)public data : any)
   {
     this.minStartDate = new Date();
+    this.dateInvalide = false;
     this.formEvent = this
       .formBuilder
       .group({
@@ -32,7 +34,7 @@ export class EditEventComponent implements OnInit {
         startHour: [
           '', Validators.required
         ],
-        end: '',
+
         endHour: [
           '', Validators.required
         ],
@@ -63,7 +65,6 @@ export class EditEventComponent implements OnInit {
             startHour: this
               .datePipe
               .transform(event.start, 'HH:mm'),
-            end: new Date(event.end),
             endHour: this
               .datePipe
               .transform(event.end, 'HH:mm'),
@@ -81,14 +82,14 @@ export class EditEventComponent implements OnInit {
   }
 
   edit() {
-    const endDate =this.formEvent.value.end;
-    const startDate =this.formEvent.value.start;
+    const endDate = this.formEvent.value.end;
+    const startDate = this.formEvent.value.start;
 
     let finalData;
     if ((!this.formAdress.value.rue && !this.formAdress.value.numberRue) || (this.formAdress.value.numberRue && !this.formAdress.value.rue)) {
       finalData = {
         "city": this.formAdress.value.city,
-        "end": new Date(endDate.getFullYear(), endDate.getMonth(), endDate.getDate(), + this.formEvent.value.endHour.substring(0, 2), + this.formEvent.value.endHour.substring(3, 5), 0),
+        "end": new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate(), + this.formEvent.value.endHour.substring(0, 2), + this.formEvent.value.endHour.substring(3, 5), 0),
         "start": new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate(), + this.formEvent.value.startHour.substring(0, 2), + this.formEvent.value.startHour.substring(3, 5), 0),
         "name": this.formEvent.value.name,
         "latitude": this.lat,
@@ -99,7 +100,7 @@ export class EditEventComponent implements OnInit {
       finalData = {
         "rue": this.formAdress.value.rue,
         "city": this.formAdress.value.city,
-        "end": new Date(endDate.getFullYear(), endDate.getMonth(), endDate.getDate(), + this.formEvent.value.endHour.substring(0, 2), + this.formEvent.value.endHour.substring(3, 5), 0),
+        "end": new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate(), + this.formEvent.value.endHour.substring(0, 2), + this.formEvent.value.endHour.substring(3, 5), 0),
         "start": new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate(), + this.formEvent.value.startHour.substring(0, 2), + this.formEvent.value.startHour.substring(3, 5), 0),
         "name": this.formEvent.value.name,
         "latitude": this.lat,
@@ -111,15 +112,14 @@ export class EditEventComponent implements OnInit {
         "numberRue": + this.formAdress.value.numberRue,
         "rue": this.formAdress.value.rue,
         "city": this.formAdress.value.city,
-        "end": new Date(endDate.getFullYear(), endDate.getMonth(), endDate.getDate(), + this.formEvent.value.endHour.substring(0, 2), + this.formEvent.value.endHour.substring(3, 5), 0),
+        "end": new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate(), + this.formEvent.value.endHour.substring(0, 2), + this.formEvent.value.endHour.substring(3, 5), 0),
         "start": new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate(), + this.formEvent.value.startHour.substring(0, 2), + this.formEvent.value.startHour.substring(3, 5), 0),
-        "name": this.formEvent.value.name,
         "latitude": this.lat,
         "longitude": this.lng,
         "description": this.formEvent.value.description
       }
     }
-   console.log(finalData);
+    console.log(finalData);
     this
       .eventService
       .edit(finalData, this.data)
@@ -137,7 +137,7 @@ export class EditEventComponent implements OnInit {
   changeLocation() {
     if (this.formAdress.valid) {
       let data;
-      if (!((this.formAdress.value.numberRue ) || ( this.formAdress.value.rue))  ||  ( this.formAdress.value.rue)) {
+      if (!((this.formAdress.value.numberRue) || (this.formAdress.value.rue)) || (this.formAdress.value.rue)) {
         data = this.formAdress.value.city;
       } else {
         data = this.formAdress.value.numberRue + '+' + this.formAdress.value.rue + '+' + this.formAdress.value.city;
@@ -154,6 +154,15 @@ export class EditEventComponent implements OnInit {
             })
         }, error => console.log(error), () => {});
 
+    }
+  }
+
+  datesAreValid() {
+
+    if (this.formEvent && this.formEvent.value && this.formEvent.value.startHour && this.formEvent.value.endHour) {
+      const heurFin = new Date(2000, 15, 10, + this.formEvent.value.endHour.substring(0, 2), + this.formEvent.value.endHour.substring(3, 5), 0);
+      const heurDebut = new Date(2000, 15, 10, + this.formEvent.value.startHour.substring(0, 2), + this.formEvent.value.startHour.substring(3, 5), 0)
+      this.dateInvalide = !(heurFin > heurDebut)
     }
   }
 }

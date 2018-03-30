@@ -1,6 +1,6 @@
 <div class="membre-content">
     <div class="titre">
-      Evenements
+      Evènements
     </div>
     <div>
       <mat-form-field>
@@ -20,15 +20,18 @@
         </ng-container>
   
         <ng-container matColumnDef="startdate">
-          <mat-header-cell *matHeaderCellDef mat-sort-header> date de début </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef mat-sort-header> date de l'évènement </mat-header-cell>
           <mat-cell *matCellDef="let row"> {{row.start | date :'dd/MM/yyyy'}} </mat-cell>
         </ng-container>
   
-        <ng-container matColumnDef="enddate">
-          <mat-header-cell *matHeaderCellDef mat-sort-header> date de fin </mat-header-cell>
-          <mat-cell *matCellDef="let row"> {{row.end | date :'dd/MM/yyyy'}} </mat-cell>
+        <ng-container matColumnDef="starthour">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Heure de début </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.start | date :'HH:mm'}} </mat-cell>
         </ng-container>
-  
+        <ng-container matColumnDef="endhour">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Heure de fin </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.end | date :'HH:mm'}} </mat-cell>
+        </ng-container>
         <ng-container matColumnDef="decription">
           <mat-header-cell *matHeaderCellDef mat-sort-header> description </mat-header-cell>
           <mat-cell *matCellDef="let row"> {{row.description}} </mat-cell>

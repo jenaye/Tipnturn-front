@@ -1,5 +1,5 @@
 import {Component, OnInit, Inject, NgZone} from '@angular/core';
-import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import {FormGroup, FormBuilder, Validators, FormControl} from '@angular/forms';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {EventService} from '../../services/event.service';
 import {MapService} from '../../services/map.service'
@@ -13,19 +13,20 @@ export class AddEventComponent implements OnInit {
     public minStartDate : Date;
     public minEndDate : Date;
     public endDateAble : boolean;
+    public dateInvalide : boolean
 
     constructor(private formBuilder: FormBuilder, private eventsService: EventService, public dialogRef: MatDialogRef < AddEventComponent >, private ms: MapService, private __zone: NgZone) {
         
         this.minStartDate= new Date();
         this.endDateAble=true;
+      //  this.dateInvalide=false;
        
         this.formEvent = this
             .formBuilder
             .group({
                 startDate: ['', Validators.required],
                 startHour: ['', Validators.required],
-                endDate:  ['',Validators.required],
-                endHour: ['',Validators.required],
+                endHour : ['',Validators.required],
                 name: ['',Validators.required],
                 numStreet: '',
                 nameStreet: '',
@@ -54,7 +55,7 @@ export class AddEventComponent implements OnInit {
                 if ((!this.formEvent.value.nameStreet && !this.formEvent.value.numStreet)||(this.formEvent.value.numStreet && !this.formEvent.value.nameStreet)) {
                     savedData = {
                         "city": this.formEvent.value.city,
-                        "end": new Date(endDate._i.year, endDate._i.month, endDate._i.date, + this.formEvent.value.endHour.substring(0, 2), + this.formEvent.value.endHour.substring(3, 5), 0),
+                        "end": new Date(startDate._i.year, startDate._i.month, startDate._i.date, + this.formEvent.value.endHour.substring(0, 2), + this.formEvent.value.endHour.substring(3, 5), 0),
                         "start": new Date(startDate._i.year, startDate._i.month, startDate._i.date, + this.formEvent.value.startHour.substring(0, 2), + this.formEvent.value.startHour.substring(3, 5), 0),
                         "name": this.formEvent.value.name,
                         "latitude": this.lat,
@@ -65,7 +66,7 @@ export class AddEventComponent implements OnInit {
                      savedData = {
                         "rue": this.formEvent.value.nameStreet,
                         "city": this.formEvent.value.city,
-                        "end": new Date(endDate._i.year, endDate._i.month, endDate._i.date, + this.formEvent.value.endHour.substring(0, 2), + this.formEvent.value.endHour.substring(3, 5), 0),
+                        "end": new Date(startDate._i.year, startDate._i.month, startDate._i.date, + this.formEvent.value.endHour.substring(0, 2), + this.formEvent.value.endHour.substring(3, 5), 0),
                         "start": new Date(startDate._i.year, startDate._i.month, startDate._i.date, + this.formEvent.value.startHour.substring(0, 2), + this.formEvent.value.startHour.substring(3, 5), 0),
                         "name": this.formEvent.value.name,
                         "latitude": this.lat,
@@ -77,7 +78,7 @@ export class AddEventComponent implements OnInit {
                         "numberRue": +this.formEvent.value.numStreet,
                         "rue": this.formEvent.value.nameStreet,
                         "city": this.formEvent.value.city,
-                        "end": new Date(endDate._i.year, endDate._i.month, endDate._i.date, + this.formEvent.value.endHour.substring(0, 2), + this.formEvent.value.endHour.substring(3, 5), 0),
+                        "end": new Date(startDate._i.year, startDate._i.month, startDate._i.date, + this.formEvent.value.endHour.substring(0, 2), + this.formEvent.value.endHour.substring(3, 5), 0),
                         "start": new Date(startDate._i.year, startDate._i.month, startDate._i.date, + this.formEvent.value.startHour.substring(0, 2), + this.formEvent.value.startHour.substring(3, 5), 0),
                         "name": this.formEvent.value.name,
                         "latitude": this.lat,
@@ -101,8 +102,16 @@ export class AddEventComponent implements OnInit {
             .close();
     }
 
-    checkStatus(){
-    this.endDateAble= (this.formEvent.value.startDate+this.formEvent.value.startHour).length===0;
+    datesAreValid(){
+        
+        if(this.formEvent && this.formEvent.value && this.formEvent.value.startHour && this.formEvent.value.endHour){
+            const heurFin = new Date( 2000, 15, 10, + this.formEvent.value.endHour.substring(0, 2), + this.formEvent.value.endHour.substring(3, 5), 0);
+            const heurDebut = new Date(2000,15,10, + this.formEvent.value.startHour.substring(0, 2), + this.formEvent.value.startHour.substring(3, 5), 0)
+            this.dateInvalide = !(heurFin  > heurDebut)
+        }
+        
+       
     }
+
 
 }

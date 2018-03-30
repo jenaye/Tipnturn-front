@@ -13,7 +13,7 @@ import { MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 
 export class AllEventComponent implements OnInit {
  
-  public displayedColumns = ['name', 'startdate', 'enddate', 'decription',  'action'];
+  public displayedColumns = ['name', 'startdate','starthour' ,'endhour', 'decription',  'action'];
   public dataSource: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -47,7 +47,7 @@ export class AllEventComponent implements OnInit {
 
   openDialogAdd(): void {
     const dialogRef = this.dialog.open(AddEventComponent, {
-      width: '700px',
+      width: '500px',
       data :  ''
     });
     dialogRef
@@ -64,7 +64,7 @@ export class AllEventComponent implements OnInit {
 
   openDialogEdit(id: string): void {
     const dialogRef = this.dialog.open(EditEventComponent, {
-      width: '700px',
+      width: '500px',
       data :  id,
     });
     dialogRef
