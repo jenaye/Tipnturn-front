@@ -29,6 +29,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { EditmemberComponent } from './components/editmember/editmember.component';
 import { AllEventComponent } from './components/all-events/all-event.component';
 import { EditEventComponent } from './components/editEvent/editEvent.component';
+import { CalendarComponent } from './components/calendar/calendar.component';
 import { routing } from './app.routing';
 import { AuthGuard } from './guards/auth.guard';
 
@@ -99,7 +100,8 @@ export const MY_FORMATS = {
     AddFinancialComponent,
     AddMemberComponent,
     AddEventComponent,
-    EditEventComponent
+    EditEventComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,

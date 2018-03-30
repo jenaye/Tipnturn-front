@@ -1,15 +1,40 @@
-<div>
-  <button mat-raised-button color="primary">Primary</button>
-  <button mat-raised-button>Basic</button>
-  <button mat-raised-button color="primary">Primary</button>
-  <div> {{today}} </div>
-</div>
-<div class="header">
-  <span>Lundi</span>
-  <span>Mardi</span>
-  <span>Mercredi</span>
-  <span>Jeudi</span>
-  <span>Vendredi</span>
-  <span>Samedi</span>
-  <span>Dimanche</span>
-</div>
+<div class="calendar-content">
+  <div class="titre">
+    Calendrier</div>
+  <div>
+    <mat-card class="blueCard">
+      <div class='simpleWhiteCellStart'>
+        <button mat-icon-button>
+          <mat-icon>navigate_before</mat-icon>
+        </button>
+      </div>
+      <div class="monthwhite"> {{currentMonthName}} {{today.getFullYear()}} </div>
+  
+      <div class='simpleWhiteCellEnd'>
+        <button mat-icon-button >
+          <mat-icon>navigate_next</mat-icon>
+        </button>
+      </div>
+    </mat-card>
+    <div class="dayRow">
+      <span>Lundi</span>
+      <span>Mardi</span>
+      <span>Mercredi</span>
+      <span>Jeudi</span>
+      <span>Vendredi</span>
+      <span>Samedi</span>
+      <span>Dimanche</span>
+    </div>
+    <div class='monthGrid'>
+        <ng-container *ngFor='let day of pastMonthDays'>
+        <mat-card>{{day}}</mat-card> 
+       </ng-container>
+       <ng-container *ngFor='let day of currentMonthDays'>
+          <mat-card>{{day}}</mat-card> 
+       </ng-container>
+       <ng-container  *ngFor='let day of nextMonthDays'>
+          <mat-card>{{day}}</mat-card> 
+       </ng-container>
+
+    </div>
+  </div>
