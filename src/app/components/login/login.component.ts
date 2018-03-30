@@ -3,7 +3,6 @@ import { Response, Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import {Headers , RequestOptions} from '@angular/http';
 import {Router} from '@angular/router';
-import url from './../../../config';
 import {environment} from '../../../environments/environment';
 
 @Component({
@@ -31,7 +30,7 @@ export class LoginComponent implements OnInit {
       headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
       this.http
-          .post(`${url.API}/login_check`, formData)
+          .post(`${environment.API}/login_check`, formData)
           .subscribe(response => {
               if (response.status === 200) {
                   var token = response.json().token;

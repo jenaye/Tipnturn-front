@@ -2,7 +2,8 @@ import { Injectable, NgZone } from '@angular/core';
 import { GoogleMapsAPIWrapper } from '@agm/core';
 import { MapsAPILoader } from '@agm/core';
 import { Observable, Observer } from 'rxjs';
-import map from './../../config';
+import {environment} from "../../environments/environment";
+
 declare var google: any;
 @Injectable()
 export class MapService extends GoogleMapsAPIWrapper {
