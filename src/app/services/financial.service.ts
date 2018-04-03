@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {Response, Http, RequestOptions} from '@angular/http';
 import 'rxjs/add/operator/map';
 import {CheckTokenService} from './checkToken.service';
-import url from './../../config';
+import {environment} from "../../environments/environment";
 
 @Injectable()
 export class FinancialService {
@@ -12,7 +12,7 @@ export class FinancialService {
 
     getData() {
         return this.http
-            .get(`${url.API}/bilans.json`)
+            .get(`${environment.API}/bilans.json`)
                 .map((res: Response) => {
                     return res.json();
                 });
@@ -20,7 +20,7 @@ export class FinancialService {
 
     insert(data) {
         return this.http
-            .post(`${url.API}/bilans`, data)
+            .post(`${environment.API}/bilans`, data)
                 .map((res: Response) => {
                     return res.json();
             });
@@ -28,7 +28,7 @@ export class FinancialService {
 
     getMoney() {
         return this.http
-            .get(`${url.API}/bilan/results`)
+            .get(`${environment.API}/bilan/results`)
             .map((res: Response) => {
                 return res.json();
             });

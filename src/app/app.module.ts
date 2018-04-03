@@ -65,8 +65,7 @@ import { MatNativeDateModule } from '@angular/material';
 import { MatRadioModule } from '@angular/material/radio';
 import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter} from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
-
-import map from './../config';
+import { environment} from "../environments/environment";
 
 export const MY_FORMATS = {
   parse: {
@@ -130,7 +129,7 @@ export const MY_FORMATS = {
     MatRadioModule,
     routing,
     AgmCoreModule.forRoot({
-      apiKey: map.MAPS_KEY
+      apiKey: environment.MAPS_KEY
     })
   ],
   providers: [
