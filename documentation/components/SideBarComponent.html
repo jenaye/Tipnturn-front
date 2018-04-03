@@ -101,10 +101,16 @@
                                     <a href="../components/AddActivitesComponent.html" >AddActivitesComponent</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../components/AddEventComponent.html" >AddEventComponent</a>
+                                </li>
+                                <li class="link">
                                     <a href="../components/AddFinancialComponent.html" >AddFinancialComponent</a>
                                 </li>
                                 <li class="link">
                                     <a href="../components/AddMemberComponent.html" >AddMemberComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/AllEventComponent.html" >AllEventComponent</a>
                                 </li>
                                 <li class="link">
                                     <a href="../components/AllMembersComponent.html" >AllMembersComponent</a>
@@ -114,6 +120,9 @@
                                 </li>
                                 <li class="link">
                                     <a href="../components/DashboardComponent.html" >DashboardComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/EditEventComponent.html" >EditEventComponent</a>
                                 </li>
                                 <li class="link">
                                     <a href="../components/EditmemberComponent.html" >EditmemberComponent</a>
@@ -168,18 +177,43 @@
                                     <a href="../injectables/CheckTokenService.html" >CheckTokenService</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../injectables/EventService.html" >EventService</a>
+                                </li>
+                                <li class="link">
                                     <a href="../injectables/FinancialService.html" >FinancialService</a>
                                 </li>
                                 <li class="link">
                                     <a href="../injectables/ListingmemberService.html" >ListingmemberService</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../injectables/MapService.html" >MapService</a>
+                                </li>
+                                <li class="link">
                                     <a href="../injectables/MembersService.html" >MembersService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/TypesService.html" >TypesService</a>
                                 </li>
                         </ul>
                     </li>
             
             
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-interfaces-links"
+                            >
+                            <span class="fa fa-fw fa-info"></span>
+                            <span>Interfaces</span>
+                            <span class="fa fa-angle-down"></span>
+                        </div>
+                        <ul class="links collapse "
+                                id="xs-interfaces-links"
+                            >
+                                <li class="link">
+                                    <a href="../interfaces/marker.html" >marker</a>
+                                </li>
+                        </ul>
+                    </li>
             
             
                     <li class="chapter">
@@ -302,10 +336,16 @@
                                            <a href="../components/AddActivitesComponent.html" >AddActivitesComponent</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../components/AddEventComponent.html" >AddEventComponent</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../components/AddFinancialComponent.html" >AddFinancialComponent</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/AddMemberComponent.html" >AddMemberComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/AllEventComponent.html" >AllEventComponent</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/AllMembersComponent.html" >AllMembersComponent</a>
@@ -315,6 +355,9 @@
                                        </li>
                                        <li class="link">
                                            <a href="../components/DashboardComponent.html" >DashboardComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/EditEventComponent.html" >EditEventComponent</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/EditmemberComponent.html" >EditmemberComponent</a>
@@ -369,18 +412,43 @@
                                            <a href="../injectables/CheckTokenService.html" >CheckTokenService</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../injectables/EventService.html" >EventService</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../injectables/FinancialService.html" >FinancialService</a>
                                        </li>
                                        <li class="link">
                                            <a href="../injectables/ListingmemberService.html" >ListingmemberService</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../injectables/MapService.html" >MapService</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../injectables/MembersService.html" >MembersService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/TypesService.html" >TypesService</a>
                                        </li>
                                </ul>
                            </li>
                    
                    
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#interfaces-links"
+                   >
+                                   <span class="fa fa-fw fa-info"></span>
+                                   <span>Interfaces</span>
+                                   <span class="fa fa-angle-down"></span>
+                               </div>
+                               <ul class="links collapse "
+                                       id="interfaces-links"
+                   >
+                                       <li class="link">
+                                           <a href="../interfaces/marker.html" >marker</a>
+                                       </li>
+                               </ul>
+                           </li>
                    
                    
                            <li class="chapter">
@@ -765,6 +833,7 @@ export class SideBarComponent implements OnInit {
             &lt;/mat-expansion-panel&gt;
           &lt;/mat-accordion&gt;
           &lt;a mat-list-item routerLink&#x3D;&quot;/home/add-activite&quot;&gt;Ajouter une activite&lt;/a&gt;
+          &lt;a mat-list-item routerLink&#x3D;&quot;/home/listingEvents&quot;&gt;Evènements&lt;/a&gt;
       &lt;a mat-list-item (click)&#x3D;&quot;logout()&quot;&gt;Deconnexion&lt;/a&gt;
      
     &lt;/mat-nav-list&gt;
@@ -794,8 +863,8 @@ export class SideBarComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div>    <mat-nav-list>        <mat-accordion>            <a mat-list-item routerLink="/home/dashboard">Tableau de bord</a>            <mat-expansion-panel>              <mat-expansion-panel-header>                <mat-panel-title>                    Organisation                </mat-panel-title>              </mat-expansion-panel-header>              <a mat-list-item routerLink="/home/listingMembers">Tous les membres</a>              <app-activities></app-activities>            </mat-expansion-panel>            <mat-expansion-panel >              <mat-expansion-panel-header>                <mat-panel-title>                  Trésorerie                </mat-panel-title>              </mat-expansion-panel-header>              <a mat-list-item routerLink="/home/financial">Bilan mensuel</a>            </mat-expansion-panel>          </mat-accordion>          <a mat-list-item routerLink="/home/add-activite">Ajouter une activite</a>      <a mat-list-item (click)="logout()">Deconnexion</a>         </mat-nav-list></div>'
-    var COMPONENTS = [{'name': 'ActivitiesComponent', 'selector': 'app-activities'},{'name': 'AddActivitesComponent', 'selector': 'app-ajoutactivites'},{'name': 'AddFinancialComponent', 'selector': 'app-addFinancial'},{'name': 'AddMemberComponent', 'selector': 'app-addMember'},{'name': 'AllMembersComponent', 'selector': 'app-all-members'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'EditmemberComponent', 'selector': 'app-editmember'},{'name': 'ErrorComponent', 'selector': 'app-error'},{'name': 'FinancialComponent', 'selector': 'app-bilan'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomepageComponent', 'selector': 'app-homepage'},{'name': 'ListingByActivitesComponent', 'selector': 'app-listing-by-activites'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'SideBarComponent', 'selector': 'app-side-bar'}];
+        var COMPONENT_TEMPLATE = '<div>    <mat-nav-list>        <mat-accordion>            <a mat-list-item routerLink="/home/dashboard">Tableau de bord</a>            <mat-expansion-panel>              <mat-expansion-panel-header>                <mat-panel-title>                    Organisation                </mat-panel-title>              </mat-expansion-panel-header>              <a mat-list-item routerLink="/home/listingMembers">Tous les membres</a>              <app-activities></app-activities>            </mat-expansion-panel>            <mat-expansion-panel >              <mat-expansion-panel-header>                <mat-panel-title>                  Trésorerie                </mat-panel-title>              </mat-expansion-panel-header>              <a mat-list-item routerLink="/home/financial">Bilan mensuel</a>            </mat-expansion-panel>          </mat-accordion>          <a mat-list-item routerLink="/home/add-activite">Ajouter une activite</a>          <a mat-list-item routerLink="/home/listingEvents">Evènements</a>      <a mat-list-item (click)="logout()">Deconnexion</a>         </mat-nav-list></div>'
+    var COMPONENTS = [{'name': 'ActivitiesComponent', 'selector': 'app-activities'},{'name': 'AddActivitesComponent', 'selector': 'app-ajoutactivites'},{'name': 'AddEventComponent', 'selector': 'app-addEvent'},{'name': 'AddFinancialComponent', 'selector': 'app-addFinancial'},{'name': 'AddMemberComponent', 'selector': 'app-addMember'},{'name': 'AllEventComponent', 'selector': 'app-all-event'},{'name': 'AllMembersComponent', 'selector': 'app-all-members'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'EditEventComponent', 'selector': 'app-editEvent'},{'name': 'EditmemberComponent', 'selector': 'app-editmember'},{'name': 'ErrorComponent', 'selector': 'app-error'},{'name': 'FinancialComponent', 'selector': 'app-bilan'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomepageComponent', 'selector': 'app-homepage'},{'name': 'ListingByActivitesComponent', 'selector': 'app-listing-by-activites'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'SideBarComponent', 'selector': 'app-side-bar'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'SideBarComponent'};
 </script>

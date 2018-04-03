@@ -110,13 +110,13 @@
                                     <a href="../components/AddMemberComponent.html" >AddMemberComponent</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../components/AllEventComponent.html" >AllEventComponent</a>
+                                    <a href="../components/AllEventComponent.html"  data-type="entity-link" class="active" >AllEventComponent</a>
                                 </li>
                                 <li class="link">
                                     <a href="../components/AllMembersComponent.html" >AllMembersComponent</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../components/AppComponent.html"  data-type="entity-link" class="active" >AppComponent</a>
+                                    <a href="../components/AppComponent.html" >AppComponent</a>
                                 </li>
                                 <li class="link">
                                     <a href="../components/DashboardComponent.html" >DashboardComponent</a>
@@ -345,13 +345,13 @@
                                            <a href="../components/AddMemberComponent.html" >AddMemberComponent</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../components/AllEventComponent.html" >AllEventComponent</a>
+                                           <a href="../components/AllEventComponent.html"  data-type="entity-link" class="active" >AllEventComponent</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/AllMembersComponent.html" >AllMembersComponent</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../components/AppComponent.html"  data-type="entity-link" class="active" >AppComponent</a>
+                                           <a href="../components/AppComponent.html" >AppComponent</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/DashboardComponent.html" >DashboardComponent</a>
@@ -492,7 +492,7 @@
 
 <ol class="breadcrumb">
   <li>Components</li>
-  <li>AppComponent</li>
+  <li>AllEventComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -517,11 +517,17 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>src/app/app.component.ts</code>
+    <code>src/app/components/all-events/all-event.component.ts</code>
 </p>
 
 
 
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
 
 
 <section>
@@ -542,19 +548,19 @@
 
             <tr>
                 <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>app-root</code></td>
+                <td class="col-md-9"><code>app-all-event</code></td>
             </tr>
 
             <tr>
                 <td class="col-md-3">styleUrls</td>
-                <td class="col-md-9"><code>app.component.css</code></td>
+                <td class="col-md-9"><code>all-event.component.css</code></td>
             </tr>
 
 
 
             <tr>
                 <td class="col-md-3">templateUrl</td>
-                <td class="col-md-9"><code>./app.component.html</code></td>
+                <td class="col-md-9"><code>./all-event.component.html</code></td>
             </tr>
 
 
@@ -575,8 +581,22 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Protected</span>
-                                <a href="#logged">logged</a>
+                                    <span class="modifier">Public</span>
+                                <a href="#dataSource">dataSource</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#dialog">dialog</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#displayedColumns">displayedColumns</a>
+                            </li>
+                            <li>
+                                <a href="#paginator">paginator</a>
+                            </li>
+                            <li>
+                                <a href="#sort">sort</a>
                             </li>
                         </ul>
                     </td>
@@ -590,7 +610,19 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#applyFilter">applyFilter</a>
+                            </li>
+                            <li>
+                                <a href="#ngAfterViewInit">ngAfterViewInit</a>
+                            </li>
+                            <li>
                                 <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#openDialogAdd">openDialogAdd</a>
+                            </li>
+                            <li>
+                                <a href="#openDialogEdit">openDialogEdit</a>
                             </li>
                         </ul>
                     </td>
@@ -599,6 +631,66 @@
         </table>
     </section>
 
+    <section>
+        <h3 id="constructor">Constructor</h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+    <code>constructor(eventService: <a href="../injectables/EventService.html">EventService</a>, dialog: MatDialog)</code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/components/all-events/all-event.component.ts:20</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div>
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                        <td>Type</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                        <td>eventService</td>
+                                                      
+                                                            <td>
+                                                                        <code><a href="../injectables/EventService.html" target="_self" >EventService</a></code>
+                                                            </td>
+                                                      
+                                                        <td>
+                                                                no
+                                                        </td>
+                                                        
+                                                    </tr>
+                                                    <tr>
+                                                        <td>dialog</td>
+                                                      
+                                                            <td>
+                                                                        <code>MatDialog</code>
+                                                            </td>
+                                                      
+                                                        <td>
+                                                                no
+                                                        </td>
+                                                        
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </section>
 
 
 
@@ -609,6 +701,112 @@
             <h3 id="methods">
                 Methods
             </h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="applyFilter"></a>
+                            <span class="name">
+                                <b>
+                                applyFilter
+                                </b>
+                                <a href="#applyFilter"><span class="fa fa-link"></span></a>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>applyFilter(filterValue: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/components/all-events/all-event.component.ts:42</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                        <td>Type</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                        <td>filterValue</td>
+                                                        
+                                                            <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                            </td>
+                                                        
+                                                        <td>
+                                                                no
+                                                        </td>
+                                                        
+    
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="ngAfterViewInit"></a>
+                            <span class="name">
+                                <b>
+                                ngAfterViewInit
+                                </b>
+                                <a href="#ngAfterViewInit"><span class="fa fa-link"></span></a>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>ngAfterViewInit()</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/components/all-events/all-event.component.ts:37</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
             <table class="table table-sm table-bordered">
                 <tbody>
                     <tr>
@@ -631,7 +829,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/app.component.ts:9</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/components/all-events/all-event.component.ts:26</a></div>
                                 </td>
                             </tr>
     
@@ -642,6 +840,112 @@
                                     <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
     
                                 </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="openDialogAdd"></a>
+                            <span class="name">
+                                <b>
+                                openDialogAdd
+                                </b>
+                                <a href="#openDialogAdd"><span class="fa fa-link"></span></a>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>openDialogAdd()</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/components/all-events/all-event.component.ts:48</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="openDialogEdit"></a>
+                            <span class="name">
+                                <b>
+                                openDialogEdit
+                                </b>
+                                <a href="#openDialogEdit"><span class="fa fa-link"></span></a>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>openDialogEdit(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">src/app/components/all-events/all-event.component.ts:65</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                        <td>Type</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                        <td>id</td>
+                                                        
+                                                            <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                            </td>
+                                                        
+                                                        <td>
+                                                                no
+                                                        </td>
+                                                        
+    
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
                         </td>
                     </tr>
                 </tbody>
@@ -657,31 +961,184 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <a name="logged"></a>
+                            <a name="dataSource"></a>
                             <span class="name">
                                 <b>
-                                    <span class="modifier">Protected</span>
-                                logged
+                                    <span class="modifier">Public</span>
+                                dataSource
                                 </b>
-                                <a href="#logged"><span class="fa fa-link"></span></a>
+                                <a href="#dataSource"><span class="fa fa-link"></span></a>
                             </span>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <span class="modifier-icon fa fa-reset"></span><code>logged:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                            <span class="modifier-icon fa fa-reset"></span><code>dataSource:     <code>MatTableDataSource&lt;any&gt;</code>
     </code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                <i>Type : </i>    <code>MatTableDataSource&lt;any&gt;</code>
     
                             </td>
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/app/app.component.ts:7</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/components/all-events/all-event.component.ts:17</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="dialog"></a>
+                            <span class="name">
+                                <b>
+                                    <span class="modifier">Public</span>
+                                dialog
+                                </b>
+                                <a href="#dialog"><span class="fa fa-link"></span></a>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-reset"></span><code>dialog:     <code>MatDialog</code>
+    </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Type : </i>    <code>MatDialog</code>
+    
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/components/all-events/all-event.component.ts:22</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="displayedColumns"></a>
+                            <span class="name">
+                                <b>
+                                    <span class="modifier">Public</span>
+                                displayedColumns
+                                </b>
+                                <a href="#displayedColumns"><span class="fa fa-link"></span></a>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-reset"></span><code>displayedColumns:     <code>[]</code>
+    </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Type : </i>    <code>[]</code>
+    
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Default value : </i><code>[&#x27;name&#x27;, &#x27;startdate&#x27;,&#x27;starthour&#x27; ,&#x27;endhour&#x27;, &#x27;decription&#x27;,  &#x27;action&#x27;]</code>
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/components/all-events/all-event.component.ts:16</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="paginator"></a>
+                            <span class="name">
+                                <b>
+                                paginator
+                                </b>
+                                <a href="#paginator"><span class="fa fa-link"></span></a>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>paginator:     <code>MatPaginator</code>
+    </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Type : </i>    <code>MatPaginator</code>
+    
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Decorators : </i><code>ViewChild</code>
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/components/all-events/all-event.component.ts:19</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="sort"></a>
+                            <span class="name">
+                                <b>
+                                sort
+                                </b>
+                                <a href="#sort"><span class="fa fa-link"></span></a>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>sort:     <code>MatSort</code>
+    </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Type : </i>    <code>MatSort</code>
+    
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Decorators : </i><code>ViewChild</code>
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/components/all-events/all-event.component.ts:20</a></div>
                                 </td>
                             </tr>
     
@@ -694,30 +1151,153 @@
 
 
     <div class="tab-pane fade tab-source-code" id="c-source">
-        <pre class="line-numbers"><code class="language-typescript">import {Component} from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers"><code class="language-typescript">import { Component, OnInit, ViewChild } from &#x27;@angular/core&#x27;;
+import { EventService } from &#x27;../../services/event.service&#x27;;
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from &#x27;@angular/material&#x27;;
+import { AddEventComponent } from &#x27;../addEvent/addEvent.component&#x27;;
+import { EditEventComponent } from &#x27;../editEvent/editEvent.component&#x27;;
+import { MatPaginator, MatSort, MatTableDataSource} from &#x27;@angular/material&#x27;;
 
-@Component({selector: &#x27;app-root&#x27;, templateUrl: &#x27;./app.component.html&#x27;, styleUrls: [&#x27;./app.component.css&#x27;]})
-export class AppComponent {
+@Component({
+  selector: &#x27;app-all-event&#x27;,
+  templateUrl: &#x27;./all-event.component.html&#x27;,
+  styleUrls: [&#x27;./all-event.component.css&#x27;]
+})
 
+export class AllEventComponent implements OnInit {
+ 
+  public displayedColumns &#x3D; [&#x27;name&#x27;, &#x27;startdate&#x27;,&#x27;starthour&#x27; ,&#x27;endhour&#x27;, &#x27;decription&#x27;,  &#x27;action&#x27;];
+  public dataSource: MatTableDataSource&lt;any&gt;;
 
-    protected logged: boolean;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
 
-    ngOnInit() {
+  constructor( private eventService: EventService, public dialog: MatDialog) {
+    this.dataSource &#x3D; new MatTableDataSource();
+   }
 
-        if (localStorage.getItem(&#x27;token&#x27;)) {
-            this.logged &#x3D; true;
-        } else {
-            this.logged &#x3D; false;
-        }
-    }
+  ngOnInit() {
+
+    this.eventService.getData().subscribe(events &#x3D;&gt; {
+    this.dataSource.data &#x3D; events;
+    this.dataSource.paginator &#x3D; this.paginator;
+    this.dataSource.sort &#x3D; this.sort;
+
+    });
+   
+  }
+
+  ngAfterViewInit() {
+    this.dataSource.paginator &#x3D; this.paginator;
+    this.dataSource.sort &#x3D; this.sort;
+  }
+
+  applyFilter(filterValue: string) {
+    filterValue &#x3D; filterValue.trim(); 
+    filterValue &#x3D; filterValue.toLowerCase(); 
+    this.dataSource.filter &#x3D; filterValue;
+  }
+
+  openDialogAdd(): void {
+    const dialogRef &#x3D; this.dialog.open(AddEventComponent, {
+      width: &#x27;500px&#x27;,
+      data :  &#x27;&#x27;
+    });
+    dialogRef
+      .afterClosed()
+      .subscribe(result &#x3D;&gt; {
+        this.eventService
+          .getData()
+          .subscribe(events &#x3D;&gt; {
+            this.dataSource.data &#x3D; events
+            this.dataSource.paginator &#x3D; this.paginator;
+          })
+      });
+  }
+
+  openDialogEdit(id: string): void {
+    const dialogRef &#x3D; this.dialog.open(EditEventComponent, {
+      width: &#x27;500px&#x27;,
+      data :  id,
+    });
+    dialogRef
+    .afterClosed()
+    .subscribe(result &#x3D;&gt; {
+      this.eventService
+        .getData()
+        .subscribe(rapports &#x3D;&gt; {
+          this.dataSource.data &#x3D; rapports
+          this.dataSource.paginator &#x3D; this.paginator;
+        })
+    });
+  }
 
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade" id="c-templateData">
-        <pre class="line-numbers"><code class="language-html"> &lt;router-outlet&gt;&lt;/router-outlet&gt;
-</code></pre>
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;membre-content&quot;&gt;
+    &lt;div class&#x3D;&quot;titre&quot;&gt;
+      Evènements
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;mat-form-field&gt;
+        &lt;input matInput (keyup)&#x3D;&quot;applyFilter($event.target.value)&quot; placeholder&#x3D;&quot;Filter&quot;&gt;
+      &lt;/mat-form-field&gt;
+      &lt;button mat-raised-button color&#x3D;&quot;primary&quot; style&#x3D;&quot;margin-left:10px;&quot; (click)&#x3D;&#x27;openDialogAdd()&#x27;&gt;Ajouter un événement
+      &lt;/button&gt;
+    &lt;/div&gt;
+    
+    &lt;div *ngIf&#x3D;&quot;dataSource&quot; class&#x3D;&quot;example-container mat-elevation-z8&quot;&gt;
+  
+      &lt;mat-table [dataSource]&#x3D;&quot;dataSource&quot; matSort&gt;
+  
+        &lt;ng-container matColumnDef&#x3D;&quot;name&quot;&gt;
+          &lt;mat-header-cell *matHeaderCellDef mat-sort-header&gt; Nom &lt;/mat-header-cell&gt;
+          &lt;mat-cell *matCellDef&#x3D;&quot;let row&quot;&gt; {{row.name}} &lt;/mat-cell&gt;
+        &lt;/ng-container&gt;
+  
+        &lt;ng-container matColumnDef&#x3D;&quot;startdate&quot;&gt;
+          &lt;mat-header-cell *matHeaderCellDef mat-sort-header&gt; date de l&#x27;évènement &lt;/mat-header-cell&gt;
+          &lt;mat-cell *matCellDef&#x3D;&quot;let row&quot;&gt; {{row.start | date :&#x27;dd/MM/yyyy&#x27;}} &lt;/mat-cell&gt;
+        &lt;/ng-container&gt;
+  
+        &lt;ng-container matColumnDef&#x3D;&quot;starthour&quot;&gt;
+          &lt;mat-header-cell *matHeaderCellDef mat-sort-header&gt; Heure de début &lt;/mat-header-cell&gt;
+          &lt;mat-cell *matCellDef&#x3D;&quot;let row&quot;&gt; {{row.start | date :&#x27;HH:mm&#x27;}} &lt;/mat-cell&gt;
+        &lt;/ng-container&gt;
+        &lt;ng-container matColumnDef&#x3D;&quot;endhour&quot;&gt;
+          &lt;mat-header-cell *matHeaderCellDef mat-sort-header&gt; Heure de fin &lt;/mat-header-cell&gt;
+          &lt;mat-cell *matCellDef&#x3D;&quot;let row&quot;&gt; {{row.end | date :&#x27;HH:mm&#x27;}} &lt;/mat-cell&gt;
+        &lt;/ng-container&gt;
+        &lt;ng-container matColumnDef&#x3D;&quot;decription&quot;&gt;
+          &lt;mat-header-cell *matHeaderCellDef mat-sort-header&gt; description &lt;/mat-header-cell&gt;
+          &lt;mat-cell *matCellDef&#x3D;&quot;let row&quot;&gt; {{row.description}} &lt;/mat-cell&gt;
+        &lt;/ng-container&gt;
+    
+        &lt;ng-container matColumnDef&#x3D;&quot;action&quot;&gt;
+          &lt;mat-header-cell *matHeaderCellDef&gt; &lt;/mat-header-cell&gt;
+          &lt;mat-cell *matCellDef&#x3D;&quot;let row&quot; style&#x3D;&quot;overflow:hidden;&quot;&gt;
+            &lt;button mat-icon-button color&#x3D;&quot;primary&quot;&gt;
+              &lt;mat-icon (click)&#x3D;&quot;openDialogEdit(row.id)&quot;&gt;edit&lt;/mat-icon&gt;
+            &lt;/button&gt;
+          &lt;/mat-cell&gt;
+        &lt;/ng-container&gt;
+  
+        &lt;mat-header-row *matHeaderRowDef&#x3D;&quot;displayedColumns&quot;&gt;&lt;/mat-header-row&gt;
+        &lt;mat-row *matRowDef&#x3D;&quot;let row; columns: displayedColumns;&quot;&gt;
+        &lt;/mat-row&gt;
+      &lt;/mat-table&gt;
+  
+      &lt;mat-paginator [pageSizeOptions]&#x3D;&quot;[5, 10, 25]&quot;&gt;&lt;/mat-paginator&gt;
+  
+    &lt;/div&gt;
+  &lt;/div&gt;
+  
+  &lt;ng-template #notChecked&gt;
+    &lt;mat-checkbox [disabled]&#x3D;&quot;true&quot;&gt;&lt;/mat-checkbox&gt;
+  &lt;/ng-template&gt;</code></pre>
     </div>
 
     <div class="tab-pane fade" id="c-tree">
@@ -743,10 +1323,10 @@ export class AppComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div> <router-outlet></router-outlet></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="membre-content">    <div class="titre">      Evènements    </div>    <div>      <mat-form-field>        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">      </mat-form-field>      <button mat-raised-button color="primary" style="margin-left:10px;" (click)=\'openDialogAdd()\'>Ajouter un événement      </button>    </div>        <div *ngIf="dataSource" class="example-container mat-elevation-z8">        <mat-table [dataSource]="dataSource" matSort>          <ng-container matColumnDef="name">          <mat-header-cell *matHeaderCellDef mat-sort-header> Nom </mat-header-cell>          <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>        </ng-container>          <ng-container matColumnDef="startdate">          <mat-header-cell *matHeaderCellDef mat-sort-header> date de l\'évènement </mat-header-cell>          <mat-cell *matCellDef="let row"> {{row.start | date :\'dd/MM/yyyy\'}} </mat-cell>        </ng-container>          <ng-container matColumnDef="starthour">          <mat-header-cell *matHeaderCellDef mat-sort-header> Heure de début </mat-header-cell>          <mat-cell *matCellDef="let row"> {{row.start | date :\'HH:mm\'}} </mat-cell>        </ng-container>        <ng-container matColumnDef="endhour">          <mat-header-cell *matHeaderCellDef mat-sort-header> Heure de fin </mat-header-cell>          <mat-cell *matCellDef="let row"> {{row.end | date :\'HH:mm\'}} </mat-cell>        </ng-container>        <ng-container matColumnDef="decription">          <mat-header-cell *matHeaderCellDef mat-sort-header> description </mat-header-cell>          <mat-cell *matCellDef="let row"> {{row.description}} </mat-cell>        </ng-container>            <ng-container matColumnDef="action">          <mat-header-cell *matHeaderCellDef> </mat-header-cell>          <mat-cell *matCellDef="let row" style="overflow:hidden;">            <button mat-icon-button color="primary">              <mat-icon (click)="openDialogEdit(row.id)">edit</mat-icon>            </button>          </mat-cell>        </ng-container>          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>        <mat-row *matRowDef="let row; columns: displayedColumns;">        </mat-row>      </mat-table>        <mat-paginator [pageSizeOptions]="[5, 10, 25]"></mat-paginator>      </div>  </div>    <ng-template #notChecked>    <mat-checkbox [disabled]="true"></mat-checkbox>  </ng-template></div>'
     var COMPONENTS = [{'name': 'ActivitiesComponent', 'selector': 'app-activities'},{'name': 'AddActivitesComponent', 'selector': 'app-ajoutactivites'},{'name': 'AddEventComponent', 'selector': 'app-addEvent'},{'name': 'AddFinancialComponent', 'selector': 'app-addFinancial'},{'name': 'AddMemberComponent', 'selector': 'app-addMember'},{'name': 'AllEventComponent', 'selector': 'app-all-event'},{'name': 'AllMembersComponent', 'selector': 'app-all-members'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'EditEventComponent', 'selector': 'app-editEvent'},{'name': 'EditmemberComponent', 'selector': 'app-editmember'},{'name': 'ErrorComponent', 'selector': 'app-error'},{'name': 'FinancialComponent', 'selector': 'app-bilan'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomepageComponent', 'selector': 'app-homepage'},{'name': 'ListingByActivitesComponent', 'selector': 'app-listing-by-activites'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'SideBarComponent', 'selector': 'app-side-bar'}];
     var DIRECTIVES = [];
-    var ACTUAL_COMPONENT = {'name': 'AppComponent'};
+    var ACTUAL_COMPONENT = {'name': 'AllEventComponent'};
 </script>
 <script src="../js/tree.js"></script>
 

@@ -26,9 +26,6 @@ export class LoginComponent implements OnInit {
       formData.append('_username', this.username);
       formData.append('_password', this.password);
 
-      let headers = new Headers();
-      headers.append('Content-Type', 'application/x-www-form-urlencoded');
-
       this.http
           .post(`${environment.API}/login_check`, formData)
           .subscribe(response => {
@@ -36,9 +33,9 @@ export class LoginComponent implements OnInit {
                   var token = response.json().token;
                   localStorage.setItem('token', token);
                   this.router.navigateByUrl('/home/dashboard');
-              } else {
-                  // show error maybe ?
-              }
+              } else if (response.status === 401) {
+                    alert('wrong ')
+                 }
           });
   }
 
