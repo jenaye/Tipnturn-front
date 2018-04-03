@@ -29,7 +29,9 @@
     
 
     }
-
+.hilight{
+    z-index: 300;
+}
 
    
   .simpleWhiteCellStart{
@@ -48,4 +50,6 @@
       justify-self: center;
      
   }
-    
+  .notCurrent{
+     color: rgba(0,0,0,.3);
+  }
