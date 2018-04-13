@@ -21,10 +21,9 @@ export class DayDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
-      console.log(this.data)
+
       this.day =new Date(this.data.events[0].start).getDate();
-      this.monthName =this.data.month
-     
+      this.monthName =this.data.month     
   
   }
   closeDialog() {
