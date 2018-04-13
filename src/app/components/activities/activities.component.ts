@@ -14,7 +14,7 @@ export class ActivitiesComponent implements OnInit {
 
     ngOnInit() {
         this.activitesService.getData().subscribe(activities => {
-            this.activities = activities;
+            this.activities = activities['hydra:member'];
         })
     }
 

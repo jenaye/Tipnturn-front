@@ -24,11 +24,6 @@
             </form>
            
   <div style="margin-top:10px;">
-    <ng-container *ngIf="formMembre.valid && select.form.valid ; else notValide">
-      <button mat-raised-button color="primary"  (click)="add()">sauvegarder</button>
-    </ng-container>  
-    <ng-template #notValide>
-        <button mat-raised-button color="primary"  disabled>sauvegarder</button>
-    </ng-template>
+      <button mat-raised-button color="primary"  (click)="add()" [disabled]="formMembre.valid && select.form.valid">sauvegarder</button>
     </div> 
 </div>

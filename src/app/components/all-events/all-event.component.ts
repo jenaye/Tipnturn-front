@@ -26,7 +26,7 @@ export class AllEventComponent implements OnInit {
   ngOnInit() {
 
     this.eventService.getData().subscribe(events => {
-    this.dataSource.data = events;
+    this.dataSource.data = events['hydra:member'];
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
 
@@ -56,7 +56,7 @@ export class AllEventComponent implements OnInit {
         this.eventService
           .getData()
           .subscribe(events => {
-            this.dataSource.data = events
+            this.dataSource.data = events["hydra:member"]
             this.dataSource.paginator = this.paginator;
           })
       });
@@ -73,7 +73,7 @@ export class AllEventComponent implements OnInit {
       this.eventService
         .getData()
         .subscribe(rapports => {
-          this.dataSource.data = rapports
+          this.dataSource.data = rapports['hydra:member']
           this.dataSource.paginator = this.paginator;
         })
     });

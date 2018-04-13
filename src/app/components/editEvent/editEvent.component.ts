@@ -55,35 +55,34 @@ export class EditEventComponent implements OnInit {
       .eventService
       .findById(this.data)
       .subscribe(event => {
-
         this
           .formEvent
           .patchValue({
             id: this.data,
-            name: event.name,
-            start: new Date(event.start),
+            name: event['name'],
+            start: new Date(event['start']),
             startHour: this
               .datePipe
-              .transform(event.start, 'HH:mm'),
+              .transform(event['start'], 'HH:mm'),
             endHour: this
               .datePipe
-              .transform(event.end, 'HH:mm'),
-            description: event.description
+              .transform(event['end'], 'HH:mm'),
+            description: event['description']
           })
 
         this
           .formAdress
-          .patchValue({numberRue: event.numberRue, rue: event.rue, city: event.city})
+          .patchValue({numberRue: event['numberRue'], rue: event['rue'], city: event['city']})
 
-        this.lat = event.latitude;
-        this.lng = event.longitude;
+        this.lat = event['latitude'];
+        this.lng = event['longitude'];
       });
 
   }
 
   edit() {
-    const endDate = this.formEvent.value.end;
-    const startDate = this.formEvent.value.start;
+    const endDate = new Date(this.formEvent.value.end);
+    const startDate = new Date(this.formEvent.value.start);
 
     let finalData;
     if ((!this.formAdress.value.rue && !this.formAdress.value.numberRue) || (this.formAdress.value.numberRue && !this.formAdress.value.rue)) {

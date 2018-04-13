@@ -11,7 +11,7 @@ export class DashboardComponent implements OnInit {
 
     public ok: boolean = false;
     public okMoney: boolean = false;
-    public membres = [];
+    public nbmembres :number =0;
     public monney: any;
     public activities = [];
     public nbActivity: any;
@@ -50,38 +50,25 @@ export class DashboardComponent implements OnInit {
     public mode = 'indeterminate';
 
     ngOnInit() {
-        this
-            .listemembre
-            .getData()
-            .subscribe(membres => {
-                this.membres = membres;
-            })
-        this
-            .bilanService
-            .getMoney()
-            .subscribe(monney => {
-                this.monney = monney;
-                const arr = Object
-                    .keys(monney)
-                    .map(function (key) {
+        this.listemembre.getData().subscribe(res=>{
+            this.nbmembres=  res['hydra:totalItems'];
+        })
+        this.bilanService.getMoney().subscribe(monney => {
+
+           this.monney = monney;
+                const arr = Object.keys(monney).map(function (key) {
                         return monney[key];
                     });
-                this
-                    .doughnutChartData
-                    .push(arr);
-
+                this.doughnutChartData.push(arr);
                 this.okMoney = true;
-
             })
 
-        this
-            .activiteService
-            .getData()
-            .subscribe(activities => {
-                this.barChartData = [];
-                this.nbActivity = activities;
+        this.activiteService.getData().subscribe(activities => {
 
-                activities.forEach(activite => {
+                this.barChartData = [];
+                this.nbActivity = activities['hydra:totalItems'];
+
+                activities['hydra:member'].forEach(activite => {
                    this.barChartData =  [...this.barChartData, {data: [activite.membres.length], label: activite.name}];
                 });
                 this.ok = true;

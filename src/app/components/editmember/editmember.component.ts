@@ -34,16 +34,17 @@ export class EditmemberComponent implements OnInit {
   ngOnInit() {
         
       this.membresservice.findById(this.data).subscribe(user => {
+    
           this.formMembre.patchValue({
             id : this.data,
-            nom : user.nom,
-            prenom : user.prenom,
-            email : user.email,
-            phone : user.phone,
-            cotisation : user.cotisation,
-            certificat : user.certificat,
-            cheque : user.cheque,
-            enabled: user.enabled
+            nom : user['nom'],
+            prenom : user['prenom'],
+            email : user['email'],
+            phone : user['phone'],
+            cotisation : user['cotisation'],
+            certificat : user['certificat'],
+            cheque : user['cheque'],
+            enabled: user['enabled']
           })
       });
      

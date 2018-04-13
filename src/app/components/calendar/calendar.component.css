@@ -51,5 +51,19 @@
      
   }
   .notCurrent{
+      min-height: 30px;
      color: rgba(0,0,0,.3);
+  }
+  .current{ 
+      min-height: 30px;
+  }
+  .chips{
+     position: absolute;
+     bottom: 5px;
+     right: 10px;
+  }
+  .header{
+      position:absolute;
+      top:5px;
+      left:5px;
   }

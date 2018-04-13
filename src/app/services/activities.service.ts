@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Response, URLSearchParams, Headers, RequestOptions, Http } from '@angular/http';
-import 'rxjs/add/operator/map';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs/Observable';
 import {CheckTokenService} from './checkToken.service';
 import {environment} from "../../environments/environment";
 
@@ -8,40 +8,24 @@ import {environment} from "../../environments/environment";
 @Injectable()
 export class ActivitiesService {
 
-  constructor(private http: CheckTokenService) { }
+  constructor(private http: HttpClient) { }
 
-  getData() {
-        return this.http
-            .get(`${environment.API}/activities.json`)
-            .map((res: Response) => {
-                return res.json();
-          });
-  }
 
-  getDataById(id) {
-      return this.http
-          .get(`${environment.API}/activities/${id}.json`)
-          .map((res: Response) => {
-              return res.json();
-          });
+  getData(): Observable<any>  {
+        return this.http.get(`${environment.API}/activities`)
+      }
+
+  getDataById(id): Observable<any>  {
+      return this.http.get(`${environment.API}/activities/${id}`)
     }
 
 
-  getHowManyActivites() {
-      return this.http
-          .get(`${environment.API}/activity/howmany`)
-          .map((res: Response) => {
-              return res.json();
-
-          });
+  getHowManyActivites(): Observable<any>  {
+      return this.http.get(`${environment.API}/activity/howmany`)
   }
 
-    insert(data) {
-        return this.http
-            .post(`${environment.API}/activities`, data)
-            .map((res: Response) => {
-                return res.json();
-            });
+    insert(data) : Observable<any> {
+        return this.http.post(`${environment.API}/activities`, data)
 
     }
 

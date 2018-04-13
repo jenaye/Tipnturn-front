@@ -90,10 +90,11 @@ export class AddEventComponent implements OnInit {
                 this.eventsService
                     .insert(savedData)
                     .subscribe(result => {
-                        this.closeDialog();
+                       
                     });
 
             });
+            this.closeDialog();
 
     }
 

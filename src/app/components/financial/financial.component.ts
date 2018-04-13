@@ -23,7 +23,7 @@ export class FinancialComponent implements OnInit {
       .bilanService
       .getData()
       .subscribe(rapports => {
-        this.dataSource.data = rapports
+        this.dataSource.data = rapports['hydra:member']
         this.dataSource.paginator = this.paginator;
       })
   }
@@ -48,7 +48,7 @@ export class FinancialComponent implements OnInit {
         this.bilanService
           .getData()
           .subscribe(rapports => {
-            this.dataSource.data = rapports
+            this.dataSource.data = rapports['hydra:member']
             this.dataSource.paginator = this.paginator;
           })
       });
