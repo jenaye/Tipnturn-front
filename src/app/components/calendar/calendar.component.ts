@@ -1,13 +1,14 @@
 import {Component, OnInit} from '@angular/core';
+
 import { EventService } from '../../services/event.service';
 import { DatePipe } from '@angular/common';
 import { DayDetailsComponent } from '../dayDetails/dayDetails.component';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
 
-
 @Component({selector: 'app-calendar', templateUrl: './calendar.component.html', styleUrls: ['./calendar.component.css']})
 export class CalendarComponent implements OnInit {
+
 
   public today: Date;
   public startDate: Date;
@@ -23,14 +24,17 @@ export class CalendarComponent implements OnInit {
 
   public currentMonthName: String;
 
+
   public nbDayPastMonth : number;
   public nbDayCurrentMonth : number;
+
 
   public eventStartDate :Date;
   public eventEndDate : Date;
 
 
   constructor(private eventService : EventService, private datePipe: DatePipe,  public dialog: MatDialog) {
+
     this.today = new Date();
     this.startDate = new Date(this.today.setDate(1));
     this.pastMonthDays = new Array();
@@ -68,6 +72,7 @@ export class CalendarComponent implements OnInit {
   infoMonth(date : Date): void {
      this.numMonth = date.getMonth();
     switch (this.numMonth) {
+
       case 0:
         this.currentMonthName = 'Janvier';
         this.nbDayCurrentMonth = 31;
@@ -98,6 +103,7 @@ export class CalendarComponent implements OnInit {
         this.nbDayCurrentMonth = 30;
         this.nbDayPastMonth = 31;
         break;
+
       case 6:
         this.currentMonthName = 'Juillet';
         this.nbDayCurrentMonth = 31;
@@ -182,12 +188,15 @@ export class CalendarComponent implements OnInit {
     for (let i = 1; i < middlePoint + 1; i++) {
       this.nextMonthDays.push({day:i, events : []});
       this.nextHoverTab.push(false);
+
     }
 
   }
 
+
   classicInit(date:Date){
     this.startDate =date;
+
     this.pastMonthDays = new Array();
     this.currentMonthDays = new Array();
     this.nextMonthDays = new Array();
@@ -249,5 +258,6 @@ export class CalendarComponent implements OnInit {
       }
       break;
     }
+
   }
 }

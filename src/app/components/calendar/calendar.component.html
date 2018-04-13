@@ -9,15 +9,13 @@
         </button>
       </div>
       <div class="monthwhite"> {{currentMonthName}} {{startDate.getFullYear()}} </div>
-  
+
       <div class='simpleWhiteCellEnd'>
         <button mat-icon-button (click)="nextMonth()">
           <mat-icon>navigate_next</mat-icon>
         </button>
       </div>
     </mat-card>
-   
-    
     <div class="dayRow">
       <span>Lundi</span>
       <span>Mardi</span>
@@ -28,6 +26,7 @@
       <span>Dimanche</span>
     </div>
     <div class='monthGrid'>
+<<<<<<< HEAD
         <ng-container *ngFor='let day of pastMonthDays; let i= index'>
         <mat-card  [ngClass]="{'notCurrent': true, 'hilight': pastHoverTab[i]}" [class.mat-elevation-z8]="pastHoverTab[i]" (mouseenter)="onHover(i,'past')" (mouseleave)="onLeaving(i,'past')" (click)="showDetail(i, 'past')">
             <div class="header">{{day.day}}</div>
@@ -58,3 +57,17 @@
     </div>
   </div>
 
+=======
+        <ng-container *ngFor='let day of pastMonthDays; let i index'>
+        <mat-card  [ngClass]="{'notCurrent': true, 'hilight': pastHoverTab[i]}" [class.mat-elevation-z8]="pastHoverTab[i]" (mouseenter)="onHover(i,'past')" (mouseleave)="onLeaving(i,'past')">{{day}}</mat-card> 
+       </ng-container>
+       <ng-container *ngFor='let day of currentMonthDays; let i index'>
+          <mat-card [ngClass]="{'hilight': currentHoverTab[i]}" [class.mat-elevation-z8]="currentHoverTab[i]" (mouseenter)="onHover(i,'current')" (mouseleave)="onLeaving(i,'current')">{{day}}</mat-card> 
+       </ng-container>
+       <ng-container  *ngFor='let day of nextMonthDays; let i index'>
+          <mat-card   [ngClass]="{'notCurrent': true, 'hilight': nextHoverTab[i]}" [class.mat-elevation-z8]="nextHoverTab[i]" (mouseenter)="onHover(i,'next')" (mouseleave)="onLeaving(i,'next')">{{day}}</mat-card> 
+       </ng-container>
+
+    </div>
+  </div>
+>>>>>>> 32268cb10e3d12585133d9ef3bba9d5cf0875166

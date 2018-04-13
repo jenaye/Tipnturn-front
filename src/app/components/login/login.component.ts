@@ -26,8 +26,8 @@ export class LoginComponent implements OnInit {
       formData.append('_username', this.username);
       formData.append('_password', this.password);
 
-      this.http
-          .post(`${environment.API}/login_check`, formData)
+      this.http.post(`${environment.API}/login_check`, formData)
+
           .subscribe(response => {
               if (response['token']!=="") {
                   var token = response['token'];
