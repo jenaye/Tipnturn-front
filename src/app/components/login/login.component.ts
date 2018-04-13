@@ -33,9 +33,7 @@ export class LoginComponent implements OnInit {
                   var token = response['token'];
                   localStorage.setItem('token', token);
                   this.router.navigateByUrl('/home/dashboard');
-              } else if (response.status === 401) {
-                    alert('wrong ')
-                 }
+              } 
           });
   }
 
