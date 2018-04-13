@@ -1,5 +1,6 @@
-
+<ng-container *ngIf="activities">
   <ng-container *ngFor="let activitie of activities">
-  <a mat-list-item routerLink="/home/activites/{{activitie.id}}">{{ activitie.name }}</a>
+  <a mat-list-item routerLink="/home/activites/{{activitie.id}}">{{ activitie?.name }}</a>
   </ng-container>
+</ng-container>
 

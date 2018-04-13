@@ -1,18 +1,15 @@
 import { Injectable } from '@angular/core';
-import { Response, URLSearchParams, Headers, RequestOptions, Http } from '@angular/http';
-import 'rxjs/add/operator/map';
+import {HttpClient} from '@angular/common/http';
+
 import {CheckTokenService} from './checkToken.service';
 import {environment} from "../../environments/environment";
 @Injectable()
 export class TypesService {
 
-  constructor(private http: CheckTokenService) { }
+  constructor(private http: HttpClient) { }
   getData() {
-    return this.http
-        .get(`${environment.API}/types.json`)
-          .map((res: Response) => {
-            return res.json();
-                });
+    return this.http.get(`${environment.API}/types.json`)
+          
   }
 
 }

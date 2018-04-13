@@ -1,0 +1,30 @@
+<div class='title'>
+    {{day}} {{monthName}}
+</div>
+<ng-container *ngFor="let event of data.events">
+    <mat-card class="cardGrid">
+        <mat-icon>event_note</mat-icon>
+        <div class="label">{{event.name}}</div>
+        <mat-icon>description</mat-icon>
+        <div>{{event.description}}</div>
+        <mat-icon>query_builder</mat-icon>
+        <div class="flex">
+            <div>{{event.start | date:"HH:mm"}}</div>
+            <div> -</div>
+            <div>{{event.end | date:"HH:mm"}}</div>
+        </div>
+        <mat-icon>map</mat-icon>
+        <div class="flex">
+            <ng-container *ngIf="event.numberRue">
+                <div>N°</div>
+                <div>{{event.numberRue}}</div>
+            </ng-container>
+            <ng-container *ngIf="event.rue">
+                <div>rue</div>
+                <div>{{event.rue}}</div>
+            </ng-container>
+            <div>{{event.city}}</div>
+        </div>
+
+    </mat-card>
+</ng-container>

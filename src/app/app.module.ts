@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule ,HttpClient, HttpHandler } from '@angular/common/http';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -29,6 +30,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { EditmemberComponent } from './components/editmember/editmember.component';
 import { AllEventComponent } from './components/all-events/all-event.component';
 import { EditEventComponent } from './components/editEvent/editEvent.component';
+import { DayDetailsComponent } from './components/dayDetails/dayDetails.component';
+import { CalendarComponent } from './components/calendar/calendar.component';
 import { routing } from './app.routing';
 import { AuthGuard } from './guards/auth.guard';
 
@@ -63,6 +66,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatChipsModule } from '@angular/material/chips';
 import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter} from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 import { environment} from "../environments/environment";
@@ -99,12 +103,14 @@ export const MY_FORMATS = {
     AddFinancialComponent,
     AddMemberComponent,
     AddEventComponent,
-    EditEventComponent
+    EditEventComponent,
+    DayDetailsComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    HttpModule,
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     ChartsModule,
@@ -127,6 +133,7 @@ export const MY_FORMATS = {
     MatDatepickerModule,
     MatNativeDateModule,
     MatRadioModule,
+    MatChipsModule,
     routing,
     AgmCoreModule.forRoot({
       apiKey: environment.MAPS_KEY
@@ -137,7 +144,7 @@ export const MY_FORMATS = {
     ListingmemberService,
     MembersService,
     FinancialService,
-    CheckTokenService,
+
     AuthGuard,
     TypesService,
     EventService,
@@ -146,6 +153,12 @@ export const MY_FORMATS = {
     {provide: MAT_DATE_LOCALE, useValue: 'fr-FR'},
     {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
     {provide: MAT_DATE_FORMATS, useValue: MY_FORMATS},
+    HttpClient,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: CheckTokenService ,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent],
   entryComponents: [
@@ -153,8 +166,9 @@ export const MY_FORMATS = {
     AddFinancialComponent,
     AddMemberComponent,
     AddEventComponent,
-    EditEventComponent
+    EditEventComponent,
+    DayDetailsComponent
   ]
-
+ 
 })
 export class AppModule { }

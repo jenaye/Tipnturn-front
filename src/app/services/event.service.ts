@@ -1,47 +1,31 @@
 import { Injectable } from '@angular/core';
-import { Response, URLSearchParams, Headers, RequestOptions, Http } from '@angular/http';
-import 'rxjs/add/operator/map';
+import {HttpClient} from '@angular/common/http';
 import {CheckTokenService} from './checkToken.service';
 import {environment} from "../../environments/environment";
 
 @Injectable()
 export class EventService {
 
-  constructor(private http: CheckTokenService) { }
+  constructor(private http: HttpClient) { }
   
-  getData() {
-    return this.http
-        .get(`${environment.API}/events.json`)
-          .map((res: Response) => {
-            return res.json();
-                });
+  getData( data : string = '') {
+    return this.http.get(`${environment.API}/events`);
+    
   }
 
   insert(data) {
-    return this.http
-        .post(`${environment.API}/events`, data)
-            .map((res: Response) => {
-                return res.json();
-        });
+    return this.http.post(`${environment.API}/events`, data);
 }
 
 
 edit(data, id) {
-  const headers = new Headers();
-  headers.append('Content-Type', 'application/json');
-  return this.http
-      .put(`${environment.API}/events/${id}`, data, {headers: headers})
-      .map((res: Response) => {
-          return res.json();
-      });
+  return this.http.put(`${environment.API}/events/${id}`, data); 
 
 }
 
 findById(id) {
-return this.http.get(`${environment.API}/events/${id}`)
-    .map((res: Response) => {
-        return res.json();
-    });
+return this.http.get(`${environment.API}/events/${id}`);
+
 }
 
 }

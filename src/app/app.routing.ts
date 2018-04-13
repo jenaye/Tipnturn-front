@@ -13,7 +13,7 @@ import { AddFinancialComponent } from './components/addFinancial/addFinancial.co
 import { ErrorComponent } from './components/error/error.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AllEventComponent } from './components/all-events/all-event.component';
-
+import { CalendarComponent } from './components/calendar/calendar.component';
 
 
 const appRoutes: Routes = [
@@ -47,7 +47,10 @@ const appRoutes: Routes = [
                 path: 'listingEvents',
                 component: AllEventComponent
             },
-          
+            {
+                path: 'calendar',
+                component: CalendarComponent
+            },
         ]
 
         },

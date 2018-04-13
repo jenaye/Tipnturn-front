@@ -1,29 +1,19 @@
 import {Injectable} from '@angular/core';
-import {Http, XHRBackend, RequestOptions, Request, RequestOptionsArgs, Response, Headers} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
+import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 
 
 @Injectable()
-export class CheckTokenService extends Http {
+export class CheckTokenService implements HttpInterceptor {
 
-    constructor (backend: XHRBackend, options: RequestOptions) {
+    intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    
         const token = localStorage.getItem('token');
-        options.headers.set('Authorization', `Bearer ${token}`);
-        super(backend, options);
-    }
-
-    request(url: string|Request, options?: RequestOptionsArgs): Observable<Response> {
-        const token = localStorage.getItem('token');
-        if (typeof url === 'string') {
-            if (!options) {
-                options = {headers: new Headers()};
-            }
-            options.headers.set('Authorization', `Bearer ${token}`);
-        } else {
-            url.headers.set('Authorization', `Bearer ${token}`);
+        if(token!==''){
+            const modified = req.clone({setHeaders: {'Authorization': `Bearer ${token}`}});
+            return next.handle(modified);
         }
-        return super.request(url, options);
+        return next.handle(req);
+       
     }
 }
