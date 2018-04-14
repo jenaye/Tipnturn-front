@@ -44,6 +44,7 @@ import { FinancialService } from './services/financial.service';
 import { TypesService } from './services/types.service';
 import { EventService } from './services/event.service';
 import { MapService } from './services/map.service';
+import { UsersService } from './services/users.service';
 
 
 // Material component
@@ -70,6 +71,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter} from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 import { environment} from "../environments/environment";
+import { ListingUsersComponent } from './components/listing-users/listing-users.component';
 
 export const MY_FORMATS = {
   parse: {
@@ -105,7 +107,8 @@ export const MY_FORMATS = {
     AddEventComponent,
     EditEventComponent,
     DayDetailsComponent,
-    CalendarComponent
+    CalendarComponent,
+    ListingUsersComponent
   ],
   imports: [
     BrowserModule,
@@ -144,6 +147,7 @@ export const MY_FORMATS = {
     ListingmemberService,
     MembersService,
     FinancialService,
+      UsersService,
 
     AuthGuard,
     TypesService,
