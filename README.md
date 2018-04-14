@@ -1,10 +1,10 @@
 # Tipnturn-front
-Angular 5 app to manage danse organization 
+Angular 5 app to manage a dance studio
 
 # Contributing
 
 We encourage you to contribute to Tipnturn-front!
-Just fork projet, work on u're branch, and push it
+Just fork the project, work on ur branch, then push it
 
 # Donation 
 
@@ -25,7 +25,7 @@ BTC : `1KF2UCBaeNcu8hQ1L1Y6Qh6nCX2o5AzRCi`
 
 # Protractor  #
 
-i used travis to automated make end-to-end test
+i used travis to automate end-to-end testing
 
 # Todo #
 
