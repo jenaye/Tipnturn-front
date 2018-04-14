@@ -1,9 +1,9 @@
-<ng-container *ngIf="users">
+<ng-container *ngIf="dataSource">
   <div class="users-content">
     <div class="titre">
       Gestion des administrateurs</div>
     <div class="example-container mat-elevation-z8">
-      <mat-table [dataSource]="users">
+      <mat-table [dataSource]="dataSource">
 
         <ng-container matColumnDef="email">
           <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
