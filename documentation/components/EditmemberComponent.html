@@ -119,7 +119,13 @@
                                     <a href="../components/AppComponent.html" >AppComponent</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../components/CalendarComponent.html" >CalendarComponent</a>
+                                </li>
+                                <li class="link">
                                     <a href="../components/DashboardComponent.html" >DashboardComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/DayDetailsComponent.html" >DayDetailsComponent</a>
                                 </li>
                                 <li class="link">
                                     <a href="../components/EditEventComponent.html" >EditEventComponent</a>
@@ -141,6 +147,9 @@
                                 </li>
                                 <li class="link">
                                     <a href="../components/ListingByActivitesComponent.html" >ListingByActivitesComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/ListingUsersComponent.html" >ListingUsersComponent</a>
                                 </li>
                                 <li class="link">
                                     <a href="../components/LoginComponent.html" >LoginComponent</a>
@@ -174,9 +183,6 @@
                                     <a href="../injectables/AuthGuard.html" >AuthGuard</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../injectables/CheckTokenService.html" >CheckTokenService</a>
-                                </li>
-                                <li class="link">
                                     <a href="../injectables/EventService.html" >EventService</a>
                                 </li>
                                 <li class="link">
@@ -194,9 +200,28 @@
                                 <li class="link">
                                     <a href="../injectables/TypesService.html" >TypesService</a>
                                 </li>
+                                <li class="link">
+                                    <a href="../injectables/UsersService.html" >UsersService</a>
+                                </li>
                         </ul>
                     </li>
             
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-interceptors-links"
+                            >
+                            <span class="fa fa-fw fa-exchange"></span>
+                            <span>Interceptors</span>
+                            <span class="fa fa-angle-down"></span>
+                        </div>
+                        <ul class="links collapse "
+                                id="xs-interceptors-links"
+                            >
+                                <li class="link">
+                                    <a href="../interceptors/CheckTokenService.html" >CheckTokenService</a>
+                                </li>
+                        </ul>
+                    </li>
             
                     <li class="chapter">
                         <div class="simple menu-toggler" data-toggle="collapse"
@@ -354,7 +379,13 @@
                                            <a href="../components/AppComponent.html" >AppComponent</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../components/CalendarComponent.html" >CalendarComponent</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../components/DashboardComponent.html" >DashboardComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/DayDetailsComponent.html" >DayDetailsComponent</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/EditEventComponent.html" >EditEventComponent</a>
@@ -376,6 +407,9 @@
                                        </li>
                                        <li class="link">
                                            <a href="../components/ListingByActivitesComponent.html" >ListingByActivitesComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/ListingUsersComponent.html" >ListingUsersComponent</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/LoginComponent.html" >LoginComponent</a>
@@ -409,9 +443,6 @@
                                            <a href="../injectables/AuthGuard.html" >AuthGuard</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../injectables/CheckTokenService.html" >CheckTokenService</a>
-                                       </li>
-                                       <li class="link">
                                            <a href="../injectables/EventService.html" >EventService</a>
                                        </li>
                                        <li class="link">
@@ -429,9 +460,28 @@
                                        <li class="link">
                                            <a href="../injectables/TypesService.html" >TypesService</a>
                                        </li>
+                                       <li class="link">
+                                           <a href="../injectables/UsersService.html" >UsersService</a>
+                                       </li>
                                </ul>
                            </li>
                    
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#interceptors-links"
+                   >
+                                   <span class="fa fa-fw fa-exchange"></span>
+                                   <span>Interceptors</span>
+                                   <span class="fa fa-angle-down"></span>
+                               </div>
+                               <ul class="links collapse "
+                                       id="interceptors-links"
+                   >
+                                       <li class="link">
+                                           <a href="../interceptors/CheckTokenService.html" >CheckTokenService</a>
+                                       </li>
+                               </ul>
+                           </li>
                    
                            <li class="chapter">
                                <div class="simple menu-toggler" data-toggle="collapse"
@@ -735,7 +785,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/app/components/editmember/editmember.component.ts:58</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/app/components/editmember/editmember.component.ts:59</a></div>
                                 </td>
                             </tr>
     
@@ -772,7 +822,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/components/editmember/editmember.component.ts:52</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/components/editmember/editmember.component.ts:53</a></div>
                                 </td>
                             </tr>
     
@@ -983,16 +1033,17 @@ export class EditmemberComponent implements OnInit {
   ngOnInit() {
         
       this.membresservice.findById(this.data).subscribe(user &#x3D;&gt; {
+    
           this.formMembre.patchValue({
             id : this.data,
-            nom : user.nom,
-            prenom : user.prenom,
-            email : user.email,
-            phone : user.phone,
-            cotisation : user.cotisation,
-            certificat : user.certificat,
-            cheque : user.cheque,
-            enabled: user.enabled
+            nom : user[&#x27;nom&#x27;],
+            prenom : user[&#x27;prenom&#x27;],
+            email : user[&#x27;email&#x27;],
+            phone : user[&#x27;phone&#x27;],
+            cotisation : user[&#x27;cotisation&#x27;],
+            certificat : user[&#x27;certificat&#x27;],
+            cheque : user[&#x27;cheque&#x27;],
+            enabled: user[&#x27;enabled&#x27;]
           })
       });
      
@@ -1089,7 +1140,7 @@ export class EditmemberComponent implements OnInit {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="title">  Editer un membre</div><form [formGroup]="formMembre">  <div class="row">    <mat-form-field>      <input matInput placeholder="Nom" formControlName="nom" />    </mat-form-field>    <mat-form-field>      <input matInput placeholder="Prenom" formControlName="prenom" />    </mat-form-field>  </div>  <div class="email">    <mat-form-field>      <input matInput placeholder="Email" formControlName="email" />    </mat-form-field>  </div>  <div class="row">    <mat-form-field>      <input matInput placeholder="Téléphone" formControlName="phone" />    </mat-form-field>            <mat-form-field>          <input matInput placeholder="cotisation" formControlName="cotisation" />          <span matSuffix>€</span>        </mat-form-field>     </div>  <div class="row3">    <mat-checkbox formControlName="certificat">Certificat</mat-checkbox>    <mat-checkbox formControlName="cheque">Chèque</mat-checkbox>    <mat-checkbox formControlName="enabled">Compte activé</mat-checkbox>  </div></form><div style="margin-top: 20px;">    <ng-container *ngIf="formMembre.valid; else notValide">        <button mat-raised-button color="primary" (click)="edit()">sauvegarder</button>      </ng-container>      <ng-template #notValide>        <button mat-raised-button color="primary" disabled>sauvegarder</button>      </ng-template>      <button mat-raised-button color="primary" (click)="closeDialog()">annuler</button></div></div>'
-    var COMPONENTS = [{'name': 'ActivitiesComponent', 'selector': 'app-activities'},{'name': 'AddActivitesComponent', 'selector': 'app-ajoutactivites'},{'name': 'AddEventComponent', 'selector': 'app-addEvent'},{'name': 'AddFinancialComponent', 'selector': 'app-addFinancial'},{'name': 'AddMemberComponent', 'selector': 'app-addMember'},{'name': 'AllEventComponent', 'selector': 'app-all-event'},{'name': 'AllMembersComponent', 'selector': 'app-all-members'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'EditEventComponent', 'selector': 'app-editEvent'},{'name': 'EditmemberComponent', 'selector': 'app-editmember'},{'name': 'ErrorComponent', 'selector': 'app-error'},{'name': 'FinancialComponent', 'selector': 'app-bilan'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomepageComponent', 'selector': 'app-homepage'},{'name': 'ListingByActivitesComponent', 'selector': 'app-listing-by-activites'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'SideBarComponent', 'selector': 'app-side-bar'}];
+    var COMPONENTS = [{'name': 'ActivitiesComponent', 'selector': 'app-activities'},{'name': 'AddActivitesComponent', 'selector': 'app-ajoutactivites'},{'name': 'AddEventComponent', 'selector': 'app-addEvent'},{'name': 'AddFinancialComponent', 'selector': 'app-addFinancial'},{'name': 'AddMemberComponent', 'selector': 'app-addMember'},{'name': 'AllEventComponent', 'selector': 'app-all-event'},{'name': 'AllMembersComponent', 'selector': 'app-all-members'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CalendarComponent', 'selector': 'app-calendar'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DayDetailsComponent', 'selector': 'app-editEvent'},{'name': 'EditEventComponent', 'selector': 'app-editEvent'},{'name': 'EditmemberComponent', 'selector': 'app-editmember'},{'name': 'ErrorComponent', 'selector': 'app-error'},{'name': 'FinancialComponent', 'selector': 'app-bilan'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomepageComponent', 'selector': 'app-homepage'},{'name': 'ListingByActivitesComponent', 'selector': 'app-listing-by-activites'},{'name': 'ListingUsersComponent', 'selector': 'app-listing-users'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'PageHeaderComponent', 'selector': 'app-page-header'},{'name': 'SideBarComponent', 'selector': 'app-side-bar'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'EditmemberComponent'};
 </script>
