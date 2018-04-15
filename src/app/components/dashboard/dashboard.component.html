@@ -7,7 +7,7 @@
 
 
     <div class="dashbord-card mat-elevation-z3">
-      <div class="icon-square-pink">
+      <div class="icon-square-blue">
         <i class="material-icons md-18" style="font-size: 50px; margin : 10px;">group</i>
       </div>
       <div class="dashbord-card-content">
@@ -24,10 +24,28 @@
       </div>
     </div>
 
+    <div class="dashbord-card mat-elevation-z3">
+      <div class="icon-square-blue">
+        <i class="material-icons md-18" style="font-size: 50px; margin : 10px;">account_box</i>
+      </div>
+      <div class="dashbord-card-content">
+        <table>
+          <tr>
+            <td>
+              Nombre d'administrateur
+            </td>
+            <td>
+              {{nbAdmin}}
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
 
     <div class="dashbord-card mat-elevation-z3">
-      <div class="icon-square-green">
-        <i class="material-icons md-18" style="font-size: 50px; margin : 10px;">pool</i>
+      <div class="icon-square-blue">
+        <i class="material-icons md-18" style="font-size: 50px; margin : 10px;">list</i>
       </div>
       <div class="dashbord-card-content">
         <table>
@@ -45,14 +63,14 @@
   </div>
   <div class="card-zone">
     <mat-card class="chart-card">
-      <mat-progress-spinner *ngIf="!ok" class="spinner" [color]="color" [mode]="mode">
+      <mat-progress-spinner *ngIf="!ok" class="spinner" [color]="barChartColors" [mode]="mode">
       </mat-progress-spinner>
-      <canvas *ngIf="ok" baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
+      <canvas *ngIf="ok" baseChart [datasets]="barChartData" [labels]="barChartLabels"  [options]="barChartOptions" [legend]="barChartLegend"
         [chartType]="barChartType"></canvas>
     </mat-card>
 
     <mat-card class="chart-card">
-      <mat-progress-spinner *ngIf="!okMoney" class="spinner" [color]="color" [mode]="mode"></mat-progress-spinner>
+      <mat-progress-spinner *ngIf="!okMoney" class="spinner" [color]="barChartColors" [mode]="mode"></mat-progress-spinner>
       <canvas *ngIf="okMoney" baseChart [data]="doughnutChartData" [colors]="chartColors" [labels]="doughnutChartLabels" [chartType]="doughnutChartType"></canvas>
     </mat-card>
   </div>

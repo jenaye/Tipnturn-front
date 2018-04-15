@@ -8,7 +8,7 @@ export class TypesService {
 
   constructor(private http: HttpClient) { }
   getData() {
-    return this.http.get(`${environment.API}/types.json`)
+    return this.http.get(`${environment.API}/types`)
           
   }
 

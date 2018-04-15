@@ -3,15 +3,21 @@ import {ListingmemberService} from '../../services/listingmember.service';
 import {ActivitiesService} from '../../services/activities.service';
 import {forEach} from '@angular/router/src/utils/collection';
 import {FinancialService} from '../../services/financial.service';
+import {UsersService} from '../../services/users.service';
 
 @Component({selector: 'app-dashboard', templateUrl: './dashboard.component.html', styleUrls: ['./dashboard.component.css'], encapsulation: ViewEncapsulation.None})
 export class DashboardComponent implements OnInit {
 
-    constructor(private listemembre: ListingmemberService, private activiteService: ActivitiesService, private bilanService: FinancialService) {}
+    constructor(private listemembre: ListingmemberService,
+                private activiteService: ActivitiesService,
+                private bilanService: FinancialService,
+                private usersService: UsersService
+    ) {}
 
     public ok: boolean = false;
     public okMoney: boolean = false;
-    public nbmembres :number =0;
+    public nbmembres : any;
+    public nbAdmin :number =0;
     public monney: any;
     public activities = [];
     public nbActivity: any;
@@ -39,17 +45,31 @@ export class DashboardComponent implements OnInit {
 
     public chartColors : any[] = [
         {
-            backgroundColor: ["#5cb85c", "red", "#FAFFF2", "#FFFCC4", "#B9E8E0"]
+            backgroundColor: ["#5cb85c", "#DD3333", "#FAFFF2", "#FFFCC4", "#B9E8E0"]
         }
     ];
+
+    public barChartColors: Array<any> =
+        [
+            '#5cb85c',
+            '#65C6BB',
+            '#1BBC9B',
+            '#f0ad4e',
+            '#d9534f',
+            '#5cb85c',
+            '#f0ad4e'
+        ];
 
     public doughnutChartLabels: string[] = ['Rentrée', 'Sortie'];
     public doughnutChartData: any = [];
     public doughnutChartType: string = 'doughnut';
-    public color = 'primary';
+    public color = 'warn';
     public mode = 'indeterminate';
 
     ngOnInit() {
+        this.usersService.count().subscribe(res=>{
+            this.nbAdmin = <number>res;
+        })
         this.listemembre.getData().subscribe(res=>{
             this.nbmembres=  res['hydra:totalItems'];
         })

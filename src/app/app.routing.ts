@@ -14,6 +14,7 @@ import { ErrorComponent } from './components/error/error.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AllEventComponent } from './components/all-events/all-event.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
+import { ListingUsersComponent } from './components/listing-users/listing-users.component';
 
 
 const appRoutes: Routes = [
@@ -50,6 +51,10 @@ const appRoutes: Routes = [
             {
                 path: 'calendar',
                 component: CalendarComponent
+            },
+            {
+                path: 'listingUsers',
+                component: ListingUsersComponent
             },
         ]
 

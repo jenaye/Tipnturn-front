@@ -1,28 +1,28 @@
-
-    <mat-nav-list>
-        <mat-accordion>
-            <a mat-list-item routerLink="/home/dashboard">Tableau de bord</a>
-            <mat-expansion-panel>
-              <mat-expansion-panel-header>
+<mat-nav-list>
+    <mat-accordion>
+        <a mat-list-item routerLink="/home/dashboard">Tableau de bord</a>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
                 <mat-panel-title>
                     Organisation
                 </mat-panel-title>
-              </mat-expansion-panel-header>
-              <a mat-list-item routerLink="/home/listingMembers">Tous les membres</a>
-              <app-activities></app-activities>
-            </mat-expansion-panel>
-            <mat-expansion-panel >
-              <mat-expansion-panel-header>
+            </mat-expansion-panel-header>
+            <a mat-list-item routerLink="/home/listingMembers">Tous les membres</a>
+            <app-activities></app-activities>
+        </mat-expansion-panel>
+        <mat-expansion-panel >
+            <mat-expansion-panel-header>
                 <mat-panel-title>
-                  Trésorerie
+                    Trésorerie
                 </mat-panel-title>
-              </mat-expansion-panel-header>
-              <a mat-list-item routerLink="/home/financial">Bilan mensuel</a>
-            </mat-expansion-panel>
-          </mat-accordion>
-          <a mat-list-item routerLink="/home/add-activite">Ajouter une activite</a>
-          <a mat-list-item routerLink="/home/listingEvents">Evènements</a>
-          <a mat-list-item routerLink="/home/calendar">Calendrier</a>
-      <a mat-list-item (click)="logout()">Deconnexion</a>
-     
-    </mat-nav-list>
+            </mat-expansion-panel-header>
+            <a mat-list-item routerLink="/home/financial">Bilan mensuel</a>
+        </mat-expansion-panel>
+    </mat-accordion>
+    <a mat-list-item routerLink="/home/add-activite">Ajouter une activite</a>
+    <a mat-list-item routerLink="/home/listingEvents">Evènements</a>
+    <a mat-list-item routerLink="/home/calendar">Calendrier</a>
+    <a mat-list-item routerLink="/home/listingUsers">Gestion des administrateurs</a>
+    <a mat-list-item (click)="logout()">Deconnexion</a>
+
+</mat-nav-list>
