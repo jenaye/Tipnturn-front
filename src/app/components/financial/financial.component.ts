@@ -3,6 +3,7 @@ import {MatPaginator, MatTableDataSource} from '@angular/material';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {FinancialService} from '../../services/financial.service';
 import {AddFinancialComponent} from '../addFinancial/addFinancial.component';
+import { saveAs } from 'file-saver';
 
 @Component({selector: 'app-bilan', templateUrl: './financial.component.html', styleUrls: ['./financial.component.css']})
 export class FinancialComponent implements OnInit {
@@ -37,6 +38,12 @@ export class FinancialComponent implements OnInit {
     filterValue = filterValue.toLowerCase();
     this.dataSource.filter = filterValue;
   }
+
+    downloadcsv(): void {
+      console.log('je passe dans le download')
+        this.bilanService.downloadAsCsv().subscribe(data => saveAs(<Blob>data, `pdf report.pdf`));
+
+    }
 
   openDialogAdd(): void {
     let dialogRef = this
