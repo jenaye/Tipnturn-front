@@ -27,10 +27,4 @@ export class FinancialService {
 
     }
 
-    downloadAsCsv(){
-        return this.http.get(`${environment.API}/export/bilan/csv`)
-    }
-
-
-
 }

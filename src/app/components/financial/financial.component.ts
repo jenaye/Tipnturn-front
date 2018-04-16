@@ -4,6 +4,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {FinancialService} from '../../services/financial.service';
 import {AddFinancialComponent} from '../addFinancial/addFinancial.component';
 import { saveAs } from 'file-saver';
+import {CsvService} from "../../services/csv.service";
 
 @Component({selector: 'app-bilan', templateUrl: './financial.component.html', styleUrls: ['./financial.component.css']})
 export class FinancialComponent implements OnInit {
@@ -14,7 +15,11 @@ export class FinancialComponent implements OnInit {
 
   @ViewChild(MatPaginator)paginator: MatPaginator;
 
-  constructor(private bilanService: FinancialService, public dialog: MatDialog)
+  constructor(
+      private bilanService: FinancialService,
+      public dialog: MatDialog,
+      private csvservice: CsvService
+  )
   {
     this.dataSource = new MatTableDataSource();
   }
@@ -39,10 +44,21 @@ export class FinancialComponent implements OnInit {
     this.dataSource.filter = filterValue;
   }
 
-    downloadcsv(): void {
-      console.log('je passe dans le download')
-        this.bilanService.downloadAsCsv().subscribe(data => saveAs(<Blob>data, `pdf report.pdf`));
+    downloadFile(data: any){
+        var blob = new Blob([data], { type: 'text/csv' });
+        var url= window.URL.createObjectURL(blob);
+        window.open(url);
+    }
 
+
+
+    results(){
+        this.csvservice.downloadAsCsv().subscribe( toto => {
+            let parsedResponse = toto.text();
+            this.downloadFile(parsedResponse);
+            let blob = new Blob([parsedResponse], { type: 'text/csv' });
+            saveAs(blob, "bilan.csv");
+        })
     }
 
   openDialogAdd(): void {
@@ -55,7 +71,7 @@ export class FinancialComponent implements OnInit {
         this.bilanService
           .getData()
           .subscribe(rapports => {
-            this.dataSource.data = rapports['hydra:member']
+            this.dataSource.data = rapports['hydra:member'];
             this.dataSource.paginator = this.paginator;
           })
       });
