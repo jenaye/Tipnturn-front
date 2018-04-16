@@ -20,11 +20,9 @@ export class ListingUsersComponent implements OnInit {
           .userService
           .findAll()
           .subscribe(users => {
-              console.log("USER =>", users['hydra:member']);
               this.dataSource.data = users['hydra:member'];
           });
 
-      console.log("MHH",this.dataSource)
   }
 
 
