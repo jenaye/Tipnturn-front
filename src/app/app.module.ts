@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { AgmCoreModule } from '@agm/core';
+import { HttpModule } from '@angular/http';
 
 
 import { ChartsModule } from 'ng2-charts/ng2-charts';
@@ -45,6 +46,7 @@ import { TypesService } from './services/types.service';
 import { EventService } from './services/event.service';
 import { MapService } from './services/map.service';
 import { UsersService } from './services/users.service';
+import { CsvService } from './services/csv.service';
 
 
 // Material component
@@ -111,6 +113,7 @@ export const MY_FORMATS = {
     ListingUsersComponent
   ],
   imports: [
+      HttpModule,
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
@@ -148,6 +151,7 @@ export const MY_FORMATS = {
     MembersService,
     FinancialService,
       UsersService,
+      CsvService,
 
     AuthGuard,
     TypesService,
