@@ -23,7 +23,7 @@ export class AddActivitesComponent implements OnInit {
 
     ngOnInit() {
         this.ts.getData().subscribe(result=>{
-            this.types = result['hydra:membre']
+            this.types = result['hydra:member']
         });
     }
 

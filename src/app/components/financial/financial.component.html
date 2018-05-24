@@ -8,8 +8,10 @@
       </mat-form-field>
       <button mat-raised-button color="primary" style="margin-left:10px;" (click)='openDialogAdd()'>Ajouter une entrée
       </button>
+      <button mat-raised-button color="primary" style="margin-left:10px;" (click)='results()'>Téléchargement CSV
+      </button>
     </div>
-    <div class="example-container mat-elevation-z8">
+    <div class=" mat-elevation-z8">
 
       <mat-table [dataSource]="dataSource" matSort>
 

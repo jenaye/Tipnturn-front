@@ -19,6 +19,6 @@ export class UsersService {
 
     count(){
         return this.http.get(`${environment.API}/admin/count`)
-    }
 
+    }
 }
