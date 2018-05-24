@@ -72,6 +72,10 @@ import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter} from '@angular/material-mom
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 import { environment} from "../environments/environment";
 import { ListingUsersComponent } from './components/listing-users/listing-users.component';
+import { TaskBoardComponent } from './components/task-board/task-board.component';
+import { TaskListComponent } from './components/task-list/task-list.component';
+import { TaskComponent } from './components/task/task.component';
+import { TaskOptionComponent } from './components/task-option/task-option.component';
 
 export const MY_FORMATS = {
   parse: {
@@ -108,7 +112,11 @@ export const MY_FORMATS = {
     EditEventComponent,
     DayDetailsComponent,
     CalendarComponent,
-    ListingUsersComponent
+    ListingUsersComponent,
+    TaskBoardComponent,
+    TaskListComponent,
+    TaskComponent,
+    TaskOptionComponent
   ],
   imports: [
     BrowserModule,
