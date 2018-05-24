@@ -43,6 +43,11 @@ export class AddActivitesComponent implements OnInit {
 
     }
 
+    selectIsvalide(): boolean{
+        console.log('select ', this.selectState )
+        return this.selectState===''
+    }
+
     
    
 
