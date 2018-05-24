@@ -18,6 +18,7 @@ export class AddActivitesComponent implements OnInit {
             .group({
                 nom: ['', Validators.required],
                 prix: ['',[Validators.required]],
+                select : ['',this.isValide()]
             });
     }
 
@@ -43,7 +44,7 @@ export class AddActivitesComponent implements OnInit {
 
     }
 
-    
-   
-
+    isValide():boolean{
+        return false
+    }
 }

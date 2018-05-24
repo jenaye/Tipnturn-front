@@ -11,19 +11,18 @@
                   <input matInput placeholder="prix" formControlName="prix" required/>
                   <span matSuffix>€</span>
                 </mat-form-field>
-              </form>
-              <form  #select="ngForm" novalidate>
-              <mat-form-field >
-                  <mat-select placeholder="Choisisez un type" name="select" [(ngModel)]="selectState" required>
-                    <mat-option></mat-option>
+                <mat-form-field >
+                  <mat-select placeholder="Choisisez un type" formControlName="select"  [(ngModel)]="selectState" required>
+                    <mat-option>{{''}} </mat-option>
                     <mat-option *ngFor="let type of types" [value]="type.name">
                       {{ type?.name }}
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
-            </form>
+              </form>
+              
            
   <div style="margin-top:10px;">
-      <button mat-raised-button color="primary"  (click)="add()" [disabled]="formMembre.valid && select.form.valid">sauvegarder</button>
+      <button mat-raised-button color="primary"  (click)="add()" [disabled]="!formMembre.valid">sauvegarder</button>
     </div> 
 </div>
