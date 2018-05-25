@@ -31,6 +31,7 @@ i used travis to automate end-to-end testing
 
 # Todo #
 
-1 ) Add upload pdf ( certificate etc )
-2 ) Show event into calendar
+- [ ] Add upload pdf ( certificate etc )
+- [ ] edition activity
+
 
