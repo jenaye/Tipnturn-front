@@ -40,8 +40,8 @@
         <ng-container matColumnDef="action">
           <mat-header-cell *matHeaderCellDef> </mat-header-cell>
           <mat-cell *matCellDef="let row" style="overflow:hidden;">
-            <button mat-icon-button color="primary">
-              <mat-icon (click)="openDialogEdit(row.id)">edit</mat-icon>
+            <button mat-icon-button color="primary"(click)="openDialogEdit(row.id)">
+              <mat-icon >edit</mat-icon>
             </button>
           </mat-cell>
         </ng-container>
