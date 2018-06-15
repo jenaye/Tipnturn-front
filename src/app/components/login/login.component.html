@@ -1,6 +1,6 @@
 <mat-card class="login">
   <mat-card-header>
-    <mat-card-title><h1>Tipnturn</h1></mat-card-title>
+    <mat-card-title><h1>Tip'N Turn</h1></mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <form (submit)="submit()" class="form">
@@ -11,7 +11,7 @@
         <input matInput [type]="hide ? 'password' : 'text'" name="password" [(ngModel)]="password" placeholder="Mot de passe">
         <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
       </mat-form-field>
-      <button mat-raised-button  class="button-custom" type="submit" name="commit" value="Login">Connexion</button>
+      <button mat-raised-button  class="button-custom btn-hover" type="submit" name="commit" value="Login">Connexion</button>
     </form>
   </mat-card-content>
 </mat-card>

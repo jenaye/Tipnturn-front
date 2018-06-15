@@ -5,15 +5,26 @@
     <div class="example-container mat-elevation-z8">
       <mat-table [dataSource]="dataSource">
 
-        <ng-container matColumnDef="email">
-          <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
-          <mat-cell *matCellDef="let row"> {{row.email}} </mat-cell>
+        <ng-container matColumnDef="lastLogin">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Dernière connexion </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{ row.lastLogin|date: 'dd/MM/yyyy' }} </mat-cell>
         </ng-container>
 
-        <ng-container matColumnDef="id">
-          <mat-header-cell *matHeaderCellDef mat-sort-header> id </mat-header-cell>
-          <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+        <ng-container matColumnDef="email">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{ row.email }} </mat-cell>
         </ng-container>
+
+        <ng-container matColumnDef="username">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Username </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{ row.username }} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="googleMapsKey">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Google maps API KEY </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{ row.googleMapsKey?row.googleMapsKey:'-' }} </mat-cell>
+        </ng-container>
+
 
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns;">
