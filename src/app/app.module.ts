@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { AgmCoreModule } from '@agm/core';
+import { DragulaModule } from 'ng2-dragula';
 
 
 import { ChartsModule } from 'ng2-charts/ng2-charts';
@@ -45,6 +46,7 @@ import { TypesService } from './services/types.service';
 import { EventService } from './services/event.service';
 import { MapService } from './services/map.service';
 import { UsersService } from './services/users.service';
+import { TaskService } from './services/task.service';
 
 
 // Material component
@@ -73,9 +75,8 @@ import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material
 import { environment} from "../environments/environment";
 import { ListingUsersComponent } from './components/listing-users/listing-users.component';
 import { TaskBoardComponent } from './components/task-board/task-board.component';
-import { TaskListComponent } from './components/task-list/task-list.component';
-import { TaskComponent } from './components/task/task.component';
 import { TaskOptionComponent } from './components/task-option/task-option.component';
+import { TaskComponent } from './components/task/task.component';
 
 export const MY_FORMATS = {
   parse: {
@@ -114,9 +115,8 @@ export const MY_FORMATS = {
     CalendarComponent,
     ListingUsersComponent,
     TaskBoardComponent,
-    TaskListComponent,
-    TaskComponent,
-    TaskOptionComponent
+    TaskOptionComponent,
+    TaskComponent
   ],
   imports: [
     BrowserModule,
@@ -146,6 +146,7 @@ export const MY_FORMATS = {
     MatRadioModule,
     MatChipsModule,
     routing,
+    DragulaModule,
     AgmCoreModule.forRoot({
       apiKey: environment.MAPS_KEY
     })
@@ -155,8 +156,8 @@ export const MY_FORMATS = {
     ListingmemberService,
     MembersService,
     FinancialService,
-      UsersService,
-
+    UsersService,
+    TaskService,
     AuthGuard,
     TypesService,
     EventService,
