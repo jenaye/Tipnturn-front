@@ -20,7 +20,8 @@
       "prefix": "app",
       "styles": [
         "styles.css",
-        "assets/css/sb-admin.css"
+        "assets/css/sb-admin.css",
+        "../node_modules/dragula/dist/dragula.css"
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.js",
