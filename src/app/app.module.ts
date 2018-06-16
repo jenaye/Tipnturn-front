@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { AgmCoreModule } from '@agm/core';
 import { HttpModule } from '@angular/http';
+import { DragulaModule } from 'ng2-dragula';
 
 
 import { ChartsModule } from 'ng2-charts/ng2-charts';
@@ -48,6 +49,7 @@ import { EventService } from './services/event.service';
 import { MapService } from './services/map.service';
 import { UsersService } from './services/users.service';
 import { CsvService } from './services/csv.service';
+import { TaskService } from './services/task.service';
 
 
 // Material component
@@ -75,6 +77,9 @@ import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter} from '@angular/material-mom
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 import { environment} from "../environments/environment";
 import { ListingUsersComponent } from './components/listing-users/listing-users.component';
+import { TaskBoardComponent } from './components/task-board/task-board.component';
+import { TaskOptionComponent } from './components/task-option/task-option.component';
+import { TaskComponent } from './components/task/task.component';
 
 export const MY_FORMATS = {
   parse: {
@@ -113,6 +118,9 @@ export const MY_FORMATS = {
     CalendarComponent,
     AllActivitiesComponent,
     ListingUsersComponent
+    TaskBoardComponent,
+    TaskOptionComponent,
+    TaskComponent
   ],
   imports: [
       HttpModule,
@@ -143,6 +151,7 @@ export const MY_FORMATS = {
     MatRadioModule,
     MatChipsModule,
     routing,
+    DragulaModule,
     AgmCoreModule.forRoot({
       apiKey: environment.MAPS_KEY
     })
@@ -155,6 +164,8 @@ export const MY_FORMATS = {
       UsersService,
       CsvService,
 
+    UsersService,
+    TaskService,
     AuthGuard,
     TypesService,
     EventService,
