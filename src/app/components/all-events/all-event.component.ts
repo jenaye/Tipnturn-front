@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { EventService } from '../../services/event.service';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { MatDialog} from '@angular/material';
 import { AddEventComponent } from '../addEvent/addEvent.component';
 import { EditEventComponent } from '../editEvent/editEvent.component';
 import { MatPaginator, MatSort, MatTableDataSource} from '@angular/material';

@@ -15,14 +15,14 @@ export class ListingUsersComponent implements OnInit {
         this.dataSource = new MatTableDataSource();
     }
 
-    ngOnInit() {
-        this
-            .userService
-            .findAll()
-            .subscribe(users => {
-                this.dataSource.data = users['hydra:member'];
-            });
-    }
+  ngOnInit() {
+      this
+          .userService
+          .findAll()
+          .subscribe(users => {
+              this.dataSource= new MatTableDataSource(users['hydra:member']);;
+          });
+  }
 
 
 }

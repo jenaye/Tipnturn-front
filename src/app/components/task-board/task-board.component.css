@@ -19,5 +19,7 @@
    min-height:200px ;
    border : 3px dashed #B0BEC5;
    padding: 10px;
+   border-radius: 5px;
+   margin-bottom: 10px;
    
 }

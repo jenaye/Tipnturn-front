@@ -3,7 +3,7 @@ import {Component, OnInit} from '@angular/core';
 import { EventService } from '../../services/event.service';
 import { DatePipe } from '@angular/common';
 import { DayDetailsComponent } from '../dayDetails/dayDetails.component';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { MatDialog} from '@angular/material';
 
 
 @Component({selector: 'app-calendar', templateUrl: './calendar.component.html', styleUrls: ['./calendar.component.css']})

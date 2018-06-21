@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatTableDataSource} from '@angular/material';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import {MatDialog} from '@angular/material';
 import {FinancialService} from '../../services/financial.service';
 import {AddFinancialComponent} from '../addFinancial/addFinancial.component';
 import { saveAs } from 'file-saver';

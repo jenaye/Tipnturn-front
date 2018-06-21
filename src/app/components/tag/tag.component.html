@@ -1,0 +1,23 @@
+<mat-form-field fxFlex="100">
+    <mat-chip-list #chipList>
+      <mat-chip *ngFor="let tag of _value; let last = last"
+          (remove)="remove(tag, chipInput)"
+          (keydown.ArrowRight)="last && selectInput($event, chipInput)">
+        {{tag.text}}
+        <mat-icon matChipRemove>cancel</mat-icon>
+      </mat-chip>
+    </mat-chip-list>
+    <input [matChipInputFor]="chipList"
+    [matChipInputAddOnBlur]="true"
+    [matAutocomplete]="auto"
+    (keydown.enter)="addTextChip(chipInput)"
+    (input)="textChanged(chipInput.value)"
+    #chipInput />
+    <mat-autocomplete #auto="matAutocomplete"
+                      [displayWith]="displayFn"
+                      (optionSelected)="add($event, chipInput)">
+      <mat-option *ngFor="let tag of filteredSources" [value]="tag.id">
+        <span>{{ tag.text }}</span>
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>

@@ -1,6 +1,6 @@
-import {Component, OnInit, Inject, NgZone} from '@angular/core';
-import {FormGroup, FormBuilder, Validators, FormControl} from '@angular/forms';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import {Component, OnInit, NgZone} from '@angular/core';
+import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import {MatDialogRef} from '@angular/material';
 import {EventService} from '../../services/event.service';
 import {MapService} from '../../services/map.service'
 
@@ -19,7 +19,7 @@ export class AddEventComponent implements OnInit {
         
         this.minStartDate= new Date();
         this.endDateAble=true;
-      //  this.dateInvalide=false;
+    
        
         this.formEvent = this
             .formBuilder
