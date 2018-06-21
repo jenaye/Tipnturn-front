@@ -1,3 +1,31 @@
-<p>
-  task-option works!
-</p>
+<div class="title">
+  Editer une tâche
+</div>
+<form [formGroup]="formTask">
+  <mat-form-field>
+    <input matInput placeholder="Nom" formControlName="title" />
+  </mat-form-field>
+  <app-tags></app-tags>
+  <mat-form-field>
+    <textarea matInput placeholder="Description" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5" formControlName="comment"></textarea>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="deadline" formControlName="deadline" />
+    <input matInput [matDatepicker]="pickerstart" [min]="today" placeholder="deadline" formControlName="deadline">
+    <mat-datepicker-toggle matSuffix [for]="pickerstart"></mat-datepicker-toggle>
+    <mat-datepicker #pickerstart></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="text" placeholder="Personne en charge" formControlName="users" [matAutocomplete]="auto" />
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let user of filteredUser | async" [value]="user.username">
+        {{ user.username }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+</form>
+<div style="margin-top: 20px;">
+  <button mat-raised-button color="primary" (click)="closeDialog()" [disabled]="!formTask.valid">sauvegarder</button>
+  <button mat-raised-button color="primary" (click)="closeDialog()">annuler</button>
+</div>

@@ -23,12 +23,12 @@
     <mat-form-field>
       <input matInput placeholder="Téléphone" formControlName="phone" />
     </mat-form-field>
-    
-        <mat-form-field>
-          <input matInput placeholder="cotisation" formControlName="cotisation" />
-          <span matSuffix>€</span>
-        </mat-form-field>
-   
+
+    <mat-form-field>
+      <input matInput placeholder="cotisation" formControlName="cotisation" />
+      <span matSuffix>€</span>
+    </mat-form-field>
+
   </div>
 
   <div class="row3">
@@ -39,11 +39,6 @@
 
 </form>
 <div style="margin-top: 20px;">
-    <ng-container *ngIf="formMembre.valid; else notValide">
-        <button mat-raised-button color="primary" (click)="edit()">sauvegarder</button>
-      </ng-container>
-      <ng-template #notValide>
-        <button mat-raised-button color="primary" disabled>sauvegarder</button>
-      </ng-template>
-      <button mat-raised-button color="primary" (click)="closeDialog()">annuler</button>
+  <button mat-raised-button color="primary" [disabled]="!formMembre.valid">sauvegarder</button>
+  <button mat-raised-button color="primary" (click)="closeDialog()">annuler</button>
 </div>

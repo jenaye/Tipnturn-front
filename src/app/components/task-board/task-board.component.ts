@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../../services/task.service';
+import { SnackBarService } from '../../services/snackBar.service'
 import { DragulaService } from 'ng2-dragula';
 import { Task } from '../../models/Task';
 
@@ -16,11 +17,12 @@ export class TaskBoardComponent implements OnInit {
   public allTask :Array<Task>;
   public nbTask : number;
   
-  constructor(private taskService : TaskService, private dragulaService: DragulaService) {    
+  constructor(private taskService : TaskService, private dragulaService: DragulaService, private snackBar : SnackBarService ) {    
      this.todo = new Array();
      this.doing = new Array();
      this.done = new Array();
      this.allTask = new Array();
+
     dragulaService.drag.subscribe((value) => {
       this.onDrag(value.slice(1));
     });
@@ -58,30 +60,37 @@ export class TaskBoardComponent implements OnInit {
   addTodoTask(){
     let task = new Task()
     this.nbTask ++
-    task.name = "Nouvelle tache " + this.nbTask
-    this.todo.unshift(task);
+    task.title = "Nouvelle tache " + this.nbTask
+    //  this.taskService.newTask({"title":task.title}).subscribe(res =>{
+    //    console.log(res);
+      this.snackBar.creationSuccess();
+      this.todo.unshift(task);
+    //  });
+   
   }
   addDoingTask(){
     let task = new Task()
     this.nbTask ++
-    task.name = "Nouvelle tache " + this.nbTask
-    this.doing.unshift(new Task());
+    task.title = "Nouvelle tache " + this.nbTask
+    task.state = "doing"
+    this.doing.unshift(task);
   }
   addDoneTask(){
     let task = new Task()
     this.nbTask ++
-    task.name = "Nouvelle tache " + this.nbTask
-    this.done.unshift(new Task());
+    task.title = "Nouvelle tache " + this.nbTask
+    task.state = "done"
+    this.done.unshift(task);
   }
 
-  getTask(table : string,taskName : string): Task{
+  getTask(table : string,taskTitle : string): Task{
     let task = new Task();
     switch(table){
-      case 'todo' :  task = this.todo.find(el =>  el.name === taskName);
+      case 'todo' :  task = this.todo.find(el =>  el.title === taskTitle);
       break; 
-      case 'doing':task = this.doing.find(el =>  el.name === taskName)
+      case 'doing':task = this.doing.find(el =>  el.title === taskTitle)
       break;
-      case 'done':task = this.done.find(el =>  el.name === taskName)
+      case 'done':task = this.done.find(el =>  el.title === taskTitle)
       break;
     };
     return task;
@@ -104,10 +113,7 @@ export class TaskBoardComponent implements OnInit {
   }
   private onDropModel(args) {
     let [el, target, source] = args;
-    console.log(el)
-    this.getTask(target.id,el.id).setState(target.id)
-    console.log(this.getTask(target.id,el.id));
-    
+    this.getTask(target.id,el.id).state = target.id
   }
 
 }

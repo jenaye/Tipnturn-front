@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {ListingmemberService} from '../../services/listingmember.service';
 import {ActivitiesService} from '../../services/activities.service';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import {MatDialog} from '@angular/material';
 import {AddMemberComponent} from '../addMember/addMember.component';
 import {EditmemberComponent} from '../editmember/editmember.component';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';

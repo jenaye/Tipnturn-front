@@ -1,9 +1,7 @@
 import { Component, OnInit , Inject } from '@angular/core';
-import { ActivitiesService } from '../../services/activities.service';
 import { MembersService } from '../../services/members.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'app-editmember',

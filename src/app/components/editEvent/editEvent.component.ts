@@ -1,11 +1,9 @@
 import {Component, OnInit, Inject, NgZone} from '@angular/core';
-import {MouseEvent} from '@agm/core';
 import {EventService} from '../../services/event.service';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MapService} from '../../services/map.service'
 import {DatePipe} from '@angular/common';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
 @Component({selector: 'app-editEvent', templateUrl: './editEvent.component.html', styleUrls: ['./editEvent.component.css']})
 export class EditEventComponent implements OnInit {

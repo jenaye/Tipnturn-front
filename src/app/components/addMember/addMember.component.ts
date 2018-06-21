@@ -1,8 +1,7 @@
 import {Component, OnInit, Inject} from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
-import {ActivitiesService} from '../../services/activities.service';
 import {MembersService} from '../../services/members.service';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
 @Component({selector: 'app-addMember', templateUrl: './addMember.component.html', styleUrls: ['./addMember.component.css']})
 export class AddMemberComponent implements OnInit {
@@ -48,7 +47,7 @@ export class AddMemberComponent implements OnInit {
 
     this.membresservice
       .insert(this.formMembre.value)
-      .subscribe(membre => {
+      .subscribe(() => {
         this.closeDialog()
       });
   }

@@ -7,7 +7,7 @@
       <mat-card>
         <mat-card-title>A faire</mat-card-title>
         <div id="todo" [dragula]='"another-bag"' [dragulaModel]='todo' class="dropZone">
-          <app-task *ngFor="let task of todo; let i = index " [task]="task" id="{{task.name}}">         
+          <app-task *ngFor="let task of todo; let i = index " [task]="task" id="{{task.title}}">         
           </app-task>
         </div>
         <button mat-button (click)="addTodoTask()">Nouvelle tache</button>
@@ -17,7 +17,7 @@
       <mat-card>
         <mat-card-title>En cour</mat-card-title>
         <div id="doing" [dragula]='"another-bag"' [dragulaModel]='doing' class="dropZone">
-          <app-task *ngFor="let task of doing; let i = index " [task]="task" id="{{task.name}}">         
+          <app-task *ngFor="let task of doing; let i = index " [task]="task" id="{{task.title}}">         
           </app-task>
         </div>
         <button mat-button (click)="addDoingTask()">Nouvelle tache</button>
@@ -27,7 +27,7 @@
       <mat-card>
         <mat-card-title>Fait</mat-card-title>
         <div id="done" [dragula]='"another-bag"' [dragulaModel]='done' class="dropZone">
-          <app-task *ngFor="let task of done; let i = index " [task]="task" id="{{task.name}}">         
+          <app-task *ngFor="let task of done; let i = index " [task]="task" id="{{task.title}}">         
           </app-task>
         </div>
         <button mat-button (click)="addDoneTask()">Nouvelle tache</button>
