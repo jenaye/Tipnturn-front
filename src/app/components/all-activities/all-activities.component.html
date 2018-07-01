@@ -1,0 +1,7 @@
+<h1 class="titre">Liste des activites</h1>
+<ng-container *ngIf="activities">
+  <ng-container *ngFor="let activitie of activities">
+  <p>{{ activitie?.name }}</p>
+  </ng-container>
+</ng-container>
+

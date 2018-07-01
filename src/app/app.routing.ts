@@ -1,6 +1,7 @@
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './guards/auth.guard';
 
+import { AllActivitiesComponent } from './components/all-activities/all-activities.component'
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { LoginComponent } from './components/login/login.component';
 import { AllMembersComponent } from './components/all-members/all-members.component';
@@ -32,6 +33,10 @@ const appRoutes: Routes = [
                 component: AllMembersComponent
             },
                  
+            {
+                path: 'all-activite',
+                component: AllActivitiesComponent
+            },
             {
                 path: 'activites/:id',
                 component: ListingByActivitesComponent

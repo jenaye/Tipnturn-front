@@ -24,6 +24,7 @@ import { FinancialComponent } from './components/financial/financial.component';
 import { AddFinancialComponent } from './components/addFinancial/addFinancial.component';
 import { LoginComponent } from './components/login/login.component';
 import { AddActivitesComponent } from './components/addActivites/addActivites.component';
+import { AllActivitiesComponent } from './components/all-activities/all-activities.component';
 import { AddEventComponent } from './components/addEvent/addEvent.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { PageHeaderComponent } from './components/page-header/page-header.component';
@@ -110,6 +111,7 @@ export const MY_FORMATS = {
     EditEventComponent,
     DayDetailsComponent,
     CalendarComponent,
+    AllActivitiesComponent,
     ListingUsersComponent
   ],
   imports: [
@@ -175,7 +177,8 @@ export const MY_FORMATS = {
     AddMemberComponent,
     AddEventComponent,
     EditEventComponent,
-    DayDetailsComponent
+    DayDetailsComponent,
+      AllActivitiesComponent
   ]
  
 })
