@@ -14,6 +14,10 @@ export class CsvService {
         return this.http.get(`${environment.API}/export/bilan/csv`)
     }
 
+    downloadMembersAsCsv(){
+        return this.http.get(`${environment.API}/export/membres/csv`)
+    }
+
 
 
 }
