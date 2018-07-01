@@ -66,8 +66,8 @@ export class AllMembersComponent implements OnInit {
     }
 
     results(){
-        this.csvservice.downloadMembersAsCsv().subscribe( toto => {
-            let parsedResponse = toto.text();
+        this.csvservice.downloadMembersAsCsv().subscribe( members => {
+            let parsedResponse = members.text();
             this.downloadFile(parsedResponse);
             let blob = new Blob([parsedResponse], { type: 'text/csv' });
             saveAs(blob, "members.csv");

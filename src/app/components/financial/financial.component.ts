@@ -53,8 +53,8 @@ export class FinancialComponent implements OnInit {
 
 
     results(){
-        this.csvservice.downloadAsCsv().subscribe( toto => {
-            let parsedResponse = toto.text();
+        this.csvservice.downloadAsCsv().subscribe( thune => {
+            let parsedResponse = thune.text();
             this.downloadFile(parsedResponse);
             let blob = new Blob([parsedResponse], { type: 'text/csv' });
             saveAs(blob, "bilan.csv");
