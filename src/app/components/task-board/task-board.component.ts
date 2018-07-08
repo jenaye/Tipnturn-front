@@ -15,6 +15,7 @@ export class TaskBoardComponent implements OnInit {
   public doing : Array<Task>;
   public done : Array<Task>;
   public allTask :Array<Task>;
+  public allTaskApi : Array<any>
   public nbTask : number;
   
   constructor(private taskService : TaskService, private dragulaService: DragulaService, private snackBar : SnackBarService ) {    
@@ -22,98 +23,87 @@ export class TaskBoardComponent implements OnInit {
      this.doing = new Array();
      this.done = new Array();
      this.allTask = new Array();
+     this.allTaskApi = new Array();
 
-    dragulaService.drag.subscribe((value) => {
-      this.onDrag(value.slice(1));
-    });
-    dragulaService.dropModel.subscribe((value) => {
+    
+    this.dragulaService.dropModel.subscribe((value) => {
       this.onDropModel(value.slice(1));
     });
-    dragulaService.over.subscribe((value) => {
-      this.onOver(value.slice(1));
-    });
-    dragulaService.out.subscribe((value) => {
-      this.onOut(value.slice(1));
-    });
+  
    }
 
   ngOnInit() {
     this.taskService.getAllTasks().subscribe(res=>{
-      this.allTask = res['hydra:member'];
+      this.allTaskApi = res['hydra:member'];
+     
+      this.initColumns();
+      console.log(this.allTask);
       this.initDoing();
       this.initDone();
       this.initTodo();
       this.nbTask = this.todo.length + this.doing.length +this.done.length;
+      console.log(this.nbTask);
     })
   }
 
+  initColumns(){
+    this.allTaskApi.forEach(el=>{
+      console.log(el)
+      this.allTask.push(new Task(el['title'],el['state'],el['id'],el['tags'],el['deadline'],el['comment'],el['user']))
+    });
+  }
+
   initTodo(){
-    this.todo = this.allTask.filter(task => { task.state === "todo"})
+    this.todo = this.allTask.filter(task =>  task.state === "todo")
   }
   initDoing(){
-    this.doing = this.allTask.filter(task => { task.state === "doing"})
+    this.doing = this.allTask.filter(task =>  task.state === "doing")
   }
   initDone(){
-    this.done = this.allTask.filter(task => { task.state === "done"})
+    this.done = this.allTask.filter(task =>  task.state === "done")
   }
 
   addTodoTask(){
-    let task = new Task()
+    let task = new Task("Nouvelle tache " + this.nbTask,"todo")
     this.nbTask ++
-    task.title = "Nouvelle tache " + this.nbTask
-    //  this.taskService.newTask({"title":task.title}).subscribe(res =>{
-    //    console.log(res);
+      this.taskService.newTask(task).subscribe(res =>{
+      task.id = res['id'];
       this.snackBar.creationSuccess();
       this.todo.unshift(task);
-    //  });
-   
+      });
   }
+
   addDoingTask(){
-    let task = new Task()
+    let task = new Task("Nouvelle tache " + this.nbTask,"doing")
     this.nbTask ++
-    task.title = "Nouvelle tache " + this.nbTask
-    task.state = "doing"
-    this.doing.unshift(task);
+    this.taskService.newTask(task).subscribe(res =>{
+        this.snackBar.creationSuccess();
+        this.doing.unshift(task);
+        });
   }
   addDoneTask(){
-    let task = new Task()
+    let task = new Task("Nouvelle tache " + this.nbTask,"done")
     this.nbTask ++
-    task.title = "Nouvelle tache " + this.nbTask
-    task.state = "done"
-    this.done.unshift(task);
+    this.taskService.newTask(task).subscribe(res =>{
+      this.snackBar.creationSuccess();
+      this.done.unshift(task);
+      });
   }
 
   getTask(table : string,taskTitle : string): Task{
-    let task = new Task();
-    switch(table){
-      case 'todo' :  task = this.todo.find(el =>  el.title === taskTitle);
-      break; 
-      case 'doing':task = this.doing.find(el =>  el.title === taskTitle)
-      break;
-      case 'done':task = this.done.find(el =>  el.title === taskTitle)
-      break;
-    };
-    return task;
+    return this[`${table}`].find(el =>  el.title === taskTitle)
   }
 
-  private onDrag(args) {
-    let [e, el] = args;
-    // do something
-  }
-  
-  
-  private onOver(args) {
-    let [e, el, container] = args;
-    // do something
-  }
-  
-  private onOut(args) {
-    let [e, el, container] = args;
-    // do something
-  }
   private onDropModel(args) {
     let [el, target, source] = args;
-    this.getTask(target.id,el.id).state = target.id
-  }
+    let currentTask = this.getTask(target.id,el.id);
+    currentTask['state'] = target.id
+    this.taskService.updateTask(currentTask['id']  ,currentTask).subscribe(res =>{
 
+     });
+
+  }
+  refreshAfterDelete(state : string, idToRemove: number){
+    this[`${state}`] = this[`${state}`].filter(el =>  el.id !== idToRemove )
+  }
 }

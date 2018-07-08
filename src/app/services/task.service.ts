@@ -9,8 +9,8 @@ export class TaskService {
     newTask(data) {
         return this.http.post(`${environment.API}/tasks`, data) ;
     }
-    updateTask(data) {
-        return this.http.put(`${environment.API}/tasks`, data);
+    updateTask(id : number ,data : any) {
+        return this.http.put(`${environment.API}/tasks/${id}`, data);
     }
     deleteTask(data){
         return this.http.delete(`${environment.API}/tasks/${data}`);

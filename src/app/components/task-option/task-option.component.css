@@ -3,3 +3,13 @@
     font-size: 30px;
     margin-bottom: 20px;
   }
+
+.full{
+  width: 100%;
+}
+.two{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-column-gap: 10px;
+  
+}
