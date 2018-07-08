@@ -25,7 +25,6 @@ export class TaskBoardComponent implements OnInit {
      this.allTask = new Array();
      this.allTaskApi = new Array();
 
-    
     this.dragulaService.dropModel.subscribe((value) => {
       this.onDropModel(value.slice(1));
     });
@@ -95,12 +94,18 @@ export class TaskBoardComponent implements OnInit {
     let [el, target, source] = args;
     let currentTask = this.getTask(target.id,el.id);
     currentTask['state'] = target.id
-    this.taskService.updateTask(currentTask['id']  ,currentTask).subscribe(res =>{
-     
+    this.taskService.updateTask(currentTask['id']  , {state : target.id}).subscribe(res =>{
      });
 
   }
   refreshAfterDelete(state : string, idToRemove: number){
     this[`${state}`] = this[`${state}`].filter(el =>  el.id !== idToRemove )
+  }
+   
+  refreshAfterUpdate(state : string , idToUpdate : number){
+    let index = this[`${state}`].findIndex(el =>  el['id'] === idToUpdate);
+    this.taskService.getTask(idToUpdate).subscribe(res =>{
+      this[`${state}`][index]['tags'] = res['tags'];
+    })
   }
 }

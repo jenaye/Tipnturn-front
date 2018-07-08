@@ -98,7 +98,7 @@ export class TaskOptionComponent implements OnInit {
   }
 
   saveTask(){
-
+    console.log(this.tagsToPost)
     let dataToSend
 
     if(this.formTask.value.deadline){
