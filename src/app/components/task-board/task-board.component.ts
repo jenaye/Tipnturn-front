@@ -106,6 +106,10 @@ export class TaskBoardComponent implements OnInit {
     let index = this[`${state}`].findIndex(el =>  el['id'] === idToUpdate);
     this.taskService.getTask(idToUpdate).subscribe(res =>{
       this[`${state}`][index]['tags'] = res['tags'];
+      this[`${state}`][index]['title'] = res['title'];
+      this[`${state}`][index]['deadline'] = res['deadline'];
+      this[`${state}`][index]['comment'] = res['comment'];
+      this[`${state}`][index]['user'] = res['user'];
     })
   }
 }

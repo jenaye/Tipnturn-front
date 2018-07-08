@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { UsersService } from '../../services/users.service';
@@ -18,8 +18,6 @@ import { map, startWith} from 'rxjs/operators';
 export class TaskOptionComponent implements OnInit {
 
 
-  @Output() tagsEmiter : EventEmitter<Tag[]> = new EventEmitter();
-  
   public formTask: FormGroup;
   public tabUser : Array<any>;
   public dataLoaded : boolean;
@@ -33,7 +31,6 @@ export class TaskOptionComponent implements OnInit {
               private taskService: TaskService,
               public dialogRef: MatDialogRef < TaskOptionComponent >,
               @Inject(MAT_DIALOG_DATA) public data : any) {
-    
     
     if(data.user){
       this.formTask = this.formBuilder.group({
@@ -50,7 +47,6 @@ export class TaskOptionComponent implements OnInit {
         user: [''],
       });  
     }
-    
     this.today = new Date();
     this.tags = new Array();
     this.tagsToPost = new Array();
@@ -65,6 +61,7 @@ export class TaskOptionComponent implements OnInit {
   initTags(){
     this.data.tags.forEach(element => {
       this.tags.push(new Tag(element['id'],element['name'],element['color']))
+      this.tagsToPost.push(element['@id']);
     });
   }
 
@@ -80,7 +77,7 @@ export class TaskOptionComponent implements OnInit {
 
   closeDialog(result?:any) {
     if(result){
-      this.dialogRef.close('sa c sense s afficher dans task');
+      this.dialogRef.close(this.data);
     }
     this.dialogRef.close();
   }
@@ -98,30 +95,18 @@ export class TaskOptionComponent implements OnInit {
   }
 
   saveTask(){
-    console.log(this.tagsToPost)
     let dataToSend
-
-    if(this.formTask.value.deadline){
+    let user = this.tabUser.find(user => user.username === this.formTask.value.user)
       dataToSend = {
         "title": this.formTask.value.title,
-        "deadline": new Date(this.formTask.value.deadline),
-        "comment":this.formTask.value.comment,
+        "deadline": this.formTask.value.deadline ? new Date(this.formTask.value.deadline): null,
+        "comment":this.formTask.value.comment ? this.formTask.value.comment : null,
         "tags": this.tagsToPost,
-        "user": this.tabUser.find(user => user.username === this.formTask.value.users),
+        "user": user ? user['@id'] : null,
         "state": this.data.state
       };
-    }else{
-      dataToSend = {
-        "title": this.formTask.value.title,
-        "comment":this.formTask.value.comment,
-        "tags": this.tagsToPost,
-        "user": this.tabUser.find(user => user.username === this.formTask.value.users),
-        "state": this.data.state
-      };
-    }
-
     
-    this.taskService.updateTask(this.data.id, dataToSend).subscribe(res=>{
+    this.taskService.updateTask(this.data.id, dataToSend).subscribe(()=>{
       this.closeDialog(new Task(this.formTask.value.title , this.data.state,this.data.id, this.tags , this.formTask.value.deadline, this.formTask.value.comment,this.tabUser.find(user => user.username === this.formTask.value.users)));
     });
   }
