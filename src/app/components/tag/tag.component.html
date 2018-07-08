@@ -17,7 +17,7 @@
     formControlName="tagText"
     (keydown.enter)="addTextChip()"/>
     <mat-autocomplete #auto="matAutocomplete">
-      <mat-option *ngFor="let tag of filteredTag | async" [value]="tag.name">
+      <mat-option (click)="addTextChip()" (keydown.enter)="addTextChip()"  *ngFor="let tag of filteredTag | async" [value]="tag.name">
         <span>{{ tag.name }}</span>
       </mat-option>
     </mat-autocomplete>
