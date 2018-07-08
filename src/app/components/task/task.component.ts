@@ -46,7 +46,7 @@ export class TaskComponent implements AfterViewInit {
       width: '500px',
       data :  this.task
     });
-    dialogRef.afterClosed().subscribe(res => {
+    dialogRef.afterClosed().subscribe(() => {
       this.updateId.emit(this.task.id);
     });
   }

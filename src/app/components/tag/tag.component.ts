@@ -52,8 +52,10 @@ export class TagComponent {
     if (this.form.value.tagText && tagName.length > 0) {
 
       if (this.tagAlreadyExist(tagName)) {
-       this.tags= [...this.tags,this.allTags.find(tag => tag.name===tagName)]
-       this.emit();
+        if(!this.tags.some(tag => tag.name === tagName)){
+          this.tags= [...this.tags,this.allTags.find(tag => tag.name===tagName)]
+          this.emit();
+        }
        this.form.reset();
       } else {
         this.tagsService.newTag({
