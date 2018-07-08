@@ -35,20 +35,17 @@ export class TaskBoardComponent implements OnInit {
   ngOnInit() {
     this.taskService.getAllTasks().subscribe(res=>{
       this.allTaskApi = res['hydra:member'];
-     
       this.initColumns();
-      console.log(this.allTask);
       this.initDoing();
       this.initDone();
       this.initTodo();
       this.nbTask = this.todo.length + this.doing.length +this.done.length;
-      console.log(this.nbTask);
+      
     })
   }
 
   initColumns(){
     this.allTaskApi.forEach(el=>{
-      console.log(el)
       this.allTask.push(new Task(el['title'],el['state'],el['id'],el['tags'],el['deadline'],el['comment'],el['user']))
     });
   }
@@ -99,7 +96,7 @@ export class TaskBoardComponent implements OnInit {
     let currentTask = this.getTask(target.id,el.id);
     currentTask['state'] = target.id
     this.taskService.updateTask(currentTask['id']  ,currentTask).subscribe(res =>{
-
+     
      });
 
   }

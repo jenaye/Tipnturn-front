@@ -5,6 +5,7 @@ import { TaskService } from '../../services/task.service';
 import { SnackBarService } from '../../services/snackBar.service'
 import { Task } from '../../models/Task';
 
+
 @Component({
   selector: 'app-task',
   templateUrl: './task.component.html',
@@ -35,9 +36,10 @@ export class TaskComponent implements OnInit {
       width: '500px',
       data :  this.task
     });
-    dialogRef.afterClosed().subscribe(result => {
-        
-          });
+    dialogRef.afterClosed().subscribe(res => {
+      console.log(res)
+     
+    });
       }
       
   deleteTask(){

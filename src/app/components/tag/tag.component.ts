@@ -14,7 +14,8 @@ import { Observable } from 'rxjs';
 export class TagComponent {
 
   @Input() tags: Array<Tag>;
-  @Output() outTags: EventEmitter<Array<Tag>> = new EventEmitter<Array<Tag>>();
+  @Output() outTags: EventEmitter<Array<string>> = new EventEmitter<Array<string>>();
+  @Output() currentTags :EventEmitter<Array<Tag>> = new EventEmitter<Array<Tag>>();
   public allTags: Tag[] = [];
   public filteredTag: Observable<Tag[]>;
   public form: FormGroup;
@@ -42,7 +43,7 @@ export class TagComponent {
 
   remove(tag: Tag) {
     this.tags = this.tags.filter(el => el.id != tag.id);
-    this.outTags.emit(this.tags);
+    this.emit();
 
   }
 
@@ -52,7 +53,7 @@ export class TagComponent {
 
       if (this.tagAlreadyExist(tagName)) {
        this.tags= [...this.tags,this.allTags.find(tag => tag.name===tagName)]
-       this.outTags.emit(this.tags);
+       this.emit();
        this.form.reset();
       } else {
         this.tagsService.newTag({
@@ -62,12 +63,23 @@ export class TagComponent {
           let tmp = new Tag(res['id'], res['name'], res['color']) ;
           this.tags.push(tmp);
           this.allTags.push(tmp);
-          this.outTags.emit(this.tags);
+          this.emit();
           this.form.reset();
         })
       }
     }
   }
+
+  getAllUri():Array<string>{
+    let tabURI= new Array();
+    this.tags.forEach(tag=>{tabURI.push('api/tags/'+tag['id'])});
+    return tabURI;
+  }
+
+  emit(){
+    this.outTags.emit(this.getAllUri());
+    this.currentTags.emit(this.tags);
+    }
 
   tagAlreadyExist(tagName : string): boolean{
     let exist = false;
