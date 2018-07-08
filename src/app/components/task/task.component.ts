@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material'
 import { TaskOptionComponent } from '../task-option/task-option.component'
 import { TaskService } from '../../services/task.service';
@@ -13,6 +13,7 @@ import { Task } from '../../models/Task';
 export class TaskComponent implements OnInit {
 
   @Input() task : Task;
+  @Output() deletedId : EventEmitter<number> = new EventEmitter<number>();
   public isHoover : boolean;
   public editing : boolean;
  
@@ -26,9 +27,7 @@ export class TaskComponent implements OnInit {
   
   saveChanges(){
     this.editing = false;
-    this.taskService.updateTask(this.task).subscribe(res =>{
-      this.snackBar.saveSuccess();
-    })
+    this.snackBar.saveSuccess();
   }
 
   openDialogEdit(): void {
@@ -42,7 +41,9 @@ export class TaskComponent implements OnInit {
       }
       
   deleteTask(){
-    
+    this.taskService.deleteTask(this.task.id).subscribe(res=>{
+      this.deletedId.emit(this.task.id);
+    });
   }
   
 

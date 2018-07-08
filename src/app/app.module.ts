@@ -55,6 +55,7 @@ import { MapService } from './services/map.service';
 import { UsersService } from './services/users.service';
 import { TaskService } from './services/task.service';
 import { SnackBarService } from './services/snackBar.service';
+import { TagsService } from './services/tags.service';
 
 
 // Material component
@@ -176,6 +177,7 @@ export const MY_FORMATS = {
     TypesService,
     EventService,
     MapService,
+    TagsService,
     DatePipe,
     {provide: MAT_DATE_LOCALE, useValue: 'fr-FR'},
     {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},

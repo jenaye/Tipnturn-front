@@ -1,15 +1,21 @@
 <div class="taskContainer" [ngClass]="{hoover: isHoover}" (mouseleave)="isHoover = false" (mouseenter)="isHoover = true">
-  <span *ngIf="!editing" (click)="editing = true" class="title">{{ task.title}}</span>
-  <form *ngIf="editing" >
+  <span *ngIf="!editing, else edit" (click)="editing = true" class="title">{{ task.title}}</span>
+  <ng-template #edit>
+  <form>
     <mat-form-field>
       <input [autofocus] matInput type="text" [ngClass]="{hoover: isHoover}" [(ngModel)]="task.title" [ngModelOptions]="{standalone: true}" (blur)="saveChanges()" (keyup.enter)=" saveChanges()"
       />
     </mat-form-field>
   </form>
+</ng-template>
   <button [ngClass]="{none: !isHoover}" mat-icon-button   (click)="openDialogEdit()">
     <mat-icon color="primary">edit</mat-icon>
   </button>
   <button [ngClass]="{none: !isHoover}" mat-icon-button (click)="deleteTask()">
     <mat-icon color="primary">delete</mat-icon>
   </button>
+  <mat-chip *ngFor="let tag of task.tags;"
+   [style.background-color]="tag.color" class="myChips" >
+  {{tag.name}}
+</mat-chip>
 </div>
