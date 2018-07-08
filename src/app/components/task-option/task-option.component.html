@@ -15,7 +15,7 @@
     </mat-autocomplete>
   </mat-form-field>
 </div>
-  <app-tags class="full" [tags]="tags" (outTags)="tagsChange($event)"></app-tags>
+  <app-tags class="full" [tags]="tags" (outTags)="uriChange($event)" (currentTags)="tagsChange($event)"></app-tags>
   <mat-form-field class="full">
     <textarea class="full" matInput placeholder="Description" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5" formControlName="comment"></textarea>
   </mat-form-field>
