@@ -127,7 +127,7 @@ export const MY_FORMATS = {
     DayDetailsComponent,
     CalendarComponent,
     AllActivitiesComponent,
-    ListingUsersComponent
+    ListingUsersComponent,
     TaskBoardComponent,
     TaskOptionComponent,
     TaskComponent,
@@ -205,7 +205,7 @@ export const MY_FORMATS = {
     AddEventComponent,
     EditEventComponent,
     DayDetailsComponent,
-    AllActivitiesComponent
+    AllActivitiesComponent,
     TaskOptionComponent
   ]
  
