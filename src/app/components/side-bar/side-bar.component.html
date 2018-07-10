@@ -21,18 +21,19 @@
             <a mat-list-item routerLink="/home/add-activite">Ajouter une activite</a>
         </mat-expansion-panel>
 
-        <mat-expansion-panel >
+        <mat-expansion-panel>
             <mat-expansion-panel-header>
                 <mat-panel-title>
                     Trésorerie
                 </mat-panel-title>
-              </mat-expansion-panel-header>
-              <a mat-list-item routerLink="/home/financial">Bilan mensuel</a>
-            </mat-expansion-panel>
-          </mat-accordion>
-          <a mat-list-item routerLink="/home/listingEvents">Gestion des évènements</a>
-        <a mat-list-item routerLink="/home/listingUsers">Gestion des administrateurs</a>
+            </mat-expansion-panel-header>
+            <a mat-list-item routerLink="/home/financial">Bilan mensuel</a>
+        </mat-expansion-panel>
+    </mat-accordion>
+    <a mat-list-item routerLink="/home/listingEvents">Gestion des évènements</a>
+    <a mat-list-item routerLink="/home/listingUsers">Gestion des administrateurs</a>
     <a mat-list-item routerLink="/home/calendar">Calendrier</a>
-      <a mat-list-item (click)="logout()">Deconnexion</a>
-     
-    </mat-nav-list>
+    <a mat-list-item routerLink="/home/tasks">Tableau des missions</a>
+    <a mat-list-item (click)="logout()">Deconnexion</a>
+
+</mat-nav-list>

@@ -1,0 +1,37 @@
+<div class="task-content">
+  <div class="titre">
+    Tableau des missions
+  </div>
+  <div class="task-list-grid">
+    <div>
+      <mat-card class="columns">
+        <mat-card-title>A faire <button mat-button class="flaotingRight" (click)="addTodoTask()">Nouvelle tache</button></mat-card-title>
+        <div id="todo" [dragula]='"another-bag"' [dragulaModel]='todo' class="dropZone">
+          <app-task *ngFor="let task of todo; let i = index " (updateId)="refreshAfterUpdate('todo', $event)" (deletedId)="refreshAfterDelete('todo', $event)" [task]="task" id="{{task.title}}">         
+          </app-task>
+        </div>
+        
+      </mat-card>
+    </div>
+    <div>
+      <mat-card  class="columns">
+        <mat-card-title>En cours  <button mat-button class="flaotingRight" (click)="addDoingTask()">Nouvelle tache</button></mat-card-title>
+        
+        <div id="doing" [dragula]='"another-bag"' [dragulaModel]='doing' class="dropZone">
+          <app-task *ngFor="let task of doing; let i = index " (updateId)="refreshAfterUpdate('doing', $event)" (deletedId)="refreshAfterDelete('doing', $event)"  [task]="task" id="{{task.title}}">         
+          </app-task>
+        </div>
+      </mat-card>
+    </div>
+    <div>
+      <mat-card  class="columns">
+        <mat-card-title>Fait  <button mat-button class="flaotingRight"  (click)="addDoneTask()">Nouvelle tache</button></mat-card-title>
+        <div id="done" [dragula]='"another-bag"' [dragulaModel]='done' class="dropZone">
+          <app-task *ngFor="let task of done; let i = index " (updateId)="refreshAfterUpdate('done', $event)" (deletedId)="refreshAfterDelete('done', $event)"  [task]="task" id="{{task.title}}">         
+          </app-task>
+        </div>
+       
+      </mat-card>
+    </div>
+  </div>
+</div>

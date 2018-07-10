@@ -1,7 +1,7 @@
-import {Component, OnInit, Inject} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FinancialService} from '../../services/financial.service';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import {MatDialogRef} from '@angular/material';
 
 @Component({selector: 'app-addFinancial', templateUrl: './addFinancial.component.html',styleUrls: ['./addFinancial.component.css']})
 export class AddFinancialComponent implements OnInit {

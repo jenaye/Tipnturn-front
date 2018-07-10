@@ -1,7 +1,6 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {ListingmemberService} from '../../services/listingmember.service';
 import {ActivitiesService} from '../../services/activities.service';
-import {forEach} from '@angular/router/src/utils/collection';
 import {FinancialService} from '../../services/financial.service';
 import {UsersService} from '../../services/users.service';
 
