@@ -83,6 +83,7 @@ import { MatNativeDateModule } from '@angular/material';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {MatDividerModule} from '@angular/material/divider';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MomentDateAdapter} from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
@@ -145,6 +146,7 @@ export const MY_FORMATS = {
     MatCardModule,
     MatInputModule,
     MatFormFieldModule,
+    MatDividerModule,
     MatIconModule,
     MatButtonModule,
     MatSidenavModule,

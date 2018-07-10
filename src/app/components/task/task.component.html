@@ -22,4 +22,8 @@
   {{tag.name}}
 </mat-chip>
 </mat-chip-list>
+<mat-divider  [inset]="true" *ngIf="task.user"></mat-divider>
+<div *ngIf="task.user">
+ <div class="taskOftext"> Tâche attribuée à : {{task.user.username}}</div>
+</div>
 </div>
