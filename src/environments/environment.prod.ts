@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  'API': 'http://163.172.172.240:9000/api',
+  'MAPS_KEY': ''
 };
