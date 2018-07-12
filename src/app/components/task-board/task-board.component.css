@@ -1,0 +1,33 @@
+.task-content{
+    width: 90%;
+    margin: auto;
+    margin-bottom: 100px;
+    }
+
+.titre{
+    font-size: 40px;
+    color : #3F51B5;
+    margin: 30px 0 40px 0px;
+    }
+
+.task-list-grid{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-column-gap: 20px;
+}
+.dropZone{
+   min-height:200px ;
+   border : 3px dashed #B0BEC5;
+   padding: 10px;
+   border-radius: 5px;
+   margin-bottom: 10px;
+}
+.columns{
+    max-height: 700px;
+    min-width: 300px;
+    overflow: hidden;
+    overflow-y: auto;
+}
+.flaotingRight{
+    float: right;
+}

@@ -16,6 +16,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AllEventComponent } from './components/all-events/all-event.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { ListingUsersComponent } from './components/listing-users/listing-users.component';
+import { TaskBoardComponent } from './components/task-board/task-board.component';
 
 
 const appRoutes: Routes = [
@@ -60,6 +61,10 @@ const appRoutes: Routes = [
             {
                 path: 'listingUsers',
                 component: ListingUsersComponent
+            },
+            {
+                path: 'tasks',
+                component: TaskBoardComponent
             },
         ]
 

@@ -1,0 +1,33 @@
+.taskContainer{
+   
+    border-radius: 5px;
+    padding: 10px;
+    min-height: 50px;
+    border: 1px solid #CFD8DC;
+    margin-bottom: 10px;
+}
+.hoover{
+    background-color: #CFD8DC;
+    cursor: pointer;
+}
+.none{
+    visibility: hidden;
+}
+.title{
+   margin: auto;
+   margin-left: 10px
+}
+
+.firstGrid{
+    display: grid;
+    grid-template-columns: 2fr repeat(2,0.3fr) ;
+}
+.myChips{
+    color: white;
+    margin-bottom: 10px;
+  }
+  .taskOftext{
+      font-size: 15px;
+      font-style: italic;
+      margin-top :5px;
+  }

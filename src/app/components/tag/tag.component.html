@@ -1,0 +1,25 @@
+
+    <mat-chip-list #chipList >
+      <div class="chipsGrid">
+      <mat-chip *ngFor="let tag of tags;"
+          (remove)="remove(tag)" (click)= "changeColor(tag)" [style.background-color]="tag.color" class="myChips" >
+          {{tag.name}}
+        <mat-icon matChipRemove>cancel</mat-icon>
+      </mat-chip>
+    </div>
+    </mat-chip-list>
+    <form  [formGroup]="form">
+      <mat-form-field class="full">
+    <input  matInput [matChipInputFor]="chipList"
+    [matChipInputAddOnBlur]="true"
+    [matAutocomplete]="auto"
+    placeholder="Ajouter un tag"
+    formControlName="tagText"
+    (keydown.enter)="addTextChip()"/>
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option (click)="addTextChip()" (keydown.enter)="addTextChip()"  *ngFor="let tag of filteredTag | async" [value]="tag.name">
+        <span>{{ tag.name }}</span>
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>

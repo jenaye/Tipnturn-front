@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import 'rxjs/add/operator/map';
-import {CheckTokenService} from './checkToken.service';
 import {environment} from "../../environments/environment";
 
 @Injectable()

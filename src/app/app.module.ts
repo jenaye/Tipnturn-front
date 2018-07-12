@@ -1,23 +1,24 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule ,HttpClient, HttpHandler } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule ,HttpClient } from '@angular/common/http';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { AgmCoreModule } from '@agm/core';
 import { HttpModule } from '@angular/http';
-
-
+import { DragulaModule } from 'ng2-dragula';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
+
+
+// component
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ErrorComponent } from './components/error/error.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { AllMembersComponent } from './components/all-members/all-members.component';
 import { ActivitiesComponent } from './components/activities/activities.component';
-import { FormsModule } from '@angular/forms';
 import { ListingByActivitesComponent } from './components/listing-by-activites/listing-by-activites.component';
 import { AddMemberComponent } from './components/addMember/addMember.component';
 import { FinancialComponent } from './components/financial/financial.component';
@@ -34,8 +35,15 @@ import { AllEventComponent } from './components/all-events/all-event.component';
 import { EditEventComponent } from './components/editEvent/editEvent.component';
 import { DayDetailsComponent } from './components/dayDetails/dayDetails.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
+import { ListingUsersComponent } from './components/listing-users/listing-users.component';
+import { TaskBoardComponent } from './components/task-board/task-board.component';
+import { TaskOptionComponent } from './components/task-option/task-option.component';
+import { TaskComponent } from './components/task/task.component';
 import { routing } from './app.routing';
 import { AuthGuard } from './guards/auth.guard';
+
+//directive
+import { AutofocusDirective } from './directives/autofocus.directive';
 
 // Services
 import { CheckTokenService } from './services/checkToken.service';
@@ -48,6 +56,9 @@ import { EventService } from './services/event.service';
 import { MapService } from './services/map.service';
 import { UsersService } from './services/users.service';
 import { CsvService } from './services/csv.service';
+import { TaskService } from './services/task.service';
+import { SnackBarService } from './services/snackBar.service';
+import { TagsService } from './services/tags.service';
 
 
 // Material component
@@ -71,10 +82,15 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatChipsModule } from '@angular/material/chips';
-import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter} from '@angular/material-moment-adapter';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {MatDividerModule} from '@angular/material/divider';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MomentDateAdapter} from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 import { environment} from "../environments/environment";
-import { ListingUsersComponent } from './components/listing-users/listing-users.component';
+import { TagComponent } from './components/tag/tag.component';
+
+
 
 export const MY_FORMATS = {
   parse: {
@@ -112,7 +128,12 @@ export const MY_FORMATS = {
     DayDetailsComponent,
     CalendarComponent,
     AllActivitiesComponent,
-    ListingUsersComponent
+    ListingUsersComponent,
+    TaskBoardComponent,
+    TaskOptionComponent,
+    TaskComponent,
+    AutofocusDirective,
+    TagComponent
   ],
   imports: [
       HttpModule,
@@ -125,6 +146,7 @@ export const MY_FORMATS = {
     MatCardModule,
     MatInputModule,
     MatFormFieldModule,
+    MatDividerModule,
     MatIconModule,
     MatButtonModule,
     MatSidenavModule,
@@ -142,7 +164,10 @@ export const MY_FORMATS = {
     MatNativeDateModule,
     MatRadioModule,
     MatChipsModule,
+    MatSnackBarModule,
+    MatAutocompleteModule,
     routing,
+    DragulaModule,
     AgmCoreModule.forRoot({
       apiKey: environment.MAPS_KEY
     })
@@ -155,10 +180,14 @@ export const MY_FORMATS = {
       UsersService,
       CsvService,
 
+    UsersService,
+    TaskService,
+    SnackBarService,
     AuthGuard,
     TypesService,
     EventService,
     MapService,
+    TagsService,
     DatePipe,
     {provide: MAT_DATE_LOCALE, useValue: 'fr-FR'},
     {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
@@ -178,7 +207,8 @@ export const MY_FORMATS = {
     AddEventComponent,
     EditEventComponent,
     DayDetailsComponent,
-      AllActivitiesComponent
+    AllActivitiesComponent,
+    TaskOptionComponent
   ]
  
 })
