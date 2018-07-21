@@ -42,7 +42,6 @@ export class EditmemberComponent implements OnInit {
         user['activites'].forEach(element => {
           this.activites.push(element['@id'])
         });
-        console.log(user)
           this.formMembre.patchValue({
             id : this.data,
             nom : user['nom'],
@@ -55,8 +54,6 @@ export class EditmemberComponent implements OnInit {
             enabled: user['enabled'],
             activites :this.activites
           })
-         
-          
       });
      
   }
@@ -66,15 +63,8 @@ export class EditmemberComponent implements OnInit {
     }
 
     updateMember(){
-      console.log(this.data)
       this.membresservice.edit(this.formMembre.value, this.data['ID']).subscribe(() => {
         this.closeDialog()
       });
     }
-
-    compareFn(c1: any, c2: any): boolean {
-      console.log(c1)
-      return c1 && c2 ? c1['@id'] === c2['@id'] : c1 === c2;
-  }
-
 }
