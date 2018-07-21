@@ -12,8 +12,8 @@ import {environment} from '../../../environments/environment';
 })
 
 export class LoginComponent implements OnInit {
-  private username:string;
-  private password:string;
+  public username:string;
+  public password:string;
   public hide = true;
   constructor(private http: HttpClient, private router: Router) { }
 

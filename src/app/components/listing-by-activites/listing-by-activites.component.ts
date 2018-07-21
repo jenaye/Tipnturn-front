@@ -44,7 +44,7 @@ OnDestroy {
       });
     this
       .activitesService
-      .getDataById(this.id)
+      .getDataById(''+this.id)
       .subscribe(activities => {
         this.activities = activities;
         this.dataSource.data = activities.membres

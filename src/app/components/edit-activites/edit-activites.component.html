@@ -1,8 +1,7 @@
-<div class="activite-content">
-  <div class="titre">Ajouter une Activitée</div>
+<div *ngIf="loaded">
+  <div class="titre">Modifier une Activitée</div>
   <div class="wrapper">
-    <form [formGroup]="formMembre">
-     
+    <form   [formGroup]="formMembre">
             <mat-form-field>
               <input matInput placeholder="Nom" formControlName="nom" required/>
             </mat-form-field>
@@ -16,7 +15,7 @@
                 </mat-form-field>
               </form>
   <div style="margin-top:10px;">
-      <button mat-raised-button color="primary"  (click)="add()" [disabled]="!formMembre.valid">Sauvegarder</button>
+      <button mat-raised-button color="primary"  (click)="update()" [disabled]="!formMembre.valid">Sauvegarder</button>
       <button mat-raised-button color="primary"  (click)="closeDialog()" >Annuler</button>
     </div> 
 </div>
