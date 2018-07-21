@@ -49,7 +49,7 @@ export class EditmemberComponent implements OnInit {
   }
 
     edit() {
-            this.membresservice.edit(this.formMembre.value, this.data).subscribe( membre => {
+            this.membresservice.edit(this.formMembre.value, this.data).subscribe( () => {
             this.closeDialog();
         });
     }
