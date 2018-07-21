@@ -1,17 +1,18 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {ListingmemberService} from '../../services/listingmember.service';
-import {ActivitiesService} from '../../services/activities.service';
-import {MatDialog} from '@angular/material';
-import {AddMemberComponent} from '../addMember/addMember.component';
-import {EditmemberComponent} from '../editmember/editmember.component';
-import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ListingmemberService } from '../../services/listingmember.service';
+import { MembersService } from '../../services/members.service';
+import { ActivitiesService } from '../../services/activities.service';
+import { MatDialog } from '@angular/material';
+import { AddMemberComponent } from '../addMember/addMember.component';
+import { EditmemberComponent } from '../editmember/editmember.component';
+import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 
-@Component({selector: 'app-all-members', templateUrl: './all-members.component.html', styleUrls: ['./all-members.component.css']})
+@Component({ selector: 'app-all-members', templateUrl: './all-members.component.html', styleUrls: ['./all-members.component.css'] })
 export class AllMembersComponent implements OnInit {
 
   public activities = [];
-  public prenom : any;
-  public res : any;
+  public prenom: any;
+  public res: any;
   displayedColumns = [
     'nom',
     'prenom',
@@ -22,12 +23,12 @@ export class AllMembersComponent implements OnInit {
     'certificat',
     'action'
   ];
-  dataSource : MatTableDataSource < any >;
+  dataSource: MatTableDataSource<any>;
 
-  @ViewChild(MatPaginator)paginator : MatPaginator;
-  @ViewChild(MatSort)sort : MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private listemembre : ListingmemberService, private activiteService : ActivitiesService, public dialog : MatDialog) {
+  constructor(private listemembre: ListingmemberService, private menbresService: MembersService, private activiteService: ActivitiesService, public dialog: MatDialog) {
     this.dataSource = new MatTableDataSource();
   }
 
@@ -37,8 +38,8 @@ export class AllMembersComponent implements OnInit {
       .listemembre
       .getData()
       .subscribe(membres => {
-        
-        this.dataSource.data =  membres['hydra:member'];
+
+        this.dataSource.data = membres['hydra:member'];
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
 
@@ -57,13 +58,13 @@ export class AllMembersComponent implements OnInit {
     this.dataSource.sort = this.sort;
   }
 
-  applyFilter(filterValue : string) {
+  applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
     this.dataSource.filter = filterValue;
   }
 
-  openDialogAdd() : void {
+  openDialogAdd(): void {
     const dialogRef = this
       .dialog
       .open(AddMemberComponent, {
@@ -72,7 +73,7 @@ export class AllMembersComponent implements OnInit {
       });
     dialogRef
       .afterClosed()
-      .subscribe(result => {
+      .subscribe(() => {
         this
           .listemembre
           .getData()
@@ -83,18 +84,17 @@ export class AllMembersComponent implements OnInit {
       });
   }
 
-  openDialogEdit(id : string) : void {
+  openDialogEdit(id: string): void {
     const dialogRef = this
       .dialog
       .open(EditmemberComponent, {
         width: '500px',
-        data: id
+        data: { ID: id, activities: this.activities }
       });
     dialogRef
       .afterClosed()
       .subscribe(result => {
-        this
-          .listemembre
+        this.listemembre
           .getData()
           .subscribe(rapports => {
             this.dataSource.data = rapports['hydra:member']
@@ -103,6 +103,16 @@ export class AllMembersComponent implements OnInit {
       });
   }
 
- 
+  deleteMembre(id: string) {
+    this.menbresService.delete(id).subscribe(() => {
+      this.listemembre
+        .getData()
+        .subscribe(rapports => {
+          this.dataSource.data = rapports['hydra:member']
+          this.dataSource.paginator = this.paginator;
+        })
+    });
+  }
+
 
 }
