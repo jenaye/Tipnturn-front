@@ -32,18 +32,6 @@ export class AddMemberComponent implements OnInit {
 
   add() {
 
-    if (this.formMembre.value.activites) {
-      let tmp = [];
-
-      this.formMembre.value.activites
-        .forEach(id => {
-          tmp.push(`/api/activities/${id}`)
-        });
-
-      this.formMembre.value.activites = tmp;
-    } else {
-      this.formMembre.value.activites = [];
-    }
 
     this.membresservice
       .insert(this.formMembre.value)

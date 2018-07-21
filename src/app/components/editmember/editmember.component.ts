@@ -11,8 +11,13 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 export class EditmemberComponent implements OnInit {
 
     public formMembre: FormGroup;
+    public activitestab : Array<any>;
+    public activites :  Array<any>;
   
     constructor(private formBuilder: FormBuilder, private  membresservice: MembersService, public dialogRef: MatDialogRef < EditmemberComponent >,@Inject(MAT_DIALOG_DATA)public data : any) {
+
+      this.activitestab = data['activities'];
+    
 
       this.formMembre = this
       .formBuilder
@@ -26,13 +31,17 @@ export class EditmemberComponent implements OnInit {
         certificat: [false, Validators.required],
         cheque: [false, Validators.required],
         enabled:[false, Validators.required],
+        activites: Array()
       });            
     }
 
   ngOnInit() {
-        
-      this.membresservice.findById(this.data).subscribe(user => {
-    
+    this.activites =[];
+      this.membresservice.findById(this.data['ID']).subscribe(user => {
+
+        user['activites'].forEach(element => {
+          this.activites.push(element['@id'])
+        });
           this.formMembre.patchValue({
             id : this.data,
             nom : user['nom'],
@@ -42,20 +51,20 @@ export class EditmemberComponent implements OnInit {
             cotisation : user['cotisation'],
             certificat : user['certificat'],
             cheque : user['cheque'],
-            enabled: user['enabled']
+            enabled: user['enabled'],
+            activites :this.activites
           })
       });
      
   }
 
-    edit() {
-            this.membresservice.edit(this.formMembre.value, this.data).subscribe( () => {
-            this.closeDialog();
-        });
-    }
-
-    closeDialog() {
+      closeDialog() {
       this.dialogRef.close();
     }
 
+    updateMember(){
+      this.membresservice.edit(this.formMembre.value, this.data['ID']).subscribe(() => {
+        this.closeDialog()
+      });
+    }
 }

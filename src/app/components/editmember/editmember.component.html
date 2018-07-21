@@ -12,10 +12,16 @@
       <input matInput placeholder="Prenom" formControlName="prenom" />
     </mat-form-field>
   </div>
-  <div class="email">
+  <div class="row">
 
     <mat-form-field>
       <input matInput placeholder="Email" formControlName="email" />
+    </mat-form-field>
+    
+    <mat-form-field>
+      <mat-select placeholder="activites" formControlName="activites"  multiple>
+        <mat-option *ngFor="let activite of activitestab" [value]="activite['@id']">{{activite.name}}</mat-option>
+      </mat-select>
     </mat-form-field>
   </div>
   <div class="row">
@@ -39,6 +45,6 @@
 
 </form>
 <div style="margin-top: 20px;">
-  <button mat-raised-button color="primary" [disabled]="!formMembre.valid">sauvegarder</button>
+  <button mat-raised-button color="primary" (click)="updateMember()" [disabled]="!formMembre.valid">sauvegarder</button>
   <button mat-raised-button color="primary" (click)="closeDialog()">annuler</button>
 </div>

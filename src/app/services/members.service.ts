@@ -16,9 +16,13 @@ export class MembersService {
         return this.http.put(`${environment.API}/membres/${id}`, data) 
 
     }
-
+  
     findById(id) {
       return this.http.get(`${environment.API}/membres/${id}`) 
+    }
+
+    delete(id){
+        return this.http.delete(`${environment.API}/membres/${id}`)
     }
 
 }
