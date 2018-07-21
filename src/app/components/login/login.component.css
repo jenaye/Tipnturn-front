@@ -1,11 +1,11 @@
 
 .btn-hover:hover{
-    background-color: #3d32ad;
+    background-color: #D81B60;
     color:white;
 
 }
 
-h1{ color: #283593;}
+h1{ color: #D81B60;}
 
 .login {
     position: absolute;
@@ -34,20 +34,14 @@ h1{ color: #283593;}
     z-index: 1;
   
     display: block;
-    background-image: url('http://www.danse-terisse.com/images/cours/modern-jazz-valence.jpg');
+    background-image: url('../../../assets/img/pic2.jpg');
     background-repeat: no-repeat;
     background-size: 100% 100%;;
     overflow: hidden;   
-  
-    -webkit-filter: blur(5px);
-    -moz-filter: blur(5px);
-    -o-filter: blur(5px);
-    -ms-filter: blur(5px);
-    filter: blur(5px);
   }
 
   .button-custom{
-      border: solid 1px #283593;
+      border: solid 1px #D81B60;
       border-radius: 5px;
       margin-top: 15px;
 

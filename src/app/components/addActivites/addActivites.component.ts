@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Inject} from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {ActivitiesService} from '../../services/activities.service';
 import {TypesService} from '../../services/types.service';
-import {Router} from '@angular/router';
+import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+
 
 @Component({selector: 'app-ajoutactivites', templateUrl: './addActivites.component.html', styleUrls: ['./addActivites.component.css']})
 export class AddActivitesComponent implements OnInit {
@@ -10,15 +11,16 @@ export class AddActivitesComponent implements OnInit {
     public formMembre: FormGroup;
     public types: Array<any>;
     public selectState: string;
-    public _myTemplateDrivenSelect:string;
 
-    constructor(private formBuilder: FormBuilder, private activitiesService: ActivitiesService, private router: Router , private ts: TypesService) {
+    constructor(private formBuilder: FormBuilder,
+                private activitiesService: ActivitiesService,
+                private ts: TypesService,
+                public dialogRef: MatDialogRef < AddActivitesComponent >, @Inject(MAT_DIALOG_DATA)public data: any) {
         
         this.formMembre = this.formBuilder
             .group({
                 nom: ['', Validators.required],
-                prix: ['',[Validators.required]],
-                select : ['',this.isValide()]
+                select : ['', Validators.required]
             });
     }
 
@@ -31,20 +33,20 @@ export class AddActivitesComponent implements OnInit {
     add() {
         const Activite = {
             'name': this.formMembre.value.nom,
-            'type':{
-            'name': this.selectState,
-            'price': +this.formMembre.value.prix
-        }}
+            'type': this.selectState
+        }
 
         this.activitiesService
             .insert(Activite)
-            .subscribe(activite => {
-                this.router.navigate(['/home/dasboard']);
+            .subscribe(() => {
+                this.closeDialog();
             });
 
     }
 
-    isValide():boolean{
-        return false
-    }
+    closeDialog() {
+        this.dialogRef.close();
+      }
+
+   
 }

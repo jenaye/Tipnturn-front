@@ -89,6 +89,7 @@ import { MomentDateAdapter} from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 import { environment} from "../environments/environment";
 import { TagComponent } from './components/tag/tag.component';
+import { EditActivitesComponent } from './components/edit-activites/edit-activites.component';
 
 
 
@@ -133,10 +134,11 @@ export const MY_FORMATS = {
     TaskOptionComponent,
     TaskComponent,
     AutofocusDirective,
-    TagComponent
+    TagComponent,
+    EditActivitesComponent
   ],
   imports: [
-      HttpModule,
+    HttpModule,
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
@@ -205,6 +207,8 @@ export const MY_FORMATS = {
     AddFinancialComponent,
     AddMemberComponent,
     AddEventComponent,
+    AddActivitesComponent,
+    EditActivitesComponent,
     EditEventComponent,
     DayDetailsComponent,
     AllActivitiesComponent,
