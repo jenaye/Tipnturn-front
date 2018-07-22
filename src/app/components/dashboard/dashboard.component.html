@@ -63,14 +63,14 @@
   </div>
   <div class="card-zone">
     <mat-card class="chart-card">
-      <mat-progress-spinner *ngIf="!ok" class="spinner"  [mode]="mode">
+      <mat-progress-spinner *ngIf="!ok" class="spinner" [color]="barChartColors" [mode]="mode">
       </mat-progress-spinner>
-      <canvas *ngIf="ok" #barchart="base-chart" baseChart [datasets]="barChartData" [labels]="barChartLabels"  [options]="barChartOptions" [legend]="barChartLegend"
+      <canvas *ngIf="ok" baseChart [datasets]="barChartData" [labels]="barChartLabels"  [options]="barChartOptions" [legend]="barChartLegend"
         [chartType]="barChartType"></canvas>
     </mat-card>
 
     <mat-card class="chart-card">
-      <mat-progress-spinner *ngIf="!okMoney" class="spinner" [mode]="mode"></mat-progress-spinner>
+      <mat-progress-spinner *ngIf="!okMoney" class="spinner" [color]="barChartColors" [mode]="mode"></mat-progress-spinner>
       <canvas *ngIf="okMoney" baseChart [data]="doughnutChartData" [colors]="chartColors" [labels]="doughnutChartLabels" [chartType]="doughnutChartType"></canvas>
     </mat-card>
   </div>
