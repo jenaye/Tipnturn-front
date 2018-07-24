@@ -1,15 +1,11 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {ListingmemberService} from '../../services/listingmember.service';
 import {ActivitiesService} from '../../services/activities.service';
 import {FinancialService} from '../../services/financial.service';
 import {UsersService} from '../../services/users.service';
-import { BaseChartDirective } from 'ng2-charts/ng2-charts';
 
-@Component({selector: 'app-dashboard', templateUrl: './dashboard.component.html', styleUrls: ['./dashboard.component.css']})
+@Component({selector: 'app-dashboard', templateUrl: './dashboard.component.html', styleUrls: ['./dashboard.component.css'], encapsulation: ViewEncapsulation.None})
 export class DashboardComponent implements OnInit {
-
-     @ViewChild('barchart') barchart: BaseChartDirective;
-
 
     constructor(private listemembre: ListingmemberService,
                 private activiteService: ActivitiesService,
@@ -35,6 +31,7 @@ export class DashboardComponent implements OnInit {
                     position: 'left',
                     ticks: {
                         min: 0,
+                        max: 20
                     }
                 }
             ]
@@ -42,21 +39,25 @@ export class DashboardComponent implements OnInit {
     };
     public barChartLabels: string[] = ['Activites'];
     public barChartType: string = 'bar';
-    public barChartLegend: boolean = false;
+    public barChartLegend: boolean = true;
     public barChartData: any[];
-    public barChartColors: Array<any> = ["#E53935", "#D81B60","#3949AB","#1E88E5",
-      "#039BE5","#00ACC1",
-      "#00897B","#43A047",
-      "#7CB342","#C0CA33",
-      "#FDD835","#FB8C00",
-      "#F4511E"] ;
-    public chartColors : any[] = [{ backgroundColor: ["#E53935", "#D81B60", 
-                                                      "#8E24AA", "#5E35B1"                   
-                            ]
+
+    public chartColors : any[] = [
+        {
+            backgroundColor: ["#5cb85c", "#DD3333", "#FAFFF2", "#FFFCC4", "#B9E8E0"]
         }
     ];
 
-   
+    public barChartColors: Array<any> =
+        [
+            '#5cb85c',
+            '#65C6BB',
+            '#1BBC9B',
+            '#f0ad4e',
+            '#d9534f',
+            '#5cb85c',
+            '#f0ad4e'
+        ];
 
     public doughnutChartLabels: string[] = ['Rentrée', 'Sortie'];
     public doughnutChartData: any = [];
@@ -90,10 +91,8 @@ export class DashboardComponent implements OnInit {
                    this.barChartData =  [...this.barChartData, {data: [activite.membres.length], label: activite.name}];
                 });
                 this.ok = true;
-              
             });
 
     }
-
 
 }
