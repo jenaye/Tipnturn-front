@@ -50,7 +50,7 @@
     <ng-template #notValide>
         <button mat-raised-button color="primary" disabled>sauvegarder</button>
     </ng-template>
-    <button mat-raised-button color="primary" (click)="closeDialog()">annuler</button>
+    <button mat-raised-button color="primary"  (click)="closeDialog()">annuler</button>
     <mat-icon *ngIf="dateInvalide" class="icon" color="warn" >warning</mat-icon>
     <div class="error" *ngIf="dateInvalide">
        Attention : l'heure de fin est antérieur à l'heure de début

@@ -67,19 +67,14 @@ export class EditEventComponent implements OnInit {
               .transform(event['end'], 'HH:mm'),
             description: event['description']
           })
-
-        this
-          .formAdress
-          .patchValue({numberRue: event['numberRue'], rue: event['rue'], city: event['city']})
-
-        this.lat = event['latitude'];
-        this.lng = event['longitude'];
+        this.formAdress.patchValue({numberRue: event['numberRue'], rue: event['rue'], city: event['city']})
       });
 
   }
 
   edit() {
-    const endDate = new Date(this.formEvent.value.end);
+    this.lat =1;
+    this.lng= 1;
     const startDate = new Date(this.formEvent.value.start);
 
     let finalData;
@@ -116,11 +111,11 @@ export class EditEventComponent implements OnInit {
         "description": this.formEvent.value.description
       }
     }
-    console.log(finalData);
+  
     this
       .eventService
       .edit(finalData, this.data)
-      .subscribe(membre => {
+      .subscribe(() => {
         this.closeDialog();
       });
   }
@@ -139,18 +134,6 @@ export class EditEventComponent implements OnInit {
       } else {
         data = this.formAdress.value.numberRue + '+' + this.formAdress.value.rue + '+' + this.formAdress.value.city;
       }
-      this
-        .ms
-        .getData(data)
-        .subscribe(result => {
-          this
-            .__zone
-            .run(() => {
-              this.lat = result.lat();
-              this.lng = result.lng();
-            })
-        }, error => console.log(error), () => {});
-
     }
   }
 
@@ -164,9 +147,3 @@ export class EditEventComponent implements OnInit {
   }
 }
 
-interface marker {
-  lat : number;
-  lng : number;
-  label?: string;
-  draggable : boolean;
-}
