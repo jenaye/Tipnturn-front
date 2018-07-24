@@ -38,19 +38,10 @@ export class AddEventComponent implements OnInit {
     ngOnInit() {}
 
     add() {
-        const data = this.formEvent.value.numStreet + '+' + this.formEvent.value.nameStreet + '+' + this.formEvent.value.city;
-        const endDate = this.formEvent.value.endDate;
         const startDate = this.formEvent.value.startDate;
-
-        this.ms
-            .getData(data)
-            .subscribe(result => {
-                this.__zone
-                    .run(() => {
-                        this.lat = result.lat();
-                        this.lng = result.lng();
-                    })
-            }, error => console.log(error), () => {
+        this.lat =1;
+        this.lng =1;
+       
                 let  savedData
                 if ((!this.formEvent.value.nameStreet && !this.formEvent.value.numStreet)||(this.formEvent.value.numStreet && !this.formEvent.value.nameStreet)) {
                     savedData = {
@@ -89,12 +80,12 @@ export class AddEventComponent implements OnInit {
 
                 this.eventsService
                     .insert(savedData)
-                    .subscribe(result => {
-                       
+                    .subscribe(() => {
+                        this.closeDialog();
                     });
 
-            });
-            this.closeDialog();
+           
+          
 
     }
 
